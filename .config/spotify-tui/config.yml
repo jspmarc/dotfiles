@@ -1,0 +1,28 @@
+behavior:
+    seek_milliseconds: 5000
+    volume_increment: 5
+    tick_rate_milliseconds: 150
+    show_loading_indicator: true
+
+keybindings:
+    back: "q"
+
+    jump_to_album: "a"
+
+    jump_to_artist_album: "A"
+
+    manage_devices: "d"
+    decrease_volume: "-"
+    increase_volume: "="
+    #toggle_playback: ""
+    seek_backwards: "<"
+    seek_forwards: ">"
+    next_track: "n"
+    previous_track: "p"
+    copy_song_url: "c"
+    copy_album_url: "C"
+    help: "?"
+    shuffle: "ctrl-s>"
+    repeat: "ctrl-r>"
+    search: "/"
+    audio_analysis: "v"

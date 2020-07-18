@@ -1,0 +1,484 @@
+[colors]
+;background = ${xrdb:background:#17191c}
+background = #102030
+foreground = ${xrdb:foreground:#f0f0f0}
+primary = ${xrdb:color2:#5b6cb9}
+secondary = ${xrdb:color11:#185864}
+alert = ${xrdb:color1:#ff4343}
+color0 = ${xrdb:color0:#5b6cb9}
+color1 = ${xrdb:color1:#ff4343}
+color2 = ${xrdb:color2:#b33aca}
+color3 = ${xrdb:color3:#299ab0}
+color4 = ${xrdb:color4:#44b18a}
+color5 = ${xrdb:color5:#f140a0}
+color6 = ${xrdb:color6:#08a8d3}
+color7 = ${xrdb:color7:#9ec5d0}
+color8 = ${xrdb:color8:#3d4672}
+color9 = ${xrdb:color9:#b43838}
+color10 = ${xrdb:color10:#812b91}
+color11 = ${xrdb:color11:#185864}
+color12 = ${xrdb:color12:#2b7158}
+color13 = ${xrdb:color13:#862864}
+color14 = ${xrdb:color14:#036e8b}
+color15 = ${xrdb:color15:#6e8f97}
+
+[fonts]
+font-0 = DejaVu Sans:size=10:antialias=true;2
+font-1 = FiraCode Nerd Font Mono:size=18:style=Bold:antialias=true;3
+font-2 = Font Awesome 5 Brands:size=13:truetype=true:antialias=true;2
+font-3 = komorebi gothic:size=11:antialias=true;style=Bold;3
+font-4 = FiraCode Nerd Font Mono:size=15:style=Bold:antialias=true;3
+
+;==========================================================
+
+[bar/top]
+override-redirect = false
+wm-restack = i3
+height = 25
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+;line-color = ${colors.primary}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+;separator = |
+
+font-0 = ${fonts.font-0}
+font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
+font-4 = ${fonts.font-4}
+
+modules-left = i3 window-title
+modules-center = previous spotify next
+modules-right = backlight pulseaudio wired-network wireless-network battery timedate
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+tray-position = right
+tray-padding = 1
+tray-reparent = false
+
+;tray-background = ${colors.color5}
+tray-underline = ${colors.color13}
+
+tray-detached = false
+;tray-scale = 1.0
+tray-maxsize = 20
+
+;==========================================================
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+index-sort = true
+wrapping-scroll = false
+
+ws-icon-0 = 1;一
+ws-icon-1 = 2;二
+ws-icon-2 = 3;三
+ws-icon-3 = 4;四
+ws-icon-4 = 5;五
+ws-icon-5 = 6;六
+ws-icon-6 = 7;七
+ws-icon-7 = 8;八
+ws-icon-8 = 9;九
+ws-icon-9 = 10;十
+
+;ws-icon-0 = 1;
+;ws-icon-1 = 2;
+;ws-icon-2 = 3;
+;ws-icon-3 = 4;
+;ws-icon-4 = 5;
+;ws-icon-5 = 6;
+;ws-icon-6 = 7;
+;ws-icon-7 = 8;
+;ws-icon-8 = 9;
+;ws-icon-9 = 10;
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+;label-focused-background = ${colors.color14}
+label-focused-underline= ${colors.color2}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+;label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+label-urgent-underline = ${colors.color9}
+
+; label-mode (move, resize, etc)
+label-mode-padding = 3
+label-mode-foreground = #000
+;label-mode-background = ${colors.color3}
+label-mode-underline = ${colors.color12}
+
+;==========================================================
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = %{A3:pavucontrol &:}:<label-volume>%{A}
+format-volume-underline = ${colors.color3}
+;format-volume-background = ${colors.color11}
+format-volume-padding = 1
+label-volume = %percentage%%
+
+interval = 5
+
+label-muted = :00%
+label-muted-foreground = #666
+format-muted-underline = ${colors.alert}
+;format-muted-background = ${colors.color9}
+format-muted-padding = 1
+
+;==========================================================
+
+[module/previous]
+type = custom/script
+interval = 86400
+format = "%{T5}<label>%{T-}"
+format-padding =
+; Previous song icon
+exec = echo " "
+format-underline = ${colors.color4}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+[module/next]
+type = custom/script
+interval = 86400
+format = "%{T5}<label>%{T-}"
+format-padding =
+; Next song icon
+exec = echo " "
+format-underline = ${colors.color4}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+[module/spotify]
+type = custom/script
+interval = 1
+format = %{T5}%{A1:dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause:} %{T-}<label>%{A}
+exec = python ${HOME}/script/polybar/spotify-status.py -f '{artist} — {song}'
+format-underline = ${colors.color4}
+;click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+;==========================================================
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 100
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1
+adapter = ACAD
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging> CHG
+format-charging-underline = ${colors.color7}
+;format-charging-background = ${colors.color15}
+format-charging-padding = 1
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging> BAT
+format-discharging-underline = ${colors.alert}
+;format-discharging-background = ${colors.color9}
+format-discharging-padding = 1
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-full = <label-full> FULL
+format-full-underline = ${colors.color3}
+;format-full-background = ${colors.color11}
+format-full-padding = 1
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = 
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+;==========================================================
+
+[module/window-title]
+type = internal/xwindow
+
+; Available tags:
+;   <label> (default)
+format = <label>
+format-underline = ${colors.color5}
+;format-background = ${colors.color10}
+format-padding = 2
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 35
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = Empty
+label-empty-foreground = #707880
+
+;==========================================================
+
+[module/timedate]
+type = internal/date
+
+format = <label>
+format-underline = ${colors.color7}
+;format-background = ${colors.color14}
+format-padding = 1
+
+label = %{A3:thunderbird &:}%time% | %date%%{A}
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+;date = %d-%m-%y
+date = %d %b
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %a, %d %b %y
+time-alt = %H:%M:%S
+
+;==========================================================
+
+[module/wired-network]
+type = internal/network
+interface = enp4s0
+
+format-connected = %{A3:nm-connection-editor &:}<label-connected>%{A3}
+format-connected-underline = ${colors.color3}
+;format-connected-background = ${colors.color11}
+format-connected-padding = 1
+
+
+format-disconnected = %{A3:nm-connection-editor &:}<label-disconnected>%{A}
+
+label-connected = LAN
+
+label-disconnected =
+
+;==========================================================
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = %{A3:nm-connection-editor &:}<label-connected>:<ramp-signal>%{A}
+format-connected-underline = ${colors.color7}
+;format-connected-background = ${colors.color14}
+format-connected-padding = 1
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = %{A3:nm-connection-editor &:}<label-disconnected>%{A}
+format-disconnected-underline = ${colors.alert}
+;format-disconnected-background = ${colors.color9}
+format-disconnected-padding = 1
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss>:<label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+; Default: %ifname% %local_ip%
+label-connected = 
+;label-connected-foreground = #eefafafa
+
+; Default: (none)
+label-disconnected =  :disconnected
+;label-disconnected-foreground = #66ffffff
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = ngng
+ramp-signal-1 = ngeng
+ramp-signal-2 = ngeeng
+ramp-signal-3 = ngeeeng
+ramp-signal-4 = ngeeeeng
+ramp-signal-5 = ngeeeeeng
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+;==========================================================
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = %{T5}<ramp>%{T-}:<label>
+format-underline = ${colors.color7}
+;format-background = ${colors.color14}
+format-padding = 1
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-10 = 
+ramp-11 = 
+ramp-12 = 
+ramp-13 = 
+ramp-14 = 
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
+;==========================================================
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+;==========================================================
+
+[global/wm]
+margin-top = 5
+; vim:ft=dosini

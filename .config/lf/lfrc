@@ -1,0 +1,159 @@
+# Startup settings
+set preview true
+set previewer ~/script/lf/previewer
+set color256 true
+set icons
+set drawbox true
+set ignorecase true
+
+# unbind some keys
+map m
+map n
+map "'"
+map '"'
+map i
+map <enter>
+
+# Keymapping
+#map <c-f> $fzf
+map <c-f> :fzf_jump
+map f push /
+
+map mf touch
+map md mkdir
+
+map xx trash
+map xX delete
+
+map tt trash
+map te te
+map tr tr
+map tg push :cd<space>~/.local/share/Trash<enter>
+
+map <delete> trash
+map <enter> open
+map l push <enter>
+
+map '.' set hidden!
+
+map if push :%ws<space>sxiv<space>-t<space>.<enter>
+map iv push :%ws<space>sxiv<space>$f<enter>
+
+map b dragon
+
+# "Bookmarks"
+map gt cd ~/.local/share/Trash
+map gc cd ~/.config
+map gk cd ~/Documents/Kuliah
+map gn cd ~/vimwiki
+
+map gr cd /
+
+map gd cd /data
+map gp cd /data/projects
+
+map ge cd /run/media/josep
+
+# shwordsplit, spliting words in zsh
+set shell zsh
+set shellopts '-eu:--shwordsplit'
+set ifs "\n"
+set filesep "\n"  # default already
+
+# Custom settings
+cmd trash %{{
+	count=0
+		echo $fx
+	for f in $fx
+	do
+		echo $f
+		count=$(($count + 1))
+	done
+
+	printf "Trash $count items [y/N]?"
+	read ans
+    [ $ans = "y" ] || printf "Delete canceled"
+	[ $ans = "y" ] && trash-put -rf $fx
+	[ $ans = "y" ] && printf "Trashed $count items"
+}}
+cmd te ${{
+	printf "Empty trash [y/N]? "
+	read ans
+	[[ $ans == "y" ]] && trash-empty
+}}
+cmd tr $trash-restore
+
+#cmd tr ${{
+	#printf "Restore trash [y/N]? "
+	#read ans
+	#[[ $ans == "y" ]] && trash-restore
+#}}
+
+cmd extract !{{
+  case $f in
+	*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar -xjvf $f;;
+	*.tar.gz|*.tgz) tar -xzvf $f;;
+	*.tar.xz|*.txz) tar -xJvf $f;;
+	*.zip) unzip $f;;
+	*.rar) unrar x $f;;
+	*.7z) 7z x $f;;
+	*) echo "Unsupported format";;
+  esac
+}}
+cmd tar !{{
+  mkdir $1
+  cp -r $fx $1
+  tar -cvzf $1.tar.gz $1
+  rm -rf $1
+}}
+cmd zip ${{
+	mkdir $1
+	cp -r $fx $1
+	zip -vr $1.zip $1
+	rm -rf $1
+}}
+
+cmd mkdir %{{
+  printf "Directory name: "
+  read fname
+  mkdir $fname
+}}
+cmd touch ${{
+  printf "File name: "
+  read fname
+  $EDITOR $fname
+}}
+
+cmd fzf_jump ${{
+  res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+	cmd="select"
+  elif [ -d "$res" ]; then
+	cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd dragon %dragon-drag-and-drop -a -x $fx
+
+cmd bg %feh --bg-fill $f
+
+# display git repository status in your prompt
+cmd on-cd &{{
+	source /usr/share/git/completion/git-prompt.sh
+	GIT_PS1_SHOWDIRTYSTATE=auto
+	GIT_PS1_SHOWSTASHSTATE=auto
+	GIT_PS1_SHOWUNTRACKEDFILES=auto
+	GIT_PS1_SHOWUPSTREAM=auto
+	git=$(__git_ps1 " (%s)") || true
+	fmt="\033[32;1m%u@%h\033[0m:\033[34;1m%w/\033[0m\033[1m%f$git\033[0m"
+	lf -remote "send $id set promptfmt \"$fmt\""
+}}
+
+cmd open ${{
+	case $(file --mime-type "$f" -bL) in
+		text/*|text/plain|application/json) $EDITOR "$f";;
+		#video/*|image/*/application/pdf) ws xdg-open "$f";;
+		*) ws xdg-open "$f" ;;
+	esac
+}}

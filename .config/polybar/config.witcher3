@@ -1,0 +1,361 @@
+[colors]
+;background = ${xrdb:background:#17191c}
+background = #00000000
+;foreground = ${xrdb:foreground:#f0f0f0}
+foreground = #f0f0f0
+;foreground = ${xrdb:color15:#f0f0f0}
+primary = ${xrdb:color2}
+secondary = ${xrdb:color11}
+alert = ${xrdb:color1}
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+
+[fonts]
+font-0 = DejaVu Sans:size=10:antialias=true;2
+font-1 = FiraCode Nerd Font Mono:size=18:style=Bold:antialias=true;3
+font-2 = Font Awesome 5 Brands:size=13:truetype=true:antialias=true;2
+font-3 = komorebi gothic:size=11:antialias=true;style=Bold;3
+font-4 = FiraCode Nerd Font Mono:size=15:style=Bold:antialias=true;3
+
+;==========================================================
+
+[bar/top]
+override-redirect = false
+wm-restack = i3
+height = 25
+
+;background = ${colors.background}
+background = #00000000
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = ${colors.color2}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+;separator = |
+
+font-0 = ${fonts.font-0}
+font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
+font-4 = ${fonts.font-4}
+
+modules-left = i3 window-title
+modules-center = spotify
+modules-right = backlight pulseaudio wireless-network battery timedate powermenu
+;modules-right = backlight pulseaudio wired-network wireless-network battery timedate powermenu
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+tray-position = right
+tray-padding = 1
+tray-reparent = false
+
+;tray-background = ${colors.background}
+
+tray-detached = false
+;tray-scale = 1.0
+tray-maxsize = 20
+
+;==========================================================
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+index-sort = true
+wrapping-scroll = false
+
+ws-icon-0 = 1;一
+ws-icon-1 = 2;二
+ws-icon-2 = 3;三
+ws-icon-3 = 4;四
+ws-icon-4 = 5;五
+ws-icon-5 = 6;六
+ws-icon-6 = 7;七
+ws-icon-7 = 8;八
+ws-icon-8 = 9;九
+ws-icon-9 = 10;十
+
+;ws-icon-0 = 1;
+;ws-icon-1 = 2;
+;ws-icon-2 = 3;
+;ws-icon-3 = 4;
+;ws-icon-4 = 5;
+;ws-icon-5 = 6;
+;ws-icon-6 = 7;
+;ws-icon-7 = 8;
+;ws-icon-8 = 9;
+;ws-icon-9 = 10;
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-underline = ${colors.color3}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; label-mode (move, resize, etc)
+label-mode-padding = 3
+label-mode-foreground = ${colors.color7}
+label-mode-underline = ${colors.color2}
+label-mode-margin-left = 1
+;label-mode-underline = ${colors.color12}
+;==========================================================
+
+[module/window-title]
+type = internal/xwindow
+
+format = <label>
+format-underline = ${colors.color4}
+format-padding = 2
+
+label = %title%
+label-maxlen = 35
+
+label-empty = Empty
+label-empty-foreground = #bbbbbb
+
+;==========================================================
+
+[module/spotify]
+type = custom/script
+interval = 1
+format = "%{T5}%{A1:playerctl previous:}%{A}%{T-} %{A1:playerctl play-pause:}<label>%{A} %{T5}%{A1:playerctl next:}%{A}%{T-}"
+format-padding = 1
+exec = /home/josep/script/songStatus.sh
+format-underline = ${colors.color6}
+click-left = "playerctl play-pause"
+
+;==========================================================
+
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+
+format = %{T5}<ramp>%{T-}:<label>
+;format-underline = ${colors.color2}
+format-underline = ${colors.color3}
+format-padding = 1
+
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-10 = 
+ramp-11 = 
+ramp-12 = 
+ramp-13 = 
+ramp-14 = 
+
+;==========================================================
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = %{A3:pavucontrol &:}:<label-volume>%{A}
+format-volume-underline = ${colors.color8}
+format-volume-padding = 1
+label-volume = %percentage%%
+
+interval = 5
+
+label-muted = :00%
+label-muted-foreground = #aaa
+format-muted-underline = ${colors.color4}
+format-muted-padding = 1
+
+;==========================================================
+
+[module/wired-network]
+type = internal/network
+interface = enp4s0
+
+format-connected = %{A3:nm-connection-editor &:}<label-connected>%{A3}
+format-connected-underline = ${colors.color5}
+format-connected-padding = 1
+
+
+format-disconnected = %{A3:nm-connection-editor &:}<label-disconnected>%{A}
+
+label-connected = LAN
+
+label-disconnected =
+
+;==========================================================
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+
+format-connected = %{A3:nm-connection-editor &:}<label-connected>:<ramp-signal>%{A}
+format-connected-underline = ${colors.color3}
+format-connected-padding = 1
+
+format-disconnected = %{A3:nm-connection-editor &:}<label-disconnected>%{A}
+format-disconnected-underline = ${colors.alert}
+format-disconnected-padding = 1
+
+format-packetloss = <label-connected>:⚠
+
+; Default: %ifname% %local_ip%
+label-connected = 
+;label-connected-foreground = #eefafafa
+
+; Default: (none)
+label-disconnected =  :disconnected
+;label-disconnected-foreground = #66ffffff
+
+ramp-signal-0 = ngng
+ramp-signal-1 = ngeng
+ramp-signal-2 = ngeeng
+ramp-signal-3 = ngeeeng
+ramp-signal-4 = ngeeeeng
+ramp-signal-5 = ngeeeeeng
+
+;==========================================================
+
+[module/battery]
+type = internal/battery
+
+full-at = 100
+
+battery = BAT1
+adapter = ACAD
+
+poll-interval = 5
+
+format-charging = <animation-charging> <label-charging> CHG
+format-charging-underline = ${colors.color4}
+format-charging-padding = 1
+
+format-discharging = <ramp-capacity> <label-discharging> BAT
+format-discharging-underline = ${colors.alert}
+format-discharging-padding = 1
+
+format-full = <label-full> FULL
+format-full-underline = ${colors.color6}
+format-full-padding = 1
+
+label-charging = %percentage%%
+
+label-discharging = %percentage%%
+
+label-full = 
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+;==========================================================
+
+[module/timedate]
+type = internal/date
+
+format = <label>
+format-underline = ${colors.color6}
+format-padding = 1
+
+label = %{A3:thunderbird &:}%time% | %date%%{A}
+
+interval = 1.0
+
+date = %d %b
+
+time = %H:%M
+
+date-alt = %a, %d %b %y
+time-alt = %H:%M:%S
+
+;==========================================================
+[module/powermenu]
+type=custom/script
+format = "<label>"
+format-padding = 2
+format-underline = #ff4343
+format-background = #b43838
+format-foreground = #ffffff
+;format-underline =${colors.color3}
+;format-background = ${colors.color2}
+;format-foreground = ${colors.background}
+;format-margin = 2
+exec = echo ""
+
+click-left = "/home/josep/script/powermenu.sh"
+
+;==========================================================
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+;==========================================================
+
+[global/wm]
+margin-top = 5
+; vim:ft=dosini

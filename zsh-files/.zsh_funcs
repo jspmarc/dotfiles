@@ -1,0 +1,69 @@
+# Build is safer but slower
+build_cpp() {
+    g++ -std=c++17 -Wshadow -Wall -o $1 "$1.cpp" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
+    time ./$1
+}
+
+# compile is faster but more dangerous
+comp_cpp() {
+    g++ -std=c++17 -Wshadow -Wall -o $1 "$1.cpp" -O2 -Wno-unused-result && \
+    time ./$1
+}
+
+test_cp() {
+    case "$2" in
+        b) act=build_cpp ;;
+        c) act=comp_cpp ;;
+        *) ;;
+    esac
+
+    if [[ -f "$1".in && -f "$1".out && -f "$1".cpp ]]; then
+        if [[ -z "$act" ]]; then
+            echo "2nd arg has to be 'b' (build) || 'c' (comp)"
+        else
+            diff "$1".out <("$act" "$1" < "$1".in)
+        fi
+    else
+        echo "$1 and/or its output/input files doesn't exist in $(pwd)"
+    fi
+}
+
+mkv() {
+    mkdir $1
+    cd $1
+}
+
+ffont() {
+    fc-list | grep -i $1
+}
+
+vim() {
+    if [[ -z $1 ]]; then
+        nvim +:Startify +:IndentLinesDisable
+    else
+        nvim $1
+    fi
+}
+
+
+omz_history() {
+  local clear list
+  zparseopts -E c=clear l=list
+
+  if [[ -n "$clear" ]]; then
+    # if -c provided, clobber the history file
+    echo -n >| "$HISTFILE"
+    echo >&2 History file deleted. Reload the session to see its effects.
+  elif [[ -n "$list" ]]; then
+    # if -l provided, run as if calling `fc' directly
+    builtin fc "$@"
+  else
+    # unless a number is provided, show all history events (starting from 1)
+    [[ ${@[-1]-} = *[0-9]* ]] && builtin fc -l "$@" || builtin fc -l "$@" 1
+  fi
+}
+
+make_pdf() {
+    [[ -z "$1" ]] && echo "Specify input type and/or filename (with ext)" && exit
+    pandoc -f "$1" -t pdf "$2" -o "$2".pdf
+}

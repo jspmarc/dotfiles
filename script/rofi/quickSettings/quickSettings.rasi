@@ -1,0 +1,16 @@
+configuration {
+	width: 225;
+	lines: 6;
+	font: "FiraCode Nerd Font 10";
+	yoffset: -280;
+	xoffset: -568;
+	fixed-num-lines: true;
+	scroll-method: 1;
+	click-to-exit: false;
+	show-match: false;
+	show-icons: true;
+	/*theme:"/home/josep/script/powermenu.rasi";*/
+	theme:"lb";
+}
+
+/* vim:ft=css

@@ -1,0 +1,51 @@
+!! URxvt Appearnce (font etc)
+URxvt.font: xft:MesloLGS NF:style=Regular:size=9:antialias=true
+URxvt.cursorBlink: false
+URxvt.cursorUnderline: true
+URxvt*foreground:   #9ec5d0
+URxvt*background:   [100]#0f1015
+URxvt*cursorColor:  #9ec5d0
+URxvt*borderColor:  [100]#0f1015
+URxvt*depth: 32
+
+!! special
+*.foreground:   #c7a0c8
+*.background:   #000000
+*.cursorColor:  #c7a0c8
+
+*.color66: #0f1015
+*color66:  #0f1015
+
+!! sexy.terminal
+! special
+! black
+*.color0:       #000000
+*.color8:       #8b708c
+
+! red
+*.color1:       #6c447b
+*.color9:       #a367ba
+
+! green
+*.color2:       #981f3d
+*.color10:      #de2d59
+
+! yellow
+*.color3:       #9c1c57
+*.color11:      #eb2a83
+
+! blue
+*.color4:       #ae2b3a
+*.color12:      #e93a4e
+
+! magenta
+*.color5:       #b4224f
+*.color13:      #ef2d69
+
+! cyan
+*.color6:       #744b90
+*.color14:      #9d65c2
+
+! white
+*.color7:       #997b9a
+*.color15:      #d8aeda

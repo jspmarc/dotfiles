@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/josep'
+let g:netrw_dirhist_8='/home/josep/compprog/Codeforces/cpp/1373/a'
+let g:netrw_dirhist_7='/'
+let g:netrw_dirhist_6='/usr'
+let g:netrw_dirhist_5='/usr/share'
+let g:netrw_dirhist_4='/usr/share/nvim'
+let g:netrw_dirhist_3='/usr/share/nvim/runtime'
+let g:netrw_dirhist_2='/usr/share/nvim/runtime/doc'
+let g:netrw_dirhist_1='/data/projects/test-website/src'
