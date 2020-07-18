@@ -1,0 +1,33 @@
+configuration {
+	modi: "window,run,ssh,drun,combi";
+	width: 45;
+	lines: 8;
+	/*font: "Manrope 12";*/
+	font: "Dejavu Sans Mono 12";
+	location: 0;
+	padding: 3;
+	yoffset: 0;
+	xoffset: 0;
+	fixed-num-lines: true;
+	show-icons: false;
+	terminal: "kitty";
+/*	icon-theme: ;*/
+/*	drun-match-fields: "name,generic,exec,categories";*/
+/*	drun-show-actions: false;*/
+/*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
+	combi-modi: "window,drun";
+	separator-style: "solid";
+	scroll-method: 1;
+	window-format: "{w}    {c}   {t}";
+	click-to-exit: true;
+	show-match: true;
+	max-history-size: 25;
+	combi-hide-mode-prefix: true;
+	theme: "lb";
+}
+
+#window {
+	width: 480;
+}
+/*@import "/usr/share/rofi/themes/mein.rasi"*/
+/* vim:ft=css

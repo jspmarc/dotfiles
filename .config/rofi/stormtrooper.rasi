@@ -1,0 +1,130 @@
+/**
+ * A floating box version of the paper theme.
+ *
+ * User: jspmarc
+ * Copyright: Dave Davenport
+ */
+* {
+    blue:  #BAC5CD;
+    white: #DCDFE2;
+    black: #0A0E10;
+    grey:  #7A8382;
+    yellow: #F5D29B;
+    darkgrey: #12191f;
+
+    spacing: 2;
+    background-color: #00000000;
+    border-color: @grey;
+    anchor: north;
+    location: center;
+}
+#window {
+    transparency: "screenshot";
+    background-color: #00000000;
+    border: 0;
+    padding: 0% 0% 1em 0%;
+    x-offset: 0;
+    y-offset: -10%;
+}
+#mainbox {
+    padding: 0px;
+    border: 0;
+    spacing: 1%;
+}
+#message {
+    border: 2px; 
+    padding: 1em; 
+    background-color: @white; 
+    text-color: @back;
+}
+#textbox normal {
+    text-color: #002B36FF;
+    padding: 0;
+    border: 0;
+}
+#listview {
+    fixed-height: 1;
+    border: 2px;
+    padding: 1em;
+    reverse: false;
+
+    columns: 1;
+    background-color: @black; 
+}
+#element {
+    border: 0;
+    padding: 2px;
+    highlight: bold ;
+}
+#element normal.normal {
+    text-color: @white;
+    background-color: @black;
+}
+#element normal.urgent {
+    text-color: @blue;
+    background-color: @black;
+}
+#element normal.active {
+    text-color: @yellow;
+    background-color: @black;
+}
+#element selected.normal {
+    text-color: @black;
+    background-color: @blue;
+}
+#element selected.urgent {
+    text-color: @white;
+    background-color: @yellow;
+}
+#element selected.active {
+    text-color: @white;
+    background-color: @grey;
+}
+#element alternate.normal {
+    text-color: @white;
+    background-color: @darkgrey;
+}
+#element alternate.urgent {
+    text-color: @yellow;
+    background-color: @darkgrey;
+}
+#element alternate.active {
+    text-color: @blue;
+    background-color: @darkgrey;
+}
+#scrollbar {
+    border: 0;
+    padding: 0;
+}
+#inputbar {
+    spacing: 0;
+    border: 2px;
+    padding: 0.5em 1em;
+    background-color: @white;
+    index: 0;
+}
+#inputbar normal {
+    foreground-color: #002B36FF;
+    background-color: #F5F5F500;
+}
+
+#mode-switcher {
+    border: 2px;
+    padding: 0.5em 1em;
+    background-color: @grey;
+    index: 10;
+}
+#button selected {
+    text-color: #4271AEFF;
+}
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @white;
+}
+
+/* vim:ft=css
