@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/768p/Blue-Corner.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1a1c1f",
+        "foreground": "#c7ccd6",
+        "cursor": "#c7ccd6"
+    },
+    "colors": {
+        "color0": "#1a1c1f",
+        "color1": "#5B7898",
+        "color2": "#6383A2",
+        "color3": "#7390AD",
+        "color4": "#7B9FC1",
+        "color5": "#859CB4",
+        "color6": "#90A4BB",
+        "color7": "#c7ccd6",
+        "color8": "#8b8e95",
+        "color9": "#5B7898",
+        "color10": "#6383A2",
+        "color11": "#7390AD",
+        "color12": "#7B9FC1",
+        "color13": "#859CB4",
+        "color14": "#90A4BB",
+        "color15": "#c7ccd6"
+    }
+}

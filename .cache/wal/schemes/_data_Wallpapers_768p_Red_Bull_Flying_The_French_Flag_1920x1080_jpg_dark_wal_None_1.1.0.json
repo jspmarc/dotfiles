@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/768p/Red_Bull_Flying_The_French_Flag_1920x1080.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#050509",
+        "foreground": "#cacdcd",
+        "cursor": "#cacdcd"
+    },
+    "colors": {
+        "color0": "#050509",
+        "color1": "#F42527",
+        "color2": "#CE5F4B",
+        "color3": "#939071",
+        "color4": "#43A6D1",
+        "color5": "#56DBFB",
+        "color6": "#58E3FE",
+        "color7": "#cacdcd",
+        "color8": "#8d8f8f",
+        "color9": "#F42527",
+        "color10": "#CE5F4B",
+        "color11": "#939071",
+        "color12": "#43A6D1",
+        "color13": "#56DBFB",
+        "color14": "#58E3FE",
+        "color15": "#cacdcd"
+    }
+}

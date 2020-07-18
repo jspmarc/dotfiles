@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/data/Wallpapers/Kimetsu_no_yaiba_01.jpg"
+let background = "#1b1918"
+let foreground = "#a8a19f"
+let cursor     = "#a8a19f"
+
+" Colors
+let color0  = "#1b1918"
+let color1  = "#f22c40"
+let color2  = "#7b9726"
+let color3  = "#c38418"
+let color4  = "#407ee7"
+let color5  = "#6666ea"
+let color6  = "#3d97b8"
+let color7  = "#a8a19f"
+let color8  = "#766e6b"
+let color9  = "#f22c40"
+let color10 = "#7b9726"
+let color11 = "#c38418"
+let color12 = "#407ee7"
+let color13 = "#6666ea"
+let color14 = "#3d97b8"
+let color15 = "#f1efee"

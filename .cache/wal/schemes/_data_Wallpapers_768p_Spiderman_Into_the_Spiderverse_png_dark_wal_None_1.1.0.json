@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/768p/Spiderman_Into_the_Spiderverse.png",
+    "alpha": "100",
+    "special": {
+        "background": "#070915",
+        "foreground": "#a2a9cb",
+        "cursor": "#a2a9cb"
+    },
+    "colors": {
+        "color0": "#070915",
+        "color1": "#242FA4",
+        "color2": "#3A4486",
+        "color3": "#3064A3",
+        "color4": "#474F92",
+        "color5": "#525CA3",
+        "color6": "#4F4EBB",
+        "color7": "#a2a9cb",
+        "color8": "#71768e",
+        "color9": "#242FA4",
+        "color10": "#3A4486",
+        "color11": "#3064A3",
+        "color12": "#474F92",
+        "color13": "#525CA3",
+        "color14": "#4F4EBB",
+        "color15": "#a2a9cb"
+    }
+}

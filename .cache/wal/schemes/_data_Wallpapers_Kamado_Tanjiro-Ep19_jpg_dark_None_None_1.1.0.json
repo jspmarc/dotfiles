@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/Kamado_Tanjiro-Ep19.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#140a09",
+        "foreground": "#f4eedf",
+        "cursor": "#f4eedf"
+    },
+    "colors": {
+        "color0": "#140a09",
+        "color1": "#ED9443",
+        "color2": "#F7E35C",
+        "color3": "#FFFF51",
+        "color4": "#CF54A4",
+        "color5": "#F2A7A3",
+        "color6": "#FEA1E4",
+        "color7": "#f4eedf",
+        "color8": "#aaa69c",
+        "color9": "#ED9443",
+        "color10": "#F7E35C",
+        "color11": "#FFFF51",
+        "color12": "#CF54A4",
+        "color13": "#F2A7A3",
+        "color14": "#FEA1E4",
+        "color15": "#f4eedf"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/Eva-Unit01-Fire.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0f0f0e",
+        "foreground": "#cf988a",
+        "cursor": "#cf988a"
+    },
+    "colors": {
+        "color0": "#0f0f0e",
+        "color1": "#703127",
+        "color2": "#504C31",
+        "color3": "#9F281C",
+        "color4": "#913226",
+        "color5": "#AF3524",
+        "color6": "#C7271D",
+        "color7": "#cf988a",
+        "color8": "#906a60",
+        "color9": "#703127",
+        "color10": "#504C31",
+        "color11": "#9F281C",
+        "color12": "#913226",
+        "color13": "#AF3524",
+        "color14": "#C7271D",
+        "color15": "#cf988a"
+    }
+}

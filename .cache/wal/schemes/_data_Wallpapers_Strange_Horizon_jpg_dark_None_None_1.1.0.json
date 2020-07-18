@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/Strange_Horizon.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0A1E2B",
+        "foreground": "#a0bbc3",
+        "cursor": "#a0bbc3"
+    },
+    "colors": {
+        "color0": "#0A1E2B",
+        "color1": "#5C5B6F",
+        "color2": "#9B506D",
+        "color3": "#C34267",
+        "color4": "#FA8E7F",
+        "color5": "#4D708D",
+        "color6": "#BE6890",
+        "color7": "#a0bbc3",
+        "color8": "#708288",
+        "color9": "#5C5B6F",
+        "color10": "#9B506D",
+        "color11": "#C34267",
+        "color12": "#FA8E7F",
+        "color13": "#4D708D",
+        "color14": "#BE6890",
+        "color15": "#a0bbc3"
+    }
+}

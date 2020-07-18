@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/768p/Witcher3.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f1115",
+        "foreground": "#9cc6d1",
+        "cursor": "#9cc6d1"
+    },
+    "colors": {
+        "color0": "#0f1115",
+        "color1": "#F49059",
+        "color2": "#036E8B",
+        "color3": "#256A87",
+        "color4": "#626886",
+        "color5": "#AA7088",
+        "color6": "#0B8AA3",
+        "color7": "#9cc6d1",
+        "color8": "#6d8a92",
+        "color9": "#F49059",
+        "color10": "#036E8B",
+        "color11": "#256A87",
+        "color12": "#626886",
+        "color13": "#AA7088",
+        "color14": "#0B8AA3",
+        "color15": "#9cc6d1"
+    }
+}

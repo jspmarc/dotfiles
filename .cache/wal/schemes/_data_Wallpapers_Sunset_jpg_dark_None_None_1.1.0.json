@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/Sunset.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#091C2B",
+        "foreground": "#9da4c9",
+        "cursor": "#9da4c9"
+    },
+    "colors": {
+        "color0": "#091C2B",
+        "color1": "#8A3255",
+        "color2": "#A63756",
+        "color3": "#BB4457",
+        "color4": "#063887",
+        "color5": "#084B92",
+        "color6": "#235D9F",
+        "color7": "#9da4c9",
+        "color8": "#6d728c",
+        "color9": "#8A3255",
+        "color10": "#A63756",
+        "color11": "#BB4457",
+        "color12": "#063887",
+        "color13": "#084B92",
+        "color14": "#235D9F",
+        "color15": "#9da4c9"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/data/Wallpapers/768p/background.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f1416",
+        "foreground": "#85dbcb",
+        "cursor": "#85dbcb"
+    },
+    "colors": {
+        "color0": "#0f1416",
+        "color1": "#168C76",
+        "color2": "#047888",
+        "color3": "#5C7986",
+        "color4": "#19B092",
+        "color5": "#0896A1",
+        "color6": "#5D8594",
+        "color7": "#85dbcb",
+        "color8": "#5d998e",
+        "color9": "#168C76",
+        "color10": "#047888",
+        "color11": "#5C7986",
+        "color12": "#19B092",
+        "color13": "#0896A1",
+        "color14": "#5D8594",
+        "color15": "#85dbcb"
+    }
+}
