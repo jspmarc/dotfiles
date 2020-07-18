@@ -41,12 +41,16 @@ notify-send "Starting backup creation for: $(date +'%d-%m-%y').tar.gz"
   #"$HOME"/.cache/wal "$CFG"/lf "$CFG"/spotify-tui "$HOME"/.zshenv \
   #"$HOME"/wal-theme "$HOME"/Documents > /data/home-backup/log/current_process.log
 
+#tar -cvzf /data/home-backup/"$(date +'%d-%m-%y')".tar.gz \
+    #$CFG "$HOME"/.zshrc \
+    #"$HOME"/.cache/wal "$HOME"/zsh-files \
+    #"$HOME"/script "$HOME"/.vim "$HOME"/.Xmodmap \
+    #"$HOME"/Pictures \
+    #"$HOME"/wal-theme "$HOME"/Documents > /data/home-backup/log/current_process.log
+
 tar -cvzf /data/home-backup/"$(date +'%d-%m-%y')".tar.gz \
-    $CFG "$HOME"/.zshrc \
-    "$HOME"/.cache/wal "$HOME"/zsh-files \
-    "$HOME"/script "$HOME"/.vim "$HOME"/.Xmodmap \
     "$HOME"/Pictures \
-    "$HOME"/wal-theme "$HOME"/Documents > /data/home-backup/log/current_process.log
+    "$HOME"/Documents > /data/home-backup/log/current_process.log
 
 # Announces the backup process is finished
 notify-send "Backup created."
