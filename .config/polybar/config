@@ -1,5 +1,7 @@
 [colors]
-background = ${xrdb:background}
+;background = ${xrdb:background}
+background = #241D3B
+;background = #00000000
 foreground = #000000
 black = ${xrdb:color0}
 red = ${xrdb:color1}
@@ -19,6 +21,23 @@ font-2 = Font Awesome 5 Brands:size=12:truetype=true:antialias=true;2
 font-3 = komorebi gothic:size=10:antialias=true;style=Bold;3
 font-4 = FiraCode Nerd Font Mono:size=14:style=Bold:antialias=true;3
 
+[left]
+background = ${colors.purple}
+prefix = 
+suffix = 
+suffix-end = 
+
+[center]
+background = ${colors.green}
+prefix-end = 
+suffix-end = 
+
+[right]
+background = ${colors.cyan}
+prefix = 
+prefix-end = 
+suffix = 
+
 ;==========================================================
 
 [bar/top]
@@ -26,8 +45,7 @@ override-redirect = false
 wm-restack = i3
 height = 22
 
-;background = ${colors.background}
-background = #00000000
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -70,14 +88,15 @@ type=custom/script
 format = "<label>"
 format-underline = ${colors.blue}
 format-background = #80A0FF
+;format-background = ${left.background}
 format-foreground = ${colors.foreground}
 format-prefix = 
 format-prefix-foreground = ${self.format-background}
-format-prefix-background = #00000000
+format-prefix-background = ${colors.background}
 format-margin-right = 1
-format-suffix = 
+format-suffix = ${left.suffix}
 format-suffix-foreground = ${self.format-background}
-format-suffix-background = #00000000
+format-suffix-background = ${colors.background}
 ;format-margin = 1
 ;format-padding = 2
 exec = echo ""
@@ -92,9 +111,9 @@ index-sort = true
 wrapping-scroll = false
 
 format = <label-state><label-mode>
-format-prefix = 
+format-prefix = ${left.prefix}
 format-prefix-foreground = ${self.label-unfocused-background}
-format-suffix = 
+format-suffix = ${left.suffix}
 format-suffix-foreground = ${self.label-unfocused-background}
 
 ws-icon-0 = 1;一
@@ -113,13 +132,14 @@ pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.blue}
+label-focused-background = ${colors.cyan}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = 1
-label-unfocused-background = ${colors.lgray}
+label-unfocused-foreground = #FFFFFF
+label-unfocused-background = ${left.background}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
@@ -144,13 +164,13 @@ label-mode-background = ${self.label-unfocused-background}
 type = internal/xwindow
 
 format = <label>
-format-background = ${colors.purple}
-format-prefix = 
+format-background = ${left.background}
+format-prefix = ${left.prefix}
 format-prefix-foreground = ${self.format-background}
-format-prefix-background = #00000000
-format-suffix = 
+format-prefix-background = ${colors.background}
+format-suffix = ${left.suffix-end}
 format-suffix-foreground = ${self.format-background}
-format-suffix-background = #00000000
+format-suffix-background = ${colors.background}
 
 label = %title%
 label-maxlen = 20
@@ -168,13 +188,13 @@ format-maxlen=20
 exec-if = true
 exec = /home/josep/script/songStatus.sh
 tail = true
-format-background = ${colors.green}
-format-prefix = 
+format-background = ${center.background}
+format-prefix = ${center.prefix-end}
 format-prefix-foreground = ${self.format-background}
-format-prefix-background = #00000000
-format-suffix = 
+format-prefix-background = ${colors.background}
+format-suffix = ${center.suffix-end}
 format-suffix-foreground = ${self.format-background}
-format-suffix-background = #00000000
+format-suffix-background = ${colors.background}
 click-left = "playerctl play-pause"
 
 ;==========================================================
@@ -185,13 +205,13 @@ type = internal/backlight
 card = intel_backlight
 
 format = %{T5}<ramp>%{T-}:<label>
-format-background = ${colors.cyan}
-format-prefix = 
+format-background = ${right.background}
+format-prefix = ${right.prefix-end}
 format-prefix-foreground = ${self.format-background}
-format-prefix-background = #00000000
-format-suffix = 
+format-prefix-background = ${colors.background}
+format-suffix = ${right.suffix}
 format-suffix-foreground = ${self.format-background}
-format-suffix-background = #00000000
+format-suffix-background = ${colors.background}
 
 label = %percentage%%
 
@@ -218,13 +238,13 @@ ramp-14 = 
 type = internal/pulseaudio
 
 format-volume = %{A3:pavucontrol &:}:<label-volume>%{A}
-format-volume-background = ${colors.cyan}
-format-volume-prefix = 
+format-volume-background = ${right.background}
+format-volume-prefix = ${right.prefix}
 format-volume-prefix-foreground = ${self.format-volume-background}
-format-volume-prefix-background = #00000000
-format-volume-suffix = 
+format-volume-prefix-background = ${colors.background}
+format-volume-suffix = ${right.suffix}
 format-volume-suffix-foreground = ${self.format-volume-background}
-format-volume-suffix-background = #00000000
+format-volume-suffix-background = ${colors.background}
 label-volume = %percentage%%
 
 interval = 5
@@ -232,12 +252,12 @@ interval = 5
 label-muted = :00%
 label-muted-foreground = #aaa
 format-muted-background = ${colors.dgray}
-format-muted-prefix = 
+format-muted-prefix = ${right.prefix}
 format-muted-prefix-foreground = ${self.format-muted-background}
-format-muted-prefix-background = #00000000
-format-muted-suffix = 
+format-muted-prefix-background = ${colors.background}
+format-muted-suffix = ${right.suffix}
 format-muted-suffix-foreground = ${self.format-muted-background}
-format-muted-suffix-background = #00000000
+format-muted-suffix-background = ${colors.background}
 
 ;==========================================================
 
@@ -246,21 +266,21 @@ type = internal/network
 interface = enp4s0
 
 format-connected = %{A3:nm-connection-editor &:}<label-connected>%{A3}
-format-connected-underline = ${colors.cyan}
-format-connected-prefix = 
+format-connected-underline = ${right.background}
+format-connected-prefix = ${right.prefix}
 format-connected-prefix-foreground = ${self.format-connected-background}
-format-connected-prefix-background = #00000000
-format-connected-suffix = 
+format-connected-prefix-background = ${colors.background}
+format-connected-suffix = ${right.suffix}
 format-connected-suffix-foreground = ${self.format-connected-background}
-format-connected-suffix-background = #00000000
+format-connected-suffix-background = ${colors.background}
 
 format-disconnected = %{A3:nm-connection-editor &:}<label-disconnected>%{A}
-;format-disconnected-prefix = 
+;format-disconnected-prefix = ${right.prefix}
 ;format-disconnected-prefix-foreground = ${self.format-disconnected-background}
-;format-disconnected-prefix-background = #00000000
-;format-disconnected-suffix = 
+;format-disconnected-prefix-background = ${colors.background}
+;format-disconnected-suffix = ${right.suffix}
 ;format-disconnected-suffix-foreground = ${self.format-disconnected-background}
-;format-disconnected-suffix-background = #00000000
+;format-disconnected-suffix-background = ${colors.background}
 
 label-connected = LAN
 
@@ -273,22 +293,22 @@ type = internal/network
 interface = wlp3s0
 
 format-connected = %{A3:nm-connection-editor &:}<label-connected>:<ramp-signal>%{A}
-format-connected-background = ${colors.cyan}
-format-connected-prefix = 
+format-connected-background = ${right.background}
+format-connected-prefix = ${right.prefix}
 format-connected-prefix-foreground = ${self.format-connected-background}
-format-connected-prefix-background = #00000000
-format-connected-suffix = 
+format-connected-prefix-background = ${colors.background}
+format-connected-suffix = ${right.suffix}
 format-connected-suffix-foreground = ${self.format-connected-background}
-format-connected-suffix-background = #00000000
+format-connected-suffix-background = ${colors.background}
 
 format-disconnected = %{A3:nm-connection-editor &:}<label-disconnected>%{A}
 format-disconnected-background = ${colors.yellow}
-format-disconnected-prefix = 
+format-disconnected-prefix = ${right.prefix}
 format-disconnected-prefix-foreground = ${self.format-disconnected-background}
-format-disconnected-prefix-background = #00000000
-format-disconnected-suffix = 
+format-disconnected-prefix-background = ${colors.background}
+format-disconnected-suffix = ${right.suffix}
 format-disconnected-suffix-foreground = ${self.format-disconnected-background}
-format-disconnected-suffix-background = #00000000
+format-disconnected-suffix-background = ${colors.background}
 
 format-packetloss = <label-connected>:⚠
 
@@ -321,30 +341,33 @@ poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
 format-charging-background = ${colors.purple}
-format-charging-prefix = 
+;format-charging-background = ${right.background}
+format-charging-prefix = ${right.prefix}
 format-charging-prefix-foreground = ${self.format-charging-background}
-format-charging-prefix-background = #00000000
-format-charging-suffix = 
+format-charging-prefix-background = ${colors.background}
+format-charging-suffix = ${right.suffix}
 format-charging-suffix-foreground = ${self.format-charging-background}
-format-charging-suffix-background = #00000000
+format-charging-suffix-background = ${colors.background}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-background = ${colors.yellow}
-format-discharging-prefix = 
+;format-discharging-background = ${right.background}
+format-discharging-prefix = ${right.prefix}
 format-discharging-prefix-foreground = ${self.format-discharging-background}
-format-discharging-prefix-background = #00000000
-format-discharging-suffix = 
+format-discharging-prefix-background = ${colors.background}
+format-discharging-suffix = ${right.suffix}
 format-discharging-suffix-foreground = ${self.format-discharging-background}
-format-discharging-suffix-background = #00000000
+format-discharging-suffix-background = ${colors.background}
 
 format-full = <label-full> FULL
-format-full-background = ${colors.cyan}
-format-full-prefix = 
+;format-full-background = ${colors.cyan}
+format-full-background = ${right.background}
+format-full-prefix = ${right.prefix}
 format-full-prefix-foreground = ${self.format-full-background}
-format-full-prefix-background = #00000000
-format-full-suffix = 
+format-full-prefix-background = ${colors.background}
+format-full-suffix = ${right.suffix}
 format-full-suffix-foreground = ${self.format-full-background}
-format-full-suffix-background = #00000000
+format-full-suffix-background = ${colors.background}
 
 label-charging = %percentage%%
 
@@ -380,13 +403,13 @@ animation-discharging-framerate = 500
 type = internal/date
 
 format =  <label>
-format-background = ${colors.cyan}
-format-prefix = 
+format-background = ${right.background}
+format-prefix = ${right.prefix}
 format-prefix-foreground = ${self.format-background}
-format-prefix-background = #00000000
-format-suffix = 
+format-prefix-background = ${colors.background}
+format-suffix = ${right.suffix}
 format-suffix-foreground = ${self.format-background}
-format-suffix-background = #00000000
+format-suffix-background = ${colors.background}
 
 label = %{A3:thunderbird &:}%time% | %date%%{A}
 
@@ -406,13 +429,13 @@ format = "<label>"
 format-underline = #ff4343
 format-background = #b43838
 format-foreground = #ffffff
-format-prefix = 
+format-prefix = ${right.prefix}
 format-prefix-foreground = ${self.format-background}
-format-prefix-background = #00000000
+format-prefix-background = ${colors.background}
 format-margin-right = 1
 format-suffix = 
 format-suffix-foreground = ${self.format-background}
-format-suffix-background = #00000000
+format-suffix-background = ${colors.background}
 ;format-margin = 1
 ;format-padding = 2
 exec = echo ""
