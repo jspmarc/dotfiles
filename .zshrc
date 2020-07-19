@@ -59,7 +59,7 @@ eval "$(dircolors -p | \
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/zsh-files/zsh-autosuggestions.zsh
-source ~/zsh-files/zsh-synta-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/zsh-files/zsh-interactive-cd.zsh
 source ~/zsh-files/zsh-colored-man-pages.zsh
 source ~/zsh-files/zsh-web-search.zsh
