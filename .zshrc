@@ -27,10 +27,10 @@ compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/zsh-files/.p10k.zsh ]] || source ~/zsh-files/.p10k.zsh
 
-source $HOME/zsh-files/.zsh_funcs
-source $HOME/zsh-files/.zshcomp
-source $HOME/zsh-files/.zshenv
-source $HOME/zsh-files/.zsh_alias
+source ~/zsh-files/.zsh_funcs
+source ~/zsh-files/.zshcomp
+source ~/zsh-files/.zshenv
+source ~/zsh-files/.zsh_alias
 
 #Automatically starts with wal applied
 # Import colorscheme from 'wal' asynchronously
@@ -56,9 +56,11 @@ eval "$(dircolors -p | \
     dircolors /dev/stdin)"
 
 # Plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/zsh-files/zsh-interactive-cd.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/zsh-files/zsh-autosuggestions.zsh
+source ~/zsh-files/zsh-synta-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-files/zsh-interactive-cd.zsh
 source ~/zsh-files/zsh-colored-man-pages.zsh
 source ~/zsh-files/zsh-web-search.zsh
 
