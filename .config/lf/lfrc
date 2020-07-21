@@ -39,7 +39,8 @@ map '.' set hidden!
 map if push :%ws<space>sxiv<space>-t<space>.<enter>
 map iv push :%ws<space>sxiv<space>$f<enter>
 
-map b dragon
+map ba dragon-all
+map bb dragon-single
 
 # "Bookmarks"
 map gt cd ~/.local/share/Trash
@@ -134,7 +135,8 @@ cmd fzf_jump ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd dragon %dragon-drag-and-drop -a -x $fx
+cmd dragon-all %dragon-drag-and-drop -a -x $fx
+cmd dragon-single %dragon-drag-and-drop -a -x $fx
 
 cmd bg %feh --bg-fill $f
 

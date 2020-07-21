@@ -64,6 +64,6 @@ omz_history() {
 }
 
 make_pdf() {
-    [[ -z "$1" ]] && echo "Specify input type and/or filename (with ext)" && exit
-    pandoc -f "$1" -t pdf "$2" -o "$2".pdf
+    [[ -z "$1" ]] && echo "Specify filename" && exit
+    pandoc -t pdf "$1" -o "$1".pdf
 }

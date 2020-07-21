@@ -203,11 +203,13 @@ alias py2=python2
 
 # Git bare alias for managing dotfiles
 alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias dfs=dotfiles 
 
 # window swallowing
 alias vlc='ws vlc'
 alias sxiv='ws sxiv'
 alias okular='ws okular'
+alias zathura='ws zathura'
 alias feh='ws feh'
 alias spotify='ws spotify'
 alias libreoffice='ws libreoffice'
