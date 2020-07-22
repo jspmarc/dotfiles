@@ -167,8 +167,7 @@ set updatetime=100
 "set nocompatible " For Vimwiki
 
 
-"filetype plugin on " For vimwiki
-"different indentation behaviours:
+" Custom commands for different filetypes
 "autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
 "autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 "autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
