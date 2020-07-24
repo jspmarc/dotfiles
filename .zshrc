@@ -27,9 +27,10 @@ compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/zsh-files/.p10k.zsh ]] || source ~/zsh-files/.p10k.zsh
 
+source ~/zsh-files/.zsh_funcs
 source ~/zsh-files/.zshcomp
 source ~/zsh-files/.zshenv
-source ~/zsh-files/.zsh-custom
+source ~/zsh-files/.zsh_alias
 
 #Automatically starts with wal applied
 # Import colorscheme from 'wal' asynchronously
