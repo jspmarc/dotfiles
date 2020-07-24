@@ -149,7 +149,7 @@ set expandtab
 set smartindent
 set ignorecase smartcase
 set nu rnu
-set noswapfile
+"set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile

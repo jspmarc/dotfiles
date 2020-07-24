@@ -179,7 +179,8 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 
 #alias heroku='nocorrect heroku'
 #alias hpodder='nocorrect hpodder'
-alias history=omz_history
+#alias history='omz_history | fzf'
+alias history='fzf_history'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
@@ -214,3 +215,4 @@ alias feh='ws feh'
 alias spotify='ws spotify'
 alias libreoffice='ws libreoffice'
 alias rm='rm -I'
+
