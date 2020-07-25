@@ -201,6 +201,12 @@ alias zshconfig='nvim ~/.zshrc'
 alias history-clear='printf "" > ~/zsh-files/.zsh_history'
 alias py=python
 alias py2=python2
+alias pacSearch="pacman -Slq \
+    | fzf --multi --preview 'pacman -Si {1}' \
+    | xargs -ro sudo pacman -S"
+alias yaySearch="yay -Slq \
+    | fzf --multi --preview 'yay -Si {1}' \
+    | xargs -ro yay -S"
 
 # Git bare alias for managing dotfiles
 alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"

@@ -140,7 +140,10 @@ let g:startify_lists = [
       "\ }
 
 " Startup settings
-set guicursor=n-c:hor75,i-ci:ver75,v-r-cr:block
+set guicursor=c-v-r-cr:hor75
+            \,i-ci:ver75
+            \,n:block
+            \,a:blinkon0
 "let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 set tabstop=4 softtabstop=4 shiftwidth=4
@@ -149,13 +152,13 @@ set expandtab
 set smartindent
 set ignorecase smartcase
 set nu rnu
-"set noswapfile
+set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set linebreak
-set scrolloff=5
+set scrolloff=3
 set sidescrolloff=5
 set background=dark
 "hi Normal ctermbg=NONE guibg=NONE
@@ -164,6 +167,7 @@ set colorcolumn=80
 set clipboard+=unnamedplus
 set list lcs=tab:\|\ 
 set updatetime=100
+set mouse=nvi
 "set nocompatible " For Vimwiki
 
 
@@ -171,7 +175,7 @@ set updatetime=100
 "autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
 "autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 "autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
-"autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
+autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
 "autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
 "autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
 "autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2

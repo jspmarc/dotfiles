@@ -26,7 +26,7 @@ set $sup Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font manrope 9
+font pango:DejaVu Sans Mono 9
 
 #############################################
 #	Other key bindings						#
@@ -62,7 +62,7 @@ bindsym Print exec --no-startup-id $HOME/script/screenshot_screen-clipboard.sh
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Raleway:pixelsize=15' -sf '#ffffff' -nf '#dcdfe2' -nb '#0a0e10' -sb '#7a8382'
 
 # start rofi (replaces dmenu, sort of)
-bindsym $sup+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun
 
 # locksreen
 bindsym control+$sup+l exec /home/josep/script/lockScreen.sh &
