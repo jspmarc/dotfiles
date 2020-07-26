@@ -187,10 +187,9 @@ autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 
 " Keybindings
-" Leader is still backslash ( "\" , remapped to backspace)
+" Leader is still backslash ( "\" , remapped to space)
 "let mapleader = ","
-map <BS> <Leader>
-map , <Leader>
+nmap <space> <Leader>
 
 "map <C-s> :w<CR>
 "map <C-c>f :q!<CR>
@@ -272,12 +271,12 @@ vmap <C-_> <Plug>NERDCommenterToggle
 nnoremap <C-g>[ :GitGutterNextHunk<CR>
 nnoremap <C-g>] :GitGutterPrevHunk<CR>
 nnoremap <Leader>gp :GitGutterPreviewHunk<CR>
-nnoremap <Leader>ga :GitGutterStageHunk<CR>
+nnoremap <Leader>gn :GitGutterStageHunk<CR>
 "nnoremap <Leader>gu :GitGutterUndoHunk<CR>
 
 nnoremap <Leader>gs :G status<CR>
-nnoremap <Leader>gn :G add --patch<CR>
-nnoremap <Leader>gc :G commit -m 
+nnoremap <Leader>ga :G add --patch<CR>
+nnoremap <Leader>gc :G commit -m "
 nnoremap <Leader>gd :G diff<CR>
 
 " Coc settings and maps
