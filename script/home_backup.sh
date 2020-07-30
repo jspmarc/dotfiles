@@ -57,9 +57,9 @@ notify-send "Backup created."
 echo "Backup created on $(date)" >> /data/home-backup/log/backup.log
 
 # Deletes the oldest backup if more than 3 backup exists
-if [[ $FILECOUNT -ge 3 ]]; then
+if [[ $FILECOUNT -gt 3 ]]; then
     #tbd=$(find "$DIR" -name '*.tar.gz' | head -n1)
     tbd=$(ls /data/home-backup/ -h | head -n1)
-    rm "$tbd"
+    rm /data/home-backup/"$tbd"
     echo "$tbd" deleted on "$(date)" >> /data/home-backup/log/backup.log
 fi

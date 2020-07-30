@@ -1,4 +1,19 @@
+"         _ __  __                                                            
+"        | |  \/  |    Josep Macello                                          
+"     _  | | |\/| |    https://github.com/jspmarc                             
+"    | |_| | |  | |    https://linkedin.com/in/josepmk1                       
+"     \___/|_|  |_|                                                           
+"                                                                             
+
+" __   __   __     __    __     ______     ______    
+"/\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\   
+"\ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \____  
+" \ \__|    \ \_\  \ \_\ \ \_\  \ \_\ \_\  \ \_____\ 
+"  \/_/      \/_/   \/_/  \/_/   \/_/ /_/   \/_____/ 
+
+" =============================================================================
 " Vim plug plugins and all
+" =============================================================================
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdcommenter'
@@ -20,7 +35,10 @@ Plug 'houtsnip/vim-emacscommandline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'dag/vim-fish'
 "Plug 'vimwiki/vimwiki'
+
+Plug 'johannesthyssen/vim-signit'
 
 "Plug 'jceb/vim-orgmode'
 "Plug 'vim-scripts/utl.vim'
@@ -42,23 +60,32 @@ call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+" =============================================================================
 " theme settings
+" =============================================================================
 
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+" -----------------------------------------------------------------------------
 " For gruvbox
+" -----------------------------------------------------------------------------
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_hls_cursor = 'purple'
 let g:gruvbox_italic = 1
 let g:gruvbox_italicize_strings =  0
 let g:gruvbox_italicize_comments = 1
 
-if (has("termguicolors"))
-    set termguicolors
-endif
-
+" -----------------------------------------------------------------------------
+" Oceanic next
+" -----------------------------------------------------------------------------
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
+" -----------------------------------------------------------------------------
 " for nord
+" -----------------------------------------------------------------------------
 let g:nord_cursor_line_number_background = 1
 let g:nord_bold_vertical_split_line = 1
 let g:nord_italic = 1
@@ -70,7 +97,14 @@ syntax enable
 
 colorscheme gruvbox
 
-"Airline theme and customization
+
+" =============================================================================
+" Plugin settings
+" =============================================================================
+
+" -----------------------------------------------------------------------------
+" Airline theme and customization
+" -----------------------------------------------------------------------------
 let g:airline_theme='codedark'
 let g:airline_powerline_fonts = 1
 
@@ -82,12 +116,21 @@ let g:airline_section_c = '%t%m%r'
 let g:airline_section_z = "\uE0A1 %l/%L \uE0B3 %P"
 let g:airline_section_y = ''
 
+" -----------------------------------------------------------------------------
+" NERDTree
+" -----------------------------------------------------------------------------
 " Automatically opens NERDTree when opening neovim and selecting a folder
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '
 
+" -----------------------------------------------------------------------------
+" Mundo
+" -----------------------------------------------------------------------------
 let g:mundo_width = 30
 
+" -----------------------------------------------------------------------------
+" Indent Line
+" -----------------------------------------------------------------------------
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "let g:indentLine_char = '.'
 let g:indentLine_setColors = 0
@@ -96,7 +139,9 @@ let g:indentLine_color_gui = '#b8bb26'
 let g:indentLine_color_term = 2
 "let g:indentLine_bgcolor_term = 255
 
+" -----------------------------------------------------------------------------
 " For startify
+" -----------------------------------------------------------------------------
 let g:startify_session_dir = "~/.vim/sessions/"
 " Read ~/.NERDTreeBookmarks file and takes its second column
 function! s:nerdtreeBookmarks()
@@ -128,7 +173,9 @@ let g:startify_lists = [
         \ { 'type': 'dir',                           'header': ['   Files in dir']},
         \]
 
+" -----------------------------------------------------------------------------
 " Vim Wiki settings
+" -----------------------------------------------------------------------------
 "let g:vimwiki_folding = 'list'
 "let g:vimwiki_hl_headers = 1
 "let g:vimwiki_html_header_numbering = 2
@@ -139,7 +186,17 @@ let g:startify_lists = [
       "\ 10: 'Oktober', 11: 'November', 12: 'Desember'
       "\ }
 
+" -----------------------------------------------------------------------------
+" Siginit settingns
+" -----------------------------------------------------------------------------
+let g:signit_initials = 'JM'
+let g:signit_name = 'Josep Macello'
+let g:signit_extra_1 = 'https://github.com/jspmarc'
+let g:signit_extra_2 = 'https://linkedin.com/in/josepmk1'
+
+" =============================================================================
 " Startup settings
+" =============================================================================
 set guicursor=c-v-r-cr:hor75
             \,i-ci:ver75
             \,n:block
@@ -171,7 +228,9 @@ set mouse=nvi
 "set nocompatible " For Vimwiki
 
 
+" =============================================================================
 " Custom commands for different filetypes
+" =============================================================================
 "autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
 "autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 "autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
@@ -186,10 +245,13 @@ autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 s
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 
+" =============================================================================
 " Keybindings
+" =============================================================================
 " Leader is still backslash ( "\" , remapped to space)
 "let mapleader = ","
 nmap <space> <Leader>
+map <BS> <Leader>
 
 "map <C-s> :w<CR>
 "map <C-c>f :q!<CR>
@@ -200,8 +262,16 @@ tmap <Esc><Esc> <C-\><C-n>
 " Opens a bottom window and a terminal in it
 nmap <Leader><C-t> <C-w>s<C-w>r:exe "resize -10"<CR>:term<CR>G
 
-" Opens fzf BLines
-nmap <C-f> :BLines<CR>
+" Makes moving with marks easier
+nmap <C-g> '
+
+" Makes <S-y> yanks to the end of the line not the whole line
+nmap <S-y> y$
+
+" Makes exiting from insert mode, visual mode, and term mode easier
+imap <C-j><C-k> <C-\><C-n>
+vmap <C-j><C-k> <C-\><C-n>
+tmap <C-j><C-k> <C-\><C-n>
 
 " Moving from windows
 nnoremap <A-h> <C-w>h
@@ -255,31 +325,48 @@ tnoremap <A-w> <C-\><C-n>:tabclose<CR>
 map <A-s> :set hls!<CR>
 map <A-z> :set wrap!<CR>
 
+" -----------------------------------------------------------------------------
 " Plugins map
+" -----------------------------------------------------------------------------
 
-" NerdTree toggle and Mundo toggle
+" -----------------------------------------------------------------------------
+" NerdTree toggle
+" -----------------------------------------------------------------------------
 "nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeTabsToggle<CR>
+
+" -----------------------------------------------------------------------------
+" Mundo
+" -----------------------------------------------------------------------------
 nnoremap <C-z> :MundoToggle<CR>
 
+" -----------------------------------------------------------------------------
 " Nerdcommenter toggle comment
+" -----------------------------------------------------------------------------
 " <C-/> is mapped as <C-_>
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle
 
-" Fugitive and gitgutter keybindings
+" -----------------------------------------------------------------------------
+" gitgutter
+" -----------------------------------------------------------------------------
 nnoremap <C-g>[ :GitGutterNextHunk<CR>
 nnoremap <C-g>] :GitGutterPrevHunk<CR>
 nnoremap <Leader>gp :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gn :GitGutterStageHunk<CR>
 "nnoremap <Leader>gu :GitGutterUndoHunk<CR>
 
+" -----------------------------------------------------------------------------
+" Fugitive
+" -----------------------------------------------------------------------------
 nnoremap <Leader>gs :G status<CR>
 nnoremap <Leader>ga :G add --patch<CR>
 nnoremap <Leader>gc :G commit -m "
 nnoremap <Leader>gd :G diff<CR>
 
-" Coc settings and maps
+" -----------------------------------------------------------------------------
+" Coc
+" -----------------------------------------------------------------------------
 " Opening a new coc diagnostic window
 nnoremap <leader>e :CocList diagnostics<CR>
 nnoremap <leader>E :CocDiagnostics<CR>
@@ -303,3 +390,9 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" -----------------------------------------------------------------------------
+" FZF-vim
+" -----------------------------------------------------------------------------
+" Opens fzf BLines
+nmap <C-f> :BLines<CR>
