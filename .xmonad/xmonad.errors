@@ -1,0 +1,7 @@
+
+xmonad.hs:93:5: error:
+    • Variable not in scope: when :: Bool -> m0 a0 -> X ()
+    • Perhaps you meant ‘whenX’ (imported from XMonad)
+   |
+93 |     when (m == s) (io exitSuccess)
+   |     ^^^^

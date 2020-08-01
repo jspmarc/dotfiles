@@ -49,6 +49,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
+Plug 'kaicataldo/material.vim'
 "Plug 'tomasr/molokai'
 "Plug 'mhartington/oceanic-next'
 "Plug 'arcticicestudio/nord-vim'
@@ -92,10 +93,16 @@ let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
 
+" ----------------------------------------------------------------------------
+" for material
+" -----------------------------------------------------------------------------
+let g:material_theme_style = 'darker'
+let g:material_terminal_italics = 1
+
 syntax on
 syntax enable
 
-colorscheme gruvbox
+colorscheme material
 
 
 " =============================================================================
@@ -232,13 +239,13 @@ set mouse=nvi
 " Custom commands for different filetypes
 " =============================================================================
 "autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
-"autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
-"autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
-"autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
-"autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
-"autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
-"autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
+autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 ""autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 ""autocmd FileType vimwiki IndentLinesDisable
 "autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2

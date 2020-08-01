@@ -23,7 +23,6 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 autoload -Uz compinit
 compinit
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/zsh-files/.p10k.zsh ]] || source ~/zsh-files/.p10k.zsh
 
@@ -41,12 +40,17 @@ source ~/zsh-files/.zsh_alias
 # To add support for TTYs this line can be optionally added.
 #source ~/.cache/wal/colors-tty.sh
 
+# =============================================================================
 # custom commands
+# =============================================================================
 wal-tile() {
     wal -n -i "$@" --backend wal
     feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
 }
 
+# =============================================================================
+# Others
+# =============================================================================
 # Begone percent sign (%) everytime i open terminal!
 unsetopt PROMPT_SP
 
@@ -55,7 +59,9 @@ eval "$(dircolors -p | \
     sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
     dircolors /dev/stdin)"
 
+# =============================================================================
 # Plugins
+# =============================================================================
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/zsh-files/zsh-autosuggestions.zsh
@@ -65,10 +71,8 @@ source ~/zsh-files/zsh-colored-man-pages.zsh
 source ~/zsh-files/zsh-web-search.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-
 # Sourcing autojump
 #[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
-
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
