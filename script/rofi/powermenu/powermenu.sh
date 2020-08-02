@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 shutdown=$(echo " Shutdown")
 reboot=$(echo " Reboot")

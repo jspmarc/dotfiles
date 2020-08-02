@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env  sh
 
 # This is a menu to control music, brightness, volume, bluetooth, wifi; for now.
 # TODO

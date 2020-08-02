@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # count the number of files in a directory
 DIR='/data/home-backup'

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 display="eDP-1"
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 # General compiler
 
 # File doesn't exist
