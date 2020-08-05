@@ -1,15 +1,15 @@
-"         _ __  __                                                            
-"        | |  \/  |    Josep Macello                                          
-"     _  | | |\/| |    https://github.com/jspmarc                             
-"    | |_| | |  | |    https://linkedin.com/in/josepmk1                       
-"     \___/|_|  |_|                                                           
-"                                                                             
+"         _ __  __
+"        | |  \/  |    Josep Macello
+"     _  | | |\/| |    https://github.com/jspmarc
+"    | |_| | |  | |    https://linkedin.com/in/josepmk1
+"     \___/|_|  |_|
+"
 
-" __   __   __     __    __     ______     ______    
-"/\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\   
-"\ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \____  
-" \ \__|    \ \_\  \ \_\ \ \_\  \ \_\ \_\  \ \_____\ 
-"  \/_/      \/_/   \/_/  \/_/   \/_/ /_/   \/_____/ 
+" __   __   __     __    __     ______     ______
+"/\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\
+"\ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \____
+" \ \__|    \ \_\  \ \_\ \ \_\  \ \_\ \_\  \ \_____\
+"  \/_/      \/_/   \/_/  \/_/   \/_/ /_/   \/_____/
 
 " =============================================================================
 " Vim plug plugins and all
@@ -357,8 +357,8 @@ vmap <C-_> <Plug>NERDCommenterToggle
 " -----------------------------------------------------------------------------
 " gitgutter
 " -----------------------------------------------------------------------------
-nnoremap <C-g>[ :GitGutterNextHunk<CR>
-nnoremap <C-g>] :GitGutterPrevHunk<CR>
+nnoremap <Leader>g[ :GitGutterNextHunk<CR>
+nnoremap <Leader>g] :GitGutterPrevHunk<CR>
 nnoremap <Leader>gp :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gn :GitGutterStageHunk<CR>
 "nnoremap <Leader>gu :GitGutterUndoHunk<CR>
@@ -403,3 +403,4 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " -----------------------------------------------------------------------------
 " Opens fzf BLines
 nmap <C-f> :BLines<CR>
+nmap <C-p> :Files<CR>
