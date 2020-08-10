@@ -253,6 +253,13 @@ autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 
 " =============================================================================
+" neovide
+" =============================================================================
+let g:neovide_cursor_animation_length=0.05
+let g:neovide_cursor_trail_length=0
+let g:neovide_cursor_antialiasing=v:false
+
+" =============================================================================
 " Keybindings
 " =============================================================================
 " Leader is still backslash ( "\" , remapped to space)
@@ -276,9 +283,9 @@ nmap <C-g> '
 nmap <S-y> y$
 
 " Makes exiting from insert mode, visual mode, and term mode easier
-imap <C-j><C-k> <C-\><C-n>
-vmap <C-j><C-k> <C-\><C-n>
-tmap <C-j><C-k> <C-\><C-n>
+imap <C-h><C-l> <C-\><C-n>
+vmap <C-h><C-l> <C-\><C-n>
+tmap <C-h><C-l> <C-\><C-n>
 
 " Moving from windows
 nnoremap <A-h> <C-w>h
@@ -357,8 +364,8 @@ vmap <C-_> <Plug>NERDCommenterToggle
 " -----------------------------------------------------------------------------
 " gitgutter
 " -----------------------------------------------------------------------------
-nnoremap <Leader>g[ :GitGutterNextHunk<CR>
-nnoremap <Leader>g] :GitGutterPrevHunk<CR>
+nnoremap <Leader>g] :GitGutterNextHunk<CR>
+nnoremap <Leader>g[ :GitGutterPrevHunk<CR>
 nnoremap <Leader>gp :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gn :GitGutterStageHunk<CR>
 "nnoremap <Leader>gu :GitGutterUndoHunk<CR>
@@ -368,7 +375,7 @@ nnoremap <Leader>gn :GitGutterStageHunk<CR>
 " -----------------------------------------------------------------------------
 nnoremap <Leader>gs :G status<CR>
 nnoremap <Leader>ga :G add --patch<CR>
-nnoremap <Leader>gc :G commit -m "
+nnoremap <Leader>gc :G commit<CR>
 nnoremap <Leader>gd :G diff<CR>
 
 " -----------------------------------------------------------------------------
