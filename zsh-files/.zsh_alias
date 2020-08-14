@@ -207,6 +207,9 @@ alias pacSearch="pacman -Slq \
 alias yaySearch="yay -Slq \
     | fzf --multi --preview 'yay -Si {1}' \
     | xargs -ro yay -S"
+alias note="nvim ~/vimwiki-notes/README.md"
+alias notes="nvim ~/vimwiki-notes/README.md"
+alias diary="nvim ~/vimwiki-notes/diary/diary.md"
 
 # Git bare alias for managing dotfiles
 alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"

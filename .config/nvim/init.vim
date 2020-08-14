@@ -16,37 +16,45 @@
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" Syntax highlighting and autocomplete
 Plug 'simnalamburt/vim-mundo'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons'
-Plug 'ap/vim-css-color'
 Plug 'chrisbra/csv.vim'
 Plug 'yggdroot/indentline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'turbio/bracey.vim'
-Plug 'mhinz/vim-startify'
-Plug 'houtsnip/vim-emacscommandline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'dag/vim-fish'
-"Plug 'vimwiki/vimwiki'
 
-Plug 'johannesthyssen/vim-signit'
-
+" Notes and Agenda
+Plug 'vimwiki/vimwiki'
 "Plug 'jceb/vim-orgmode'
 "Plug 'vim-scripts/utl.vim'
 "Plug 'vim-scripts/SyntaxRange'
 
+" Git integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Misc
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-surround'
+Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'mhinz/vim-startify'
+Plug 'houtsnip/vim-emacscommandline'
+Plug 'johannesthyssen/vim-signit'
+Plug 'turbio/bracey.vim'
+Plug 'easymotion/vim-easymotion'
+
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Themes
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 Plug 'kaicataldo/material.vim'
@@ -183,15 +191,17 @@ let g:startify_lists = [
 " -----------------------------------------------------------------------------
 " Vim Wiki settings
 " -----------------------------------------------------------------------------
-"let g:vimwiki_folding = 'list'
-"let g:vimwiki_hl_headers = 1
-"let g:vimwiki_html_header_numbering = 2
-"let g:vimwiki_diary_months = {
-      "\ 1: 'Januari', 2: 'Februari', 3: 'Maret',
-      "\ 4: 'April', 5: 'Mei', 6: 'Juni',
-      "\ 7: 'Juli', 8: 'Agustus', 9: 'September',
-      "\ 10: 'Oktober', 11: 'November', 12: 'Desember'
-      "\ }
+let g:vimwiki_global_ext= 0
+let g:vimwiki_folding = 'list'
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_html_header_numbering = 2
+let g:vimwiki_list = [{'path': '~/vimwiki-notes/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_diary_months = {
+      \ 1: 'Januari', 2: 'Februari', 3: 'Maret',
+      \ 4: 'April', 5: 'Mei', 6: 'Juni',
+      \ 7: 'Juli', 8: 'Agustus', 9: 'September',
+      \ 10: 'Oktober', 11: 'November', 12: 'Desember'
+      \ }
 
 " -----------------------------------------------------------------------------
 " Siginit settingns
@@ -248,7 +258,7 @@ autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 ""autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 ""autocmd FileType vimwiki IndentLinesDisable
-"autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 
@@ -411,3 +421,13 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Opens fzf BLines
 nmap <C-f> :BLines<CR>
 nmap <C-p> :Files<CR>
+
+" -----------------------------------------------------------------------------
+" vim-easymotion
+" -----------------------------------------------------------------------------n
+nmap <leader><leader>f <Plug>(easymotion-overwin-f)
+nmap <leader><leader>w <Plug>(easymotion-overwin-w)
+nmap <leader><leader>e <Plug>(easymotion-e)
+nmap <leader><leader>b <Plug>(easymotion-b)
+nmap <leader><leader>j <Plug>(easymotion-j)
+nmap <leader><leader>k <Plug>(easymotion-k)
