@@ -211,6 +211,8 @@ alias note="nvim ~/vimwiki-notes/README.md"
 alias notes="nvim ~/vimwiki-notes/README.md"
 alias diary="nvim ~/vimwiki-notes/diary/diary.md"
 alias hexedit="hexedit --color"
+alias pls="sudo"
+alias plz="sudo"
 
 # Git bare alias for managing dotfiles
 alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"

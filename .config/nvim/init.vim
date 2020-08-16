@@ -16,13 +16,15 @@
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
-" Syntax highlighting and autocomplete
-Plug 'simnalamburt/vim-mundo'
+" Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Syntax highlighting
 Plug 'chrisbra/csv.vim'
 Plug 'yggdroot/indentline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'dag/vim-fish'
+Plug 'ap/vim-css-color'
 
 " Notes and Agenda
 Plug 'vimwiki/vimwiki'
@@ -34,12 +36,19 @@ Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Misc
-Plug 'scrooloose/nerdcommenter'
+" Undo things
+Plug 'simnalamburt/vim-mundo'
+
+" Motion
+Plug 'easymotion/vim-easymotion'
+
+" File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+
+" Misc
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -48,7 +57,6 @@ Plug 'mhinz/vim-startify'
 Plug 'houtsnip/vim-emacscommandline'
 Plug 'johannesthyssen/vim-signit'
 Plug 'turbio/bracey.vim'
-Plug 'easymotion/vim-easymotion'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -220,6 +228,7 @@ set guicursor=c-v-r-cr:hor75
             \,a:blinkon0
 "let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+set autowrite " Autosave on leaving vim
 set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
 "set noexpandtab
@@ -274,8 +283,8 @@ let g:neovide_cursor_antialiasing=v:false
 " =============================================================================
 " Leader is still backslash ( "\" , remapped to space)
 "let mapleader = ","
-nmap <space> <Leader>
-map <BS> <Leader>
+nmap <space> <leader><leader>
+map <BS> <leader>
 
 "map <C-s> :w<CR>
 "map <C-c>f :q!<CR>
@@ -345,9 +354,16 @@ tnoremap <A-q> <C-\><C-n>:tabp<CR>
 tnoremap <A-t> <C-\><C-n>:tabnew<CR>
 tnoremap <A-w> <C-\><C-n>:tabclose<CR>
 
-" Option-related
+" Toggle options
 map <A-s> :set hls!<CR>
 map <A-z> :set wrap!<CR>
+
+" Makes indenting and un-indent lines while on visual easier
+vmap < <gv
+vmap > >gv
+
+" Saves on leaving insert mode
+"imap <Esc> <Esc>:w<CR>
 
 " -----------------------------------------------------------------------------
 " Plugins map
