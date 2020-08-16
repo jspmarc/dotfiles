@@ -210,10 +210,11 @@ alias yaySearch="yay -Slq \
 alias note="nvim ~/vimwiki-notes/README.md"
 alias notes="nvim ~/vimwiki-notes/README.md"
 alias diary="nvim ~/vimwiki-notes/diary/diary.md"
+alias hexedit="hexedit --color"
 
 # Git bare alias for managing dotfiles
 alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-alias dfs=dotfiles 
+alias dfs=dotfiles
 
 # window swallowing
 alias vlc='ws vlc'
