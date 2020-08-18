@@ -25,6 +25,7 @@ Plug 'yggdroot/indentline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'dag/vim-fish'
 Plug 'ap/vim-css-color'
+Plug 'sheerun/vim-polyglot'
 
 " Notes and Agenda
 Plug 'vimwiki/vimwiki'
@@ -65,7 +66,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Themes
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
-Plug 'kaicataldo/material.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 "Plug 'tomasr/molokai'
 "Plug 'mhartington/oceanic-next'
 "Plug 'arcticicestudio/nord-vim'

@@ -213,6 +213,7 @@ alias diary="nvim ~/vimwiki-notes/diary/diary.md"
 alias hexedit="hexedit --color"
 alias pls="sudo"
 alias plz="sudo"
+alias rm='rm -I'
 
 # Git bare alias for managing dotfiles
 alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
@@ -226,5 +227,4 @@ alias zathura='ws zathura'
 alias feh='ws feh'
 alias spotify='ws spotify'
 alias libreoffice='ws libreoffice'
-alias rm='rm -I'
-
+alias scrcpy='ws scrcpy'
