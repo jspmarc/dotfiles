@@ -207,9 +207,9 @@ alias pacSearch="pacman -Slq \
 alias yaySearch="yay -Slq \
     | fzf --multi --preview 'yay -Si {1}' \
     | xargs -ro yay -S"
-alias note="nvim ~/vimwiki-notes/README.md"
-alias notes="nvim ~/vimwiki-notes/README.md"
-alias diary="nvim ~/vimwiki-notes/diary/diary.md"
+alias note="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/README.md"
+alias notes="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/README.md"
+alias diary="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/diary/diary.md"
 alias hexedit="hexedit --color"
 alias pls="sudo"
 alias plz="sudo"
