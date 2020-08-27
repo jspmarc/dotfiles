@@ -258,6 +258,7 @@ for_window [class="Steam"] floating enable
 for_window [class="line.exe"] floating enable
 for_window [class="scrcpy"] floating enable
 for_window [class="linemediaplayer.exe"] floating enable
+for_window [title="Microsoft Teams Notification"] floating enable
 #for_window [class="kitty"] floating enable
 #for_window [title="Event Tester"] floating enable
 
