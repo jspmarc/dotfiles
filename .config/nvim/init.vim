@@ -76,11 +76,10 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 call plug#end()
 " End plug vim
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 " =============================================================================
 " theme settings
 " =============================================================================
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 if (has("termguicolors"))
     set termguicolors
@@ -120,7 +119,6 @@ syntax on
 syntax enable
 
 colorscheme material
-
 
 " =============================================================================
 " Plugin settings
@@ -254,6 +252,42 @@ set updatetime=100
 set mouse=nvi
 "set nocompatible " For Vimwiki
 
+" =============================================================================
+" Custom functions
+" =============================================================================
+" CompileFile(): A custom function that will compile the file in question
+" using a bash script
+function! CompileFile()
+    cd %:p:h
+    execute '!compile %'
+    cd -
+endfunction
+
+" RunFile(): A custom function that will run a file after it is compiled. E.g:
+" Opens Zathura after compiling markdown to pdf
+function! RunFile()
+    " Removes the file extension
+    let filename = substitute(g:filename, '\..*', '', '')
+    let run = ''
+
+    if expand('%:e') == 'md'
+        let filename = filename.'.pdf'
+        let fpath = g:fpath.filename
+        let run = '!zathura '.fpath
+    endif
+    
+    execute run
+endfunction
+
+" =============================================================================
+" Commands to run everytime buffer changes
+" =============================================================================
+augroup fname_fpath
+    au!
+    autocmd BufEnter * let g:filename = expand('%:t')
+    autocmd BufEnter * let g:fpath = expand('%:p:h').'/'
+augroup END
+
 
 " =============================================================================
 " Custom commands for different filetypes
@@ -307,7 +341,7 @@ imap <C-h><C-l> <C-\><C-n>
 vmap <C-h><C-l> <C-\><C-n>
 tmap <C-h><C-l> <C-\><C-n>
 
-" Moving from windows
+" Moving from windowsaugroup vim
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
@@ -329,8 +363,8 @@ tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 
 " Window resize
-nnoremap <Leader>+ :exe "vertical resize +5"<CR>
-nnoremap <Leader>_ :exe "vertical resize -5"<CR>
+nnoremap <Leader>+ :exe "vertical resize +10"<CR>
+nnoremap <Leader>_ :exe "vertical resize -10"<CR>
 nnoremap <Leader>= :exe "resize +5"<CR>
 nnoremap <Leader>- :exe "resize -5"<CR>
 
@@ -365,6 +399,10 @@ vmap > >gv
 
 " Saves on leaving insert mode
 "imap <Esc> <Esc>:w<CR>
+
+" Automatically compile
+map <leader>c :call CompileFile()<CR>
+map <leader>o :call RunFile()<CR>
 
 " -----------------------------------------------------------------------------
 " Plugins map

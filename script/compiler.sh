@@ -30,11 +30,26 @@ case "$file" in
         python "$file";;
     *.perl)
         perl "$file";;
-    *.cpp)
-        g++ -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
-        ./"$base";;
-    *.c)
-        gcc -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
-        ./"$base" ;;
+    *.cpp|*.c)
+        if [[ -z "$2" ]]; then
+            echo "Standard not specified, using c18 for C and c++17 for C++"
+            case "$file" in
+                *.cpp)
+                    g++ -std=c++17 -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
+                    ./"$base";;
+                *.c)
+                    gcc -std=c18 -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
+                    ./"$base";;
+            esac
+        else
+            case "$file" in
+                *.cpp)
+                    g++ -std="$2" -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
+                    ./"$base";;
+                *.c)
+                    gcc -std="$2" -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
+                    ./"$base";;
+            esac
+        fi;;
     *) handlebang;;
 esac
