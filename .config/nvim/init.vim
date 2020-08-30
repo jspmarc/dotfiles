@@ -250,6 +250,7 @@ set clipboard+=unnamedplus
 set list lcs=tab:\|\ 
 set updatetime=100
 set mouse=nvi
+set nowrap
 "set nocompatible " For Vimwiki
 
 " =============================================================================
@@ -305,6 +306,7 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
+autocmd BufEnter *.notal setlocal syntax=pascal
 
 " =============================================================================
 " neovide
@@ -316,8 +318,8 @@ let g:neovide_cursor_antialiasing=v:false
 " =============================================================================
 " Keybindings
 " =============================================================================
-" Leader is still backslash ( "\" , remapped to space)
-"let mapleader = ","
+" Leader is still backslash ( '\' , mapped to backspace)
+"let mapleader = ','
 nmap <space> <leader><leader>
 map <BS> <leader>
 
@@ -409,7 +411,7 @@ map <leader>o :call RunFile()<CR>
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
-" NerdTree toggle
+" NerdTree
 " -----------------------------------------------------------------------------
 "nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeTabsToggle<CR>
@@ -420,7 +422,7 @@ nnoremap <C-b> :NERDTreeTabsToggle<CR>
 nnoremap <C-z> :MundoToggle<CR>
 
 " -----------------------------------------------------------------------------
-" Nerdcommenter toggle comment
+" Nerdcommenter
 " -----------------------------------------------------------------------------
 " <C-/> is mapped as <C-_>
 nmap <C-_> <Plug>NERDCommenterToggle
