@@ -58,6 +58,7 @@ Plug 'mhinz/vim-startify'
 Plug 'houtsnip/vim-emacscommandline'
 Plug 'johannesthyssen/vim-signit'
 Plug 'turbio/bracey.vim'
+Plug 'voldikss/vim-floaterm'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -218,6 +219,47 @@ let g:signit_name = 'Josep Macello'
 let g:signit_extra_1 = 'https://github.com/jspmarc'
 let g:signit_extra_2 = 'https://linkedin.com/in/josepmk1'
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" -----------------------------------------------------------------------------
+" Coc-nvim
+" -----------------------------------------------------------------------------
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Used for <tab> completion
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" provide custom statusline: lightline.vim, vim-airline." provide custom
+" statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" -----------------------------------------------------------------------------
+" floaterm
+" -----------------------------------------------------------------------------n
+let g:floaterm_gitcommit = 'vsplit'
+let g:floaterm_autoclose = 1
+command! LF FloatermNew lf
+
 " =============================================================================
 " Startup settings
 " =============================================================================
@@ -236,6 +278,7 @@ set ignorecase smartcase
 set nu rnu
 set noswapfile
 set nobackup
+set nowritebackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
@@ -252,6 +295,8 @@ set updatetime=100
 set mouse=nvi
 set nowrap
 "set nocompatible " For Vimwiki
+set hidden
+set shortmess+=c
 
 " =============================================================================
 " Custom functions
@@ -330,7 +375,7 @@ map <BS> <leader>
 tmap <Esc><Esc> <C-\><C-n>
 
 " Opens a bottom window and a terminal in it
-nmap <Leader><C-t> <C-w>s<C-w>r:exe "resize -10"<CR>:term<CR>G
+"nmap <Leader><C-t> <C-w>s<C-w>r:exe 'resize -10'<CR>:term<CR>G
 
 " Makes moving with marks easier
 nmap <C-g> '
@@ -461,23 +506,30 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <tab> to select completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use <CR> to choose completion
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
 
 " -----------------------------------------------------------------------------
 " FZF-vim
 " -----------------------------------------------------------------------------
 " Opens fzf BLines
 nmap <C-f> :BLines<CR>
-nmap <C-p> :Files<CR>
+nmap <C-p> :Buffers<CR>
 
 " -----------------------------------------------------------------------------
 " vim-easymotion
@@ -488,3 +540,27 @@ nmap <leader><leader>e <Plug>(easymotion-e)
 nmap <leader><leader>b <Plug>(easymotion-b)
 nmap <leader><leader>j <Plug>(easymotion-j)
 nmap <leader><leader>k <Plug>(easymotion-k)
+
+" -----------------------------------------------------------------------------
+" floaterm
+" -----------------------------------------------------------------------------n
+
+nmap <leader>tn :FloatermNew<CR>
+nmap <leader>tc :FloatermKill<CR>
+nmap <leader>tt :FloatermToggle<CR>
+nmap <leader>tl :CocList floaterm<CR>
+nmap <leader>t[ :FloatermPrev<CR>
+nmap <leader>t] :FloatermNext<CR>
+nmap <leader>t{ :FloatermFirst<CR>
+nmap <leader>t} :FloatermLast<CR>
+"nmap <C-b> :FloatermNew lf<CR>
+
+tmap <leader>tn <C-\><C-n>:FloatermNew<CR>
+tmap <leader>tc <C-\><C-n>:FloatermKill<CR>
+tmap <leader>tt <C-\><C-n>:FloatermToggle<CR>
+tmap <leader>tl <C-\><C-n>:CocList floaterm<CR>
+tmap <leader>t[ <C-\><C-n>:FloatermPrev<CR>
+tmap <leader>t] <C-\><C-n>:FloatermNext<CR>
+tmap <leader>t{ <C-\><C-n>:FloatermFirst<CR>
+tmap <leader>t} <C-\><C-n>:FloatermLast<CR>
+"tmap <C-b> <C-\><C-n>:FloatermKill<CR>
