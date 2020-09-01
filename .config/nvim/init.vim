@@ -297,6 +297,7 @@ set nowrap
 "set nocompatible " For Vimwiki
 set hidden
 set shortmess+=c
+set autochdir
 
 " =============================================================================
 " Custom functions
@@ -304,9 +305,9 @@ set shortmess+=c
 " CompileFile(): A custom function that will compile the file in question
 " using a bash script
 function! CompileFile()
-    cd %:p:h
+    "cd %:p:h " Not needed since using 'set autochdir'
     execute '!compile %'
-    cd -
+    "cd - " Not needed since using 'set autochdir'
 endfunction
 
 " RunFile(): A custom function that will run a file after it is compiled. E.g:
@@ -318,7 +319,8 @@ function! RunFile()
 
     if expand('%:e') == 'md'
         let filename = filename.'.pdf'
-        let fpath = g:fpath.filename
+        "let fpath = g:fpath.filename " Not needed since using 'set autochdir'
+        let fpath = filename
         let run = '!zathura '.fpath
     endif
     
@@ -331,9 +333,8 @@ endfunction
 augroup fname_fpath
     au!
     autocmd BufEnter * let g:filename = expand('%:t')
-    autocmd BufEnter * let g:fpath = expand('%:p:h').'/'
+    "autocmd BufEnter * let g:fpath = expand('%:p:h').'/' " Not needed since using 'set autochdir'
 augroup END
-
 
 " =============================================================================
 " Custom commands for different filetypes
@@ -351,7 +352,7 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
-autocmd BufEnter *.notal setlocal syntax=pascal
+autocmd BufEnter *.notal setfiletype notal
 
 " =============================================================================
 " neovide
