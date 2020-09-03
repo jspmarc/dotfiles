@@ -45,7 +45,8 @@ map bb dragon-single
 # "Bookmarks"
 map gt cd ~/.local/share/Trash
 map gc cd ~/.config
-map gk cd ~/Documents/Kuliah
+map gkd cd ~/Documents/Kuliah
+map gkn cd ~/vimwiki-notes/Kuliah/
 map gn cd ~/vimwiki
 
 map gr cd /

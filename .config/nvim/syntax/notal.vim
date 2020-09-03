@@ -8,7 +8,7 @@ if exists("b:current_syntax")
 endif
 
 " Matches
-syn match stringSalah '\w\w\+' contained
+syn match stringSalah '[^'][^']\+' contained
 
 syn match cabangDepend 'depend on'
 

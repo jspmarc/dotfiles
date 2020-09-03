@@ -376,7 +376,7 @@ map <BS> <leader>
 tmap <Esc><Esc> <C-\><C-n>
 
 " Opens a bottom window and a terminal in it
-"nmap <Leader><C-t> <C-w>s<C-w>r:exe 'resize -10'<CR>:term<CR>G
+nmap <Leader><C-t> <C-w>s<C-w>r:exe 'resize -10'<CR>:term<CR>G
 
 " Makes moving with marks easier
 nmap <C-g> '
