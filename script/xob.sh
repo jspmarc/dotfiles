@@ -5,15 +5,25 @@ backlfile="/tmp/xob_backl_pipe"
 volfile="/tmp/xob_vol_pipe"
 
 vol() {
+    v=$(amixer sget Master | tail -n1 |  awk '{print $5}' | \
+        sed -r 's/[%\[]//gp' | sed -r 's/\]//gp' | head -n1)
+
     if [[ "$1" == "inc" ]]; then
         amixer -q sset Master 1%+
     elif [[ "$1" == "dec" ]]; then
         amixer -q sset Master 1%-
+    elif [[ "$1" == "mute" ]]; then
+        amixer -q sset Master toggle
     fi
 
-    v=$(amixer sget Master | tail -n1 |  awk '{print $5}' | \
+    m=$(amixer sget Master | tail -n1 |  awk '{print $6}' | \
         sed -r 's/[%\[]//gp' | sed -r 's/\]//gp' | head -n1)
-    echo "$v" > "$volfile"
+
+    if [[ "$m" == "on" ]]; then
+        echo "$v" > "$volfile"
+    else
+        echo "$v"! > "$volfile"
+    fi
 }
 
 backl() {
