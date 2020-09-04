@@ -65,7 +65,7 @@ font-4 = ${fonts.font-4}
 
 modules-left = quicksettings i3 window-title
 modules-center = spotify
-modules-right = backlight pulseaudio wireless-network battery timedate powermenu
+modules-right = wireless-network battery timedate powermenu
 ;modules-right = backlight pulseaudio wired-network wireless-network battery timedate powermenu
 
 cursor-click = pointer

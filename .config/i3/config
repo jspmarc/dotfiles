@@ -25,6 +25,7 @@ exec_always --no-startup-id optimus-manager-qt
 exec_always --no-startup-id ~/script/idleLock.sh
 exec_always --no-startup-id ~/script/polybar/start_pb.sh
 exec_always --no-startup-id ~/script/start_picom.sh
+exec_always --no-startup-id ~/script/xob.sh
 
 ############################################
 #	Setting the mod keys + font				#
@@ -88,13 +89,17 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
 
 # Volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/script/xob.sh vol inc
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/script/xob.sh vol dec
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%+
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%-
 bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
 
 # Backlight control
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/script/xob.sh backl dec
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/script/xob.sh backl inc
 
 # toggle WLAN
 bindsym XF86WLAN exec --no-startup-id ~/script/toggleWLAN.sh
