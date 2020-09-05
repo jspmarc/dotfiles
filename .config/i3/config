@@ -13,7 +13,7 @@
 
 
 #############################################
-#	STARTUP									#
+#   STARTUP                                 #
 #############################################
 exec_always --no-startup-id wal -R
 exec_always --no-startup-id ~/.fehbg
@@ -28,7 +28,7 @@ exec_always --no-startup-id ~/script/start_picom.sh
 exec_always --no-startup-id ~/script/xob.sh
 
 ############################################
-#	Setting the mod keys + font				#
+#   Setting the mod keys + font             #
 #############################################
 # Mod4 = windows key, the modifier key
 set $mod Mod4
@@ -40,7 +40,7 @@ set $sup Mod1
 font pango:DejaVu Sans Mono 9
 
 #############################################
-#	Other key bindings						#
+#   Other key bindings                      #
 #############################################
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -79,7 +79,7 @@ bindsym $mod+d exec rofi -show drun
 bindsym control+$sup+l exec /home/josep/script/lockScreen.sh &
 
 #############################################
-#	Fn keys									#
+#   Fn keys                                 #
 #############################################
 # To see a key does what use the command xev on terminal
 # Media controls
@@ -106,7 +106,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/script/xob.sh backl inc
 bindsym XF86WLAN exec --no-startup-id ~/script/toggleWLAN.sh
 
 #############################################
-#	tiling window related					#
+#   tiling window related                   #
 #############################################
 # change focus
 bindsym $mod+h focus left
@@ -147,7 +147,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 #############################################
-#	Workspace-related						#
+#   Workspace-related                       #
 #############################################
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -187,7 +187,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 #############################################
-#	Reload or exit i3						#
+#   Reload or exit i3                       #
 #############################################
 # reload the configuration file
 bindsym $mod+Shift+r reload
@@ -201,55 +201,55 @@ bindsym ctrl+$sup+Delete exec $HOME/script/rofi/powermenu/powermenu.sh
 bindsym ctrl+$sup+m exec $HOME/script/rofi/quickSettings/quickSettings.sh
 
 #############################################
-#	Different modes							#
+#   Different modes                         #
 #############################################
 # resize window (you can also use the mouse for that)
 mode "resize" {
-	# These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-	# Pressing right will shrink the window’s width.
-	# Pressing left will grow the window’s width.
-	# Pressing down will shrink the window’s height.
-	# Pressing up down will grow the window’s height.
-	bindsym h resize shrink width 10 px or 10 ppt
-	bindsym j resize grow height 10 px or 10 ppt
-	bindsym k resize shrink height 10 px or 10 ppt
-	bindsym l resize grow width 10 px or 10 ppt
+    # Pressing right will shrink the window’s width.
+    # Pressing left will grow the window’s width.
+    # Pressing down will shrink the window’s height.
+    # Pressing up down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-	# same bindings, but for the arrow keys
-	bindsym Right resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Left resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Right resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Left resize grow width 10 px or 10 ppt
 
-	# back to normal: Enter or Escape or $mod+r
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 # Move window
 mode "move" {
-	bindsym h move left 10px
-	bindsym j move down 10px
-	bindsym k move up 10px
-	bindsym l move right 10px
+    bindsym h move left 10px
+    bindsym j move down 10px
+    bindsym k move up 10px
+    bindsym l move right 10px
 
-	bindsym Left move left 10px
-	bindsym Down move down 10px
-	bindsym Up move up 10px
-	bindsym Right move right 10px
+    bindsym Left move left 10px
+    bindsym Down move down 10px
+    bindsym Up move up 10px
+    bindsym Right move right 10px
 
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	bindsym $mod+t mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+t mode "default"
 }
 
 bindsym $mod+r mode "resize"
 bindsym $mod+t mode "move"
 
 #############################################
-#	Floating windows-related				#
+#   Floating windows-related                #
 #############################################
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $sup
@@ -258,7 +258,7 @@ floating_modifier $sup
 bindsym $mod+Shift+space floating toggle
 
 #############################################
-#	Per-app settings						#
+#   Per-app settings                        #
 #############################################
 for_window [class="Steam"] floating enable
 for_window [class="line.exe"] floating enable
@@ -269,14 +269,26 @@ for_window [title="Microsoft Teams Notification"] floating enable
 #for_window [title="Event Tester"] floating enable
 
 #############################################
-#	border									#
+#   border                                  #
 #############################################
 title_align center
 default_border pixel 3
 default_floating_border pixel 3
 
 #############################################
-#	i3-gaps									#
+#   color                                   #
+#############################################
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+#############################################
+#   i3-gaps                                 #
 #############################################
 # Disabling titlebar
 # i3-gaps can't work with a titlebar

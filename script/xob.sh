@@ -8,30 +8,20 @@ vol() {
     v=$(amixer sget Master | tail -n1 |  awk '{print $5}' | \
         sed -r 's/[%\[]//gp' | sed -r 's/\]//gp' | head -n1)
 
-    if [[ "$1" == "inc" ]]; then
-        amixer -q sset Master 1%+
-    elif [[ "$1" == "dec" ]]; then
-        amixer -q sset Master 1%-
-    elif [[ "$1" == "mute" ]]; then
-        amixer -q sset Master toggle
-    fi
+    [[ "$1" == "inc" ]] && amixer -q sset Master 1%+
+    [[ "$1" == "dec" ]] && amixer -q sset Master 1%-
+    [[ "$1" == "mute" ]] && amixer -q sset Master toggle
 
     m=$(amixer sget Master | tail -n1 |  awk '{print $6}' | \
         sed -r 's/[%\[]//gp' | sed -r 's/\]//gp' | head -n1)
 
-    if [[ "$m" == "on" ]]; then
-        echo "$v" > "$volfile"
-    else
-        echo "$v"! > "$volfile"
-    fi
+    [[ "$m" == "on" ]] && echo "$v" > "$volfile"
+    [[ "$m" == "off" ]] && echo "$v"! > "$volfile"
 }
 
 backl() {
-    if [[ "$1" == "inc" ]]; then
-        xbacklight -inc 5
-    elif [[ "$1" == "dec" ]]; then
-        xbacklight -dec 5
-    fi
+    [[ "$1" == "inc" ]] && xbacklight -inc 5
+    [[ "$1" == "dec" ]] && xbacklight -dec 5
 
     b=$(xbacklight -getf)
     echo "$b" > "$backlfile"
@@ -39,20 +29,12 @@ backl() {
 
 if [[ -z $(pgrep xob) ]]; then # first run
 
-    if [[ ! -e "$volfile" ]]; then
-        touch "$volfile"
-    fi
-
-    if [[ ! -e "$backlfile" ]]; then
-        touch "$backlfile"
-    fi
+    [[ ! -e "$volfile" ]] && touch "$volfile"
+    [[ ! -e "$backlfile" ]] && touch "$backlfile"
 
     tail -f "$volfile" | xob -s vol & > /dev/null 2>&1
     tail -f "$backlfile" | xob -s backl & > /dev/null 2>&1
 else
-    if  [[ "$1" == "vol" ]]; then
-        vol "$2"
-    elif [[ "$1" == "backl" ]]; then
-        backl "$2"
-    fi
+    [[ "$1" == "vol" ]] && vol "$2"
+    [[ "$1" == "backl" ]] && backl "$2"
 fi
