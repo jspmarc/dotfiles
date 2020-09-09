@@ -69,8 +69,8 @@ source ~/zsh-files/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/zsh-files/zsh-interactive-cd.zsh
 source ~/zsh-files/zsh-colored-man-pages.zsh
 source ~/zsh-files/zsh-web-search.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source ~/zsh-files/key-bindings.zsh
+source ~/zsh-files/completion.zsh
 # Sourcing autojump
 #[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 # tabtab source for packages
