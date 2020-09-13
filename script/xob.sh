@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 # A script to update xob when volume cahnges
 
 backlfile="/tmp/xob_backl_pipe"

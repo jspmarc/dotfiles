@@ -2,6 +2,7 @@ export PATH=$HOME/.local/bin:$PATH
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
+export export PATH="$PATH:/home/josep/.gem/ruby/2.7.0/bin"
 
 # NNN configuratons
 export NNN_TRASH=1

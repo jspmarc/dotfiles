@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env sh
 
 if [[ -z "$(pgrep spotifyd)" ]]; then
 	spotifyd

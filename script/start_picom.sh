@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 # Terminate already running picom instances
 while [[ -n $(pgrep picom) ]];

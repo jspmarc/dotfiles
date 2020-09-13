@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 # File doesn't exist
 [[ ! -e "$1" ]] && echo "File doesn't exist" && exit

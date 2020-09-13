@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 #TODO
 #(!)(v) Trailing text
@@ -6,16 +6,17 @@
 
 while true;
 do
-	if [[ $(playerctl status) == "Playing" || $(playerctl status) == "Paused" ]]; then
+	status=$(playerctl status 2>/dev/null &)
+	if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
 		separator="--"
 		prefix=" | "
 
-		pctl_title=$(playerctl metadata title)
+		pctl_title=$(playerctl metadata title 2>/dev/null &)
 
 		if [[ -z $pctl_title ]]; then
-			song=$(playerctl metadata artist)
+			song=$(playerctl metadata artist 2>/dev/null &)
 		else
-			song=$(playerctl metadata --format "{{ title }}${separator}{{ artist }}")
+			song=$(playerctl metadata --format "{{ title }}${separator}{{ artist }}" 2>/dev/null &)
 		fi
 
 		start_char=0

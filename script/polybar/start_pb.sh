@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env bash
 
 # Terminate already running bar instances
 while [[ -n "$(pgrep polybar)" ]];

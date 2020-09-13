@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 if [[ $(nmcli radio wifi) == "enabled"  ]]; then
 	nmcli radio wifi off

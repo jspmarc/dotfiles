@@ -1,3 +1,3 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 betterlockscreen -t 'Konnichiwa!' -l

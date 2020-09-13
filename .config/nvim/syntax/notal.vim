@@ -15,8 +15,8 @@ syn match cabangDepend 'depend on'
 syn match karakterLain '[RETURN|EOL|SPACE]' contained
 
 " Bilangan
-syn match bil '[-+]*\d\+[.Ee]*\d*'
-syn match bil '[-+]*\d\+[.]*\d*[Ee]*\d*'
+"syn match bil '[-+]*\d\+[.Ee]*\d*'
+"syn match bil '[-+]*\d\+[.]*\d*[Ee]*\d*'
 
 syn match operatorRelasi '<=*'
 syn match operatorRelasi '>=*'
@@ -51,6 +51,8 @@ syn keyword operatorLogika and or xor not EQ nEQ
 
 syn keyword keywordLainnya function procedure constant of array type SEQFILE
 
+syn keyword KeywordBool true false
+
 hi def link IO              Function
 hi def link tipeData        Typedef
 hi def link keywordLainnya  Statement
@@ -66,7 +68,9 @@ hi def link karakter        Character
 hi def link karakterLain    Character
 hi def link percabangan     Underline
 hi def link bil             Constant
+hi def link keywordBool     constant
 hi def link pengisian       Operator
 hi def link operatorInteger Operator
 hi def link operatorBil     Operator
 hi def link operatorRelasi  Operator
+hi def link operatorLogika  Operator

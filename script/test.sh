@@ -1,3 +1,3 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 notify-send "nice"

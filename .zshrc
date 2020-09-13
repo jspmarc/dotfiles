@@ -18,7 +18,7 @@ SAVEHIST=100000
 setopt autocd
 bindkey -v
 # End of lines configured by zsh-newuser-install
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/sources/powerlevel10k/powerlevel10k.zsh-theme
 
 autoload -Uz compinit
 compinit

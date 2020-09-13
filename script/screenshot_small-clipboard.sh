@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 [[ -f /tmp/ss.png ]] && rm /tmp/ss.png
 killall picom
 scrot -fs -q90 /tmp/ss.png

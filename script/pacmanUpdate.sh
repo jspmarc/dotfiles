@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 # upgrading mirrorlist
 /usr/bin/notify-send "updating mirrorlist"
