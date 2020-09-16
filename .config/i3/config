@@ -46,7 +46,8 @@ font pango:DejaVu Sans Mono 9
 bindsym $mod+Shift+q kill
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle

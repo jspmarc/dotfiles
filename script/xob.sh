@@ -8,8 +8,8 @@ vol() {
     v=$(amixer sget Master | tail -n1 |  awk '{print $5}' | \
         sed -r 's/[%\[]//gp' | sed -r 's/\]//gp' | head -n1)
 
-    [[ "$1" == "inc" ]] && amixer -q sset Master 1%+
-    [[ "$1" == "dec" ]] && amixer -q sset Master 1%-
+    [[ "$1" == "inc" ]] && amixer -q sset Master 2%+
+    [[ "$1" == "dec" ]] && amixer -q sset Master 2%-
     [[ "$1" == "mute" ]] && amixer -q sset Master toggle
 
     m=$(amixer sget Master | tail -n1 |  awk '{print $6}' | \

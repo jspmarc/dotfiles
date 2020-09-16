@@ -27,6 +27,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'lervag/vimtex'
 
 " Notes and Agenda
 Plug 'vimwiki/vimwiki'
@@ -132,13 +133,13 @@ colorscheme material
 let g:airline_theme='codedark'
 let g:airline_powerline_fonts = 1
 
-let g:airline_left_sep = "\uE0B8"
-let g:airline_right_sep = "\uE0BA"
+"let g:airline_left_sep = "\uE0B8"
+"let g:airline_right_sep = "\uE0BA"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_section_c = '%t%m%r'
-let g:airline_section_z = "\uE0A1 %l/%L \uE0B3 %P"
-let g:airline_section_y = ''
+"let g:airline_section_z = "\uE0A1 %l/%L \uE0B3 %P \uE0B3 \uE0A3 %c"
+let g:airline_section_z = "\uE0A1 %l/%L \uE0B3 \uE0A3 %c"
 
 " -----------------------------------------------------------------------------
 " NERDTree
@@ -254,12 +255,19 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+let g:lsp_cxx_hl_use_text_props = 1
+
 " -----------------------------------------------------------------------------
 " floaterm
 " -----------------------------------------------------------------------------n
 let g:floaterm_gitcommit = 'vsplit'
 let g:floaterm_autoclose = 1
 command! LF FloatermNew lf
+
+" -----------------------------------------------------------------------------
+" floaterm
+" -----------------------------------------------------------------------------n
+let g:tex_flavor = 'latex'
 
 " =============================================================================
 " Startup settings
@@ -271,34 +279,34 @@ set guicursor=c-v-r-cr:hor75
 "let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 set autowrite " Autosave on leaving vim
-set tabstop=4 softtabstop=4 shiftwidth=4
-set expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 " Use spacing of 4 for indent
+set expandtab " Use space as tab
 "set noexpandtab
-set smartindent
-set ignorecase smartcase
-set nu rnu
-set noswapfile
-set nobackup
-set nowritebackup
-set undodir=~/.vim/undodir
-set undofile
-set incsearch
-set linebreak
-set scrolloff=3
-set sidescrolloff=5
-set background=dark
+set smartindent " Automatically indents
+set ignorecase smartcase " Ignore case when searching, start case-sensitive when a capitilized char is found
+set nu rnu " Line numbering and relative line numbering
+set noswapfile " No vim swap file
+set nobackup " No backup
+set nowritebackup " No backup
+set undodir=~/.vim/undodir " Sets the file for undo tree
+set undofile " Undo tree
+set incsearch " Searching stuff
+set linebreak " TODO: WHat is this?
+set scrolloff=3 " Same as sidescrolloff but for horizontal
+set sidescrolloff=5 " Start vertical scrolling when N-5 where N is the max col length
+set background=dark " Dark knight a en je a ye
 "hi Normal ctermbg=NONE guibg=NONE
 "set cul
-set colorcolumn=80
-set clipboard+=unnamedplus
-set list lcs=tab:\|\ 
-set updatetime=100
-set mouse=nvi
-set nowrap
+set colorcolumn=80 " This is the vertical line you're seeing
+set clipboard+=unnamedplus " Sets the clipboard to unnamedplus, the system's clipboard
+set list lcs=tab:\|\  " Shows indent line when using tab
+set updatetime=1000 " TODO: WHat is this?0
+set mouse=nvi " Enabling mouse for normal, visual, and insert mode
+set nowrap " Wrapping bad
 "set nocompatible " For Vimwiki
-set hidden
-set shortmess+=c
-set autochdir
+set hidden " TODO: WHat is this?
+set shortmess+=c " TODO: WHat is this?
+set autochdir " Changing dir when switching window/buffer
 
 " =============================================================================
 " Custom functions
@@ -525,6 +533,7 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+let g:lsp_cxx_hl_log_file = '/home/josep/.config/nvim/vim-lsp-cxx.log'
 
 " -----------------------------------------------------------------------------
 " FZF-vim
