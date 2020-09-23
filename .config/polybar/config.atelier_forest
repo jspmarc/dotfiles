@@ -1,9 +1,8 @@
 [colors]
 ;background = ${xrdb:background}
+background = #241D3B
 ;background = #00000000
-background = #222222
-background_module = #303030
-foreground = #AAAAAA
+foreground = #000000
 black = ${xrdb:color0}
 red = ${xrdb:color1}
 green = ${xrdb:color2}
@@ -14,7 +13,6 @@ cyan = ${xrdb:color6}
 lgray = ${xrdb:color7}
 dgray = ${xrdb:color8}
 white = ${xrdb:color15}
-dark_purple = #241D3B
 
 [fonts]
 font-0 = DejaVu Sans:size=9:antialias=true;2
@@ -24,18 +22,18 @@ font-3 = komorebi gothic:size=10:antialias=true;style=Bold;3
 font-4 = FiraCode Nerd Font Mono:size=14:style=Bold:antialias=true;3
 
 [left]
-background = ${colors.background_module}
+background = ${colors.purple}
 prefix = 
 suffix = 
 suffix-end = 
 
 [center]
-background = ${colors.background_module}
+background = ${colors.green}
 prefix-end = 
 suffix-end = 
 
 [right]
-background = ${colors.background_module}
+background = ${colors.cyan}
 prefix = 
 prefix-end = 
 suffix = 
@@ -68,6 +66,7 @@ font-4 = ${fonts.font-4}
 modules-left = quicksettings i3 window-title
 modules-center = spotify
 modules-right = wireless-network battery timedate powermenu
+;modules-right = backlight pulseaudio wired-network wireless-network battery timedate powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -75,6 +74,8 @@ cursor-scroll = ns-resize
 tray-position = right
 tray-padding = 1
 tray-reparent = false
+
+;tray-background = ${colors.blue}
 
 tray-detached = false
 ;tray-scale = 1.0
@@ -86,8 +87,8 @@ tray-maxsize = 20
 type=custom/script
 format = "<label>"
 format-underline = ${colors.blue}
-;format-background = #3F1A90
-format-background = ${left.background}
+format-background = #80A0FF
+;format-background = ${left.background}
 format-foreground = ${colors.foreground}
 format-prefix = 
 format-prefix-foreground = ${self.format-background}
@@ -131,7 +132,7 @@ pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.dark_purple}
+label-focused-background = ${colors.cyan}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor

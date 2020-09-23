@@ -49,7 +49,8 @@ syn keyword operatorInteger div mod abs
 
 syn keyword operatorLogika and or xor not EQ nEQ
 
-syn keyword keywordLainnya function procedure constant of array type SEQFILE
+syn keyword keywordLainnya function procedure constant of array type SEQFILE use
+syn keyword keywordLainnya USE
 
 syn keyword KeywordBool true false
 

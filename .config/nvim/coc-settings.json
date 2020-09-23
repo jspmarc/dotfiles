@@ -1,0 +1,12 @@
+{
+    "clangd.semanticHighlighting": true,
+
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact"
+    ],
+
+    "java.home": "/usr/lib/jvm/default-runtime"
+}
