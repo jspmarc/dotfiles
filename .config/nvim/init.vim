@@ -38,6 +38,7 @@ Plug 'vimwiki/vimwiki'
 " Git integration
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'stsewd/fzf-checkout.vim'
 
 " Undo things
 Plug 'simnalamburt/vim-mundo'
@@ -61,6 +62,8 @@ Plug 'houtsnip/vim-emacscommandline'
 Plug 'johannesthyssen/vim-signit'
 Plug 'turbio/bracey.vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'psliwka/vim-smoothie'
+Plug 'wfxr/minimap.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -217,3 +220,8 @@ endif
 " floaterm
 " -----------------------------------------------------------------------------n
 " Already loaded in plugins settings
+
+" -----------------------------------------------------------------------------
+" fzf-checkout.vim
+" -----------------------------------------------------------------------------n
+

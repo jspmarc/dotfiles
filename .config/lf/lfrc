@@ -169,7 +169,7 @@ cmd on-cd &{{
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
-        text/*|text/plain|application/json) $EDITOR "$f";;
+        text/*|text/plain|application/json|text/x-makefile) $EDITOR "$f";;
         #video/*|image/*/application/pdf) ws xdg-open "$f";;
         *) ws xdg-open "$f" ;;
     esac
