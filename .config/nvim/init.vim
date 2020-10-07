@@ -191,13 +191,19 @@ source $HOME/.config/nvim/keybindings.vim
 " -----------------------------------------------------------------------------
 " Coc
 " -----------------------------------------------------------------------------
-" Some are allready loaded in plugins settings
+" Some are already loaded in plugins settings
 " Use <tab> to select completion
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+inoremap <silent><expr> <C-j>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use <CR> to choose completion
 if exists('*complete_info')

@@ -10,7 +10,7 @@ endif
 " -----------------------------------------------------------------------------
 " For gruvbox
 " -----------------------------------------------------------------------------
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_hls_cursor = 'purple'
 let g:gruvbox_italic = 1
 let g:gruvbox_italicize_strings =  0
@@ -41,4 +41,3 @@ syntax on
 syntax enable
 
 colorscheme material
-
