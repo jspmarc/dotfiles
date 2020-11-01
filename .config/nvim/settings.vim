@@ -8,7 +8,6 @@ set guicursor=c-v-r-cr:hor75
 "let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " DEPRECATED
 
 set autowrite " Autosave on leaving vim
-set tabstop=4 softtabstop=4 shiftwidth=4 " Use spacing of 4 for indent
 set expandtab " Use space as tab
 "set noexpandtab
 set smartindent " Automatically indents
@@ -36,4 +35,4 @@ set nowrap " Wrapping bad
 set hidden " TODO: WHat is this?
 set shortmess+=c " TODO: WHat is this?
 set autochdir " Changing dir when switching window/buffer
-
+set tabstop=4 softtabstop=4 shiftwidth=4 " Use spacing of 4 for indent

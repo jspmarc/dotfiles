@@ -3,6 +3,5 @@
 killall picom
 scrot -fs -q90 /tmp/ss.png
 ~/script/start_picom.sh
-xclip -sel clip -t image/png /tmp/ss.png
-notify-send "Screenshot taken"
+xclip -sel clip -t image/png /tmp/ss.png && notify-send "Screenshot taken" || notify-send "Cancelled taking screenshot"
 #rm /tmp/ss.png

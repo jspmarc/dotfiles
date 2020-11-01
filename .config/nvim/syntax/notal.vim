@@ -19,13 +19,27 @@ syn match karakterLain '[RETURN|EOL|SPACE]' contained
 "syn match bil '[-+]*\d\+[.]*\d*[Ee]*\d*'
 
 syn match operatorRelasi '<=*'
+syn match operatorRelasi '≤'
 syn match operatorRelasi '>=*'
+syn match operatorRelasi '≥'
 syn match operatorRelasi '='
 syn match operatorRelasi '!='
+syn match operatorRelasi '≠'
+
+syn match operatorArit '*'
+syn match operatorArit '+'
+syn match operatorArit '-'
+syn match operatorArit '/'
 
 syn match pengisian '<-'
+syn match pengisian '←'
 
 syn match return '->'
+syn match return '→'
+
+syn match operatorString "•"
+syn match operatorString "o"
+syn match operatorString "&"
 
 " Regions
 syn region komentar start='{' end='}'
@@ -75,3 +89,4 @@ hi def link operatorInteger Operator
 hi def link operatorBil     Operator
 hi def link operatorRelasi  Operator
 hi def link operatorLogika  Operator
+hi def link operatorArit  Operator

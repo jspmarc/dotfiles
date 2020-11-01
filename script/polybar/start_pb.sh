@@ -14,7 +14,10 @@ done
 # Launch bar
 notify-send "starting polybar..." | tee -a /tmp/polybar1.log
 #polybar bottom >>/tmp/bot-bar.log 2>&1 &
-polybar top >>/tmp/top-bar.log 2>&1 &
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+	MONITOR=$m polybar --reload top >>/tmp/top-bar.log 2>&1 &
+done
+#polybar top >>/tmp/top-bar.log 2>&1 &
 
 #notify-send "Bars launched"
 

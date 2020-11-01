@@ -1,10 +1,10 @@
 # Startup settings
 set preview true
 set previewer ~/script/lf/previewer
-set color256 true
 set icons
 set drawbox true
 set ignorecase true
+set info time
 
 # unbind some keys
 map m
@@ -47,7 +47,7 @@ map gt cd ~/.local/share/Trash
 map gc cd ~/.config
 map gkd cd ~/Documents/Kuliah
 map gkn cd ~/vimwiki-notes/Kuliah/
-map gn cd ~/vimwiki
+map gn cd ~/vimwiki-notes
 
 map gr cd /
 

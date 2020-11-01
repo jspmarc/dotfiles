@@ -43,6 +43,9 @@ suffix = 
 ;==========================================================
 
 [bar/top]
+
+monitor = ${env:MONITOR:}
+
 override-redirect = false
 wm-restack = i3
 height = 22

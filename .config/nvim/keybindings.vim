@@ -16,7 +16,7 @@ tmap <Esc><Esc> <C-\><C-n>
 nmap <Leader><C-t> <C-w>s<C-w>r:exe 'resize -10'<CR>:term<CR>G
 
 " Makes moving with marks easier
-nmap <C-g> '
+"nmap <C-g> '
 
 " Makes <S-y> yanks to the end of the line not the whole line
 nmap <S-y> y$

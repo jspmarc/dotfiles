@@ -16,8 +16,11 @@
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
-" Completion
+" CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Nvim LSP
+"Plug 'neovim/nvim-lspconfig'
 
 " Syntax highlighting
 Plug 'chrisbra/csv.vim'
@@ -27,7 +30,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 
 " Notes and Agenda
 Plug 'vimwiki/vimwiki'
@@ -39,6 +42,16 @@ Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'stsewd/fzf-checkout.vim'
+
+" Docker
+"Plug 'skanehira/docker.vim'
+"Plug 'skanehira/docker-compose.vim'
+
+" JavaScript dev
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+  \ 'do': 'make install'
+\}
 
 " Undo things
 Plug 'simnalamburt/vim-mundo'
@@ -73,6 +86,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'jsit/toast.vim'
 "Plug 'tomasr/molokai'
 "Plug 'mhartington/oceanic-next'
 "Plug 'arcticicestudio/nord-vim'
@@ -104,6 +118,7 @@ source $HOME/.config/nvim/plugin/vimtex.vim
 source $HOME/.config/nvim/plugin/GitGutter.vim
 source $HOME/.config/nvim/plugin/FZF.vim
 source $HOME/.config/nvim/plugin/easymotion.vim
+source $HOME/.config/nvim/plugin/bracey.vim
 
 " -----------------------------------------------------------------------------
 " Coc-nvim
@@ -113,6 +128,15 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" -----------------------------------------------------------------------------
+" Coc-Prettier
+" -----------------------------------------------------------------------------
+source $HOME/.config/nvim/plugin/CocPrettier.vim
+
+" -----------------------------------------------------------------------------
+" Nvim LSP
+" -----------------------------------------------------------------------------
 
 " =============================================================================
 " Vim settings
@@ -144,9 +168,10 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax
 autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
-""autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-""autocmd FileType vimwiki IndentLinesDisable
-autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 tabstop=2
+"autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+"autocmd FileType vimwiki IndentLinesDisable
+"autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 autocmd BufEnter *.notal setfiletype notal

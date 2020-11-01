@@ -5,8 +5,12 @@
         "javascript",
         "typescript",
         "javascriptreact",
-        "typescriptreact"
+        "typescriptreact",
+        "css",
+        "html"
     ],
 
-    "java.home": "/usr/lib/jvm/default-runtime"
+    "java.home": "/usr/lib/jvm/default-runtime",
+
+    "prettier.singleQuote": true
 }
