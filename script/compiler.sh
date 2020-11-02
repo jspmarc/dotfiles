@@ -25,7 +25,8 @@ handlebang() {
 case "$file" in
     *.md)
         #pandoc -f markdown -t pdf -o "$base".pdf "$file" --number-sections -Fpandoc-crossref;;
-        pandoc -f markdown -t pdf -o "$base".pdf "$file" --number-sections -toc -Fpandoc-crossref --pdf-engine xelatex;;
+        pandoc -f markdown -t pdf -o "$base".pdf "$file" --number-sections --toc -Fpandoc-crossref --pdf-engine xelatex;;
+        #pandoc -f markdown -t pdf -o "$base".pdf "$file" -Fpandoc-crossref --pdf-engine xelatex;;
     *.py)
         python "$file";;
     *.perl)
