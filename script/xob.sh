@@ -23,7 +23,7 @@ backl() {
     [[ "$1" == "inc" ]] && xbacklight -inc 5
     [[ "$1" == "dec" ]] && xbacklight -dec 5
 
-    b=$(xbacklight -getf)
+    b=$(xbacklight -get)
     echo "$b" > "$backlfile"
 }
 

@@ -15,6 +15,7 @@
 #############################################
 #   STARTUP                                 #
 #############################################
+exec_always --no-startup-id xrandr --output eDP-1 --scale 0.9x0.9 # 1920x1080 laptop monitor
 exec_always --no-startup-id wal -R
 exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id xrdb ~/.Xresources
@@ -23,9 +24,9 @@ exec_always --no-startup-id pasystray
 exec_always --no-startup-id udiskie &
 exec_always --no-startup-id optimus-manager-qt
 exec_always --no-startup-id ~/script/idleLock.sh
-exec_always --no-startup-id ~/script/polybar/start_pb.sh
 exec_always --no-startup-id ~/script/start_picom.sh
 exec_always --no-startup-id ~/script/xob.sh &
+exec_always --no-startup-id ~/script/polybar/start_pb.sh
 
 ############################################
 #   Setting the mod keys + font             #

@@ -2,6 +2,7 @@ export PATH=$HOME/.local/bin:$PATH
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
+#export BROWSER="firefox"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:$HOME/.emacs.d/bin"
 
 # NNN configuratons

@@ -68,7 +68,7 @@ font-2 = ${fonts.font-2}
 font-3 = ${fonts.font-3}
 font-4 = ${fonts.font-4}
 
-modules-left = quicksettings i3 window-title
+modules-left = i3 window-title
 modules-center = spotify
 modules-right = wireless-network battery timedate powermenu
 
@@ -292,7 +292,8 @@ label-disconnected =
 
 [module/wireless-network]
 type = internal/network
-interface = wlp3s0
+;interface = wlp3s0 ; In memoriam of Acer E5-475G
+interface = wlp2s0
 
 format-connected = %{A3:nm-connection-editor &:}<label-connected>:<ramp-signal>%{A}
 format-connected-background = ${right.background}
@@ -336,8 +337,10 @@ type = internal/battery
 
 full-at = 100
 
-battery = BAT1
-adapter = ACAD
+;battery = BAT1 ; In memoriam of Acer E5-475G
+;adapter = ACAD ; In memoriam of Acer E5-475G
+battery = BAT0
+adapter = AC0
 
 poll-interval = 5
 

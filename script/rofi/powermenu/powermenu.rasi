@@ -2,8 +2,10 @@ configuration {
 	width: 125;
 	lines: 5;
 	font: "FiraCode Nerd Font 10";
-	yoffset: -289;
-	xoffset: 565;
+	/*yoffset: -289;*/ /* 1366 x 768 */
+	yoffset: -390;
+	/*xoffset: 565;*/ /* 1366 x 768 */
+	xoffset: 800;
 	fixed-num-lines: true;
 	scroll-method: 1;
 	click-to-exit: false;
