@@ -49,3 +49,5 @@ URxvt*depth: 32
 ! white
 *.color7:       #997b9a
 *.color15:      #d8aeda
+
+Xft.dpi: 104

@@ -11,6 +11,6 @@ xidlehook \
     --timer 120 \
     "/home/josep/script/lockScreen.sh" \
     "xrandr --output $display --brightness 1" \
-    --timer 3600 \
+    --timer 300 \
     "systemctl suspend" \
     "xrandr --output $display --brightness 1"

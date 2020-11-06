@@ -301,6 +301,7 @@ function main {
     # volume settings selection
     tmp=$(amixer sget Master | grep 'Front Left:' | awk '{print $5}')
     vol=${tmp:1:${#tmp}-2}
+    notify-send "$vol"
     tmp=$(amixer sget Master | grep 'Front Left:' | awk '{print $6}')
     muted=${tmp:1:${#tmp}-2}
     if [[ 'on' == "$muted" ]]; then
@@ -319,23 +320,23 @@ function main {
 
     # wifi setting selection
     if [[ $(nmcli radio wifi) == "enabled" ]]; then
-        wifi_settings="${wifi_on_icon} $(nmcli device | grep '^wlp3s0' | awk '{print $4}')"
+        wifi_settings="${wifi_on_icon} $(nmcli device | grep '^wlp2s0' | awk '{print $4}')"
     else
         wifi_settings="${wifi_off_icon} Off"
     fi
 
     # bluetooth settings selection
-    if [[ $(bluetoothctl show 64:6E:69:A7:CC:68 | grep Powered | awk '{print $2}') == 'yes' ]]; then
-        bluetooth_settings="${bluetooth_pow_on_icon} Bluetooth"
-    else
-        bluetooth_settings="${bluetooth_pow_off_icon} Bluetooth"
-    fi
+    #if [[ $(bluetoothctl show 64:6E:69:A7:CC:68 | grep Powered | awk '{print $2}') == 'yes' ]]; then
+        #bluetooth_settings="${bluetooth_pow_on_icon} Bluetooth"
+    #else
+        #bluetooth_settings="${bluetooth_pow_off_icon} Bluetooth"
+    #fi
 
     selected=$(
         printf "%s\n%s\n%s\n%s\n%s\n%s" "$volume_settings" \
         "$brightness_settings" \
         "$wifi_settings" \
-        "$bluetooth_settings" \
+        #"$bluetooth_settings" \
         "$player_settings" \
         "$exit_settings" | rofi -dmenu -config $HOME/script/rofi/quickSettings/quickSettings.rasi -p " "
     )
@@ -351,9 +352,9 @@ function main {
         $wifi_settings)
             wifi_control
             ;;
-        $bluetooth_settings)
-            bluetooth_control
-            ;;
+        #$bluetooth_settings)
+            #bluetooth_control
+            #;;
         $player_settings)
             player_control
             ;;

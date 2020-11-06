@@ -48,11 +48,12 @@ map gc cd ~/.config
 map gkd cd ~/Documents/Kuliah
 map gkn cd ~/vimwiki-notes/Kuliah/
 map gn cd ~/vimwiki-notes
+map gp cd ~/projects
 
 map gr cd /
 
 map gd cd /data
-map gp cd /data/projects
+# map gp cd /data/projects
 
 map ge cd /run/media/josep
 

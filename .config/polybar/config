@@ -1,7 +1,8 @@
 [colors]
 ;background = ${xrdb:background}
 ;background = #00000000
-background = #222222
+;background = #222222
+background = #C0222222
 background_module = #303030
 foreground = #AAAAAA
 black = ${xrdb:color0}
@@ -306,6 +307,7 @@ format-connected-suffix-background = ${colors.background}
 
 format-disconnected = %{A3:nm-connection-editor &:}<label-disconnected>%{A}
 format-disconnected-background = ${colors.yellow}
+format-disconnected-foreground = ${colors.black}
 format-disconnected-prefix = ${right.prefix}
 format-disconnected-prefix-foreground = ${self.format-disconnected-background}
 format-disconnected-prefix-background = ${colors.background}
@@ -356,6 +358,7 @@ format-charging-suffix-background = ${colors.background}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-background = ${colors.yellow}
+format-discharging-foreground = ${colors.black}
 ;format-discharging-background = ${right.background}
 format-discharging-prefix = ${right.prefix}
 format-discharging-prefix-foreground = ${self.format-discharging-background}
@@ -364,7 +367,7 @@ format-discharging-suffix = ${right.suffix}
 format-discharging-suffix-foreground = ${self.format-discharging-background}
 format-discharging-suffix-background = ${colors.background}
 
-format-full = <label-full> FULL
+format-full = <label-full>
 ;format-full-background = ${colors.cyan}
 format-full-background = ${right.background}
 format-full-prefix = ${right.prefix}
@@ -378,7 +381,7 @@ label-charging = %percentage%%
 
 label-discharging = %percentage%%
 
-label-full = 
+label-full =   %percentage%%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 

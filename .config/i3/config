@@ -15,7 +15,8 @@
 #############################################
 #   STARTUP                                 #
 #############################################
-exec_always --no-startup-id xrandr --output eDP-1 --scale 0.9x0.9 # 1920x1080 laptop monitor
+#exec_always --no-startup-id xrandr --output eDP-1 --scale 0.9x0.9 # 1920x1080 laptop monitor
+exec_always --no-startup-id xrandr --dpi 121
 exec_always --no-startup-id wal -R
 exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id xrdb ~/.Xresources
@@ -35,6 +36,7 @@ exec_always --no-startup-id ~/script/polybar/start_pb.sh
 set $mod Mod4
 # Mod1 = alt key
 set $sup Mod1
+set $ctrl Control
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -78,7 +80,7 @@ bindsym Print exec --no-startup-id $HOME/script/screenshot_screen-clipboard.sh
 bindsym $mod+d exec rofi -show drun
 
 # locksreen
-bindsym control+$sup+l exec /home/josep/script/lockScreen.sh &
+bindsym $ctrl+$mod+l exec /home/josep/script/lockScreen.sh &
 
 #############################################
 #   Fn keys                                 #
@@ -106,6 +108,13 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/script/xob.sh backl inc
 
 # toggle WLAN
 bindsym XF86WLAN exec --no-startup-id ~/script/toggleWLAN.sh
+
+# sleep time
+# XF86PowerOff
+# XF86Sleep
+
+bindsym XF86PowerOff exec --no-startup-id ~/script/sleep.sh
+bindsym XF86Sleep exec --no-startup-id ~/script/sleep.sh
 
 #############################################
 #   tiling window related                   #
