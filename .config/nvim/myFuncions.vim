@@ -5,7 +5,11 @@
 " using a bash script
 function! CompileFile()
     "cd %:p:h " Not needed since using 'set autochdir'
-    execute '!compile %'
+    if expand('%:e') == 'tex'
+        CocCommand latex.Build
+    else
+        execute '!compile %'
+    endif
     "cd - " Not needed since using 'set autochdir'
 endfunction
 

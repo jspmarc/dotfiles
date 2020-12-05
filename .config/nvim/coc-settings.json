@@ -10,7 +10,14 @@
         "html"
     ],
 
-    "java.home": "/usr/lib/jvm/default-runtime",
+    "prettier.singleQuote": true,
 
-    "prettier.singleQuote": true
+    "latex.build.args": [
+        "-xelatex",
+        "-interaction=nonstopmode",
+        "-synctex=1"
+    ],
+    "latex.build.onSave": true,
+
+    "java.home": "/usr/lib/jvm/default-runtime"
 }

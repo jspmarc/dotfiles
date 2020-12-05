@@ -215,8 +215,10 @@ alias pls="sudo"
 alias plz="sudo"
 alias rm='rm -I'
 
+alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
+
 # Git bare alias for managing dotfiles
-alias dotfiles="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias dfs=dotfiles
 
 # window swallowing

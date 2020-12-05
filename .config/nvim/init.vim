@@ -30,7 +30,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-"Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 " Notes and Agenda
 Plug 'vimwiki/vimwiki'
@@ -169,6 +169,8 @@ autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType tex IndentLinesDisable
 "autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 "autocmd FileType vimwiki IndentLinesDisable
 "autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2

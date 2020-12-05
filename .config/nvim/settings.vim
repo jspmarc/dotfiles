@@ -36,3 +36,4 @@ set hidden " TODO: WHat is this?
 set shortmess+=c " TODO: WHat is this?
 set autochdir " Changing dir when switching window/buffer
 set tabstop=4 softtabstop=4 shiftwidth=4 " Use spacing of 4 for indent
+set pyxversion=3
