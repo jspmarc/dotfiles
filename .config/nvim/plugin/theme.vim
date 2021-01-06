@@ -40,4 +40,4 @@ let g:material_terminal_italics = 1
 syntax on
 syntax enable
 
-colorscheme material
+colorscheme gruvbox

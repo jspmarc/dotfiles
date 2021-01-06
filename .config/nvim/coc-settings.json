@@ -19,5 +19,8 @@
     ],
     "latex.build.onSave": true,
 
-    "java.home": "/usr/lib/jvm/default-runtime"
+    "java.home": "/usr/lib/jvm/default-runtime",
+
+    "rust.clippy_preference": "on",
+    "java.errors.incompleteClasspath.severity": "ignore"
 }

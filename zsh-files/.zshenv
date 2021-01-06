@@ -1,4 +1,4 @@
-export PATH=$HOME/.npm-pkgs/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.npm-pkgs/bin:$HOME/.local/bin:$HOME/.cargo/bin/:$PATH
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"

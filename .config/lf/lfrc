@@ -36,8 +36,10 @@ map l push <enter>
 
 map '.' set hidden!
 
-map if push :%ws<space>sxiv<space>-t<space>.<enter>
-map iv push :%ws<space>sxiv<space>$f<enter>
+#map if push :%ws<space>sxiv<space>-t<space>.<enter>
+#map iv push :%ws<space>sxiv<space>$f<enter>
+map if push :%sxiv<space>-t<space>.<enter>
+map iv push :%sxiv<space>$f<enter>
 
 map ba dragon-all
 map bb dragon-single
@@ -172,6 +174,7 @@ cmd open ${{
     case $(file --mime-type "$f" -bL) in
         text/*|text/plain|application/json|text/x-makefile) $EDITOR "$f";;
         #video/*|image/*/application/pdf) ws xdg-open "$f";;
-        *) ws xdg-open "$f" ;;
+        #*) ws xdg-open "$f" ;;
+        *) xdg-open "$f" ;;
     esac
 }}

@@ -1,7 +1,7 @@
 " -----------------------------------------------------------------------------
 " Airline theme and customization
 " -----------------------------------------------------------------------------
-let g:airline_theme='codedark'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
 "let g:airline_left_sep = "\uE0B8"

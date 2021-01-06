@@ -77,6 +77,7 @@ Plug 'turbio/bracey.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'psliwka/vim-smoothie'
 Plug 'wfxr/minimap.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -257,4 +258,9 @@ endif
 " -----------------------------------------------------------------------------
 " fzf-checkout.vim
 " -----------------------------------------------------------------------------n
+" Already loaded in plugins settings
 
+" -----------------------------------------------------------------------------
+" lua
+" -----------------------------------------------------------------------------n
+command! Scratch lua require'test'.asd()
