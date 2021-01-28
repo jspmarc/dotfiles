@@ -53,9 +53,11 @@ PS1+="$COLOR_RESET" # Resets color
 PS1+="$COLOR_BLUE\W$COLOR_RESET " # Shows current working directory
 PS1+="\e[0;1m$COLOR_GREEN❯$COLOR_RESET " # Shows the ❯ prompt
 
-fet.sh
+if [ -e /usr/bin/fet.sh ]; then
+    fet.sh
+fi
 
-source ~/zsh-files/.zsh_funcs
+source ~/zsh-files/zsh_funcs
 #source ~/zsh-files/.zsh_alias
 source ~/zsh-files/zsh-colored-man-pages.zsh
 
