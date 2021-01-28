@@ -19,7 +19,7 @@ set nowritebackup " No backup
 set undodir=~/.vim/undodir " Sets the file for undo tree
 set undofile " Undo tree
 set incsearch " Searching stuff
-set linebreak " TODO: WHat is this?
+set linebreak " Biar linewrapping lebih bagus
 set scrolloff=3 " Same as sidescrolloff but for horizontal
 set sidescrolloff=5 " Start vertical scrolling when N-5 where N is the max col length
 set background=dark " Dark knight a en je a ye
@@ -28,7 +28,7 @@ set background=dark " Dark knight a en je a ye
 set colorcolumn=80 " This is the vertical line you're seeing
 set clipboard+=unnamedplus " Sets the clipboard to unnamedplus, the system's clipboard
 set list lcs=tab:\|\  " Shows indent line when using tab
-set updatetime=1000 " TODO: WHat is this?0
+set updatetime=1000 " update time
 set mouse=nvi " Enabling mouse for normal, visual, and insert mode
 set nowrap " Wrapping bad
 "set nocompatible " For Vimwiki

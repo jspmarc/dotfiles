@@ -26,6 +26,6 @@ function! RunFile()
         let fpath = filename
         let run = '!zathura '.fpath
     endif
-    
+
     execute run
 endfunction

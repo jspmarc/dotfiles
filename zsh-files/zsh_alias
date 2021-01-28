@@ -214,6 +214,7 @@ alias hexedit="hexedit --color"
 alias pls="sudo"
 alias plz="sudo"
 alias rm='rm -I'
+#alias stegsolve="java -jar ~/.local/bin/StegSolve-1.4.jar"
 
 alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 
@@ -221,12 +222,14 @@ alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias dfs=dotfiles
 
+alias shutdown='wsl.exe --shutdown'
+
 # window swallowing
-alias vlc='ws vlc'
-alias sxiv='ws sxiv'
-alias okular='ws okular'
-alias zathura='ws zathura'
-alias feh='ws feh'
-alias spotify='ws spotify'
-alias libreoffice='ws libreoffice'
-alias scrcpy='ws scrcpy'
+#alias vlc='ws vlc'
+#alias sxiv='ws sxiv'
+#alias okular='ws okular'
+#alias zathura='ws zathura'
+#alias feh='ws feh'
+#alias spotify='ws spotify'
+#alias libreoffice='ws libreoffice'
+#alias scrcpy='ws scrcpy'

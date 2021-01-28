@@ -33,10 +33,10 @@ case "$file" in
         perl "$file";;
     *.cpp|*.c)
         if [[ -z "$2" ]]; then
-            echo "Standard not specified, using c18 for C and c++17 for C++"
+            echo "Standard not specified, using c18 for C and c++20 for C++"
             case "$file" in
                 *.cpp)
-                    g++ -std=c++17 -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
+                    g++ -std=c++20 -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
                     ./"$base";;
                 *.c)
                     gcc -std=c18 -Wshadow -Wall -o "$base" "$file" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && \
@@ -52,5 +52,9 @@ case "$file" in
                     ./"$base";;
             esac
         fi;;
+    *.js)
+        node "$file";;
+    *.ts)
+        tsc || tsc "$file";;
     *) handlebang;;
 esac

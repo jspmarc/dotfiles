@@ -18,9 +18,12 @@
         "-synctex=1"
     ],
     "latex.build.onSave": true,
+    "texlab.path": "/bin/texlab",
 
     "java.home": "/usr/lib/jvm/default-runtime",
 
     "rust.clippy_preference": "on",
-    "java.errors.incompleteClasspath.severity": "ignore"
+    "java.errors.incompleteClasspath.severity": "ignore",
+
+    "coc.preferences.floatActions": false
 }
