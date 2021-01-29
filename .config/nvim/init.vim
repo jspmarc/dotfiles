@@ -79,29 +79,44 @@ Plug 'jsit/toast.vim'
 call plug#end()
 " End plug vim
 
+let config_dir = stdpath('config')
 
 " =============================================================================
 " theme settings
 " =============================================================================
-source $HOME/.config/nvim/plugin-settings/colorscheme.vim
+"source $HOME/.config/nvim/plugin-settings/colorscheme.vim
+execute 'source ' . config_dir . '/plugin-settings/colorscheme.vim'
 
 " =============================================================================
 " Plugin settings
 " =============================================================================
-source $HOME/.config/nvim/plugin-settings/airline.vim
-source $HOME/.config/nvim/plugin-settings/NERDTree.vim
-source $HOME/.config/nvim/plugin-settings/NERDCommenter.vim
-source $HOME/.config/nvim/plugin-settings/mundo.vim
-source $HOME/.config/nvim/plugin-settings/IndentLine.vim
-source $HOME/.config/nvim/plugin-settings/Startify.vim
-source $HOME/.config/nvim/plugin-settings/CocNvim.vim
-source $HOME/.config/nvim/plugin-settings/CocPrettier.vim
-source $HOME/.config/nvim/plugin-settings/floaterm.vim
-source $HOME/.config/nvim/plugin-settings/vimtex.vim
-source $HOME/.config/nvim/plugin-settings/FZF.vim
-source $HOME/.config/nvim/plugin-settings/bracey.vim
-"source $HOME/.config/nvim/plugin-settings/VimWiki.vim
-"source $HOME/.config/nvim/plugin-settings/Siginit.vim
+"source $HOME/.config/nvim/plugin-settings/airline.vim
+"source $HOME/.config/nvim/plugin-settings/NERDTree.vim
+"source $HOME/.config/nvim/plugin-settings/NERDCommenter.vim
+"source $HOME/.config/nvim/plugin-settings/mundo.vim
+"source $HOME/.config/nvim/plugin-settings/IndentLine.vim
+"source $HOME/.config/nvim/plugin-settings/Startify.vim
+"source $HOME/.config/nvim/plugin-settings/CocNvim.vim
+"source $HOME/.config/nvim/plugin-settings/CocPrettier.vim
+"source $HOME/.config/nvim/plugin-settings/floaterm.vim
+"source $HOME/.config/nvim/plugin-settings/vimtex.vim
+"source $HOME/.config/nvim/plugin-settings/FZF.vim
+"source $HOME/.config/nvim/plugin-settings/bracey.vim
+""source $HOME/.config/nvim/plugin-settings/VimWiki.vim
+""source $HOME/.config/nvim/plugin-settings/Siginit.vim
+
+execute 'source ' . config_dir . '/plugin-settings/airline.vim'
+execute 'source ' . config_dir . '/plugin-settings/NERDTree.vim'
+execute 'source ' . config_dir . '/plugin-settings/NERDCommenter.vim'
+execute 'source ' . config_dir . '/plugin-settings/mundo.vim'
+execute 'source ' . config_dir . '/plugin-settings/IndentLine.vim'
+execute 'source ' . config_dir . '/plugin-settings/Startify.vim'
+execute 'source ' . config_dir . '/plugin-settings/CocNvim.vim'
+execute 'source ' . config_dir . '/plugin-settings/CocPrettier.vim'
+execute 'source ' . config_dir . '/plugin-settings/floaterm.vim'
+execute 'source ' . config_dir . '/plugin-settings/vimtex.vim'
+execute 'source ' . config_dir . '/plugin-settings/FZF.vim'
+execute 'source ' . config_dir . '/plugin-settings/bracey.vim'
 
 " -----------------------------------------------------------------------------
 " Coc
@@ -153,13 +168,15 @@ command! Scratch lua require'test'.asd()
 " =============================================================================
 " Vim settings
 " =============================================================================
-source $HOME/.config/nvim/settings.vim
+"source $HOME/.config/nvim/settings.vim
+execute 'source ' . config_dir . '/settings.vim'
 "lua require'settings'
 
 " =============================================================================
 " Custom functions
 " =============================================================================
-source $HOME/.config/nvim/myFuncions.vim
+"source $HOME/.config/nvim/myFuncions.vim
+execute 'source ' . config_dir . '/myFuncions.vim'
 
 " =============================================================================
 " Commands to run everytime buffer changes
@@ -194,7 +211,8 @@ autocmd BufEnter *.notal setfiletype notal
 " =============================================================================
 " Keybindings
 " =============================================================================
-source $HOME/.config/nvim/keybindings.vim
+"source $HOME/.config/nvim/keybindings.vim
+execute 'source ' . config_dir . '/keybindings.vim'
 " Plugins with custom keybindings:
 " Mundo
 " NERDCommenter
