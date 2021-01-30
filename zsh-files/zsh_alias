@@ -215,6 +215,7 @@ alias pls="sudo"
 alias plz="sudo"
 alias rm='rm -I'
 #alias stegsolve="java -jar ~/.local/bin/StegSolve-1.4.jar"
+alias RsaCtfTool="py ~/sources/RsaCtfTool/RsaCtfTool.py"
 
 alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 

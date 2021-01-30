@@ -23,6 +23,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neovim/nvim-lspconfig'
 "Plug 'nvim-lua/completion-nvim'
 
+" Tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Syntax highlighting
 Plug 'chrisbra/csv.vim'
 Plug 'yggdroot/indentline'
@@ -160,17 +163,30 @@ endif
 "set completeopt=menuone,noinsert,noselect
 "let g:completion_matching_list = ['exact', 'substring', 'fuzzy']
 
-" =============================================================================
-" lua
-" =============================================================================n
-command! Scratch lua require'test'.asd()
+" -----------------------------------------------------------------------------
+" Nvim Tree-Sitter
+" -----------------------------------------------------------------------------
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true,
+        custom_captures = {
+          -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+          ["foo.bar"] = "Identifier",
+        },
+    },
+    indent = {
+        enable = true,
+    }
+}
+EOF
 
 " =============================================================================
 " Vim settings
 " =============================================================================
 "source $HOME/.config/nvim/settings.vim
-execute 'source ' . config_dir . '/settings.vim'
-"lua require'settings'
+"execute 'source ' . config_dir . '/settings.vim'
+lua require'settings'
 
 " =============================================================================
 " Custom functions

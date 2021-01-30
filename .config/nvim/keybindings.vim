@@ -176,3 +176,9 @@ nnoremap <Leader>g[ :GitGutterPrevHunk<CR>
 nnoremap <Leader>gp :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gg :GitGutterStageHunk<CR>
 nnoremap <Leader>gu :GitGutterUndoHunk<CR>
+
+" -----------------------------------------------------------------------------
+" Nvim Tree-Sitter
+" -----------------------------------------------------------------------------
+nnoremap <leader>fo :foldopen<CR>
+nnoremap <leader>fc :foldclose<CR>
