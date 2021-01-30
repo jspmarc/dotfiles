@@ -2,7 +2,8 @@ local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
 
 local function set_opts(scope, key, value)
     scopes[scope][key] = value
-    if scope ~= 'o' then
+    if scope ~= 'o' then -- some buffer option actually need to be set globally
+                         -- too, might as well do the same for window options
         scopes['o'][key] = value
     end
 end
@@ -10,8 +11,6 @@ end
 ----------------------------------
 ---------- Vim settings ----------
 ----------------------------------
-local home = '/home/josep/'
-
 set_opts('o', 'guicursor',
     'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0') -- nice cursors
 
@@ -44,7 +43,7 @@ set_opts('b', 'swapfile', false) -- don't use swapfiles
 set_opts('o', 'backup', false) -- no backup
 set_opts('o', 'writebackup', false) -- no backup
 
-set_opts('o', 'undodir', home .. '.vim/undodir/') -- set undo dir to ~/.vim/undodir
+set_opts('o', 'undodir', os.getenv('HOME') .. '/.vim/undodir/') -- set undo dir to ~/.vim/undodir
 set_opts('b', 'undofile', true) -- enable undofiles for undotree
 
 set_opts('w', 'foldmethod', 'expr')
@@ -58,3 +57,4 @@ set_opts('o', 'hidden', true) -- enable modified buffers in background
 set_opts('o', 'shortmess', 'flmnrwx') -- shorten messages on airline
 set_opts('o', 'autochdir', true) -- autochdir on changing buffer
 set_opts('o', 'autowrite', true) -- autosave on leaving nvim
+set_opts('o', 'pyxversion', 3) -- pythonx version

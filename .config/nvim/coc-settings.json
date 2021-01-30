@@ -1,6 +1,4 @@
 {
-    //"clangd.semanticHighlighting": true,
-
     "coc.preferences.formatOnSaveFiletypes": [
         "javascript",
         "typescript",
