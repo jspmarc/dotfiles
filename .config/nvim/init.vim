@@ -1,10 +1,3 @@
-"         _ __  __
-"        | |  \/  |    Josep Macello
-"     _  | | |\/| |    https://github.com/jspmarc
-"    | |_| | |  | |    https://linkedin.com/in/josepmk1
-"     \___/|_|  |_|
-"
-
 " __   __   __     __    __     ______     ______
 "/\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\
 "\ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \____
@@ -27,12 +20,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Syntax highlighting
-Plug 'chrisbra/csv.vim'
+"Plug 'chrisbra/csv.vim'
 Plug 'yggdroot/indentline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 "Plug 'dag/vim-fish'
-Plug 'ap/vim-css-color'
-Plug 'sheerun/vim-polyglot'
+"Plug 'ap/vim-css-color'
+"Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
 
 " Git integration
@@ -86,28 +79,14 @@ let config_dir = stdpath('config')
 " =============================================================================
 " theme settings
 " =============================================================================
-"source $HOME/.config/nvim/plugin-settings/colorscheme.vim
-execute 'source ' . config_dir . '/plugin-settings/colorscheme.vim'
+lua require'theme'
 
 " =============================================================================
 " Plugin settings
 " =============================================================================
-"source $HOME/.config/nvim/plugin-settings/airline.vim
-"source $HOME/.config/nvim/plugin-settings/NERDTree.vim
-"source $HOME/.config/nvim/plugin-settings/NERDCommenter.vim
-"source $HOME/.config/nvim/plugin-settings/mundo.vim
-"source $HOME/.config/nvim/plugin-settings/IndentLine.vim
-"source $HOME/.config/nvim/plugin-settings/Startify.vim
-"source $HOME/.config/nvim/plugin-settings/CocNvim.vim
-"source $HOME/.config/nvim/plugin-settings/CocPrettier.vim
-"source $HOME/.config/nvim/plugin-settings/floaterm.vim
-"source $HOME/.config/nvim/plugin-settings/vimtex.vim
-"source $HOME/.config/nvim/plugin-settings/FZF.vim
-"source $HOME/.config/nvim/plugin-settings/bracey.vim
-""source $HOME/.config/nvim/plugin-settings/VimWiki.vim
-""source $HOME/.config/nvim/plugin-settings/Siginit.vim
-
-execute 'source ' . config_dir . '/plugin-settings/airline.vim'
+"execute 'source ' . config_dir . '/plugin-settings/airline.vim'
+"execute 'source ' . config_dir . '/plugin-settings/bracey.vim'
+lua require'plugins'
 execute 'source ' . config_dir . '/plugin-settings/NERDTree.vim'
 execute 'source ' . config_dir . '/plugin-settings/NERDCommenter.vim'
 execute 'source ' . config_dir . '/plugin-settings/mundo.vim'
@@ -118,7 +97,10 @@ execute 'source ' . config_dir . '/plugin-settings/CocPrettier.vim'
 execute 'source ' . config_dir . '/plugin-settings/floaterm.vim'
 execute 'source ' . config_dir . '/plugin-settings/vimtex.vim'
 execute 'source ' . config_dir . '/plugin-settings/FZF.vim'
-execute 'source ' . config_dir . '/plugin-settings/bracey.vim'
+
+" Plugins with its settings set:
+" - siginit
+" - vimwiki
 
 " -----------------------------------------------------------------------------
 " Coc
@@ -183,8 +165,6 @@ EOF
 " =============================================================================
 " Vim settings
 " =============================================================================
-"source $HOME/.config/nvim/settings.vim
-"execute 'source ' . config_dir . '/settings.vim'
 lua require'settings'
 
 " =============================================================================
@@ -205,7 +185,6 @@ execute 'source ' . config_dir . '/myFuncions.vim'
 " =============================================================================
 " Custom commands for different filetypes
 " =============================================================================
-"autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
@@ -216,9 +195,6 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType tex IndentLinesDisable
-"autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-"autocmd FileType vimwiki IndentLinesDisable
-"autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 autocmd BufEnter *.notal setfiletype notal
@@ -226,15 +202,4 @@ autocmd BufEnter *.notal setfiletype notal
 " =============================================================================
 " Keybindings
 " =============================================================================
-"source $HOME/.config/nvim/keybindings.vim
-execute 'source ' . config_dir . '/keybindings.vim'
-" Plugins with custom keybindings:
-" Mundo
-" NERDCommenter
-" gigutter
-" Fugitive
-" FZF-vim
-" vim-easymotion
-" floaterm
-" fzf-checkout.vim
-" Coc
+lua require'keybinds'

@@ -93,8 +93,8 @@ map <leader>o :call RunFile()<CR>
 " CoC
 " -----------------------------------------------------------------------------
 " Opening a new coc diagnostic window
-nnoremap <leader>e :CocList diagnostics<CR>
-nnoremap <leader>E :CocDiagnostics<CR>
+nnoremap <leader>e :CocDiagnostics<CR>
+nnoremap <leader>E :CocList diagnostics<CR>
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -162,14 +162,14 @@ nnoremap <Leader>gd :G diff<CR>
 nnoremap <Leader>gc :GBranch<CR>
 
 " -----------------------------------------------------------------------------
-" fzf-checkout
+" fzf
 " -----------------------------------------------------------------------------
 " Opens fzf BLines
 nmap <C-f> :BLines<CR>
 nmap <C-p> :Buffers<CR>
 
 " -----------------------------------------------------------------------------
-" fzf-checkout
+" git gutter
 " -----------------------------------------------------------------------------
 nnoremap <Leader>g] :GitGutterNextHunk<CR>
 nnoremap <Leader>g[ :GitGutterPrevHunk<CR>
