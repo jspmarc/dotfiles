@@ -1,7 +1,7 @@
 local api, g = vim.api, vim.g
 
 local function map(mode, from, to, opts)
-    local options = {noremap = true}
+    local options = {noremap = true, silent = true}
     if opts then options = vim.tbl_extend('force', options, opts) end -- :h vim.tbl_extend()
     api.nvim_set_keymap(mode, from, to, options)
 end
@@ -13,7 +13,7 @@ end
 -- leader maps
 -- Leader is still backslash ( '\' , mapped to backspace)
 map('n', '<space>', '<leader><leader>', {noremap = false})
-map('', '<BS>', '<leader>', {noremap = false, silent = false})
+map('', '<BS>', '<leader>', {noremap = false})
 
 -- double Esc to return to normal mode from term mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>')
@@ -118,6 +118,8 @@ map('n', 'gi', '<Plug>(coc-implementation)', {noremap = false})
 map('n', 'gr', '<Plug>(coc-references)', {noremap = false})
 
 map('i', '<C-space>', 'coc#refresh()', {expr = true})
+
+map('n', 'K', ':call <SID>show_documentation()<CR>')
 
 -- CoC-Prettier
 map('v', '<leader>fp', '<Plug>(coc-format-selected)')

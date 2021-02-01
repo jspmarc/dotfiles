@@ -89,4 +89,4 @@ hi def link operatorInteger Operator
 hi def link operatorBil     Operator
 hi def link operatorRelasi  Operator
 hi def link operatorLogika  Operator
-hi def link operatorArit  Operator
+hi def link operatorArit    Operator

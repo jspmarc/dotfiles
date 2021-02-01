@@ -1,4 +1,7 @@
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
+-- o = global options
+-- b = local buffer options
+-- w = local window options
 local api = vim.api
 
 local function set_opts(scope, key, value)
@@ -20,6 +23,7 @@ set_opts('b', 'shiftwidth', 4) -- use 4 spacings
 
 set_opts('w', 'nu', true) -- line number
 set_opts('w', 'rnu', true) -- relative line number
+set_opts('o', 'signcolumn', 'number') -- always show signcolumn
 
 set_opts('w', 'wrap', false) -- disable line wrapping
 set_opts('w', 'linebreak', true) -- nice line wrapping
@@ -30,7 +34,7 @@ set_opts('w', 'colorcolumn', '80') -- draw vertical line at 80 cols
 
 --set_opts('w', 'list', true) -- ``helper'' for 'lcs'
 --set_opts('o', 'lcs', [[tab:\|\ ]]) -- shows indent line when using tabs
-api.nvim_command([[set list lcs=tab:\|\  " Shows indent line when using tab]])
+api.nvim_command([[set list lcs=tab:\|\ ]]) -- Shows indent line when using tab
 
 set_opts('o', 'ignorecase', true) -- ignore case when searching
 set_opts('o', 'smartcase', true) -- don't ignore case when searching capitilized character
@@ -41,6 +45,7 @@ set_opts('o', 'writebackup', false) -- no backup
 set_opts('b', 'swapfile', false) -- don't use swapfiles
 
 set_opts('o', 'undodir', os.getenv('HOME') .. '/.vim/undodir/') -- set undo dir to ~/.vim/undodir
+                                                                -- using $HOME for compat with powershell
 set_opts('b', 'undofile', true) -- enable undofiles for undotree
 
 set_opts('o', 'foldlevelstart', 0) -- fold all folds on opening buffers
@@ -57,3 +62,6 @@ set_opts('o', 'autowrite', true) -- autosave on leaving nvim
 set_opts('o', 'pyxversion', 3) -- pythonx version
 set_opts('o', 'guicursor',
     'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0') -- nice cursors
+set_opts('o', 'completeopt', 'menuone,noinsert,noselect') -- completion box
+-- provide custom statusline for lightline.vim and vim-airline
+set_opts('w', 'statusline', [[%{coc#status()}%{get(b:, 'coc_current_function', '')}]])

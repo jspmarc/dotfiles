@@ -14,7 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Nvim LSP
 "Plug 'neovim/nvim-lspconfig'
-"Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/completion-nvim'
 
 " Tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -76,35 +76,18 @@ call plug#end()
 
 let config_dir = stdpath('config')
 
-" =============================================================================
-" theme settings
-" =============================================================================
 lua require'theme'
-
-" =============================================================================
-" Plugin settings
-" =============================================================================
-"execute 'source ' . config_dir . '/plugin-settings/airline.vim'
-"execute 'source ' . config_dir . '/plugin-settings/bracey.vim'
 lua require'plugins'
-execute 'source ' . config_dir . '/plugin-settings/NERDTree.vim'
-execute 'source ' . config_dir . '/plugin-settings/NERDCommenter.vim'
-execute 'source ' . config_dir . '/plugin-settings/mundo.vim'
-execute 'source ' . config_dir . '/plugin-settings/IndentLine.vim'
+lua require'settings'
+lua require'keybinds'
+
 execute 'source ' . config_dir . '/plugin-settings/Startify.vim'
-execute 'source ' . config_dir . '/plugin-settings/CocNvim.vim'
-execute 'source ' . config_dir . '/plugin-settings/CocPrettier.vim'
-execute 'source ' . config_dir . '/plugin-settings/floaterm.vim'
-execute 'source ' . config_dir . '/plugin-settings/vimtex.vim'
-execute 'source ' . config_dir . '/plugin-settings/FZF.vim'
+"execute 'source ' . config_dir . '/plugin-settings/VimWiki.vim'
+execute 'source ' . config_dir . '/myFuncions.vim'
 
-" Plugins with its settings set:
-" - siginit
-" - vimwiki
-
-" -----------------------------------------------------------------------------
-" Coc
-" -----------------------------------------------------------------------------
+" =============================================================================
+" CoC
+" =============================================================================
 " Used for <tab> completion
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -131,56 +114,13 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" -----------------------------------------------------------------------------
-" Nvim LSP
-" -----------------------------------------------------------------------------
-"lua require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
-"lua require'lspconfig'.texlab.setup{on_attach=require'completion'.on_attach}
-"lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-
-" -----------------------------------------------------------------------------
-" Nvim Completion
-" -----------------------------------------------------------------------------
-"set completeopt=menuone,noinsert,noselect
-"let g:completion_matching_list = ['exact', 'substring', 'fuzzy']
-
-" -----------------------------------------------------------------------------
-" Nvim Tree-Sitter
-" -----------------------------------------------------------------------------
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-    highlight = {
-        enable = true,
-        custom_captures = {
-          -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-          ["foo.bar"] = "Identifier",
-        },
-    },
-    indent = {
-        enable = true,
-    }
-}
-EOF
-
-" =============================================================================
-" Vim settings
-" =============================================================================
-lua require'settings'
-
-" =============================================================================
-" Custom functions
-" =============================================================================
-"source $HOME/.config/nvim/myFuncions.vim
-execute 'source ' . config_dir . '/myFuncions.vim'
-
-" =============================================================================
-" Commands to run everytime buffer changes
-" =============================================================================
-"augroup fname_fpath
-    "au!
-    "autocmd BufEnter * let g:filename = expand('%:t')
-    ""autocmd BufEnter * let g:fpath = expand('%:p:h').'/' " Not needed since using 'set autochdir'
-"augroup END
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " =============================================================================
 " Custom commands for different filetypes
@@ -198,8 +138,3 @@ autocmd FileType tex IndentLinesDisable
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 autocmd BufEnter *.notal setfiletype notal
-
-" =============================================================================
-" Keybindings
-" =============================================================================
-lua require'keybinds'
