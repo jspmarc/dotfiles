@@ -23,7 +23,7 @@ set_opts('b', 'shiftwidth', 4) -- use 4 spacings
 
 set_opts('w', 'nu', true) -- line number
 set_opts('w', 'rnu', true) -- relative line number
-set_opts('o', 'signcolumn', 'number') -- always show signcolumn
+set_opts('w', 'signcolumn', 'yes:1') -- always show signcolumn
 
 set_opts('w', 'wrap', false) -- disable line wrapping
 set_opts('w', 'linebreak', true) -- nice line wrapping
@@ -48,7 +48,7 @@ set_opts('o', 'undodir', os.getenv('HOME') .. '/.vim/undodir/') -- set undo dir 
                                                                 -- using $HOME for compat with powershell
 set_opts('b', 'undofile', true) -- enable undofiles for undotree
 
-set_opts('o', 'foldlevelstart', 0) -- fold all folds on opening buffers
+set_opts('o', 'foldlevelstart', 99) -- fold all folds on opening buffers
 set_opts('w', 'foldmethod', 'expr') -- treesitter
 set_opts('w', 'foldexpr', [[nvim_treesitter#foldexpr()]]) -- treesitter
 
@@ -63,5 +63,7 @@ set_opts('o', 'pyxversion', 3) -- pythonx version
 set_opts('o', 'guicursor',
     'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0') -- nice cursors
 set_opts('o', 'completeopt', 'menuone,noinsert,noselect') -- completion box
+set_opts('b', 'omnifunc', 'v:lua.vim.lsp.omnifunc') -- nvim-lsp 'setup'
+
 -- provide custom statusline for lightline.vim and vim-airline
-set_opts('w', 'statusline', [[%{coc#status()}%{get(b:, 'coc_current_function', '')}]])
+--set_opts('w', 'statusline', [[%{coc#status()}%{get(b:, 'coc_current_function', '')}]])

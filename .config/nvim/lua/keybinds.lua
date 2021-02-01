@@ -1,4 +1,4 @@
-local api, g = vim.api, vim.g
+local api = vim.api
 
 local function map(mode, from, to, opts)
     local options = {noremap = true, silent = true}
@@ -56,27 +56,6 @@ map('n', '<leader>_', ':exe "vertical resize -10"<CR>')
 map('n', '<leader>=', ':exe "resize +5"<CR>')
 map('n', '<leader>-', ':exe "resize -5"<CR>')
 
--- tab-related
---map('n', '<A-e>', ':tabn<CR>')
---map('n', '<A-1>', ':tabp<CR>')
---map('n', '<A-t>', ':tabnew<CR>')
---map('n', '<A-w>', ':tabclose<CR>')
-
---map('i', '<A-e>', ':tabn<CR>')
---map('i', '<A-1>', ':tabp<CR>')
---map('i', '<A-t>', ':tabnew<CR>')
---map('i', '<A-w>', ':tabclose<CR>')
-
---map('t', '<A-e>', ':tabn<CR>')
---map('t', '<A-1>', ':tabp<CR>')
---map('t', '<A-t>', ':tabnew<CR>')
---map('t', '<A-w>', ':tabclose<CR>')
-
---map('v', '<A-e>', ':tabn<CR>')
---map('v', '<A-1>', ':tabp<CR>')
---map('v', '<A-t>', ':tabnew<CR>')
---map('v', '<A-w>', ':tabclose<CR>')
-
 -- Toggle settings
 map('', '<A-s>', ':set hls!<CR>')
 map('', '<A-z>', ':set wrap!<CR>')
@@ -88,6 +67,10 @@ map('v', '>', '>gv')
 -- Automatically compile
 map('n', '<leader>c', ':call CompileFile()<CR>')
 map('n', '<leader>o', ':call RunFile()<CR>')
+
+-- Fold
+map('n', '<leader>fc', ':foldclose<CR>')
+map('n', '<leader>fo', ':foldopen<CR>')
 
 ----------------------------------
 ------------ plugins -------------
@@ -102,10 +85,10 @@ Plugins with custom keybindings:
 - fugtive.vim
 - FZF
 - git gutter
-- NVIM Tree-Sitter
 - NERDTree
 - NERDCommenter
 - Mundo
+- Vimspector
 --]]
 
 --- CoC ---
@@ -169,10 +152,6 @@ map('n', '<leader>gp', ':GitGutterPreviewHunk<CR>')
 map('n', '<leader>gg', ':GitGutterStageHunk<CR>')
 map('n', '<leader>gu', ':GitGutterUndoHunk<CR>')
 
---- NVIM Tree-Sitter ---
-map('n', '<leader>fc', ':foldclose<CR>')
-map('n', '<leader>fo', ':foldopen<CR>')
-
 --- NERDTree ---
 map('n', '<C-b>', ':NERDTreeToggle<CR>')
 
@@ -182,3 +161,15 @@ map('v', '<C-_>', '<Plug>NERDCommenterToggle', {noremap = false})
 
 --- Mundo ---
 map('n', '<C-z>', ':MundoToggle<CR>')
+
+--- Vimspector ---
+map('n','<leader>drd', ':call vimspector#Launch()<CR>')
+map('n','<leader>dl', '<Plug>VimspectorStepInto', {noremap = false})
+map('n','<leader>dj', '<Plug>VimspectorStepOver', {noremap = false})
+map('n','<leader>dk', '<Plug>VimspectorStepOut', {noremap = false})
+map('n','<leader>d0', '<Plug>VimspectorRestart', {noremap = false})
+map('n','<leader>dc', ':call vimspector#Continue()<CR>')
+map('n', '<leader>drc', '<Plug>VimspectorRunToCursor', {noremap = false})
+map('n', '<leader>dbb', '<Plug>VimspectorToggleBreakpoint', {noremap = false})
+map('n', '<leader>dbc', '<Plug>VimspectorToggleConditionalBreakpoint', {noremap = false})
+map('n', '<leader>de', ':VimspectorReset<CR>', {noremap = false})

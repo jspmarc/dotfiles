@@ -9,58 +9,32 @@
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
-" CoC
+Plug 'turbio/bracey.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Nvim LSP
-"Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-
-" Tree-sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Syntax highlighting
-"Plug 'chrisbra/csv.vim'
-Plug 'yggdroot/indentline'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-"Plug 'dag/vim-fish'
-"Plug 'ap/vim-css-color'
-"Plug 'sheerun/vim-polyglot'
-Plug 'lervag/vimtex'
-
-" Git integration
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'stsewd/fzf-checkout.vim'
-
-" Undo things
-Plug 'simnalamburt/vim-mundo'
-
-" Motion
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-
-" File explorer
-Plug 'scrooloose/nerdtree'
-
-" Misc
-Plug 'scrooloose/nerdcommenter'
-Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'yggdroot/indentline'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'lervag/vimtex'
+Plug 'simnalamburt/vim-mundo'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'houtsnip/vim-emacscommandline'
 Plug 'johannesthyssen/vim-signit'
-Plug 'turbio/bracey.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'psliwka/vim-smoothie'
+Plug 'puremourning/vimspector'
 
-" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Themes
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
@@ -74,12 +48,12 @@ Plug 'jsit/toast.vim'
 call plug#end()
 " End plug vim
 
-let config_dir = stdpath('config')
-
 lua require'theme'
-lua require'plugins'
 lua require'settings'
 lua require'keybinds'
+lua require'plugins'
+
+let config_dir = stdpath('config')
 
 execute 'source ' . config_dir . '/plugin-settings/Startify.vim'
 "execute 'source ' . config_dir . '/plugin-settings/VimWiki.vim'
