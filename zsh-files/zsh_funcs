@@ -39,9 +39,9 @@ ffont() {
 
 vim() {
     if [[ -z $1 ]]; then
-        nvim +:Startify +:IndentLinesDisable
+        nvim +:Dashboard +:IndentLinesDisable
     else
-        nvim $1
+        nvim "$@"
     fi
 }
 

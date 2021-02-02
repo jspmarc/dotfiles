@@ -9,53 +9,56 @@
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
-Plug 'turbio/bracey.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'yggdroot/indentline'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'lervag/vimtex'
-Plug 'simnalamburt/vim-mundo'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'ryanoasis/vim-devicons'
-Plug 'mhinz/vim-startify'
-Plug 'houtsnip/vim-emacscommandline'
-Plug 'johannesthyssen/vim-signit'
-Plug 'voldikss/vim-floaterm'
-Plug 'psliwka/vim-smoothie'
-Plug 'puremourning/vimspector'
+Plug 'turbio/bracey.vim' " local 'deployment' for HTML file
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
+Plug 'glepnir/dashboard-nvim' " pretty start menu
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
+Plug 'junegunn/fzf.vim' " select stuff using FZF
+Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
+Plug 'scrooloose/nerdtree' " File explorer
+Plug 'scrooloose/nerdcommenter' " Toggle comment
+Plug 'romgrk/nvim-treesitter-context' " Always show context
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter
+Plug 'yggdroot/indentline' " Show spaces indent lines
+Plug 'tpope/vim-fugitive' " show git status in statusline and other git integration
+Plug 'airblade/vim-gitgutter' " Manage changes in hunks
+Plug 'lervag/vimtex' " vim syntax highlighting for tex
+Plug 'simnalamburt/vim-mundo' " browse past saves
+Plug 'easymotion/vim-easymotion' " jump jump
+Plug 'tpope/vim-surround' " modify things inside brackets and quotations faster
+Plug 'ryanoasis/vim-devicons' " pretty icons for nerdtree
+"Plug 'mhinz/vim-startify' " pretty start menu
+Plug 'houtsnip/vim-emacscommandline' " emacs key binding for the command line
+"Plug 'johannesthyssen/vim-signit' " sign files with name and logo
+Plug 'voldikss/vim-floaterm' " floating terminal
+Plug 'psliwka/vim-smoothie' " smooth scroll
+Plug 'puremourning/vimspector' " debugger
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'morhetz/gruvbox'
-Plug 'tomasiser/vim-code-dark'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'jsit/toast.vim'
-"Plug 'tomasr/molokai'
+" NVIM Lsp
+"Plug 'nvim-lua/completion-nvim' " Completion for Nvim LSP
+"Plug 'glepnir/lspsaga.nvim' " cool features for nvim lsp
+"Plug 'neovim/nvim-lspconfig' " The Nvim LSP
+
+Plug 'vim-airline/vim-airline' " pretty status line
+Plug 'vim-airline/vim-airline-themes' " pretty status line, now prettier
+Plug 'morhetz/gruvbox' " gruvbox color scheme
+"Plug 'tomasiser/vim-code-dark'
+"Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 "Plug 'mhartington/oceanic-next'
-"Plug 'arcticicestudio/nord-vim'
-"Plug 'chriskempson/base16-vim'
 
 " Initialize plugin system
 call plug#end()
 " End plug vim
 
+lua require'helpers'
 lua require'theme'
 lua require'settings'
 lua require'keybinds'
 lua require'plugins'
 
 let config_dir = stdpath('config')
-
-execute 'source ' . config_dir . '/plugin-settings/Startify.vim'
+"execute 'source ' . config_dir . '/plugin-settings/Startify.vim'
 "execute 'source ' . config_dir . '/plugin-settings/VimWiki.vim'
 execute 'source ' . config_dir . '/myFuncions.vim'
 

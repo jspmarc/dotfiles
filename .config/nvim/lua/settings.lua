@@ -1,16 +1,6 @@
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
--- o = global options
--- b = local buffer options
--- w = local window options
-local api = vim.api
-
-local function set_opts(scope, key, value)
-    scopes[scope][key] = value
-    if scope ~= 'o' then -- some buffer option actually need to be set globally
-                         -- too, might as well do the same for window options
-        scopes['o'][key] = value
-    end
-end
+-----------------------------------------------
+------------ vim-related settings -------------
+-----------------------------------------------
 
 set_opts('o', 'background', 'dark')
 set_opts('o', 'termguicolors', true)
@@ -34,7 +24,7 @@ set_opts('w', 'colorcolumn', '80') -- draw vertical line at 80 cols
 
 --set_opts('w', 'list', true) -- ``helper'' for 'lcs'
 --set_opts('o', 'lcs', [[tab:\|\ ]]) -- shows indent line when using tabs
-api.nvim_command([[set list lcs=tab:\|\ ]]) -- Shows indent line when using tab
+vim.api.nvim_command([[set list lcs=tab:\|\ ]]) -- Shows indent line when using tab
 
 set_opts('o', 'ignorecase', true) -- ignore case when searching
 set_opts('o', 'smartcase', true) -- don't ignore case when searching capitilized character
@@ -64,6 +54,3 @@ set_opts('o', 'guicursor',
     'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0') -- nice cursors
 set_opts('o', 'completeopt', 'menuone,noinsert,noselect') -- completion box
 set_opts('b', 'omnifunc', 'v:lua.vim.lsp.omnifunc') -- nvim-lsp 'setup'
-
--- provide custom statusline for lightline.vim and vim-airline
---set_opts('w', 'statusline', [[%{coc#status()}%{get(b:, 'coc_current_function', '')}]])
