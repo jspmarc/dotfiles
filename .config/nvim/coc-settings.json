@@ -19,9 +19,22 @@
     "texlab.path": "/bin/texlab",
 
     "java.home": "/usr/lib/jvm/default-runtime",
-
-    "rust.clippy_preference": "on",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "/usr/lib/jvm/java-11-openjdk"
+        },
+        {
+            "name": "JavaSE-14",
+            "path": "/usr/lib/jvm/default-runtime",
+            "default": true
+        }
+    ],
     "java.errors.incompleteClasspath.severity": "ignore",
+    "java.debug.logLevel": "verbose",
+    "java.debug.settings.console": "integratedTerminal",
+    "java.import.maven.enabled": true,
+    "java.trace.server": "verbose",
 
     "coc.preferences.floatActions": false
 }

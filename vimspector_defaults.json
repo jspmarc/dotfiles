@@ -1,0 +1,37 @@
+{
+    "configurations": {
+        "Default C/C++": {
+            "adapter": "vscode-cpptools",
+            "configuration": {
+                "request": "launch",
+                "program": "${workspaceRoot}/a",
+                "args": ["-nx", "-nh"],
+                "cwd": "${workspaceRoot}",
+                "stopAtEntry": true,
+                "MIMode": "gdb"
+            }
+        },
+        "Default Node.js": {
+            "adapter": "vscode-node",
+            "configuration": {
+                "request": "launch",
+                "protocol": "auto",
+                "stopOnEntry": true,
+                "console": "integratedTerminal",
+                "program": "${workspaceRoot}/main.js",
+                "cwd": "${workspaceRoot}"
+            }
+        },
+        "Default Python": {
+            "adapter": "debugpy",
+            "configuration": {
+                "request": "launch",
+                "type": "python",
+                "cwd": "${workspaceRoot}",
+                "program": "${file}",
+                "stopOnEntry": true,
+                "console": "integratedTerminal"
+            }
+        }
+    }
+}
