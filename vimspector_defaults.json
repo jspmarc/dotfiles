@@ -4,7 +4,7 @@
             "adapter": "vscode-cpptools",
             "configuration": {
                 "request": "launch",
-                "program": "${workspaceRoot}/a",
+                "program": "${workspaceRoot}/${executableName}",
                 "args": ["-nx", "-nh"],
                 "cwd": "${workspaceRoot}",
                 "stopAtEntry": true,
@@ -18,7 +18,7 @@
                 "protocol": "auto",
                 "stopOnEntry": true,
                 "console": "integratedTerminal",
-                "program": "${workspaceRoot}/main.js",
+                "program": "${workspaceRoot}/${mainJS}",
                 "cwd": "${workspaceRoot}"
             }
         },
@@ -28,7 +28,7 @@
                 "request": "launch",
                 "type": "python",
                 "cwd": "${workspaceRoot}",
-                "program": "${file}",
+                "program": "${mainPy}",
                 "stopOnEntry": true,
                 "console": "integratedTerminal"
             }
