@@ -1,7 +1,7 @@
 vim.g.vimspector_enable_mappings = 'VISUAL_STUDIO'
 
 ----- keybindings -----
-map('n','<leader>drd', ':call vimspector#Launch()<CR>')
+map('n','<leader>dd', ':call vimspector#Launch()<CR>')
 map('n','<leader>dl', '<Plug>VimspectorStepInto', {noremap = false})
 map('n','<leader>dj', '<Plug>VimspectorStepOver', {noremap = false})
 map('n','<leader>dk', '<Plug>VimspectorStepOut', {noremap = false})

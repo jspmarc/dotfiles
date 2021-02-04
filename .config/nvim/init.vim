@@ -10,7 +10,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'turbio/bracey.vim' " local 'deployment' for HTML file
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
 Plug 'glepnir/dashboard-nvim' " pretty start menu
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
 Plug 'junegunn/fzf.vim' " select stuff using FZF
@@ -35,6 +34,9 @@ Plug 'voldikss/vim-floaterm' " floating terminal
 Plug 'psliwka/vim-smoothie' " smooth scroll
 Plug 'puremourning/vimspector' " debugger
 
+" CoC
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
+
 " NVIM Lsp
 "Plug 'nvim-lua/completion-nvim' " Completion for Nvim LSP
 "Plug 'glepnir/lspsaga.nvim' " cool features for nvim lsp
@@ -50,6 +52,9 @@ Plug 'morhetz/gruvbox' " gruvbox color scheme
 " Initialize plugin system
 call plug#end()
 " End plug vim
+
+" completio-nvim goes crazy with this
+let g:completion_confirm_key = "\<C-y>"
 
 lua require'helpers'
 lua require'theme'
@@ -84,7 +89,7 @@ inoremap <silent><expr> <C-j>
       \ coc#refresh()
 inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-"" Use <CR> to choose completion
+" Use <CR> to choose completion
 if exists('*complete_info')
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else

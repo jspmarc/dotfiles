@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local on_attach = require'completion'.on_attach
+local on_attach = require'completion'.on_attach()
 
 --[[ for lua setup ]]--
 local system_name
