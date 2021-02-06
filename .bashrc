@@ -30,7 +30,9 @@ function git_prompt_branch {
         fi
 }
 
-if [ -e /usr/bin/pfetch ]; then
+if [ -e /usr/bin/fet.sh ]; then
+    fet.sh
+elif [ -e /usr/bin/pfetch ]; then
     pfetch
 fi
 
@@ -52,10 +54,6 @@ PS1="$COLOR_ORANGE\A | " # Show current time
 PS1+="$COLOR_RESET" # Resets color
 PS1+="$COLOR_BLUE\W$COLOR_RESET " # Shows current working directory
 PS1+="\e[0;1m$COLOR_GREEN❯$COLOR_RESET " # Shows the ❯ prompt
-
-if [ -e /usr/bin/fet.sh ]; then
-    fet.sh
-fi
 
 source ~/zsh-files/zsh_funcs
 #source ~/zsh-files/.zsh_alias

@@ -45,7 +45,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
 Plug 'vim-airline/vim-airline' " pretty status line
 Plug 'vim-airline/vim-airline-themes' " pretty status line, now prettier
 Plug 'morhetz/gruvbox' " gruvbox color scheme
-"Plug 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 "Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 "Plug 'mhartington/oceanic-next'
 
@@ -53,7 +53,7 @@ Plug 'morhetz/gruvbox' " gruvbox color scheme
 call plug#end()
 " End plug vim
 
-" completio-nvim goes crazy with this
+" completion-nvim goes crazy without this
 let g:completion_confirm_key = "\<C-y>"
 
 lua require'helpers'
