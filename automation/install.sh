@@ -33,6 +33,7 @@ add_pkg "nodejs"
 add_pkg "npm"
 add_pkg "cmake"
 add_pkg "curl"
+add_pkg "fzf"
 
 # Install pkgs and update pakage managers
 if [[ "$pkg_mgr" == "pacman" ]]; then # archlinux based machine
