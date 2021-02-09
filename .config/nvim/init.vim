@@ -15,7 +15,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
 Plug 'junegunn/fzf.vim' " select stuff using FZF
 Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
-Plug 'scrooloose/nerdtree' " File explorer
+"Plug 'scrooloose/nerdtree' " File explorer
 Plug 'scrooloose/nerdcommenter' " Toggle comment
 Plug 'romgrk/nvim-treesitter-context' " Always show context
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter

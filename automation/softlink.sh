@@ -8,9 +8,16 @@ echo "Softlinking files on home dir ("$HOME")..."
 [[ -e "$HOME/.Xmodmap" ]] && mv "$HOME/.Xmodmap" "$HOME/.Xmodmap.bak"
 
 for f in $(ls -a .); do
-    [[ "$f" != "." && "$f" != ".." && "$f" != ".config" && "$f" != "automation" \
-        && "$f" != ".git" && "$f" != ".gitignore" && "$f" != "install-dotfiles.sh" \
-        && "$f" != "README.md" ]] && \
+    # Fix this if statement
+    [[ "$f" != "." && \
+        "$f" != ".." && \
+        "$f" != ".config" && \
+        "$f" != "automation" && \
+        "$f" != ".git" && \
+        "$f" != ".gitignore" && \
+        "$f" != "install-dotfiles.sh" && \
+        "$f" != "README.md" && \
+        "$f" != "vimspector_defaults.json" ]] && \
         ln -s "$(pwd)/$f" "$HOME"
 done
 
