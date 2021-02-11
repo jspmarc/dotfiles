@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 echo "Installing jspmarc/dotfiles..."
 
 [[ -d ~/sources/ ]] || mkdir ~/sources/

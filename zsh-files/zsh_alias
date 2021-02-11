@@ -186,7 +186,7 @@ alias la='ls -lAh'
 alias ll='ls -lh'
 alias ls='ls --color=tty'
 alias lsa='ls -lah'
-alias man='nocorrect man'
+#alias man='nocorrect man'
 alias md='mkdir -p'
 alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
@@ -223,8 +223,6 @@ alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 # Git bare alias for managing dotfiles
 #alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 #alias dfs=dotfiles
-
-alias shutdown='wsl.exe --shutdown'
 
 # window swallowing
 #alias vlc='ws vlc'

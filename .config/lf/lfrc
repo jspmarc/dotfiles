@@ -140,7 +140,8 @@ cmd mkdir %{{
 cmd touch ${{
   printf "File name: "
   read fname
-  $EDITOR $fname
+  #$EDITOR $fname
+  touch $fname
 }}
 
 cmd fzf_jump ${{
