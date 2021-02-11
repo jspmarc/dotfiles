@@ -34,6 +34,9 @@ add_pkg "npm"
 add_pkg "cmake"
 add_pkg "curl"
 add_pkg "fzf"
+add_pkg "man-db"
+add_pkg "man-pages"
+add_pkg "texinfo"
 
 # Install pkgs and update pakage managers
 if [[ "$pkg_mgr" == "pacman" ]]; then # archlinux based machine
@@ -44,6 +47,7 @@ if [[ "$pkg_mgr" == "pacman" ]]; then # archlinux based machine
     add_pkg "python2"
     add_pkg "python-pip"
     add_pkg "python2-pip"
+    add_pkg "networkmanager"
 
     sudo pacman -Syu "${pkg_lists[@]}"
 
