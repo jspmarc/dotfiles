@@ -23,4 +23,6 @@ export TEXMFVAR=$HOME/.texlive/texmf-var/
 export TEXMFCONFIG=$HOME/.texlive/texmf-config/
 export TEXMFCACHE=$TEXMFSYSVAR:$TEXMFVAR
 
-export DISPLAY="`sed -n 's/nameserver //p' /etc/resolv.conf`:0"
+[[ $(uname -r | grep "microsoft" &> /dev/null) ]] \
+    && export DISPLAY="`sed -n 's/nameserver //p' /etc/resolv.conf`:0" \
+    || export DISPLAY=":0.0"

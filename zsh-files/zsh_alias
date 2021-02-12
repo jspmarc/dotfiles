@@ -225,11 +225,13 @@ alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 #alias dfs=dotfiles
 
 # window swallowing
-#alias vlc='ws vlc'
-#alias sxiv='ws sxiv'
-#alias okular='ws okular'
-#alias zathura='ws zathura'
-#alias feh='ws feh'
-#alias spotify='ws spotify'
-#alias libreoffice='ws libreoffice'
-#alias scrcpy='ws scrcpy'
+if [[ $(uname -r | grep arch &> /dev/null) ]]; then
+    alias vlc='ws vlc'
+    alias sxiv='ws sxiv'
+    alias okular='ws okular'
+    alias zathura='ws zathura'
+    alias feh='ws feh'
+    alias spotify='ws spotify'
+    alias libreoffice='ws libreoffice'
+    alias scrcpy='ws scrcpy'
+fi

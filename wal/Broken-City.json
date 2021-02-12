@@ -1,0 +1,28 @@
+{
+    "wallpaper": "~/Wallpapers/Broken_city.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#000000",
+        "foreground": "#c7a0c8",
+        "cursor": "#f0f0f0"
+    },
+    "colors": {
+        "color0": "#000000",
+        "color1": "#981f3d",
+        "color2": "#6c447b",
+        "color3": "#9c1c57",
+        "color4": "#bb2e3f",
+        "color5": "#c52556",
+        "color6": "#5014a7",
+        "color7": "#a0afc8",
+        "color8": "#8b708c",
+        "color9": "#ff3366",
+        "color10": "#a86ac0",
+        "color11": "#e72981",
+        "color12": "#ff3f55",
+        "color13": "#ff3070",
+        "color14": "#7a1fff",
+        "color15": "#ccdfff"
+    }
+}
