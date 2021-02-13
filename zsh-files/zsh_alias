@@ -225,7 +225,7 @@ alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 #alias dfs=dotfiles
 
 # window swallowing
-if [[ $(uname -r | grep arch &> /dev/null) ]]; then
+if [[ $(uname -r | grep arch) ]]; then
     alias vlc='ws vlc'
     alias sxiv='ws sxiv'
     alias okular='ws okular'
