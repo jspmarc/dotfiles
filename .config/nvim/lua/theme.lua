@@ -8,7 +8,7 @@ api.nvim_command([[let $NVIM_TUI_ENABLE_TRUE_COLOR=1]])
 g.gruvbox_contrast_dark = 'medium'
 g.gruvbox_hls_cursor = 'purple'
 g.gruvbox_italic = 1
-g.gruvbox_italicize_strings = 1
+g.gruvbox_italicize_strings = 0
 g.gruvbox_italicize_comments = 1
 
 ---------------------------------------

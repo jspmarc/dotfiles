@@ -15,12 +15,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
 Plug 'junegunn/fzf.vim' " select stuff using FZF
 Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
-"Plug 'scrooloose/nerdtree' " File explorer
+Plug 'scrooloose/nerdtree' " File explorer
 Plug 'scrooloose/nerdcommenter' " Toggle comment
 Plug 'romgrk/nvim-treesitter-context' " Always show context
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter
-"Plug 'kyazdani42/nvim-tree.lua' " NERDTree replacement
-"Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'yggdroot/indentline' " Show spaces indent lines
 Plug 'tpope/vim-fugitive' " show git status in statusline and other git integration
 Plug 'airblade/vim-gitgutter' " Manage changes in hunks
@@ -28,8 +26,7 @@ Plug 'lervag/vimtex' " vim syntax highlighting for tex
 Plug 'simnalamburt/vim-mundo' " browse past saves
 Plug 'easymotion/vim-easymotion' " jump jump
 Plug 'tpope/vim-surround' " modify things inside brackets and quotations faster
-"Plug 'ryanoasis/vim-devicons' " pretty icons for nerdtree
-"Plug 'mhinz/vim-startify' " pretty start menu
+Plug 'ryanoasis/vim-devicons' " pretty icons for nerdtree
 Plug 'houtsnip/vim-emacscommandline' " emacs key binding for the command line
 "Plug 'johannesthyssen/vim-signit' " sign files with name and logo
 Plug 'voldikss/vim-floaterm' " floating terminal

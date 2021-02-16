@@ -36,13 +36,16 @@ nvim_lsp.bashls.setup{
     on_attach = on_attach
 }
 nvim_lsp.clangd.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    settings = {
+        filetypes = { 'c', 'cpp', 'cc', 'hpp', 'h', 'objc', 'objcpp' },
+    }
 }
 nvim_lsp.pyright.setup{
     on_attach = on_attach
 }
 nvim_lsp.sumneko_lua.setup {
-    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" };
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
     settings = {
         Lua = {
             runtime = {
@@ -64,7 +67,7 @@ nvim_lsp.sumneko_lua.setup {
             },
         },
     },
-    on_attach = require'completion'.on_attach,
+    on_attach = on_attach,
 }
 nvim_lsp.texlab.setup{
     on_attach = on_attach
@@ -82,7 +85,9 @@ map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
---map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
 map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
+
+vim.lsp.set_log_level("debug")

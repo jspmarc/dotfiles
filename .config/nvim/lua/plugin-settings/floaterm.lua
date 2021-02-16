@@ -13,7 +13,7 @@ map('n', '<leader>t]', ':FloatermNext<CR>', {noremap = false})
 map('n', '<leader>t{', ':FloatermFirst<CR>', {noremap = false})
 map('n', '<leader>t}', ':FloatermLast<CR>', {noremap = false})
 --map('n', '<leader>tl', ':CocList floaterm<CR>', {noremap = false})
-map('n', '<C-b>', ':LF<CR>')
+--map('n', '<C-b>', ':LF<CR>')
 
 map('t', '<leader>tn', '<C-\\><C-n>:FloatermNew<CR>', {noremap = false})
 map('t', '<leader>tc', '<C-\\><C-n>:FloatermKill<CR>', {noremap = false})
