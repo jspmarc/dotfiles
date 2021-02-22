@@ -20,14 +20,16 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt autocd
 bindkey -v
-# End of lines configured by zsh-newuser-install
-source ~/sources/powerlevel10k/powerlevel10k.zsh-theme
+
+## End of lines configured by zsh-newuser-install
+#source ~/sources/powerlevel10k/powerlevel10k.zsh-theme
+## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/zsh-files/.p10k.zsh ]] || source ~/zsh-files/.p10k.zsh
+
+eval $(starship init zsh)
 
 autoload -Uz compinit
 compinit
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/zsh-files/.p10k.zsh ]] || source ~/zsh-files/.p10k.zsh
 
 source ~/zsh-files/zsh_funcs
 source ~/zsh-files/.zshcomp
