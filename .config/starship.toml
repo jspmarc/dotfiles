@@ -1,0 +1,89 @@
+format = """\
+$shlvl\
+$kubernetes\
+$username\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$lua\
+$line_break\
+$battery$time $character
+"""
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+format = "[$read_only]($read_only_style)[$path]($style) "
+truncation_symbol = ".../"
+home_symbol = "~"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = " "
+discharging_symbol = " "
+[[battery.display]]
+threshold = 20
+style = "bold red"
+[[battery.display]]
+threshold = 78
+style = "bold yellow"
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[❮](bold green)"
+
+[username]
+style_user = "blue bold"
+style_root = "red bold"
+format = "[$user]($style) in "
+disabled = false
+show_always = false
+
+[time]
+disabled = false
+format = '🕙$time'
+time_format = "%R"
+utc_time_offset = "+7"
+time_range = "00:00:00-24:00:00"

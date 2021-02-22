@@ -61,3 +61,5 @@ source ~/zsh-files/zsh-colored-man-pages.zsh
 
 # Sourcing autojump
 #[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+
+eval "$(starship init bash)"
