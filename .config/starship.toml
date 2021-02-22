@@ -42,15 +42,15 @@ $openstack\
 $env_var\
 $crystal\
 $custom\
-$cmd_duration\
 $lua\
+$cmd_duration\
 $line_break\
 $battery$time $character
 """
 
 [directory]
 truncation_length = 3
-truncate_to_repo = false
+truncate_to_repo = true
 format = "[$read_only]($read_only_style)[$path]($style) "
 truncation_symbol = ".../"
 home_symbol = "~"
@@ -87,3 +87,17 @@ format = '🕙$time'
 time_format = "%R"
 utc_time_offset = "+7"
 time_range = "00:00:00-24:00:00"
+
+[git_status]
+conflicted = "[=](bold red)"
+ahead = "[⇡](bold green)"
+behind = "[⇣](bold green)"
+diverged = "[⇕](bold green)"
+untracked = "[?](bold yellow)"
+stashed = '[\$](bold green)'
+modified = "[!](bold yellow)"
+staged = "[+](bold green)"
+renamed = "[»](bold green)"
+deleted = "[✘](bold yellow)"
+style = "bold purple"
+format = '([\[$all_status$ahead_behind\]]($style) )'
