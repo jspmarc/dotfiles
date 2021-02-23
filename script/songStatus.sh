@@ -20,7 +20,7 @@ do
 		fi
 
 		start_char=0
-		want_charwidth=30
+		want_charwidth=100
 		real_charwidth=$(echo -n "$song" | wc -L)
 
 		if [[ want_charwidth -lt real_charwidth ]]; then

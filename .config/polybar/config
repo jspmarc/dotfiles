@@ -71,7 +71,7 @@ font-4 = ${fonts.font-4}
 
 modules-left = i3 window-title
 modules-center = spotify
-modules-right = wireless-network battery timedate powermenu
+modules-right = backlight pulseaudio wireless-network battery timedate powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -187,10 +187,9 @@ label-empty-foreground = #666
 type = custom/script
 interval = 1
 format = "%{T5}%{A1:playerctl previous:}%{A}%{T-} %{A1:playerctl play-pause:}<label>%{A} %{T5}%{A1:playerctl next:}%{A}%{T-}"
-format-maxlen=60
+format-maxlen=100
 exec-if = true
-;exec = /home/josep/script/songStatus.sh
-exec = playerctl metadata --format "{{ title }} | {{ artist }}" 2>/dev/null
+exec = /home/josep/script/songStatus.sh
 tail = true
 format-background = ${center.background}
 format-prefix = ${center.prefix-end}
@@ -206,7 +205,8 @@ click-left = "playerctl play-pause"
 [module/backlight]
 type = internal/backlight
 
-card = intel_backlight
+;card = intel_backlight
+card = amdgpu_bl0
 
 format = %{T5}<ramp>%{T-}:<label>
 format-background = ${right.background}

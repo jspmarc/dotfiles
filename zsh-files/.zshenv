@@ -1,9 +1,12 @@
-export PATH=$HOME/.npm-pkgs/bin:$HOME/.local/bin:$HOME/.cargo/bin/:$PATH
+export PATH="$HOME/.npm-pkgs/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin/:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
 #export BROWSER="firefox"
-export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin:$HOME/.emacs.d/bin"
 
 # NNN configuratons
 export NNN_TRASH=1
