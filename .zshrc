@@ -1,17 +1,9 @@
-#tmux
-echo "Welcome, $USER! Here's a MOTD:" | lolcat
-cowsay -f tux <<< $(fortune -s) | lolcat
-
-#[[ $TERM != "screen" ]] && exec tmux
-
-#for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#10}:+$'\n'}; done
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 # Lines configured by zsh-newuser-install
 #HISTFILE=~/.histfile
@@ -80,4 +72,12 @@ source ~/zsh-files/completion.zsh
 #[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 # tabtab source for packages
 # uninstall by removing these lines
+
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+#tmux
+echo "Welcome, $USER! Here's a MOTD:" | lolcat
+cowsay -f tux <<< $(fortune -s) | lolcat
+
+#[[ $TERM != "screen" ]] && exec tmux
+
+#for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#10}:+$'\n'}; done

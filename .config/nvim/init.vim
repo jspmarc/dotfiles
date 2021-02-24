@@ -121,3 +121,4 @@ autocmd FileType tex IndentLinesDisable
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 autocmd BufEnter *.notal setfiletype notal
+autocmd BufEnter *.asm setfiletype asm
