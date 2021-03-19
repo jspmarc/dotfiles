@@ -204,12 +204,15 @@ alias py2=python2
 alias pacSearch="pacman -Slq \
     | fzf --multi --preview 'pacman -Si {1}' \
     | xargs -ro sudo pacman -S"
-alias yaySearch="yay -Slq \
-    | fzf --multi --preview 'yay -Si {1}' \
-    | xargs -ro yay -S"
-alias note="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.md"
-alias notes="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.md"
-alias diary="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/diary/diary.md"
+#alias yaySearch="yay -Slq \
+    #| fzf --multi --preview 'yay -Si {1}' \
+    #| xargs -ro yay -S"
+alias aurSearch="paru -Slq \
+    | fzf --multi --preview 'paru -Si {1}' \
+    | xargs -ro paru -S"
+alias note="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.wiki"
+alias notes="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.wiki"
+alias diary="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/diary/diary.wiki"
 alias hexedit="hexedit --color"
 alias pls="sudo"
 alias plz="sudo"
@@ -217,8 +220,12 @@ alias rm='rm -I'
 #alias stegsolve="java -jar ~/.local/bin/StegSolve-1.4.jar"
 alias RsaCtfTool="py ~/sources/RsaCtfTool/RsaCtfTool.py"
 alias java_debug="java -cp . -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"
+alias kuliah='cd "$HOME/Documents/Kuliah/Tingkat-2/Semester 4/"'
 
 alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
+
+[[ $(uname -r | grep "microsoft") ]] \
+    && alias code="/mnt/c/Users/jspma/scoop/apps/vscode/current/bin/code"
 
 # Git bare alias for managing dotfiles
 #alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"

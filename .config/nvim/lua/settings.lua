@@ -54,3 +54,4 @@ set_opts('o', 'guicursor',
     'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0') -- nice cursors
 set_opts('o', 'completeopt', 'menuone,noinsert,noselect') -- completion box
 set_opts('b', 'omnifunc', 'v:lua.vim.lsp.omnifunc') -- nvim-lsp 'setup'
+set_opts('w', 'concealcursor', 'nc') -- conceal text settings
