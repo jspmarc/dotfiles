@@ -74,10 +74,10 @@ source ~/zsh-files/completion.zsh
 # uninstall by removing these lines
 
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-#tmux
-echo "Welcome, $USER! Here's a MOTD:" | lolcat
-cowsay -f tux <<< $(fortune -s) | lolcat
 
 #[[ $TERM != "screen" ]] && exec tmux
 
 #for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#10}:+$'\n'}; done
+echo "Welcome, $USER! Here's a MOTD:" | lolcat
+cowsay -f tux <<< $(fortune -s) | lolcat
+#fet.sh

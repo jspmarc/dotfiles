@@ -32,9 +32,6 @@ local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-s
     --]], false)
 --end
 
-nvim_lsp.bashls.setup{
-    on_attach = on_attach
-}
 nvim_lsp.clangd.setup{
     on_attach = on_attach,
     settings = {
@@ -78,6 +75,25 @@ nvim_lsp.tsserver.setup{
 nvim_lsp.vimls.setup{
     on_attach = on_attach
 }
+nvim_lsp.jsonls.setup {
+    commands = {
+        Format = {
+            function()
+                vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+            end
+        }
+    }
+}
+
+local pid = vim.fn.getpid()
+local omnisharp_bin = os.getenv('HOME') .. '/sources/omnisharp-linux/run'
+nvim_lsp.omnisharp.setup{
+    cmd = {
+        omnisharp_bin, "--languageserver", "--hostPID", tostring(pid),
+    },
+    on_attach = on_attach,
+}
+
 
 ----- keybindings -----
 map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
@@ -86,7 +102,6 @@ map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
 map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
 

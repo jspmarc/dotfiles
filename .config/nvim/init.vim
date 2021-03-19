@@ -10,16 +10,19 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'turbio/bracey.vim' " local 'deployment' for HTML file
+Plug 'mattn/calendar-vim'
 Plug 'glepnir/dashboard-nvim' " pretty start menu
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
 Plug 'junegunn/fzf.vim' " select stuff using FZF
 Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
+Plug 'sbdchd/neoformat' " Formatter
 Plug 'scrooloose/nerdtree' " File explorer
 Plug 'scrooloose/nerdcommenter' " Toggle comment
 Plug 'romgrk/nvim-treesitter-context' " Always show context
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter
 Plug 'yggdroot/indentline' " Show spaces indent lines
+"Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Show spaces indent lines
 Plug 'easymotion/vim-easymotion' " jump jump
 Plug 'voldikss/vim-floaterm' " floating terminal
 Plug 'tpope/vim-fugitive' " show git status in statusline and other git integration
@@ -33,6 +36,7 @@ Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 Plug 'psliwka/vim-smoothie' " smooth scroll
 Plug 'puremourning/vimspector' " debugger
 Plug 'lervag/vimtex' " vim syntax highlighting for tex
+Plug 'vimwiki/vimwiki'
 
 " CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
@@ -48,6 +52,7 @@ Plug 'morhetz/gruvbox' " gruvbox color scheme
 Plug 'tomasiser/vim-code-dark'
 "Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 "Plug 'mhartington/oceanic-next'
+Plug 'glepnir/zephyr-nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -65,8 +70,10 @@ lua require'plugins'
 
 let config_dir = stdpath('config')
 "execute 'source ' . config_dir . '/plugin-settings/Startify.vim'
-"execute 'source ' . config_dir . '/plugin-settings/VimWiki.vim'
+execute 'source ' . config_dir . '/plugin-settings/VimWiki.vim'
 execute 'source ' . config_dir . '/myFuncions.vim'
+
+let g:wiki_root = '~/vimwiki-notes'
 
 " =============================================================================
 " CoC
@@ -117,8 +124,11 @@ autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType nasm setlocal noexpandtab
+autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType vimwiki IndentLinesDisable
 autocmd FileType tex IndentLinesDisable
 autocmd FileType markdown IndentLinesDisable
 autocmd FileType json IndentLinesDisable
 autocmd BufEnter *.notal setfiletype notal
-autocmd BufEnter *.asm setfiletype asm
+autocmd BufEnter *.asm setfiletype nasm
