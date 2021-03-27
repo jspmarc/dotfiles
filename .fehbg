@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/josep/Pictures/Wallpapers/Spiderman_Into_the_Spiderverse.png' 
+feh --no-fehbg --bg-scale '/home/josep/dotfiles/Pictures/Wallpapers/photomode_21022021_145421.png' 
