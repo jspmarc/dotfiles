@@ -1,5 +1,7 @@
 local nvim_lsp = require('lspconfig')
-local on_attach = require'completion'.on_attach()
+--local on_attach = require'completion'.on_attach()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 --[[ for lua setup ]]--
 local system_name
@@ -17,29 +19,15 @@ local sumneko_root_path = os.getenv('HOME') .. '/sources/lua-language-server'
 local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 --[[ end ]]--
 
--- Set autocommands conditional on server_capabilities
---if client.resolved_capabilities.document_highlight then
-    --vim.api.nvim_exec([[
-        --hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-        --hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-        --hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-        --augroup lsp_document_highlight
-            --autocmd!
-            --"autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-            --autocmd CursorHold <buffer> lua vim.lsp.buf.hover()
-            --autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        --augroup END
-    --]], false)
---end
-
 nvim_lsp.clangd.setup{
-    on_attach = on_attach,
+    --on_attach = on_attach,
+    capabilities = capabilities,
     settings = {
         filetypes = { 'c', 'cpp', 'cc', 'hpp', 'h', 'objc', 'objcpp' },
     }
 }
 nvim_lsp.pyright.setup{
-    on_attach = on_attach
+    --on_attach = on_attach
 }
 nvim_lsp.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
@@ -64,16 +52,20 @@ nvim_lsp.sumneko_lua.setup {
             },
         },
     },
-    on_attach = on_attach,
+    --on_attach = on_attach,
+    capabilities = capabilities,
 }
 nvim_lsp.texlab.setup{
-    on_attach = on_attach
+    --on_attach = on_attach
+    capabilities = capabilities,
 }
 nvim_lsp.tsserver.setup{
-    on_attach = on_attach
+    --on_attach = on_attach
+    capabilities = capabilities,
 }
 nvim_lsp.vimls.setup{
-    on_attach = on_attach
+    --on_attach = on_attach
+    capabilities = capabilities,
 }
 nvim_lsp.jsonls.setup {
     commands = {
@@ -82,18 +74,9 @@ nvim_lsp.jsonls.setup {
                 vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
             end
         }
-    }
-}
-
-local pid = vim.fn.getpid()
-local omnisharp_bin = os.getenv('HOME') .. '/sources/omnisharp-linux/run'
-nvim_lsp.omnisharp.setup{
-    cmd = {
-        omnisharp_bin, "--languageserver", "--hostPID", tostring(pid),
     },
-    on_attach = on_attach,
+    capabilities = capabilities,
 }
-
 
 ----- keybindings -----
 map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')

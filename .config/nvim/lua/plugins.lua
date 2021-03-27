@@ -19,12 +19,12 @@ require'plugin-settings.vimspector'
 require'plugin-settings.vimtex'
 
 -- CoC
-require'plugin-settings.coc-nvim'
+--require'plugin-settings.coc-nvim'
 
 -- Nvim lsp
---require'plugin-settings.lspsaga'
---require'plugin-settings.nvim-lsp'
---require'plugin-settings.nvim-completion'
+require'plugin-settings.lspsaga'
+require'plugin-settings.nvim-lsp'
+require'plugin-settings.nvim-compe'
 
 -- TODO
 --require'plugin-settings.startify' -- broken

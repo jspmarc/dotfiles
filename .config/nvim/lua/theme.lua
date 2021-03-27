@@ -29,8 +29,8 @@ g.nord_underline = 1
 ------------------------------------
 ------------ materials -------------
 ------------------------------------
-g.material_theme_style = 'darker'
-g.material_terminal_italics = 1
+g.material_style = 'palenight'
+g.material_italics = 1
 
 --api.nvim_exec([[
 --syntax on

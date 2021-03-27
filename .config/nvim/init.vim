@@ -36,23 +36,21 @@ Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 Plug 'psliwka/vim-smoothie' " smooth scroll
 Plug 'puremourning/vimspector' " debugger
 Plug 'lervag/vimtex' " vim syntax highlighting for tex
+Plug 'hrsh7th/vim-vsnip'
 Plug 'vimwiki/vimwiki'
 
 " CoC
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
+"Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
 
 " NVIM Lsp
-"Plug 'nvim-lua/completion-nvim' " Completion for Nvim LSP
-"Plug 'glepnir/lspsaga.nvim' " cool features for nvim lsp
-"Plug 'neovim/nvim-lspconfig' " The Nvim LSP
+Plug 'hrsh7th/nvim-compe' " completion for LSP
+Plug 'glepnir/lspsaga.nvim' " cool features for nvim lsp
+Plug 'neovim/nvim-lspconfig' " The Nvim LSP
 
 Plug 'vim-airline/vim-airline' " pretty status line
 Plug 'vim-airline/vim-airline-themes' " pretty status line, now prettier
 Plug 'morhetz/gruvbox' " gruvbox color scheme
 Plug 'tomasiser/vim-code-dark'
-"Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-"Plug 'mhartington/oceanic-next'
-Plug 'glepnir/zephyr-nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -76,41 +74,52 @@ execute 'source ' . config_dir . '/myFuncions.vim'
 let g:wiki_root = '~/vimwiki-notes'
 
 " =============================================================================
-" CoC
+" Nvim-compe
 " =============================================================================
-" Used for <tab> completion
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <tab> to select completion
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-inoremap <silent><expr> <C-j>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
+" =============================================================================
+" CoC
+" =============================================================================
+"" Used for <tab> completion
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
-" Use <CR> to choose completion
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+"" Use <tab> to select completion
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+"inoremap <silent><expr> <C-j>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"" Use <CR> to choose completion
+"if exists('*complete_info')
+  "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+  "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
+
+"function! s:show_documentation()
+  "if (index(['vim','help'], &filetype) >= 0)
+    "execute 'h '.expand('<cword>')
+  "else
+    "call CocAction('doHover')
+  "endif
+"endfunction
 
 " =============================================================================
 " Custom commands for different filetypes
