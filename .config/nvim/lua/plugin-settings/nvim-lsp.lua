@@ -77,6 +77,34 @@ nvim_lsp.jsonls.setup {
     },
     capabilities = capabilities,
 }
+nvim_lsp.jdtls.setup {
+    cmd = {
+        '/usr/lib/jvm/default-runtime/bin/java',
+        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+        '-Dosgi.bundles.defaultStartLevel=4',
+        '-Declipse.product=org.eclipse.jdt.ls.core.product',
+        '-Dlog.protocol=true',
+        '-Dlog.level=ALL',
+        '-Xms1g',
+        '-Xmx2G',
+        '-jar',
+        os.getenv('HOME') .. '/sources/jdtls/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar',
+        '-configuration',
+        os.getenv('HOME') .. '/sources/jdtls/config_linux',
+        '-data',
+        os.getenv('HOME') .. '/.gradle',
+        '--add-modules=ALL-SYSTEM',
+        '--add-opens java.base/java.util=ALL-UNNAMED',
+        '--add-opens java.base/java.lang=ALL-UNNAMED',
+    },
+    cmd_env = {
+        GRADLE_HOME = os.getenv('HOME') .. '/.gradle',
+        JAR = os.getenv('HOME') .. '/sources/jdtls/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar',
+        JAVA_HOME = '/usr/lib/jvm/default-runtime',
+        JDTLS_CONFIG = os.getenv('HOME') .. '/sources/jdtls/config_linux',
+    },
+    capabilities = capabilities,
+}
 
 ----- keybindings -----
 map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
