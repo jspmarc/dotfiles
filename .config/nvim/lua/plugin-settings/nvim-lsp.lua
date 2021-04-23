@@ -1,5 +1,4 @@
 local nvim_lsp = require('lspconfig')
---local on_attach = require'completion'.on_attach()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -20,15 +19,20 @@ local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-s
 --[[ end ]]--
 
 nvim_lsp.clangd.setup{
-    --on_attach = on_attach,
     capabilities = capabilities,
     settings = {
         filetypes = { 'c', 'cpp', 'cc', 'hpp', 'h', 'objc', 'objcpp' },
     }
 }
-nvim_lsp.pyright.setup{
-    --on_attach = on_attach
+
+-- nvim_lsp.pyright.setup{
+--     capabilities = capabilities,
+-- }
+
+nvim_lsp.pyls.setup{
+    capabilities = capabilities,
 }
+
 nvim_lsp.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
     settings = {
@@ -52,21 +56,25 @@ nvim_lsp.sumneko_lua.setup {
             },
         },
     },
-    --on_attach = on_attach,
     capabilities = capabilities,
 }
+
 nvim_lsp.texlab.setup{
-    --on_attach = on_attach
     capabilities = capabilities,
 }
+
+--nvim_lsp.denols.setup{
+    --capabilities = capabilities,
+--}
+
 nvim_lsp.tsserver.setup{
-    --on_attach = on_attach
     capabilities = capabilities,
 }
+
 nvim_lsp.vimls.setup{
-    --on_attach = on_attach
     capabilities = capabilities,
 }
+
 nvim_lsp.jsonls.setup {
     commands = {
         Format = {
@@ -77,6 +85,7 @@ nvim_lsp.jsonls.setup {
     },
     capabilities = capabilities,
 }
+
 nvim_lsp.jdtls.setup {
     cmd = {
         '/usr/lib/jvm/default-runtime/bin/java',
@@ -104,6 +113,35 @@ nvim_lsp.jdtls.setup {
         JDTLS_CONFIG = os.getenv('HOME') .. '/sources/jdtls/config_linux',
     },
     capabilities = capabilities,
+}
+
+nvim_lsp.svelte.setup {
+    capabilities = capabilities,
+}
+
+nvim_lsp.rust_analyzer.setup {
+    capabilities = capabilities,
+}
+
+nvim_lsp.gopls.setup {
+    capabilities = capabilities,
+    --cmd = { "gopls", "serve" },
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+}
+
+nvim_lsp.dockerls.setup{
+    capabilities = capabilities,
+}
+
+nvim_lsp.html.setup {
+    capabilities = capabilities
 }
 
 ----- keybindings -----

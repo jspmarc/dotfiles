@@ -15,37 +15,34 @@ Plug 'glepnir/dashboard-nvim' " pretty start menu
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
 Plug 'junegunn/fzf.vim' " select stuff using FZF
 Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
+Plug 'b3nj5m1n/kommentary' " tpope's commentary but in lua
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
 Plug 'sbdchd/neoformat' " Formatter
-Plug 'scrooloose/nerdtree' " File explorer
-Plug 'scrooloose/nerdcommenter' " Toggle comment
+" Plug 'scrooloose/nerdtree' " File explorer
 Plug 'romgrk/nvim-treesitter-context' " Always show context
+Plug 'kyazdani42/nvim-tree.lua' " File explorer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter
-Plug 'yggdroot/indentline' " Show spaces indent lines
-"Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Show spaces indent lines
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Show spaces indent lines
 Plug 'easymotion/vim-easymotion' " jump jump
 Plug 'voldikss/vim-floaterm' " floating terminal
 Plug 'tpope/vim-fugitive' " show git status in statusline and other git integration
 Plug 'airblade/vim-gitgutter' " Manage changes in hunks
 Plug 'simnalamburt/vim-mundo' " browse past saves
 Plug 'tpope/vim-surround' " modify things inside brackets and quotations faster
-Plug 'ryanoasis/vim-devicons' " pretty icons for nerdtree
 Plug 'houtsnip/vim-emacscommandline' " emacs key binding for the command line
-"Plug 'johannesthyssen/vim-signit' " sign files with name and logo
-Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 Plug 'psliwka/vim-smoothie' " smooth scroll
 Plug 'puremourning/vimspector' " debugger
 Plug 'lervag/vimtex' " vim syntax highlighting for tex
 Plug 'hrsh7th/vim-vsnip'
 Plug 'vimwiki/vimwiki'
 
-" CoC
-"Plug 'neoclide/coc.nvim', {'branch': 'release'} " CoC
-
 " NVIM Lsp
 Plug 'hrsh7th/nvim-compe' " completion for LSP
 Plug 'glepnir/lspsaga.nvim' " cool features for nvim lsp
 Plug 'neovim/nvim-lspconfig' " The Nvim LSP
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'folke/lsp-trouble.nvim'
 
 Plug 'vim-airline/vim-airline' " pretty status line
 Plug 'vim-airline/vim-airline-themes' " pretty status line, now prettier
@@ -55,9 +52,6 @@ Plug 'tomasiser/vim-code-dark'
 " Initialize plugin system
 call plug#end()
 " End plug vim
-
-" completion-nvim goes crazy without this
-let g:completion_confirm_key = "\<C-y>"
 
 lua require'helpers'
 lua require'theme'
@@ -72,17 +66,6 @@ execute 'source ' . config_dir . '/plugin-settings/VimWiki.vim'
 execute 'source ' . config_dir . '/myFuncions.vim'
 
 let g:wiki_root = '~/vimwiki-notes'
-
-" =============================================================================
-" Nvim-compe
-" =============================================================================
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " =============================================================================
 " CoC
@@ -134,6 +117,7 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType nasm setlocal noexpandtab
+autocmd FileType go setlocal noexpandtab
 autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType vimwiki IndentLinesDisable
 autocmd FileType tex IndentLinesDisable

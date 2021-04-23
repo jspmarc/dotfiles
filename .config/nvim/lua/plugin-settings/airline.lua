@@ -1,6 +1,6 @@
 local g = vim.g
 
-g.airline_theme = 'gruvbox'
+g.airline_theme = 'codedark'
 g.airline_powerline_fonts = 0
 
 -- hacky way because i don't know how to do it pure lua style

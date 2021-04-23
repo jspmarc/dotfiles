@@ -17,13 +17,13 @@ export NNN_FIFO=/tmp/nnn.fifo nnn
 
 export ZSHFILES=$HOME/zsh-files
 
-export TEXMFDIST=/usr/share/texmf-dist/
-export TEXMFLOCAL=/usr/local/share/texmf/:/usr/share/texmf/
-export TEXMFSYSVAR=/var/lib/texmf/
-export TEXMFSYSCONFIG=/etc/texmf/
-export TEXMFHOME=$HOME/texmf/
-export TEXMFVAR=$HOME/.texlive/texmf-var/
-export TEXMFCONFIG=$HOME/.texlive/texmf-config/
+export TEXMFDIST=/usr/share/texmf-dist
+export TEXMFLOCAL=/usr/local/share/texmf/:/usr/share/texmf
+export TEXMFSYSVAR=/var/lib/texmf
+export TEXMFSYSCONFIG=/etc/texmf
+export TEXMFHOME=$HOME/texmf
+export TEXMFVAR=$HOME/.texlive/texmf-var
+export TEXMFCONFIG=$HOME/.texlive/texmf-config
 export TEXMFCACHE=$TEXMFSYSVAR:$TEXMFVAR
 
 [[ $(uname -r | grep "microsoft") ]] \
