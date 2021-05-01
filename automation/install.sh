@@ -35,11 +35,11 @@ add_pkg "zsh"
 add_pkg "curl"
 add_pkg "fzf"
 add_pkg "man-db"
-add_pkg "man-pages"
 add_pkg "texinfo"
 
 # Install pkgs and update pakage managers
 if [[ "$pkg_mgr" == "pacman" ]]; then # archlinux based machine
+    add_pkg "man-pages"
     add_pkg "base"
     add_pkg "base-devel"
     add_pkg "man-db"
@@ -62,6 +62,7 @@ if [[ "$pkg_mgr" == "pacman" ]]; then # archlinux based machine
 elif [[ "$pkg_mgr" == "apt" ]]; then # debian/ubuntu based machines
     # add_pkg "g++"
     add_pkg "man"
+    add_pkg "manpages"
     # add_pkg "python"
     # add_pkg "python3"
     # add_pkg "python-pip"
