@@ -29,9 +29,9 @@ done
 
 add_pkg "gcc"
 add_pkg "zsh"
-add_pkg "nodejs"
-add_pkg "npm"
-add_pkg "cmake"
+# add_pkg "nodejs"
+# add_pkg "npm"
+# add_pkg "cmake"
 add_pkg "curl"
 add_pkg "fzf"
 add_pkg "man-db"
@@ -43,35 +43,35 @@ if [[ "$pkg_mgr" == "pacman" ]]; then # archlinux based machine
     add_pkg "base"
     add_pkg "base-devel"
     add_pkg "man-db"
-    add_pkg "python"
-    add_pkg "python2"
-    add_pkg "python-pip"
-    add_pkg "python2-pip"
+    # add_pkg "python"
+    # add_pkg "python2"
+    # add_pkg "python-pip"
+    # add_pkg "python2-pip"
     add_pkg "networkmanager"
 
     sudo pacman -Syu "${pkg_lists[@]}"
 
     # Installing yay
     echo "Installing Yay AUR package manager..."
-    sudo git clone https://aur.archlinux.org/yay-git.git /opt
-    sudo chown -R "$USER":"$USER" /opt/yay-git
-    cd /opt/yay-git
+    sudo git clone https://aur.archlinux.org/paru.git /opt
+    sudo chown -R "$USER":"$USER" /opt/paru
+    cd /opt/paru || exit 1
     makepkg -si
-    cd -
-    echo "Done installing Yay"
+    cd - || exit 1
+    echo "Done installing Paru"
 elif [[ "$pkg_mgr" == "apt" ]]; then # debian/ubuntu based machines
-    add_pkg "g++"
+    # add_pkg "g++"
     add_pkg "man"
-    add_pkg "python"
-    add_pkg "python3"
-    add_pkg "python-pip"
-    add_pkg "python3-pip"
+    # add_pkg "python"
+    # add_pkg "python3"
+    # add_pkg "python-pip"
+    # add_pkg "python3-pip"
 
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install "${pkg_lists[@]}"
 else
-    echo "uhhh... go install Arch Linux"
+    echo "go install Arch Linux"
 fi
 
 echo "Done instaling packages."
