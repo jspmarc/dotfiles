@@ -18,9 +18,9 @@ Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
 Plug 'b3nj5m1n/kommentary' " tpope's commentary but in lua
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
 Plug 'sbdchd/neoformat' " Formatter
-" Plug 'scrooloose/nerdtree' " File explorer
+Plug 'scrooloose/nerdtree' " File explorer
 Plug 'romgrk/nvim-treesitter-context' " Always show context
-Plug 'kyazdani42/nvim-tree.lua' " File explorer
+" Plug 'kyazdani42/nvim-tree.lua' " File explorer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Show spaces indent lines
