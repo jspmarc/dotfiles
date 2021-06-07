@@ -23,6 +23,7 @@ done
 echo
 
 echo "Softlinking files on .config dir..."
+[[ -d "$HOME/.config" ]] || mkdir "$HOME/.config"
 for f in .config/*; do
     [[ "$f" != "." && "$f" != ".." ]] && \
         ln -s "$(pwd)/$f" "$HOME/.config"
