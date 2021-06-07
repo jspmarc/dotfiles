@@ -13,5 +13,4 @@ let g:airline_section_c = '%t%m%r'
 "let g:airline_section_z = "\uE0A1 %l/%L \uE0B3 %P \uE0B3 \uE0A3 %c"
 let g:airline_section_z = "\uE0A1 %l/%L \uE0B3 \uE0A3 %c"
 
-echo 'asd'
 ]], false)

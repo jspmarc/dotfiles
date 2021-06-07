@@ -125,7 +125,7 @@ nvim_lsp.rust_analyzer.setup {
 
 nvim_lsp.gopls.setup {
     capabilities = capabilities,
-    --cmd = { "gopls", "serve" },
+    -- cmd = { "gopls", "serve" },
     settings = {
         gopls = {
             analyses = {
@@ -144,14 +144,17 @@ nvim_lsp.html.setup {
     capabilities = capabilities
 }
 
+nvim_lsp.solargraph.setup {
+    capabilities = capabilities,
+}
+
 ----- keybindings -----
 map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
-map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
+-- map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+-- map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+-- map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
 vim.lsp.set_log_level("debug")

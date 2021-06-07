@@ -12,18 +12,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'turbio/bracey.vim' " local 'deployment' for HTML file
 Plug 'mattn/calendar-vim'
 Plug 'glepnir/dashboard-nvim' " pretty start menu
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
-Plug 'junegunn/fzf.vim' " select stuff using FZF
-Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
+Plug 'mattn/emmet-vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
+" Plug 'junegunn/fzf.vim' " select stuff using FZF
+" Plug 'stsewd/fzf-checkout.vim' " Select git branch using FZF
 Plug 'b3nj5m1n/kommentary' " tpope's commentary but in lua
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
 Plug 'sbdchd/neoformat' " Formatter
 Plug 'scrooloose/nerdtree' " File explorer
+Plug 'chr4/nginx.vim'
 Plug 'romgrk/nvim-treesitter-context' " Always show context
 " Plug 'kyazdani42/nvim-tree.lua' " File explorer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'} " Show spaces indent lines
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'easymotion/vim-easymotion' " jump jump
 Plug 'voldikss/vim-floaterm' " floating terminal
 Plug 'tpope/vim-fugitive' " show git status in statusline and other git integration
@@ -110,7 +115,8 @@ let g:wiki_root = '~/vimwiki-notes'
 autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType svelte setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
@@ -119,9 +125,9 @@ autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType nasm setlocal noexpandtab
 autocmd FileType go setlocal noexpandtab
 autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType vimwiki IndentLinesDisable
-autocmd FileType tex IndentLinesDisable
-autocmd FileType markdown IndentLinesDisable
-autocmd FileType json IndentLinesDisable
+" autocmd FileType vimwiki IndentLinesDisable
+" autocmd FileType tex IndentLinesDisable
+" autocmd FileType markdown IndentLinesDisable
+" autocmd FileType json IndentLinesDisable
 autocmd BufEnter *.notal setfiletype notal
 autocmd BufEnter *.asm setfiletype nasm

@@ -49,6 +49,8 @@ syn region karakter start='\'' end='\'' contains=stringSalah,karakterLain
 " Keywords
 syn keyword IO input output
 
+syn keyword fileOps write read rewrite close open
+
 syn keyword tipeData real integer boolean character string
 
 syn keyword percabangan if then else nextgroup=cabangDepend
@@ -69,6 +71,7 @@ syn keyword keywordLainnya USE
 syn keyword KeywordBool true false
 
 hi def link IO              Function
+hi def link fileOps         Function
 hi def link tipeData        Typedef
 hi def link keywordLainnya  Statement
 hi def link stringSalah     Error
@@ -85,8 +88,9 @@ hi def link percabangan     Underline
 hi def link bil             Constant
 hi def link keywordBool     constant
 hi def link pengisian       Operator
-hi def link operatorInteger Operator
-hi def link operatorBil     Operator
+" hi def link operatorInteger Operator
+" hi def link operatorLogika  Operator
+hi def link operatorInteger Statement
+hi def link operatorLogika  Statement
 hi def link operatorRelasi  Operator
-hi def link operatorLogika  Operator
 hi def link operatorArit    Operator
