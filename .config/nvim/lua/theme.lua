@@ -39,4 +39,4 @@ g.material_italics = 1
 --colorscheme gruvbox
 --]])
 
-api.nvim_command('colorscheme codedark')
+api.nvim_command('colorscheme onedark')

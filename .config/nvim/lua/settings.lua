@@ -18,8 +18,8 @@ set_opts('w', 'signcolumn', 'yes:1') -- always show signcolumn
 set_opts('w', 'wrap', false) -- disable line wrapping
 set_opts('w', 'linebreak', true) -- nice line wrapping
 
-set_opts('o', 'scrolloff', 3) -- leaving 3 lines on the window before scrolling up/down
-set_opts('o', 'sidescrolloff', 5) -- same as 'scrolloff' but for horizontal scrollinig
+-- set_opts('o', 'scrolloff', 3) -- leaving 3 lines on the window before scrolling up/down
+-- set_opts('o', 'sidescrolloff', 5) -- same as 'scrolloff' but for horizontal scrollinig
 set_opts('w', 'colorcolumn', '80') -- draw vertical line at 80 cols
 
 --set_opts('w', 'list', true) -- ``helper'' for 'lcs'

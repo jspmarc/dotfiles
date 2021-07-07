@@ -83,3 +83,5 @@ echo "Welcome, $USER! Here's a MOTD:" | lolcat
 cowsay -f tux <<< $(fortune -s) | lolcat
 #fet.sh
 source /usr/share/nvm/init-nvm.sh
+
+eval $(thefuck --alias)

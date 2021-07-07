@@ -148,6 +148,11 @@ nvim_lsp.solargraph.setup {
     capabilities = capabilities,
 }
 
+nvim_lsp.cssls.setup{
+    capabilities = capabilities,
+    cmd = { "vscode-css-language-server", "--stdio" },
+}
+
 ----- keybindings -----
 map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')

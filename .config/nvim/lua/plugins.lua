@@ -18,7 +18,7 @@ require'plugin-settings.nvim-web-devicons'
 require'plugin-settings.nvim-treesitter'
 require'plugin-settings.signit'
 require'plugin-settings.telescope'
-require'plugin-settings.vimspector'
+-- require'plugin-settings.vimspector'
 require'plugin-settings.vimtex'
 
 require'lsp_signature'.on_attach()
