@@ -15,7 +15,6 @@ local plugins = require'packer'.startup(function(use)
         run='cd app & yarn install'
     } -- Preview GH style markdown
     use 'sbdchd/neoformat' -- Formatter
-    use 'scrooloose/nerdtree' -- File explorer
     use 'chr4/nginx.vim' -- Nginx highlighting
     use 'romgrk/nvim-treesitter-context' -- Always show context
     use 'kyazdani42/nvim-tree.lua' -- File explorer
@@ -64,8 +63,10 @@ require'plugins/indentLine'
 require'plugins/kommentary'
 require'plugins/mundo'
 require'plugins/Neoformat'
-require'plugins/NERDTree'
+-- require'plugins/NERDTree'
+require'plugins/nvim-tree'
 require'plugins/nvim-treesitter'
+require'plugins/nvim-web-devicons'
 require'plugins/telescope'
 require'plugins/vimtex'
 
