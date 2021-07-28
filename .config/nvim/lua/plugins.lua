@@ -38,11 +38,11 @@ local plugins = require'packer'.startup(function(use)
     use 'hrsh7th/vim-vsnip' -- Snippets
 
     -- NVIM Lsp
+    use 'neovim/nvim-lspconfig' -- The Nvim LSP
     use 'hrsh7th/nvim-compe' -- completion for LSP
     use 'glepnir/lspsaga.nvim' -- cool features for nvim lsp
-    use 'neovim/nvim-lspconfig' -- The Nvim LSP
-    use 'ray-x/lsp_signature.nvim'
-    use 'folke/lsp-trouble.nvim'
+    use 'ray-x/lsp_signature.nvim' -- shows function arguments on typing
+    use 'folke/lsp-trouble.nvim' -- shows problems and warning
 
    -- Theme-related
     use 'navarasu/onedark.nvim'
@@ -63,23 +63,17 @@ require'plugins/indentLine'
 require'plugins/kommentary'
 require'plugins/mundo'
 require'plugins/Neoformat'
--- require'plugins/NERDTree'
 require'plugins/nvim-tree'
 require'plugins/nvim-treesitter'
 require'plugins/nvim-web-devicons'
 require'plugins/telescope'
 require'plugins/vimtex'
 
-require'lsp_signature'.on_attach()
-
 -- Nvim lsp
 require'plugins/lspsaga'
 require'plugins/nvim-lsp'
 require'plugins/nvim-compe'
 require'plugins/lsp-trouble'
-
--- TODO
---require'plugins/startify' -- broken
---require'plugins/vimwiki' -- broken too
+require'lsp_signature'.on_attach()
 
 return plugins

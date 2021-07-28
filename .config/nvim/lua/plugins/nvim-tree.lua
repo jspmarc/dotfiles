@@ -37,8 +37,8 @@ g.nvim_tree_show_icon = {
 vim.g.nvim_tree_bindings = {
     { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
     { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
-    { key = "s",                            cb = tree_cb("vsplit") },
-    { key = "<C-x>",                        cb = tree_cb("split") },
+    { key = "v",                            cb = tree_cb("vsplit") },
+    { key = "s",                            cb = tree_cb("split") },
     { key = "<C-t>",                        cb = tree_cb("tabnew") },
     { key = "<",                            cb = tree_cb("prev_sibling") },
     { key = ">",                            cb = tree_cb("next_sibling") },
