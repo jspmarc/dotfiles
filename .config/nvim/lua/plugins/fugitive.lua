@@ -1,3 +1,5 @@
+local map = require('helpers').map
+
 ----- keybindings -----
 map('n', '<leader>gs', ':G<CR>')
 map('n', '<leader>ga', ':G add --patch<CR>')

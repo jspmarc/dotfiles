@@ -1,4 +1,5 @@
 local g, api = vim.g, vim.api
+local map = require('helpers').map
 
 g.fzf_layout = {
     window = {

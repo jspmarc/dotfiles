@@ -1,3 +1,4 @@
+local map = require'helpers'.map
 ----- options -----
 -- provide custom statusline for lightline.vim and vim-airline
 set_opts('w', 'statusline', [[%{coc#status()}%{get(b:, 'coc_current_function', '')}]])

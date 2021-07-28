@@ -1,3 +1,5 @@
+local map = require('helpers').map
+
 vim.g.vimspector_enable_mappings = 'VISUAL_STUDIO'
 
 ----- keybindings -----

@@ -1,7 +1,7 @@
 local g = vim.g
 
 -- g.airline_theme = 'codedark'
-g.airline_theme = 'molokai'
+g.airline_theme = 'onedark'
 g.airline_powerline_fonts = 0
 
 -- hacky way because i don't know how to do it pure lua style

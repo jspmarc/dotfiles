@@ -1,3 +1,4 @@
+local map = require('helpers').map
 local g, api = vim.g, vim.api
 
 g.floaterm_gitcommit = 'vsplit'
@@ -5,6 +6,7 @@ g.floaterm_autoclose = 1
 api.nvim_command([[command! LF FloatermNew lf]])
 
 ----- keybindings -----
+
 map('n', '<leader>tn', ':FloatermNew<CR>', {noremap = false})
 map('n', '<leader>tc', ':FloatermKill<CR>', {noremap = false})
 map('n', '<leader>tt', ':FloatermToggle<CR>', {noremap = false})

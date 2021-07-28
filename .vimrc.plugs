@@ -1,5 +1,4 @@
-" __   __   __     __    __     ______     ______
-"/\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\
+" __   __   __     __    __     ______     ______ /\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\
 "\ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \____
 " \ \__|    \ \_\  \ \_\ \ \_\  \ \_\ \_\  \ \_____\
 "  \/_/      \/_/   \/_/  \/_/   \/_/ /_/   \/_____/
@@ -9,21 +8,20 @@
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
+Plug 'LunarWatcher/auto-pairs', { 'tag': '*' } " Auto (), [], {}, etc
 Plug 'turbio/bracey.vim' " local 'deployment' for HTML file
-Plug 'mattn/calendar-vim'
 Plug 'glepnir/dashboard-nvim' " pretty start menu
-Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " enables FZF in Vim
 Plug 'b3nj5m1n/kommentary' " tpope's commentary but in lua
+Plug 'Yggdroot/indentLine' " Indent line
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " Preview GH style markdown
 Plug 'sbdchd/neoformat' " Formatter
 Plug 'scrooloose/nerdtree' " File explorer
-Plug 'chr4/nginx.vim'
+Plug 'chr4/nginx.vim' " Nginx highlighting
 Plug 'romgrk/nvim-treesitter-context' " Always show context
 " Plug 'kyazdani42/nvim-tree.lua' " File explorer
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Nvim treesitter
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'lukas-reineke/indent-blankline.nvim', " Show spaces indent lines
+" Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -36,8 +34,7 @@ Plug 'tpope/vim-surround' " modify things inside brackets and quotations faster
 Plug 'houtsnip/vim-emacscommandline' " emacs key binding for the command line
 Plug 'psliwka/vim-smoothie' " smooth scroll
 Plug 'lervag/vimtex' " vim syntax highlighting for tex
-Plug 'hrsh7th/vim-vsnip'
-Plug 'vimwiki/vimwiki'
+Plug 'hrsh7th/vim-vsnip' " Snippets
 
 " NVIM Lsp
 Plug 'hrsh7th/nvim-compe' " completion for LSP
@@ -47,37 +44,51 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'folke/lsp-trouble.nvim'
 
 " Theme-related
-Plug 'christianchiarulli/nvcode-color-schemes.vim'
-" Plug 'morhetz/gruvbox' " gruvbox color scheme
+Plug 'navarasu/onedark.nvim'
+Plug 'morhetz/gruvbox' " gruvbox color scheme
 Plug 'vim-airline/vim-airline' " pretty status line
 Plug 'vim-airline/vim-airline-themes' " pretty status line, now prettier
-" Plug 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 
 " Initialize plugin system
 call plug#end()
 " End plug vim
 
-lua require'helpers'
-lua require'theme'
-lua require'settings'
-lua require'keybinds'
-lua require'plugins'
+source $HOME . './.vim/colorscheme.vim'
+source $HOME . './.vim/keybindings.vim'
+source $HOME . './.vim/settings.vim'
+source $HOME . './.vim/plugin-settings/CocNvim.vim'
+source $HOME . './.vim/plugin-settings/CocPrettier.vim'
+source $HOME . './.vim/plugin-settings/FZF.vim'
+source $HOME . './.vim/plugin-settings/floaterm.vim'
+source $HOME . './.vim/plugin-settings/IndentLine.vim'
+source $HOME . './.vim/plugin-settings/NERDCommenter.vim'
+source $HOME . './.vim/plugin-settings/NERDTree.vim'
+source $HOME . './.vim/plugin-settings/Siginit.vim'
+source $HOME . './.vim/plugin-settings/airline.vim'
+source $HOME . './.vim/plugin-settings/bracey.vim'
+source $HOME . './.vim/plugin-settings/floaterm.vim'
+source $HOME . './.vim/plugin-settings/mundo.vim'
+source $HOME . './.vim/plugin-settings/vimtex.vim'
 
 " =============================================================================
 " Custom commands for different filetypes
 " =============================================================================
+autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 syntax=typescript
+autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType javascriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType svelte setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType nasm setlocal noexpandtab
 autocmd FileType go setlocal noexpandtab
+autocmd FileType dashboard IndentLinesDisable
 autocmd FileType vimwiki setlocal shiftwidth=2 softtabstop=2 tabstop=2
+
 autocmd BufEnter *.notal setfiletype notal
 autocmd BufEnter *.asm setfiletype nasm

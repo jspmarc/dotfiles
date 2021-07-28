@@ -2,6 +2,7 @@
 ------------ vim-related keymappings -------------
 --------------------------------------------------
 
+local map = require('helpers').map
 -- leader maps
 -- Leader is still backslash ( '\' , mapped to backspace)
 map('n', '<space>', '<leader><leader>', {noremap = false})
@@ -55,10 +56,6 @@ map('', '<A-z>', ':set wrap!<CR>')
 -- Makes indenting on visual more convinient
 map('v', '<', '<gv')
 map('v', '>', '>gv')
-
--- Automatically compile
---map('n', '<leader>c', ':call CompileFile()<CR>')
---map('n', '<leader>o', ':call RunFile()<CR>')
 
 -- Fold
 map('n', '<C-f>c', ':foldclose<CR>')

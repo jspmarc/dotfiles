@@ -2,56 +2,61 @@
 ------------ vim-related settings -------------
 -----------------------------------------------
 
-set_opts('o', 'background', 'dark')
-set_opts('o', 'termguicolors', true)
+local set_opt = vim.api.nvim_set_option
+local set_buf_opt = vim.api.nvim_buf_set_option
+local set_win_opt = vim.api.nvim_win_set_option
 
-set_opts('b', 'expandtab', true) -- use spaces instead of tabs
-set_opts('b', 'tabstop', 4) -- use 4 tabstops
-set_opts('b', 'softtabstop', 4) -- use 4 spacings
-set_opts('b', 'shiftwidth', 4) -- use 4 spacings
-set_opts('b', 'smartindent', true) -- automatically indents
+set_opt('background', 'dark')
+set_opt('termguicolors', true)
 
-set_opts('w', 'nu', true) -- line number
-set_opts('w', 'rnu', true) -- relative line number
-set_opts('w', 'signcolumn', 'yes:1') -- always show signcolumn
+set_buf_opt(0, 'expandtab', true) -- use spaces instead of tabs
+set_buf_opt(0, 'tabstop', 4) -- use 4 tabstops
+set_buf_opt(0, 'softtabstop', 4) -- use 4 spacings
+set_buf_opt(0, 'shiftwidth', 4) -- use 4 spacings
+set_buf_opt(0, 'smartindent', true) -- automatically indents
 
-set_opts('w', 'wrap', false) -- disable line wrapping
-set_opts('w', 'linebreak', true) -- nice line wrapping
+set_win_opt(0, 'nu', true) -- line number
+set_win_opt(0, 'rnu', true) -- relative line number
+set_win_opt(0, 'signcolumn', 'yes:1') -- always show signcolumn
 
--- set_opts('o', 'scrolloff', 3) -- leaving 3 lines on the window before scrolling up/down
--- set_opts('o', 'sidescrolloff', 5) -- same as 'scrolloff' but for horizontal scrollinig
-set_opts('w', 'colorcolumn', '80') -- draw vertical line at 80 cols
+set_win_opt(0, 'wrap', false) -- disable line wrapping
+set_win_opt(0, 'linebreak', true) -- nice line wrapping
 
---set_opts('w', 'list', true) -- ``helper'' for 'lcs'
---set_opts('o', 'lcs', [[tab:\|\ ]]) -- shows indent line when using tabs
-vim.api.nvim_command([[set list lcs=tab:\|\ ]]) -- Shows indent line when using tab
+-- set_opt('scrolloff', 3) -- leaving 3 lines on the window before scrolling up/down
+-- set_opt('sidescrolloff', 5) -- same as 'scrolloff' but for horizontal scrollinig
+set_win_opt(0, 'colorcolumn', '100') -- draw vertical line at 100 cols
+set_win_opt(0, 'cursorline', false) -- highlight current line
 
-set_opts('o', 'ignorecase', true) -- ignore case when searching
-set_opts('o', 'smartcase', true) -- don't ignore case when searching capitilized character
-set_opts('o', 'incsearch', true) -- start searching before done/while typing
+set_win_opt(0, 'list', true) -- ``helper'' for 'lcs'
+set_opt('lcs', [[tab:| ]]) -- shows indent line when using tabs
+-- vim.api.nvim_command([[set list lcs=tab:\|\ ]]) -- Shows indent line when using tab
 
-set_opts('o', 'backup', false) -- no backup
-set_opts('o', 'writebackup', false) -- no backup
-set_opts('b', 'swapfile', false) -- don't use swapfiles
+set_opt('ignorecase', true) -- ignore case when searching
+set_opt('smartcase', true) -- don't ignore case when searching capitilized character
+set_opt('incsearch', true) -- start searching before done/while typing
 
-set_opts('o', 'undodir', os.getenv('HOME') .. '/.vim/undodir/') -- set undo dir to ~/.vim/undodir
+set_opt('backup', false) -- no backup
+set_opt('writebackup', false) -- no backup
+set_buf_opt(0, 'swapfile', false) -- don't use swapfiles
+
+set_opt('undodir', os.getenv('HOME') .. '/.vim/undodir/') -- set undo dir to ~/.vim/undodir
                                                                 -- using $HOME for compat with powershell
-set_opts('b', 'undofile', true) -- enable undofiles for undotree
+set_buf_opt(0, 'undofile', true) -- enable undofiles for undotree
 
-set_opts('o', 'foldlevelstart', 99) -- fold all folds on opening buffers
-set_opts('w', 'foldmethod', 'expr') -- treesitter
-set_opts('w', 'foldexpr', [[nvim_treesitter#foldexpr()]]) -- treesitter
+set_opt('foldlevelstart', 99) -- fold all folds on opening buffers
+set_win_opt(0, 'foldmethod', 'expr') -- treesitter
+set_win_opt(0, 'foldexpr', [[nvim_treesitter#foldexpr()]]) -- treesitter
 
-set_opts('o', 'clipboard', vim.o.clipboard .. 'unnamedplus') -- use unnamedplus clipboard
-set_opts('o', 'updatetime', 1000) -- update time
-set_opts('o', 'mouse', 'nvi') -- enables mouse support for normal, visual, insert
-set_opts('o', 'hidden', true) -- enable modified buffers in background
-set_opts('o', 'shortmess', 'flmnrwx') -- shorten messages on airline
-set_opts('o', 'autochdir', true) -- autochdir on changing buffer
-set_opts('o', 'autowrite', true) -- autosave on leaving nvim
-set_opts('o', 'pyxversion', 3) -- pythonx version
-set_opts('o', 'guicursor',
-    'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0') -- nice cursors
-set_opts('o', 'completeopt', 'menuone,noinsert,noselect') -- completion box
-set_opts('b', 'omnifunc', 'v:lua.vim.lsp.omnifunc') -- nvim-lsp 'setup'
-set_opts('w', 'concealcursor', 'nc') -- conceal text settings
+-- set_opt('clipboard', vim.o.clipboard .. 'unnamedplus') -- use unnamedplus clipboard
+set_opt('clipboard', 'unnamedplus') -- use unnamedplus clipboard
+set_opt('updatetime', 1000) -- update time
+set_opt('mouse', 'nvi') -- enables mouse support for normal, visual, insert
+set_opt('hidden', true) -- enable modified buffers in bakground
+set_opt('shortmess', 'flmnrwx') -- shorten messages on airline
+set_opt('autochdir', true) -- autochdir on changing buffer
+set_opt('autowrite', true) -- autosave on leaving nvim
+set_opt('pyxversion', 3) -- pythonx version
+set_opt('guicursor', 'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0') -- nice cursors
+set_opt('completeopt', 'menuone,noinsert,noselect') -- completion box
+set_buf_opt(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc') -- nvim-lsp 'setup'
+set_win_opt(0, 'concealcursor', 'nc') -- conceal text settings

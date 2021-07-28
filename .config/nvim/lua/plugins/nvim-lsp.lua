@@ -1,3 +1,5 @@
+local map = require'helpers'.map
+
 local nvim_lsp = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -25,11 +27,7 @@ nvim_lsp.clangd.setup{
     }
 }
 
--- nvim_lsp.pyright.setup{
---     capabilities = capabilities,
--- }
-
-nvim_lsp.pyls.setup{
+nvim_lsp.pylsp.setup{
     capabilities = capabilities,
 }
 
@@ -63,10 +61,6 @@ nvim_lsp.texlab.setup{
     capabilities = capabilities,
 }
 
---nvim_lsp.denols.setup{
-    --capabilities = capabilities,
---}
-
 nvim_lsp.tsserver.setup{
     capabilities = capabilities,
 }
@@ -86,41 +80,20 @@ nvim_lsp.jsonls.setup {
     capabilities = capabilities,
 }
 
-nvim_lsp.jdtls.setup {
-    cmd = {
-        '/usr/lib/jvm/default-runtime/bin/java',
-        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        '-Dosgi.bundles.defaultStartLevel=4',
-        '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        '-Dlog.protocol=true',
-        '-Dlog.level=ALL',
-        '-Xms1g',
-        '-Xmx2G',
-        '-jar',
-        os.getenv('HOME') .. '/sources/jdtls/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar',
-        '-configuration',
-        os.getenv('HOME') .. '/sources/jdtls/config_linux',
-        '-data',
-        os.getenv('HOME') .. '/.gradle',
-        '--add-modules=ALL-SYSTEM',
-        '--add-opens java.base/java.util=ALL-UNNAMED',
-        '--add-opens java.base/java.lang=ALL-UNNAMED',
-    },
-    cmd_env = {
-        GRADLE_HOME = os.getenv('HOME') .. '/.gradle',
-        JAR = os.getenv('HOME') .. '/sources/jdtls/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar',
-        JAVA_HOME = '/usr/lib/jvm/default-runtime',
-        JDTLS_CONFIG = os.getenv('HOME') .. '/sources/jdtls/config_linux',
-    },
-    capabilities = capabilities,
-}
-
 nvim_lsp.svelte.setup {
     capabilities = capabilities,
 }
 
 nvim_lsp.rust_analyzer.setup {
     capabilities = capabilities,
+    settings = {
+        ["rust_analyzer"] = {
+            checkOnSave = {
+                enable = true,
+                command = 'clippy',
+            }
+        }
+    }
 }
 
 nvim_lsp.gopls.setup {
@@ -163,3 +136,39 @@ map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 -- map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
 vim.lsp.set_log_level("debug")
+
+-- Unused!
+-- nvim_lsp.pyright.setup{
+--     capabilities = capabilities,
+-- }
+--nvim_lsp.denols.setup{
+    --capabilities = capabilities,
+--}
+-- nvim_lsp.jdtls.setup {
+--     cmd = {
+--         '/usr/lib/jvm/default-runtime/bin/java',
+--         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+--         '-Dosgi.bundles.defaultStartLevel=4',
+--         '-Declipse.product=org.eclipse.jdt.ls.core.product',
+--         '-Dlog.protocol=true',
+--         '-Dlog.level=ALL',
+--         '-Xms1g',
+--         '-Xmx2G',
+--         '-jar',
+--         os.getenv('HOME') .. '/sources/jdtls/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar',
+--         '-configuration',
+--         os.getenv('HOME') .. '/sources/jdtls/config_linux',
+--         '-data',
+--         os.getenv('HOME') .. '/.gradle',
+--         '--add-modules=ALL-SYSTEM',
+--         '--add-opens java.base/java.util=ALL-UNNAMED',
+--         '--add-opens java.base/java.lang=ALL-UNNAMED',
+--     },
+--     cmd_env = {
+--         GRADLE_HOME = os.getenv('HOME') .. '/.gradle',
+--         JAR = os.getenv('HOME') .. '/sources/jdtls/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar',
+--         JAVA_HOME = '/usr/lib/jvm/default-runtime',
+--         JDTLS_CONFIG = os.getenv('HOME') .. '/sources/jdtls/config_linux',
+--     },
+--     capabilities = capabilities,
+-- }

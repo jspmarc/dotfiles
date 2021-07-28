@@ -1,3 +1,5 @@
+local map = require('helpers').map
+
 ----- keybindings -----
 map('n', '<leader>g]', ':GitGutterNextHunk<CR>')
 map('n', '<leader>g[', ':GitGutterPrevHunk<CR>')

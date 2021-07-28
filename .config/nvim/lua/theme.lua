@@ -32,11 +32,17 @@ g.nord_underline = 1
 g.material_style = 'palenight'
 g.material_italics = 1
 
+----------------------------------
+------------ onedark -------------
+----------------------------------
+g.onedark_style = 'darker'
+
+
 --api.nvim_exec([[
 --syntax on
 --syntax enable
 
 --colorscheme gruvbox
 --]])
-
+--
 api.nvim_command('colorscheme onedark')

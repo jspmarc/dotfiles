@@ -1,5 +1,6 @@
 local g = vim.g
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+local map = require('modules/helpers').map
 
 g.nvim_tree_side = 'left' -- left by default
 g.nvim_tree_width = 30 -- 30 by default

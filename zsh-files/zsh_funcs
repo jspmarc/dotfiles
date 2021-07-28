@@ -39,7 +39,7 @@ ffont() {
 
 vim() {
     if [[ -z $1 ]]; then
-        nvim +:Dashboard +:IndentLinesDisable
+        nvim +:Dashboard
     else
         nvim "$@"
     fi

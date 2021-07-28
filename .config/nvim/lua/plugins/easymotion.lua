@@ -1,3 +1,4 @@
+local map = require('helpers').map
 ----- easymotion -----
 map('n', '<leader><leader>f', '<Plug>(easymotion-overwin-f)', {noremap = false})
 map('n', '<leader><leader>w', '<Plug>(easymotion-overwin-w)', {noremap = false})

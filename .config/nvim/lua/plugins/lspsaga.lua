@@ -1,4 +1,5 @@
 local saga = require 'lspsaga'
+local map = require('helpers').map
 
 saga.init_lsp_saga()
 

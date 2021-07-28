@@ -2,6 +2,7 @@
 ------------ vim netrw settings -------------
 ---------------------------------------------
 local g = vim.g
+local map = require('helpers').map
 
 g.netrw_keepdir = 0
 g.netrw_winsize = 20
