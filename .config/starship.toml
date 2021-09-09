@@ -45,8 +45,7 @@ $custom\
 $lua\
 $cmd_duration\
 $line_break\
-$battery$time $character
-"""
+$battery$time $character"""
 
 [directory]
 truncation_length = 3
