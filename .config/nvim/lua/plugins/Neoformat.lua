@@ -2,7 +2,7 @@ local g = vim.g
 
 local prettier_config = {
     exe = "prettier",
-    args = {'--config ~/.config/.prettierrc.json', '--stdin-filepath %'},
+    args = {'--stdin-filepath %'},
     stdin = 1,
 }
 
@@ -14,3 +14,10 @@ g.neoformat_enabled_typescript = { 'prettier' }
 
 g.neoformat_try_formatprg = 1
 g.neoformat_verbose = 0
+
+vim.api.nvim_exec([[
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+]], false)

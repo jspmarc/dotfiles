@@ -1,10 +1,21 @@
 local map = require'helpers'.map
 
+require'telescope'.setup {
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = false,
+            override_file_sorter = true,
+            case_mode = 'smart_csae'
+        }
+    }
+}
+
 map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
 map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
 map('n', '<leader>fp', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 map('n', '<leader>fv', '<cmd>lua require("telescope.builtin").buffers.marks()<cr>')
-map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
+map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").oldfiles()<cr>')
 map('n', '<leader>fc', '<cmd>lua require("telescope.builtin").colorscheme()<cr>')
 map('n', '<leader>fr', '<cmd>lua require("telescope.builtin").registers()<cr>')
 map('n', '<C-p>', '<cmd>lua require("telescope.builtin").buffers()<cr>')

@@ -63,7 +63,7 @@ vim.g.nvim_tree_bindings = {
     { key = "gy",                           cb = tree_cb("copy_absolute_path") },
     { key = "[c",                           cb = tree_cb("prev_git_item") },
     { key = "]c",                           cb = tree_cb("next_git_item") },
-    { key = "-",                            cb = tree_cb("dir_up") },
+    { key = "U",                            cb = tree_cb("dir_up") },
     { key = "q",                            cb = tree_cb("close") },
     { key = "g?",                           cb = tree_cb("toggle_help") },
 }

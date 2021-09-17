@@ -85,3 +85,22 @@ cowsay -f tux <<< $(fortune -s) | lolcat
 source /usr/share/nvm/init-nvm.sh
 
 eval $(thefuck --alias)
+
+prompt_fix_wsl() {
+    # return early if WSL is missing or already working
+    [[ -n "$WSL_INTEROP" ]] || return
+    ! [[ -e "$WSL_INTEROP" ]] || return
+    local pid pids
+    # parse pstree output in to pids array
+    IFS='-()'
+    # shellcheck disable=SC2207
+    pids=($(pstree --numeric-sort --show-pids --show-parents $$))
+    unset IFS
+    for pid in "${pids[@]}"; do
+        [[ "$pid" =~ [0-9]+ ]] || continue
+        [[ -e "/run/WSL/${pid}_interop" ]] || continue
+        export "WSL_INTEROP=/run/WSL/${pid}_interop"
+        # stop looking for sockets
+        return
+    done
+}
