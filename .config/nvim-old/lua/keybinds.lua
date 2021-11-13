@@ -1,5 +1,8 @@
-local map = require('helpers').map
+--------------------------------------------------
+------------ vim-related keymappings -------------
+--------------------------------------------------
 
+local map = require('helpers').map
 -- leader maps
 -- Leader is still backslash ( '\' , mapped to backspace)
 map('n', '<space>', '<leader><leader>', {noremap = false})
@@ -55,5 +58,7 @@ map('v', '<', '<gv')
 map('v', '>', '>gv')
 
 -- Fold
-map('n', '<leader>fc', ':foldclose<CR>')
-map('n', '<leader>fo', ':foldopen<CR>')
+map('n', '<C-f>c', ':foldclose<CR>')
+map('n', '<C-f>o', ':foldopen<CR>')
+
+--map('n', '<C-b>', ':LF<CR>')

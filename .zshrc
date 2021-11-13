@@ -104,3 +104,5 @@ prompt_fix_wsl() {
         return
     done
 }
+
+alias luamake=/home/josep/.config/nvim/lua/lsp/language-servers/lua-language-server/3rd/luamake/luamake
