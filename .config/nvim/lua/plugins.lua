@@ -24,7 +24,7 @@ local M = require'packer'.startup(function(use)
 
 	-- E
 	use 'easymotion/vim-easymotion'
-    use 'houtsnip/vim-emacscommandline'
+	use 'houtsnip/vim-emacscommandline'
 
 	-- F
 	use 'voldikss/vim-floaterm'
@@ -78,8 +78,8 @@ require'plugins.0keybinds'
 require'plugins.bufferline'
 require'plugins.nvim-cmp'
 require'plugins.dashboard'
+require'plugins.vim-floaterm'
 require'plugins.lualine'
--- require'plugins.neoformat'
 require'plugins.nvim-tree'
 require'plugins.nvim-treesitter'
 require'plugins.telescope'

@@ -21,7 +21,11 @@ map('n', '<leader><leader>j', '<Plug>(easymotion-j)', {noremap = false})
 map('n', '<leader><leader>k', '<Plug>(easymotion-k)', {noremap = false})
 
 -- voldkiss/vim-floaterm
-map('n', '<C-t>', ':FloatermToggle<CR>', {silent = false})
+map('n', '<C-t>', ':FloatermToggle<CR>')
+map('n', '<leader>ft', ':FloatermToggle<CR>')
+map('n', '<leader>ftn', ':FloatermNew<CR>')
+map('n', '<leader>ft[', ':FloatermPrev<CR>')
+map('n', '<leader>ft]', ':FloatermNext<CR>')
 
 -- airblade/vim-gitgutter
 map('n', '<leader>gp', '<Plug>(GitGutterPreviewHunk)')
