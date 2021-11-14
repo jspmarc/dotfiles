@@ -2,8 +2,8 @@ local map = require('helpers').map
 
 -- leader maps
 -- Leader is still backslash ( '\' ), mapped to backspace
-map('n', '<space>', '<leader><leader>', {noremap = false})
-map('', '<BS>', '<leader>', {noremap = false})
+map('n', '<space>', '<leader><leader>', { noremap = false })
+map('', '<BS>', '<leader>', { noremap = false })
 
 -- double Esc to return to normal mode from term mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>')

@@ -1,5 +1,5 @@
-require'lsp.keybinds'
-require'lsp.installer'
+require('lsp.keybinds')
+require('lsp.installer')
 
 -- css
 -- nvim_lsp.cssls.setup{}

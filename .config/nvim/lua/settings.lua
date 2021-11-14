@@ -4,7 +4,7 @@ o.autochdir = false -- disable changing dir on changing buffer
 o.autowrite = true -- save file on leaving nvim
 
 o.backup = false
-o.background='dark'
+o.background = 'dark'
 
 o.cursorline = true -- disable highlight current line
 o.clipboard = 'unnamedplus'

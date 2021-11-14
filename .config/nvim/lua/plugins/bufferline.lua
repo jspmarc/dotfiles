@@ -1,7 +1,12 @@
-require('bufferline').setup{
+require('bufferline').setup({
 	options = {
-		diagnostics = "nvim_lsp",
-		offsets = {{filetype = "NvimTree", text="File Explorer"}},
-		separator_style = "thick",
-	}
-}
+
+		diagnostics = 'nvim_lsp',
+
+		offsets = { { filetype = 'NvimTree', text = 'File Explorer' } },
+
+		separator_style = 'thick',
+
+	},
+
+})

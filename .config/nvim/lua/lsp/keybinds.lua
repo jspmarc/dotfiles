@@ -1,4 +1,4 @@
-local map = require'helpers'.map
+local map = require('helpers').map
 
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')

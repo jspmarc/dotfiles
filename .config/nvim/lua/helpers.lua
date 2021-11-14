@@ -12,4 +12,3 @@ function M.map(mode, from, to, opts)
 end
 
 return M
-

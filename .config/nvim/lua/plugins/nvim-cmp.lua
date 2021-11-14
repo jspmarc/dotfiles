@@ -1,13 +1,13 @@
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			require'luasnip'.lsp_expand(args.body)
-		end
+			require('luasnip').lsp_expand(args.body)
+		end,
 	},
 
-    mapping = {
+	mapping = {
 		-- see :h mode() for 2nd arg of cmp.mapping
 		['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 		['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -18,7 +18,7 @@ cmp.setup({
 		}),
 		['<CR>'] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
-			select = true
+			select = true,
 		}),
 		['<Tab>'] = cmp.mapping.select_next_item(),
 		['<S-Tab>'] = cmp.mapping.select_prev_item(),
@@ -28,7 +28,7 @@ cmp.setup({
 		{ name = 'luasnip' },
 	}, {
 		{ name = 'buffer' },
-	})
+	}),
 })
 
 cmp.setup.cmdline('/', {
@@ -39,8 +39,8 @@ cmp.setup.cmdline('/', {
 
 cmp.setup.cmdline(':', {
 	sources = cmp.config.sources({
-		{ name = 'path' }
+		{ name = 'path' },
 	}, {
-		{ name = 'cmdline' }
-	})
+		{ name = 'cmdline' },
+	}),
 })

@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
 	highlight = {
 		enable = true,
 	},
@@ -12,6 +12,9 @@ require'nvim-treesitter.configs'.setup {
 			node_incremental = 'grn',
 			scope_incremental = 'grc',
 			node_decremental = 'grm',
-		}
-	}
-}
+
+		},
+
+	},
+
+})

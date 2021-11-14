@@ -1,18 +1,18 @@
 local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
+if vim.fn.has('mac') == 1 then
+	system_name = 'macOS'
+elseif vim.fn.has('unix') == 1 then
+	system_name = 'Linux'
 elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
+	system_name = 'Windows'
 else
-  print("Unsupported system for sumneko")
+	print('Unsupported system for sumneko')
 end
 
 local sumneko_root_path = os.getenv('HOME') .. '/.local/share/nvim/lsp_servers/sumneko_lua/extension/server'
-local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
+local sumneko_binary = sumneko_root_path .. '/bin/' .. system_name .. '/lua-language-server'
 return {
-	cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+	cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
 	settings = {
 		Lua = {
 			runtime = {
@@ -23,17 +23,16 @@ return {
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
-				globals = {'vim'},
+				globals = { 'vim' },
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = vim.api.nvim_get_runtime_file('', true),
 			},
-				-- Do not send telemetry data containing a randomized but unique identifier
-				telemetry = {
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
 				enable = false,
 			},
 		},
 	},
 }
-
