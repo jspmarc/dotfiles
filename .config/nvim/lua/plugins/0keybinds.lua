@@ -28,9 +28,9 @@ map('n', '<leader>ft[', ':FloatermPrev<CR>')
 map('n', '<leader>ft]', ':FloatermNext<CR>')
 
 -- airblade/vim-gitgutter
-map('n', '<leader>gp', '<Plug>(GitGutterPreviewHunk)')
-map('n', '<leader>gg', '<Plug>(GitGutterStageHunk)')
-map('n', '<leader>gu', '<Plug>(GitGutterUndoHunk)')
+map('n', '<leader>gp', '<Plug>(GitGutterPreviewHunk)', {noremap=false})
+map('n', '<leader>gs', '<Plug>(GitGutterStageHunk)', {noremap=false})
+map('n', '<leader>gu', '<Plug>(GitGutterUndoHunk)', {noremap=false})
 
 -- b3nj5m1n/kommentary
 map('n', '<C-_>', '<Plug>kommentary_line_default', {noremap = false})
