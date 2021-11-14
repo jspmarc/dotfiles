@@ -30,6 +30,9 @@ local M = require'packer'.startup(function(use)
 	use 'voldikss/vim-floaterm'
 	use 'tpope/vim-fugitive'
 
+	-- G
+	use 'airblade/vim-gitgutter'
+
 	-- K
 	use 'b3nj5m1n/kommentary' -- tpope's kommentary in lua
 
