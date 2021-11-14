@@ -20,6 +20,7 @@ local M = require'packer'.startup(function(use)
 
 	-- D
 	use 'glepnir/dashboard-nvim'
+	use 'ekalinin/Dockerfile.vim'
 
 	-- E
 	use 'easymotion/vim-easymotion'

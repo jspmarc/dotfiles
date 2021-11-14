@@ -24,11 +24,11 @@ g.dashboard_custom_header = {
 }
 g.dashboard_custom_shortcut = {
   last_session       = 'No bind',
-  find_history       = 'LDR f h',
-  find_file          = 'LDR f f',
+  find_history       = 'LDR t h',
+  find_file          = 'LDR t f',
   new_file           = 'CTRL  n',
-  change_colorscheme = 'LDR f c',
-  find_word          = 'LDR f w',
+  change_colorscheme = 'LDR t c',
+  find_word          = 'LDR t w',
   book_marks         = 'No bind',
 }
 
