@@ -1,9 +1,13 @@
+local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+
+vim.g.nvim_tree_quit_on_open = 1
+
 require'nvim-tree'.setup {
 	disable_netrw = true,
 	hijack_netrw  = true,
 	open_on_setup  = false,
 	ignore_ft_on_setup = {},
-	auto_close = false,
+	auto_close = true,
 	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = false,
@@ -14,10 +18,10 @@ require'nvim-tree'.setup {
 	diagnostics = {
 		enable = false,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = '',
+			info = '',
+			warning = '',
+			error = '',
 		}
 	},
 	update_focused_file = {
@@ -41,7 +45,12 @@ require'nvim-tree'.setup {
 		auto_resize = false,
 		mappings = {
 			custom_only = false,
-			list = {}
+			list = {
+				{key = 'v', cb = tree_cb('vsplit') },
+				{key = 's', cb = tree_cb('split') },
+				{key = 'U', cb = tree_cb('parent_node')},
+			}
 		}
 	}
 }
+

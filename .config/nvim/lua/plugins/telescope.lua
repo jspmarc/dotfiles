@@ -1,5 +1,6 @@
-local ts = require'telescope'
-ts.setup({
+local telescope = require'telescope'
+
+telescope.setup({
 	extensions = {
 		fzf = {
 			fuzzy = true,
@@ -7,7 +8,12 @@ ts.setup({
 			override_file_sorter = true,
 			case_mode = 'smart_case',
 		}
+	},
+	pickers = {
+		find_files = {
+			theme = 'dropdown',
+		}
 	}
 })
 
-ts.load_extension('fzf')
+telescope.load_extension('fzf')

@@ -33,3 +33,5 @@ export TEXMFCACHE=$TEXMFSYSVAR:$TEXMFVAR
 
 [[ $(uname -r | grep "microsoft") ]] \
     && export BXSHARE=/mnt/c/Users/jspma/scoop/apps/bochs/current/
+
+export PYENV_ROOT=$(pyenv root)

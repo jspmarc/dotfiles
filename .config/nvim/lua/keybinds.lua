@@ -1,7 +1,7 @@
 local map = require('helpers').map
 
 -- leader maps
--- Leader is still backslash ( '\' , mapped to backspace)
+-- Leader is still backslash ( '\' ), mapped to backspace
 map('n', '<space>', '<leader><leader>', {noremap = false})
 map('', '<BS>', '<leader>', {noremap = false})
 
@@ -14,7 +14,7 @@ map('t', '<C-h><C-l>', '<C-\\><C-n>')
 map('v', '<C-h><C-l>', '<C-\\><C-n>')
 
 -- spawn a window terminal on bottom of screen
-map('n', '<leader><C-t>', '<C-w>s<C-w>r:exe \'resize -10\'<CR>:term<CR>G')
+map('n', '<leader><C-t>', '<C-w>s<C-w>r:exe \'resize -15\'<CR>:term<CR>G')
 
 -- now <S-y> acts like <S-d> but yanking
 map('n', '<S-y>', 'y$')

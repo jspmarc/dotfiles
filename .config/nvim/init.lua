@@ -1,4 +1,5 @@
 vim.g.vimsyn_embed = 'l'
+vim.g.mapleader = ','
 
 ---------------------------------------------------------------------------------------------------
 -- Load Modules
@@ -19,3 +20,4 @@ vim.api.nvim_exec([[
 autocmd BufEnter *.notal setfiletype notal
 autocmd BufEnter *.asm setfiletype nasm
 ]], false)
+

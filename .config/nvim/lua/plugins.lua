@@ -2,12 +2,17 @@ local M = require'packer'.startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- sorted by plugin's name and then by author name
+	-- `nvim` and `vim` prefix are treated as if they don't exist
 
 	-- B
 	use 'akinsho/bufferline.nvim'
 
 	-- D
 	use 'glepnir/dashboard-nvim'
+
+	-- E
+	use 'easymotion/vim-easymotion'
+    use 'houtsnip/vim-emacscommandline'
 
 	-- K
 	use 'b3nj5m1n/kommentary' -- tpope's kommentary in lua
@@ -16,14 +21,8 @@ local M = require'packer'.startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'neovim/nvim-lspconfig'
 
-	-- N
-	use { 'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
-	}
-	use { 'kyazdani42/nvim-tree.lua',
-		config = function() require'nvim-tree'.setup {} end
-	}
-	use 'kyazdani42/nvim-web-devicons'
+	-- S
+	use 'tpope/vim-surround'
 
 	-- T
 	use { 'nvim-telescope/telescope.nvim',
@@ -38,18 +37,26 @@ local M = require'packer'.startup(function(use)
 		end,
 		requires = {"tami5/sqlite.lua"}
 	}
+	use { 'kyazdani42/nvim-tree.lua',
+		config = function() require'nvim-tree'.setup {} end
+	}
+	use { 'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
 
 	-- V
 	use { 'dracula/vim',
 		as = 'dracula'
 	}
-    use 'houtsnip/vim-emacscommandline'
-	use 'tpope/vim-surround'
+
+	-- W
+	use 'kyazdani42/nvim-web-devicons'
 end)
 
 require'lsp.settings'
-require'plugins._keybinds'
+require'plugins.0keybinds'
 require'plugins.bufferline'
+require'plugins.dashboard'
 require'plugins.lualine'
 require'plugins.nvim-tree'
 require'plugins.nvim-treesitter'
