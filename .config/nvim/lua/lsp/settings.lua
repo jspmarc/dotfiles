@@ -1,9 +1,34 @@
-local nvim_lsp = require('lspconfig')
+require'lsp.keybinds'
+require'lsp.installer'
 
-vim.lsp.set_log_level('debug')
+-- css
+-- nvim_lsp.cssls.setup{}
+
+-- docker
+-- nvim_lsp.dockerls.setup{}
+
+-- go
+-- nvim_lsp.gopls.setup {}
+
+-- html
+-- nvim_lsp.html.setup {}
+
+-- javascript
+-- nvim_lsp.tsserver.setup{}
+
+-- json
+--[[ nvim_lsp.jsonls.setup {
+	commands = {
+		Format = {
+			function()
+				vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+			end
+		}
+	},
+} ]]
 
 -- Lua
-local system_name
+--[[ local system_name
 if vim.fn.has("mac") == 1 then
   system_name = "macOS"
 elseif vim.fn.has("unix") == 1 then
@@ -21,7 +46,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 nvim_lsp.sumneko_lua.setup {
-cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+	cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
 	settings = {
 		Lua = {
 			runtime = {
@@ -44,7 +69,29 @@ cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
 			},
 		},
 	},
+} ]]
+
+-- python
+-- nvim_lsp.pylsp.setup{}
+
+-- rust
+--[[ nvim_lsp.rust_analyzer.setup {
+	settings = {
+		["rust_analyzer"] = {
+			checkOnSave = {
+				enable = true,
+				command = 'clippy',
+			}
+		}
+	}
 }
+ ]]
 
-require'keybinds'
+-- svelte
+-- nvim_lsp.svelte.setup {}
 
+-- tailwind
+-- nvim_lsp.tailwindcss.setup{}
+
+-- vim
+-- nvim_lsp.vimls.setup{}

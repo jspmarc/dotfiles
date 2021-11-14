@@ -20,6 +20,10 @@ map('n', '<leader><leader>b', '<Plug>(easymotion-b)', {noremap = false})
 map('n', '<leader><leader>j', '<Plug>(easymotion-j)', {noremap = false})
 map('n', '<leader><leader>k', '<Plug>(easymotion-k)', {noremap = false})
 
+
+-- voldkiss/vim-floaterm
+map('n', '<C-t>', ':FloatermToggle<CR>', {silent = false})
+
 -- b3nj5m1n/kommentary
 map('n', '<C-_>', '<Plug>kommentary_line_default', {noremap = false})
 map('v', '<C-_>', '<Plug>kommentary_visual_default', {noremap = false})
