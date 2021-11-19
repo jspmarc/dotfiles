@@ -4,13 +4,11 @@ local map = require('helpers').map
 -- sorted by plugin name and then author name
 
 -- akinsho/bufferline.nvim
-map('n', '<leader>b]', ':BufferLineCycleNext<CR>')
-map('n', '<leader>b[', ':BufferLineCyclePrev<CR>')
+map('n', '<A-b>]', '<cmd>BufferLineCycleNext<CR>')
+map('n', '<A-b>[', '<cmd>BufferLineCyclePrev<CR>')
 
 -- glepnir/Dashboard.nvim
---[[ map('n', '<leader>ss', ':SessionSave<CR>')
-map('n', '<leader>sl', ':SessionLoad<CR>') ]]
-map('n', '<C-n>', ':DashboardNewFile<CR>')
+map('n', '<C-n>', '<cmd>DashboardNewFile<CR>')
 
 -- easymotion/vim-easymotion
 map('n', '<leader><leader>f', '<Plug>(easymotion-overwin-f)', { noremap = false })
@@ -21,11 +19,12 @@ map('n', '<leader><leader>j', '<Plug>(easymotion-j)', { noremap = false })
 map('n', '<leader><leader>k', '<Plug>(easymotion-k)', { noremap = false })
 
 -- voldkiss/vim-floaterm
-map('n', '<C-t>', ':FloatermToggle<CR>')
-map('n', '<leader>ft', ':FloatermToggle<CR>')
-map('n', '<leader>ftn', ':FloatermNew<CR>')
-map('n', '<leader>ft[', ':FloatermPrev<CR>')
-map('n', '<leader>ft]', ':FloatermNext<CR>')
+map('n', '<C-t>', '<cmd>FloatermToggle<CR>')
+map('n', '<C-f>c', '<cmd>FloatermKill<CR>')
+map('n', '<C-f>n', '<cmd>FloatermNew<CR>')
+map('n', '<C-f>t', '<cmd>FloatermToggle<CR>')
+map('n', '<C-f>[', '<cmd>FloatermPrev<CR>')
+map('n', '<C-f>]', '<cmd>FloatermNext<CR>')
 
 -- airblade/vim-gitgutter
 map('n', '<leader>gp', '<Plug>(GitGutterPreviewHunk)', { noremap = false })
@@ -44,4 +43,4 @@ map('n', '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>')
 map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
 
 -- kyazdani42/nvim-tree.lua
-map('n', '<C-b>', ':NvimTreeToggle<CR>')
+map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')

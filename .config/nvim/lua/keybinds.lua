@@ -55,5 +55,8 @@ map('v', '<', '<gv')
 map('v', '>', '>gv')
 
 -- Fold
-map('n', '<leader>fc', ':foldclose<CR>')
-map('n', '<leader>fo', ':foldopen<CR>')
+map('n', '<leader>fc', '<cmd>foldclose<CR>')
+map('n', '<leader>fo', '<cmd>foldopen<CR>')
+
+-- buffer
+map('n', '<A-b>d', '<cmd>bd<CR>')

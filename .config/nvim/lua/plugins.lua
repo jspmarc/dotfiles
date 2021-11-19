@@ -21,10 +21,12 @@ local M = require('packer').startup(function(use)
 	-- D
 	use('glepnir/dashboard-nvim')
 	use('ekalinin/Dockerfile.vim')
+	-- use('Mofiqul/dracula.nvim')
 
 	-- E
 	use('easymotion/vim-easymotion')
 	use('houtsnip/vim-emacscommandline')
+	use('mattn/emmet-vim')
 
 	-- F
 	use('voldikss/vim-floaterm')

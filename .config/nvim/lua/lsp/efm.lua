@@ -1,7 +1,7 @@
 -- taken from: https://github.com/tsuyoshicho/vim-efm-langserver-settings
 -- modified by github.com/jspmarc
 local clang_format = { formatCommand = 'clang-format -style=LLVM ${INPUT}', formatStdin = true }
-local prettier = { formatCommand = 'prettier --stdin-filepath ${INPUT}', formatStdin = true }
+local prettier = { formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}', formatStdin = true }
 local stylua = { formatCommand = 'stylua -s -', formatStdin = true }
 local flake8 = { formatCommand = 'flake8 --quiet -', formatStdin = true }
 
@@ -25,5 +25,4 @@ return {
 			yaml = { prettier },
 		},
 	},
-	filetypes = { 'lua', 'python', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
 }
