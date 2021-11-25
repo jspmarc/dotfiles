@@ -14,6 +14,6 @@ case "$1" in
     *.rar) unrar l "$1";;
     *.7z) 7z l "$1";;
     #*.html|*.xml) w3m -dump "$1";;
-    *.zsh*|*.bash*|*.git*) pistol "$1";;
+    *.zsh*|*.bash*|*.git*) cat "$1";;
     *) highlight "$1" -O ansi --force;;
 esac
