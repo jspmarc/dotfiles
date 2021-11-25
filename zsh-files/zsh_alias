@@ -207,9 +207,9 @@ alias pacSearch="pacman -Slq \
 #alias yaySearch="yay -Slq \
     #| fzf --multi --preview 'yay -Si {1}' \
     #| xargs -ro yay -S"
-alias aurSearch="yay -Slq \
-    | fzf --multi --preview 'yay -Si {1}' \
-    | xargs -ro yay -S"
+alias aurSearch="$AUR_HELPER -Slq \
+    | fzf --multi --preview '$AUR_HELPER -Si {1}' \
+    | xargs -ro $AUR_HELPER -S"
 alias note="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.wiki"
 alias notes="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.wiki"
 alias diary="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/diary/diary.wiki"
@@ -232,13 +232,13 @@ alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
 #alias dfs=dotfiles
 
 # window swallowing
-if [[ $(uname -r | grep arch) ]]; then
-    alias vlc='ws vlc'
-    alias sxiv='ws sxiv'
-    alias okular='ws okular'
-    alias zathura='ws zathura'
-    alias feh='ws feh'
-    alias spotify='ws spotify'
-    alias libreoffice='ws libreoffice'
-    alias scrcpy='ws scrcpy'
-fi
+# if [[ $(uname -r | grep arch) ]]; then
+#     alias vlc='ws vlc'
+#     alias sxiv='ws sxiv'
+#     alias okular='ws okular'
+#     alias zathura='ws zathura'
+#     alias feh='ws feh'
+#     alias spotify='ws spotify'
+#     alias libreoffice='ws libreoffice'
+#     alias scrcpy='ws scrcpy'
+# fi

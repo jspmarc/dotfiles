@@ -8,6 +8,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
 #export BROWSER="firefox"
+export AUR_HELPER='paru'
 
 # NNN configuratons
 export NNN_TRASH=1
@@ -29,7 +30,6 @@ export TEXMFCACHE=$TEXMFSYSVAR:$TEXMFVAR
 
 [[ $(uname -r | grep "microsoft") ]] \
     && export DISPLAY="`sed -n 's/nameserver //p' /etc/resolv.conf`:0" \
-    || export DISPLAY=":0.0"
 
 [[ $(uname -r | grep "microsoft") ]] \
     && export BXSHARE=/mnt/c/Users/jspma/scoop/apps/bochs/current/
