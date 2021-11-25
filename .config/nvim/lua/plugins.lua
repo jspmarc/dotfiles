@@ -21,7 +21,7 @@ local M = require('packer').startup(function(use)
 	-- D
 	use('glepnir/dashboard-nvim')
 	use('ekalinin/Dockerfile.vim')
-	-- use('Mofiqul/dracula.nvim')
+	use('Mofiqul/dracula.nvim')
 
 	-- E
 	use('easymotion/vim-easymotion')
@@ -33,7 +33,19 @@ local M = require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
 
 	-- G
-	use('airblade/vim-gitgutter')
+	-- use('airblade/vim-gitgutter')
+	use({
+		'lewis6991/gitsigns.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim',
+		},
+		config = function()
+			require('gitsigns').setup()
+		end,
+	})
+
+	-- I
+	use('lukas-reineke/indent-blankline.nvim')
 
 	-- K
 	use('b3nj5m1n/kommentary') -- tpope's kommentary in lua
@@ -49,6 +61,12 @@ local M = require('packer').startup(function(use)
 
 	-- N
 	use('sbdchd/neoformat')
+
+	-- O
+	use ('navarasu/onedark.nvim')
+
+	-- P
+	use('andweeb/presence.nvim')
 
 	-- S
 	use('tpope/vim-surround')
@@ -72,7 +90,7 @@ local M = require('packer').startup(function(use)
 	use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
 	-- V
-	use({ 'dracula/vim', as = 'dracula' })
+	-- use({ 'dracula/vim', as = 'dracula' })
 
 	-- W
 	use('kyazdani42/nvim-web-devicons')
@@ -84,6 +102,7 @@ require('plugins.nvim-cmp')
 require('plugins.dashboard')
 require('plugins.vim-floaterm')
 require('plugins.lualine')
+require('plugins.presence-nvim')
 require('plugins.nvim-tree')
 require('plugins.nvim-treesitter')
 require('plugins.telescope')

@@ -1,6 +1,6 @@
 local o = vim.opt
 
-o.autochdir = false -- disable changing dir on changing buffer
+o.autochdir = true -- change dir on changing buffer
 o.autowrite = true -- save file on leaving nvim
 
 o.backup = false
@@ -28,7 +28,7 @@ o.ignorecase = true
 
 o.linebreak = true -- nice line breaks
 o.list = true -- show indentation
--- o.lcs = [[tab:| ]] -- custom indentation for tabs
+o.lcs = [[tab:| ]] -- custom indentation for tabs
 
 o.nu = true
 

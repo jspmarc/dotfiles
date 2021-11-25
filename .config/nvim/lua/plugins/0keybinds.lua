@@ -27,9 +27,28 @@ map('n', '<C-f>[', '<cmd>FloatermPrev<CR>')
 map('n', '<C-f>]', '<cmd>FloatermNext<CR>')
 
 -- airblade/vim-gitgutter
-map('n', '<leader>gp', '<Plug>(GitGutterPreviewHunk)', { noremap = false })
+--[[ map('n', '<leader>gp', '<Plug>(GitGutterPreviewHunk)', { noremap = false })
 map('n', '<leader>gs', '<Plug>(GitGutterStageHunk)', { noremap = false })
-map('n', '<leader>gu', '<Plug>(GitGutterUndoHunk)', { noremap = false })
+map('n', '<leader>gu', '<Plug>(GitGutterUndoHunk)', { noremap = false }) ]]
+
+-- lewis6991/gitsigns.nvim
+map('n', '<leader>gp', '<cmd>lua require"gitsigns".preview_hunk()<CR>', { noremap = false })
+map('n', '<leader>gs', '<cmd>lua require"gitsigns".stage_hunk()<CR>', { noremap = false })
+map(
+	'v',
+	'<leader>gs',
+	'<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+	{ noremap = false }
+)
+map('n', '<leader>gu', '<cmd>lua require"gitsigns".reset_hunk()<CR>)', { noremap = false })
+map(
+	'v',
+	'<leader>gu',
+	'<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>)',
+	{ noremap = false }
+)
+map('v', '<leader>gU', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', { noremap = false })
+map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { noremap = false })
 
 -- b3nj5m1n/kommentary
 map('n', '<C-_>', '<Plug>kommentary_line_default', { noremap = false })
