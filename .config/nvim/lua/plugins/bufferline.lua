@@ -7,6 +7,10 @@ require('bufferline').setup({
 
 		separator_style = 'thick',
 
+		numbers = function (opts)
+			return string.format('%s%s', opts.id, opts.lower(opts.ordinal))
+		end
+
 	},
 
 })

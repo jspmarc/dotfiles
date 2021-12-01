@@ -7,7 +7,16 @@
 #set pure_separate_prompt_on_error true
 #set pure_reverse_prompt_symbol_in_vimode false
 
-#alias vim="nvim"
-#alias v="vim"
+alias vim="nvim"
+alias v="nvim"
 
+function fish_greeting
+	echo "Welcome, $USER! Here's a MOTD:" | lolcat
+	fortune -s | cowsay -f tux | lolcat
+	#source /usr/share/nvm/init-nvm.sh
+
+	#eval (thefuck --alias)
+end
+
+fish_vi_key_bindings
 starship init fish | source
