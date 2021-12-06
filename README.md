@@ -1,6 +1,5 @@
 # My Dotfiles
 
-This is a git to backup my dotfiles
+This is a git to backup my dotfiles. I use GNU stow
 
-You should clone [Powerlevel10k](https://github.com/romkatv/powerlevel10k) to
-your home directory for the zsh theme.
+Run `run.sh` to easily "stow" everything
