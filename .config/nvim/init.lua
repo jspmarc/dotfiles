@@ -5,7 +5,19 @@ vim.g.vimsyn_embed = 'l'
 ---------------------------------------------------------------------------------------------------
 require('settings')
 require('keybinds')
-require('plugins')
+-- require('plugins')
+require('plugins.0keybinds')
+require('plugins.bufferline')
+require('plugins.nvim-cmp')
+require('plugins.dashboard')
+require('plugins.vim-floaterm')
+require('plugins.lualine')
+require('plugins.presence-nvim')
+require('plugins.nvim-tree')
+require('plugins.nvim-treesitter')
+require('plugins.telescope')
+require('plugins.nvim-web-devicons')
+require('lsp.settings')
 require('theme')
 -- require'netrw'
 
