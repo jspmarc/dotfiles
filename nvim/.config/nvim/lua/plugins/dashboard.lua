@@ -1,7 +1,7 @@
 local g = vim.g
 
 g.dashboard_default_executive = 'telescope'
-g.dashboard_custom_header = {
+--[[ g.dashboard_custom_header = {
 	'',
 	'',
 	'        ⢀⣴⡾⠃     ⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀  ',
@@ -21,7 +21,23 @@ g.dashboard_custom_header = {
 	' ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉            ',
 	'',
 	'',
+} ]]
+g.dashboard_custom_header = {
+	'      .          .    ',
+	'    ;;,.        ::    ',
+	' ,:::;,,        :ccc, ',
+	',::c::,,,,.     :cccc,',
+	',cccc:;;;;;.    cllll,',
+	',cccc;.;;;;;,   cllll;',
+	':cccc; .;;;;;;. coooo;',
+	";llll;   ,:::::'loooo;",
+	";llll:    ':::::loooo:",
+	':oooo:     .::::llodd:',
+	'.;ooo:       ;cclooo:.',
+	"  .;oc        'coo;.  ",
+	"    .'         .,.    ",
 }
+
 g.dashboard_custom_shortcut = {
 	last_session = 'No bind',
 	find_history = 'LDR t h',

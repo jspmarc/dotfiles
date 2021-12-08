@@ -11,6 +11,7 @@ require('plugins.bufferline')
 require('plugins.nvim-cmp')
 require('plugins.dashboard')
 require('plugins.vim-floaterm')
+require('plugins.indent-blankline-nvim')
 require('plugins.lualine')
 require('plugins.presence-nvim')
 require('plugins.nvim-tree')
@@ -24,15 +25,8 @@ require('theme')
 ---------------------------------------------------------------------------------------------------
 -- Custom commands for different filetypes
 ---------------------------------------------------------------------------------------------------
-vim.api.nvim_exec(
-	[[
-" autocmd FileType rust setlocal expandtab
-" autocmd FileType python setlocal expandtab
-
-" autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
-
-autocmd BufEnter *.notal setfiletype notal
-autocmd BufEnter *.asm setfiletype nasm
-]],
-	false
-)
+-- vim.cmd([[autocmd FileType rust setlocal expandtab]])
+-- vim.cmd([[autocmd FileType python setlocal expandtab]])
+-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)]])
+vim.cmd([[autocmd BufEnter *.notal setfiletype notal]])
+vim.cmd([[autocmd BufEnter *.asm setfiletype nasm]])
