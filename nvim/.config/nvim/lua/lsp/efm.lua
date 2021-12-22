@@ -22,6 +22,7 @@ return {
 			scss = { prettier },
 			typescript = { prettier },
 			typescriptreact = { prettier },
+			vue = { prettier },
 			yaml = { prettier },
 		},
 	},

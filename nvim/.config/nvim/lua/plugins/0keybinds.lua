@@ -55,6 +55,7 @@ map('n', '<C-_>', '<Plug>kommentary_line_default', { noremap = false })
 map('v', '<C-_>', '<Plug>kommentary_visual_default', { noremap = false })
 
 -- nvim-telescope/telescope
+map('n', '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
 map('n', '<leader>tc', '<cmd>lua require("telescope.builtin").colorscheme()<CR>')
 map('n', '<leader>tf', '<cmd>lua require("telescope.builtin").find_files()<CR>')
 map('n', '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>')

@@ -1,6 +1,6 @@
 local o = vim.opt
 
-o.autochdir = true -- change dir on changing buffer
+-- o.autochdir = true -- change dir on changing buffer
 o.autowrite = true -- save file on leaving nvim
 
 o.backup = false

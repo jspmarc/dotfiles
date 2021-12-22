@@ -225,6 +225,10 @@ languages:
     - <<: *javascript-prettier
     - <<: *javascript-eslint
 
+  efm:
+    - <<: *javascript-prettier
+    - <<: *javascript-eslint
+
   php:
     - <<: *php-phpstan
     - <<: *php-psalm

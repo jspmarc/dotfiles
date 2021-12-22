@@ -31,7 +31,6 @@ local M = require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
 
 	-- G
-	-- use('airblade/vim-gitgutter')
 	use({
 		'lewis6991/gitsigns.nvim',
 		requires = {
@@ -62,7 +61,7 @@ local M = require('packer').startup(function(use)
 	use('rcarriga/nvim-notify')
 
 	-- O
-	use ('navarasu/onedark.nvim')
+	use('navarasu/onedark.nvim')
 
 	-- P
 	use('andweeb/presence.nvim')
@@ -71,25 +70,17 @@ local M = require('packer').startup(function(use)
 	use('tpope/vim-surround')
 
 	-- T
-	use({ 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } })
+	use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
 	use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 	use({
 		'nvim-telescope/telescope-frecency.nvim',
-		config = function()
-			require('telescope').load_extension('frecency')
-		end,
 		requires = { 'tami5/sqlite.lua' },
 	})
-	use({
-		'kyazdani42/nvim-tree.lua',
-		config = function()
-			require('nvim-tree').setup({})
-		end,
-	})
-	use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+	use({ 'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim' })
+	use('kyazdani42/nvim-tree.lua')
+	use({ 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' })
 
-	-- V
-	-- use({ 'dracula/vim', as = 'dracula' })
+	use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
 	-- W
 	use('kyazdani42/nvim-web-devicons')

@@ -19,6 +19,10 @@ map('v', '<C-h><C-l>', '<C-\\><C-n>')
 -- now <S-y> acts like <S-d> but yanking
 map('n', '<S-y>', 'y$')
 
+-- bind page up and down to <C-up> and <C-down>
+map('n', '<PageUp>', '<C-u>')
+map('n', '<PageDown>', '<C-d>')
+
 -- moving between windows using Alt
 map('n', '<A-h>', '<C-w>h')
 map('n', '<A-j>', '<C-w>j')
