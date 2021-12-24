@@ -63,6 +63,6 @@ map('n', '<leader>fc', '<cmd>foldclose<CR>')
 map('n', '<leader>fo', '<cmd>foldopen<CR>')
 
 -- buffer
-map('n', '<A-b>d', '<cmd>bd<CR>')
+map('n', '<leader>bd', '<cmd>bd<CR>')
 
 map('n', '<C-p>', ':')

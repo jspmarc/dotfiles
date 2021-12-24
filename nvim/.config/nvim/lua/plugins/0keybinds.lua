@@ -4,8 +4,8 @@ local map = require('helpers').map
 -- sorted by plugin name and then author name
 
 -- akinsho/bufferline.nvim
-map('n', '<A-b>]', '<cmd>BufferLineCycleNext<CR>')
-map('n', '<A-b>[', '<cmd>BufferLineCyclePrev<CR>')
+map('n', '<leader>b]', '<cmd>BufferLineCycleNext<CR>')
+map('n', '<leader>b[', '<cmd>BufferLineCyclePrev<CR>')
 
 -- glepnir/Dashboard.nvim
 map('n', '<C-n>', '<cmd>DashboardNewFile<CR>')
