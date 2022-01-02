@@ -14,6 +14,8 @@ installer.on_server_ready(function(server)
 			filetypes = { 'dockerfile', 'Dockerfile' },
 			root_dir = util.root_pattern('dockerfile', 'Dockerfile'),
 		})
+	elseif server.name == 'rust' then
+		opts = vim.tbl_extend('force', opts, require('lsp.rust'))
 	elseif server.name == 'efm' then
 		opts = vim.tbl_extend('force', opts, require('lsp.efm'))
 	end

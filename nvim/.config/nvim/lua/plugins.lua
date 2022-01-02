@@ -57,8 +57,8 @@ local M = require('packer').startup(function(use)
 	use({ 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' })
 
 	-- N
-	use('sbdchd/neoformat')
-	use('rcarriga/nvim-notify')
+	-- use('sbdchd/neoformat')
+	-- use('rcarriga/nvim-notify')
 
 	-- O
 	use('navarasu/onedark.nvim')
@@ -68,6 +68,7 @@ local M = require('packer').startup(function(use)
 
 	-- S
 	use('tpope/vim-surround')
+	use('tpope/vim-sleuth')
 
 	-- T
 	use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })
