@@ -65,10 +65,18 @@ local M = require('packer').startup(function(use)
 
 	-- P
 	use('andweeb/presence.nvim')
+	use({
+		'anuvyklack/pretty-fold.nvim',
+		config = function()
+			require('pretty-fold').setup({})
+			require('pretty-fold.preview').setup_keybinding()
+		end,
+	})
 
 	-- S
 	use('tpope/vim-surround')
 	use('tpope/vim-sleuth')
+	use('petertriho/nvim-scrollbar')
 
 	-- T
 	use({ 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' })

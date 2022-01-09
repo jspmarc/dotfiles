@@ -34,6 +34,8 @@ map('n', '<leader>gu', '<Plug>(GitGutterUndoHunk)', { noremap = false }) ]]
 -- lewis6991/gitsigns.nvim
 map('n', '<leader>gp', '<cmd>lua require"gitsigns".preview_hunk()<CR>', { noremap = false })
 map('n', '<leader>gs', '<cmd>lua require"gitsigns".stage_hunk()<CR>', { noremap = false })
+map('n', '<leader>g]', '<cmd>lua require"gitsigns".next_hunk()<CR>', { noremap = false })
+map('n', '<leader>g[', '<cmd>lua require"gitsigns".prev_hunk()<CR>', { noremap = false })
 map(
 	'v',
 	'<leader>gs',

@@ -32,4 +32,10 @@ require('theme')
 -- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)]])
 vim.cmd([[autocmd BufEnter *.notal setfiletype notal]])
 vim.cmd([[autocmd BufEnter *.asm setfiletype nasm]])
-vim.cmd([[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]])
+vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
+vim.cmd([[
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
+]])
