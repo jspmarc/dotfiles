@@ -65,13 +65,7 @@ local M = require('packer').startup(function(use)
 
 	-- P
 	use('andweeb/presence.nvim')
-	use({
-		'anuvyklack/pretty-fold.nvim',
-		config = function()
-			require('pretty-fold').setup({})
-			require('pretty-fold.preview').setup_keybinding()
-		end,
-	})
+	use('anuvyklack/pretty-fold.nvim')
 
 	-- S
 	use('tpope/vim-surround')
