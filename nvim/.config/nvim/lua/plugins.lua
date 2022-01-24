@@ -4,6 +4,9 @@ local M = require('packer').startup(function(use)
 	-- sorted by plugin's name and then by author name
 	-- `nvim` and `vim` prefix are treated as if they don't exist
 
+	-- A
+	use('windwp/nvim-autopairs')
+
 	-- B
 	use('akinsho/bufferline.nvim')
 
@@ -25,10 +28,17 @@ local M = require('packer').startup(function(use)
 	use('easymotion/vim-easymotion')
 	use('houtsnip/vim-emacscommandline')
 	use('mattn/emmet-vim')
+	use('editorconfig/editorconfig-vim')
 
 	-- F
 	use('voldikss/vim-floaterm')
 	use('tpope/vim-fugitive')
+	use({
+		'beauwilliams/focus.nvim',
+		config = function()
+			require('focus').setup()
+		end,
+	})
 
 	-- G
 	use({
@@ -59,6 +69,7 @@ local M = require('packer').startup(function(use)
 	-- N
 	-- use('sbdchd/neoformat')
 	-- use('rcarriga/nvim-notify')
+	use('jose-elias-alvarez/null-ls.nvim')
 
 	-- O
 	use('navarasu/onedark.nvim')
@@ -88,18 +99,5 @@ local M = require('packer').startup(function(use)
 	-- W
 	use('kyazdani42/nvim-web-devicons')
 end)
-
-require('plugins.0keybinds')
-require('plugins.bufferline')
-require('plugins.nvim-cmp')
-require('plugins.dashboard')
-require('plugins.vim-floaterm')
-require('plugins.lualine')
-require('plugins.presence-nvim')
-require('plugins.nvim-tree')
-require('plugins.nvim-treesitter')
-require('plugins.telescope')
-require('plugins.nvim-web-devicons')
-require('lsp.settings')
 
 return M

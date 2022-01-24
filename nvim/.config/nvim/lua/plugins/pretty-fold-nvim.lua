@@ -1,7 +1,4 @@
-local fold = require('pretty-fold')
-local foldKb = require('pretty-fold.preview')
-
-fold.setup({
+require('pretty-fold').setup({
 	keep_indentation = true,
 	fill_char = '━',
 	comment_signs = false,
@@ -30,4 +27,4 @@ fold.setup({
 		},
 	},
 })
-foldKb.setup_keybinding()
+require('pretty-fold.preview').setup()

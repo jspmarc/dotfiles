@@ -1,31 +1,32 @@
 local cmp = require('cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 local kind_icons = {
-	Text = "",
-	Method = "",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "ﴯ",
-	Interface = "",
-	Module = "",
-	Property = "ﰠ",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = ""
+	Text = '',
+	Method = '',
+	Function = '',
+	Constructor = '',
+	Field = '',
+	Variable = '',
+	Class = 'ﴯ',
+	Interface = '',
+	Module = '',
+	Property = 'ﰠ',
+	Unit = '',
+	Value = '',
+	Enum = '',
+	Keyword = '',
+	Snippet = '',
+	Color = '',
+	File = '',
+	Reference = '',
+	Folder = '',
+	EnumMember = '',
+	Constant = '',
+	Struct = '',
+	Event = '',
+	Operator = '',
+	TypeParameter = '',
 }
 
 cmp.setup({
@@ -61,18 +62,18 @@ cmp.setup({
 
 	formatting = {
 		format = function(entry, vim_item)
-		-- Kind icons
-		vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-		-- Source
-		vim_item.menu = ({
-			buffer = "[Buffer]",
-			nvim_lsp = "[LSP]",
-			luasnip = "[LuaSnip]",
-			nvim_lua = "[Lua]",
-			latex_symbols = "[LaTeX]",
-		})[entry.source.name]
-		return vim_item
-		end
+			-- Kind icons
+			vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+			-- Source
+			vim_item.menu = ({
+				buffer = '[Buffer]',
+				nvim_lsp = '[LSP]',
+				luasnip = '[LuaSnip]',
+				nvim_lua = '[Lua]',
+				latex_symbols = '[LaTeX]',
+			})[entry.source.name]
+			return vim_item
+		end,
 	},
 })
 
@@ -89,3 +90,5 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' },
 	}),
 })
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
