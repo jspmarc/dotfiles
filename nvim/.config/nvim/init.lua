@@ -5,27 +5,13 @@ vim.g.vimsyn_embed = 'l'
 ---------------------------------------------------------------------------------------------------
 require('settings')
 require('keybinds')
--- require('plugins')
+require('plugins')
 require('plugins.0keybinds')
-require('plugins.autopairs')
-require('plugins.bufferline')
-require('plugins.nvim-cmp')
-require('plugins.dashboard')
-require('plugins.vim-floaterm')
-require('plugins.indent-blankline-nvim')
-require('plugins.lualine')
-require('plugins.presence-nvim')
-require('plugins.pretty-fold-nvim')
-require('plugins.telescope')
-require('plugins.todo-comments-nvim')
-require('plugins.nvim-tree')
-require('plugins.nvim-scrollbar')
-require('plugins.trouble-nvim')
-require('plugins.nvim-treesitter')
-require('plugins.nvim-web-devicons')
 require('lsp.settings')
-require('theme')
 -- require'netrw'
+
+vim.cmd([[colorscheme onedark]])
+
 
 ---------------------------------------------------------------------------------------------------
 -- Custom commands for different filetypes
