@@ -231,13 +231,21 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 
-	-- I
+	---------------------------------------------------------------------------
+	---------------                     I                       ---------------
+	---------------------------------------------------------------------------
 	use({
 		'lukas-reineke/indent-blankline.nvim',
 		config = function()
+			vim.cmd([[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]])
+			vim.cmd([[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]])
 			require('indent_blankline').setup({
 				buftype_exclude = { 'terminal' },
 				filetype_exclude = { 'dashboard', 'lsp-installer' },
+
+				space_char_blankline = ' ',
+				show_current_context = true,
+				show_current_context_start = true,
 			})
 		end,
 	})
@@ -245,11 +253,29 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     K                       ---------------
 	---------------------------------------------------------------------------
-	use('b3nj5m1n/kommentary') -- tpope's kommentary in lua
+	use({
+		'b3nj5m1n/kommentary', -- tpope's kommentary in lua
+		config = function()
+			local cfg = require('kommentary.config').configure_language
+
+			cfg('default', {
+				prefer_single_line_comments = true,
+			})
+		end,
+	})
 
 	---------------------------------------------------------------------------
 	---------------                     L                       ---------------
 	---------------------------------------------------------------------------
+	use({
+		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+		config = function()
+			require('lsp_lines').register_lsp_virtual_lines()
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
+		end,
+	})
 	use({
 		'nvim-lualine/lualine.nvim',
 		config = function()

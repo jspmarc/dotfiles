@@ -5,7 +5,7 @@ vim.g.vimsyn_embed = 'l'
 ---------------------------------------------------------------------------------------------------
 require('settings')
 require('keybinds')
-require('plugins')
+-- require('plugins')
 require('plugins.0keybinds')
 require('lsp.settings')
 -- require'netrw'
@@ -21,7 +21,7 @@ vim.cmd([[colorscheme onedark]])
 -- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)]])
 vim.cmd([[autocmd BufEnter *.notal setfiletype notal]])
 vim.cmd([[autocmd BufEnter *.asm setfiletype nasm]])
-vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
+-- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
 vim.cmd([[
 augroup highlight_yank
     autocmd!
