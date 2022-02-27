@@ -4,6 +4,7 @@ export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
@@ -35,3 +36,5 @@ export TEXMFCACHE=$TEXMFSYSVAR:$TEXMFVAR
     && export BXSHARE=/mnt/c/Users/jspma/scoop/apps/bochs/current/
 
 export PYENV_ROOT=$(pyenv root)
+
+export GOPATH=$(go env GOPATH)

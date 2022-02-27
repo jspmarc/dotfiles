@@ -272,7 +272,7 @@ local M = require('packer').startup(function(use)
 		config = function()
 			require('lsp_lines').register_lsp_virtual_lines()
 			vim.diagnostic.config({
-				virtual_text = false,
+				virtual_text = true,
 			})
 		end,
 	})
@@ -307,6 +307,16 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     N                       ---------------
 	---------------------------------------------------------------------------
+	use({
+		'danymat/neogen',
+		config = function()
+			require('neogen').setup({
+				enabled = true,
+				input_after_comment = false,
+			})
+		end,
+		requires = 'nvim-treesitter/nvim-treesitter',
+	})
 	use({
 		'jose-elias-alvarez/null-ls.nvim',
 		config = function()
@@ -496,7 +506,7 @@ local M = require('packer').startup(function(use)
 					custom = {},
 				},
 				view = {
-					width = 30,
+					width = 60,
 					height = 30,
 					hide_root_folder = false,
 					side = 'left',

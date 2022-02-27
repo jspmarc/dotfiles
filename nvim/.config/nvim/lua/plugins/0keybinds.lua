@@ -4,8 +4,8 @@ local map = require('helpers').map
 -- sorted by plugin name and then author name
 
 -- akinsho/bufferline.nvim
-map('n', '<leader>b]', '<cmd>BufferLineCycleNext<CR>')
-map('n', '<leader>b[', '<cmd>BufferLineCyclePrev<CR>')
+map('n', '<A-]>', '<cmd>BufferLineCycleNext<CR>')
+map('n', '<A-[>', '<cmd>BufferLineCyclePrev<CR>')
 
 -- glepnir/Dashboard.nvim
 map('n', '<C-n>', '<cmd>DashboardNewFile<CR>')
@@ -55,6 +55,9 @@ map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', {
 -- b3nj5m1n/kommentary
 map('n', '<C-_>', '<Plug>kommentary_line_default', { noremap = false })
 map('v', '<C-_>', '<Plug>kommentary_visual_default', { noremap = false })
+
+-- danymat/neogen
+map('n', '<leader>d', ':Neogen<CR>')
 
 -- nvim-telescope/telescope
 map('n', '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>')

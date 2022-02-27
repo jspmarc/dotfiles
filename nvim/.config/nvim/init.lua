@@ -12,13 +12,12 @@ require('lsp.settings')
 
 vim.cmd([[colorscheme onedark]])
 
-
 ---------------------------------------------------------------------------------------------------
 -- Custom commands for different filetypes
 ---------------------------------------------------------------------------------------------------
 -- vim.cmd([[autocmd FileType rust setlocal expandtab]])
 -- vim.cmd([[autocmd FileType python setlocal expandtab]])
--- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)]])
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting(nil)]])
 vim.cmd([[autocmd BufEnter *.notal setfiletype notal]])
 vim.cmd([[autocmd BufEnter *.asm setfiletype nasm]])
 -- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
@@ -28,3 +27,8 @@ augroup highlight_yank
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 ]])
+vim.cmd([[
+augroup Shape
+    autocmd!
+    au VimLeavePre * silent! set guicursor=a:hor10
+augroup END]])
