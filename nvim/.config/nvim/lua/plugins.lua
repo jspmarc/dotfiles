@@ -327,6 +327,7 @@ local M = require('packer').startup(function(use)
 					null_ls.builtins.code_actions.gitsigns,
 
 					-- formatting
+					null_ls.builtins.formatting.black,
 					null_ls.builtins.formatting.prettier.with({
 						prefer_local = 'node_modules/.bin',
 					}),
@@ -468,8 +469,6 @@ local M = require('packer').startup(function(use)
 		config = function()
 			local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
-			vim.g.nvim_tree_quit_on_open = 1
-
 			require('nvim-tree').setup({
 				disable_netrw = true,
 				hijack_netrw = true,
@@ -511,6 +510,7 @@ local M = require('packer').startup(function(use)
 					hide_root_folder = false,
 					side = 'left',
 					auto_resize = false,
+					preserve_window_proportions = true,
 					mappings = {
 						custom_only = false,
 						list = {
@@ -521,6 +521,11 @@ local M = require('packer').startup(function(use)
 
 							{ key = 'U', cb = tree_cb('parent_node') },
 						},
+					},
+				},
+				actions = {
+					open_file = {
+						quit_on_open = true,
 					},
 				},
 			})

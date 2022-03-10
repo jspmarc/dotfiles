@@ -17,7 +17,7 @@ vim.cmd([[colorscheme onedark]])
 ---------------------------------------------------------------------------------------------------
 -- vim.cmd([[autocmd FileType rust setlocal expandtab]])
 -- vim.cmd([[autocmd FileType python setlocal expandtab]])
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting(nil)]])
+-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting(nil)]])
 vim.cmd([[autocmd BufEnter *.notal setfiletype notal]])
 vim.cmd([[autocmd BufEnter *.asm setfiletype nasm]])
 -- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
