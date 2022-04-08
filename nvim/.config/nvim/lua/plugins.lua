@@ -140,6 +140,42 @@ local M = require('packer').startup(function(use)
 			cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 		end,
 	})
+	use({
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup({
+				ignore = '^%s*$',
+				pre_hook = function(ctx)
+					if
+						vim.bo.filetype == 'typescriptreact'
+						or vim.bo.filetype == 'javascriptreact'
+						or vim.bo.filetype == 'php'
+						or vim.bo.filetype == 'html'
+						or vim.bo.filetype == 'svelte'
+						or vim.bo.filetype == 'vue'
+					then
+						local U = require('Comment.utils')
+
+						-- Detemine whether to use linewise or blockwise commentstring
+						local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
+
+						-- Determine the location where to calculate commentstring from
+						local location = nil
+						if ctx.ctype == U.ctype.block then
+							location = require('ts_context_commentstring.utils').get_cursor_location()
+						elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+							location = require('ts_context_commentstring.utils').get_visual_start_location()
+						end
+
+						return require('ts_context_commentstring.internal').calculate_commentstring({
+							key = type,
+							location = location,
+						})
+					end
+				end,
+			})
+		end,
+	})
 	use('ap/vim-css-color')
 
 	---------------------------------------------------------------------------
@@ -177,6 +213,13 @@ local M = require('packer').startup(function(use)
 				find_word = 'LDR t w',
 				book_marks = 'No bind',
 			}
+		end,
+	})
+	use({
+		'narutoxy/dim.lua',
+		requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
+		config = function()
+			require('dim').setup({})
 		end,
 	})
 	use('ekalinin/Dockerfile.vim')
@@ -251,20 +294,6 @@ local M = require('packer').startup(function(use)
 	})
 
 	---------------------------------------------------------------------------
-	---------------                     K                       ---------------
-	---------------------------------------------------------------------------
-	use({
-		'b3nj5m1n/kommentary', -- tpope's kommentary in lua
-		config = function()
-			local cfg = require('kommentary.config').configure_language
-
-			cfg('default', {
-				prefer_single_line_comments = true,
-			})
-		end,
-	})
-
-	---------------------------------------------------------------------------
 	---------------                     L                       ---------------
 	---------------------------------------------------------------------------
 	use({
@@ -272,7 +301,7 @@ local M = require('packer').startup(function(use)
 		config = function()
 			require('lsp_lines').register_lsp_virtual_lines()
 			vim.diagnostic.config({
-				virtual_text = true,
+				virtual_text = false,
 			})
 		end,
 	})
@@ -328,6 +357,7 @@ local M = require('packer').startup(function(use)
 
 					-- formatting
 					null_ls.builtins.formatting.black,
+					null_ls.builtins.formatting.clang_format,
 					null_ls.builtins.formatting.prettier.with({
 						prefer_local = 'node_modules/.bin',
 					}),
@@ -563,9 +593,13 @@ local M = require('packer').startup(function(use)
 						node_decremental = '<S-TAB>',
 					},
 				},
+				context_commentstring = {
+					enable = true,
+				},
 			})
 		end,
 	})
+	use('JoosepAlviste/nvim-ts-context-commentstring')
 
 	---------------------------------------------------------------------------
 	---------------                     W                       ---------------

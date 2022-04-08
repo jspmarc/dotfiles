@@ -6,7 +6,7 @@
 "set background = dark
 "set termguicolors
 
-set expandtab
+set noexpandtab
 set smartindent
 set tabstop=4
 set softtabstop=4
