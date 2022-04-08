@@ -1,5 +1,13 @@
 require('lsp.keybinds')
 require('lsp.installer')
+local nvim_lsp = require('lspconfig')
+
+local pid = vim.fn.getpid()
+local omnisharp_bin = '/home/josep/sources/omnisharp/run'
+nvim_lsp.omnisharp.setup({
+	cmd = { omnisharp_bin, '--languageserver', '--hostPID', tostring(pid) }
+})
+
 
 -- css
 -- nvim_lsp.cssls.setup{}
