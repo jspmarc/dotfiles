@@ -100,7 +100,9 @@ local M = require('packer').startup(function(use)
 				},
 
 				sources = cmp.config.sources({
+					{ name = 'copilot' },
 					{ name = 'nvim_lsp' },
+					{ name = 'path' },
 					{ name = 'luasnip' },
 				}, {
 					{ name = 'buffer' },
@@ -175,6 +177,20 @@ local M = require('packer').startup(function(use)
 				end,
 			})
 		end,
+	})
+	-- use('github/copilot.vim')
+	use({
+		'zbirenbaum/copilot.lua',
+		event = {'VimEnter'},
+		config = function()
+			vim.defer_fn(function()
+				require('copilot').setup()
+			end, 100)
+		end,
+	})
+	use({
+		'zbirenbaum/copilot-cmp',
+		after = { 'copilot.lua', 'nvim-cmp' },
 	})
 	use('ap/vim-css-color')
 
@@ -504,7 +520,6 @@ local M = require('packer').startup(function(use)
 				hijack_netrw = true,
 				open_on_setup = false,
 				ignore_ft_on_setup = {},
-				auto_close = true,
 				open_on_tab = false,
 				hijack_cursor = false,
 				update_cwd = false,
