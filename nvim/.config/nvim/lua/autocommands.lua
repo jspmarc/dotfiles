@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('FileType', {
 	group = autocmds,
 })
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'gitcommit', 'gitrebase' },
+	pattern = { 'gitcommit', },
 	command = 'startinsert | 1',
 	desc = 'Start commit message in insert mode',
 	group = autocmds,
