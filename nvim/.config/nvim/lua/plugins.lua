@@ -181,7 +181,7 @@ local M = require('packer').startup(function(use)
 	-- use('github/copilot.vim')
 	use({
 		'zbirenbaum/copilot.lua',
-		event = {'VimEnter'},
+		event = { 'VimEnter' },
 		config = function()
 			vim.defer_fn(function()
 				require('copilot').setup()
@@ -244,6 +244,9 @@ local M = require('packer').startup(function(use)
 		config = function()
 			vim.g.dracula_show_end_of_buffer = true
 		end,
+	})
+	use({
+		'stevearc/dressing.nvim',
 	})
 
 	---------------------------------------------------------------------------
@@ -523,12 +526,9 @@ local M = require('packer').startup(function(use)
 				open_on_tab = false,
 				hijack_cursor = false,
 				update_cwd = false,
-				update_to_buf_dir = {
-					enable = true,
-					auto_open = true,
-				},
 				diagnostics = {
-					enable = false,
+					enable = true,
+					show_on_dirs = false,
 					icons = {
 						hint = '',
 						info = '',
@@ -548,14 +548,16 @@ local M = require('packer').startup(function(use)
 				filters = {
 					dotfiles = false,
 					custom = {},
+					exclude = {},
 				},
 				view = {
 					width = 60,
 					height = 30,
 					hide_root_folder = false,
 					side = 'left',
-					auto_resize = false,
 					preserve_window_proportions = true,
+					number = true,
+					signcolumn = 'yes',
 					mappings = {
 						custom_only = false,
 						list = {
@@ -569,9 +571,15 @@ local M = require('packer').startup(function(use)
 					},
 				},
 				actions = {
+					use_system_clipboard = true,
 					open_file = {
 						quit_on_open = true,
 					},
+				},
+				git = {
+					enable = true,
+					ignore = true,
+					timeout = 400,
 				},
 			})
 		end,
