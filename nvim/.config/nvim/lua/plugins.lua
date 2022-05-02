@@ -334,8 +334,9 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use('L3MON4D3/LuaSnip')
-	use('williamboman/nvim-lsp-installer')
-	use('neovim/nvim-lspconfig')
+	use({ 'williamboman/nvim-lsp-installer', {
+		'neovim/nvim-lspconfig',
+	} })
 
 	---------------------------------------------------------------------------
 	---------------                     M                       ---------------
