@@ -316,15 +316,6 @@ local M = require('packer').startup(function(use)
 	---------------                     L                       ---------------
 	---------------------------------------------------------------------------
 	use({
-		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-		config = function()
-			require('lsp_lines').register_lsp_virtual_lines()
-			vim.diagnostic.config({
-				virtual_text = false,
-			})
-		end,
-	})
-	use({
 		'nvim-lualine/lualine.nvim',
 		config = function()
 			require('lualine').setup({
@@ -585,18 +576,6 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use({
-		'folke/trouble.nvim',
-		requires = 'kyazdani42/nvim-web-devicons',
-		config = function()
-			require('trouble').setup({
-				actions_keys = {
-					open_split = { 's' },
-					open_vsplit = { 'v' },
-				},
-			})
-		end,
-	})
-	use({
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		config = function()
@@ -618,6 +597,65 @@ local M = require('packer').startup(function(use)
 				},
 				context_commentstring = {
 					enable = true,
+				},
+			})
+		end,
+	})
+	use({
+		'Mofiqul/trld.nvim',
+		config = function()
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
+			require('trld').setup({
+				-- where to render the diagnostics. 'top' | 'bottom'
+				position = 'top',
+
+				-- if this plugin should execute it's builtin auto commands
+				auto_cmds = true,
+
+				-- diagnostics highlight group names
+				highlights = {
+					error = 'DiagnosticFloatingError',
+					warn = 'DiagnosticFloatingWarn',
+					info = 'DiagnosticFloatingInfo',
+					hint = 'DiagnosticFloatingHint',
+				},
+
+				-- diagnostics formatter. must return
+				-- {
+				--   {{ "String", "Highlight Group Name"}},
+				--   {{ "String", "Highlight Group Name"}},
+				--   {{ "String", "Highlight Group Name"}},
+				--   ...
+				-- }
+				formatter = function(diag)
+					local u = require('trld.utils')
+					local diag_lines = {}
+
+					for line in diag.message:gmatch('[^\n]+') do
+						line = line:gsub('[ \t]+%f[\r\n%z]', '')
+						table.insert(diag_lines, line)
+					end
+
+					local lines = {}
+					for _, diag_line in ipairs(diag_lines) do
+						table.insert(lines, { { diag_line .. ' ', u.get_hl_by_serverity(diag.severity) } })
+					end
+
+					return lines
+				end,
+			})
+		end,
+	})
+	use({
+		'folke/trouble.nvim',
+		requires = 'kyazdani42/nvim-web-devicons',
+		config = function()
+			require('trouble').setup({
+				actions_keys = {
+					open_split = { 's' },
+					open_vsplit = { 'v' },
 				},
 			})
 		end,
