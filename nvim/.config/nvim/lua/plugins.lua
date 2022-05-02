@@ -254,7 +254,6 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	use('easymotion/vim-easymotion')
 	use('houtsnip/vim-emacscommandline')
-	use('mattn/emmet-vim')
 	use('editorconfig/editorconfig-vim')
 
 	---------------------------------------------------------------------------
@@ -357,6 +356,14 @@ local M = require('packer').startup(function(use)
 		requires = 'nvim-treesitter/nvim-treesitter',
 	})
 	use({
+		'karb94/neoscroll.nvim',
+		config = function()
+			require('neoscroll').setup({
+				mappings = { '<C-u>', '<C-d>', '<C-u>', 'zz', 'zb', 'zt' },
+			})
+		end,
+	})
+	use({
 		'jose-elias-alvarez/null-ls.nvim',
 		config = function()
 			local null_ls = require('null-ls')
@@ -452,7 +459,7 @@ local M = require('packer').startup(function(use)
 					},
 				},
 			})
-			require('pretty-fold.preview').setup()
+			require('pretty-fold.preview').setup({})
 		end,
 	})
 
