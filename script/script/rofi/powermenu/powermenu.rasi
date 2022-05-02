@@ -12,7 +12,7 @@ configuration {
 	show-match: false;
 	show-icons: true;
 	/*theme:"/home/josep/script/powermenu.rasi";*/
-	theme:"lb";
+	/* theme:"lb"; */
 }
 
 /* vim:ft=css
