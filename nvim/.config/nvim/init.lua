@@ -5,10 +5,9 @@ vim.g.vimsyn_embed = 'l'
 ---------------------------------------------------------------------------------------------------
 require('settings')
 require('keybinds')
--- require('plugins')
 require('plugins.0keybinds')
 require('lsp.settings')
--- require'netrw'
+require('autocommands')
 
 vim.cmd([[colorscheme onedark]])
 
@@ -18,17 +17,4 @@ vim.cmd([[colorscheme onedark]])
 -- vim.cmd([[autocmd FileType rust setlocal expandtab]])
 -- vim.cmd([[autocmd FileType python setlocal expandtab]])
 -- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting(nil)]])
-vim.cmd([[autocmd BufEnter *.notal setfiletype notal]])
-vim.cmd([[autocmd BufEnter *.asm setfiletype nasm]])
 -- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
-vim.cmd([[
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-augroup END
-]])
-vim.cmd([[
-augroup Shape
-    autocmd!
-    au VimLeavePre * silent! set guicursor=a:hor10
-augroup END]])
