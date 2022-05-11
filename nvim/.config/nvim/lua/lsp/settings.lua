@@ -12,6 +12,7 @@ local servers = {
 	'cssls',
 	'dockerls',
 	'emmet_ls',
+	'eslint',
 	'gopls',
 	'html',
 	'jedi_language_server',
@@ -20,7 +21,9 @@ local servers = {
 	'rust_analyzer',
 	'sumneko_lua',
 	'svelte',
+	'tailwindcss',
 	'tsserver',
+	'volar',
 }
 
 for _, server in ipairs(servers) do
