@@ -79,10 +79,10 @@ source ~/zsh-files/completion.zsh
 #[[ $TERM != "screen" ]] && exec tmux
 
 #for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#10}:+$'\n'}; done
-echo "Welcome, $USER! Here's a MOTD:" | lolcat
-cowsay -f tux <<< $(fortune -s) | lolcat
+#echo "Welcome, $USER! Here's a MOTD:" | lolcat
+#cowsay -f tux <<< $(fortune -s) | lolcat
 #fet.sh
-source /usr/share/nvm/init-nvm.sh
+fortune -s
 
 eval $(thefuck --alias)
 
@@ -106,3 +106,10 @@ prompt_fix_wsl() {
 }
 
 alias luamake=/home/josep/.config/nvim/lua/lsp/language-servers/lua-language-server/3rd/luamake/luamake
+
+# ---nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# ---nvm end
+
