@@ -40,9 +40,13 @@ local M = require('packer').startup(function(use)
 	use('hrsh7th/cmp-buffer')
 	use('hrsh7th/cmp-path')
 	use('hrsh7th/cmp-cmdline')
+	use('hrsh7th/cmp-nvim-lsp-document-symbol')
+	use('hrsh7th/cmp-nvim-lsp-signature-help')
+	use('kdheepak/cmp-latex-symbols')
 	use('saadparwaiz1/cmp_luasnip')
 	use({
 		'hrsh7th/nvim-cmp',
+		requires = {},
 		config = function()
 			local cmp = require('cmp')
 			local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -104,6 +108,8 @@ local M = require('packer').startup(function(use)
 					{ name = 'nvim_lsp' },
 					{ name = 'path' },
 					{ name = 'luasnip' },
+					{ name = 'nvim_lsp_signature_help' },
+					{ name = 'latex_symbols' },
 				}, {
 					{ name = 'buffer' },
 				}),
@@ -112,14 +118,6 @@ local M = require('packer').startup(function(use)
 					format = function(entry, vim_item)
 						-- Kind icons
 						vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-						-- Source
-						vim_item.menu = ({
-							buffer = '[Buffer]',
-							nvim_lsp = '[LSP]',
-							luasnip = '[LuaSnip]',
-							nvim_lua = '[Lua]',
-							latex_symbols = '[LaTeX]',
-						})[entry.source.name]
 						return vim_item
 					end,
 				},
@@ -127,6 +125,7 @@ local M = require('packer').startup(function(use)
 
 			cmp.setup.cmdline('/', {
 				sources = {
+					{ name = 'nvim_lsp_document_symbol' },
 					{ name = 'buffer' },
 				},
 			})
@@ -148,8 +147,7 @@ local M = require('packer').startup(function(use)
 			require('Comment').setup({
 				ignore = '^%s*$',
 				pre_hook = function(ctx)
-					if
-						vim.bo.filetype == 'typescriptreact'
+					if vim.bo.filetype == 'typescriptreact'
 						or vim.bo.filetype == 'javascriptreact'
 						or vim.bo.filetype == 'php'
 						or vim.bo.filetype == 'html'
@@ -178,7 +176,7 @@ local M = require('packer').startup(function(use)
 			})
 		end,
 	})
-	-- use('github/copilot.vim')
+	use('github/copilot.vim')
 	use({
 		'zbirenbaum/copilot.lua',
 		event = { 'VimEnter' },
@@ -608,6 +606,10 @@ local M = require('packer').startup(function(use)
 				},
 			})
 		end,
+	})
+	use({
+		'nvim-treesitter/nvim-treesitter-context',
+		requires = 'nvim-treesitter/nvim-treesitter'
 	})
 	use({
 		'Mofiqul/trld.nvim',
