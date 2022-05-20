@@ -106,8 +106,9 @@ local M = require('packer').startup(function(use)
 				sources = cmp.config.sources({
 					{ name = 'copilot' },
 					{ name = 'nvim_lsp' },
-					{ name = 'path' },
+					{ name = 'orgmode' },
 					{ name = 'luasnip' },
+					{ name = 'path' },
 					{ name = 'nvim_lsp_signature_help' },
 					{ name = 'latex_symbols' },
 				}, {
@@ -147,7 +148,8 @@ local M = require('packer').startup(function(use)
 			require('Comment').setup({
 				ignore = '^%s*$',
 				pre_hook = function(ctx)
-					if vim.bo.filetype == 'typescriptreact'
+					if
+						vim.bo.filetype == 'typescriptreact'
 						or vim.bo.filetype == 'javascriptreact'
 						or vim.bo.filetype == 'php'
 						or vim.bo.filetype == 'html'
@@ -344,6 +346,7 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     N                       ---------------
 	---------------------------------------------------------------------------
+	use('jbyuki/nabla.nvim')
 	use({
 		'danymat/neogen',
 		config = function()
@@ -394,6 +397,18 @@ local M = require('packer').startup(function(use)
 				ending_tildes = false,
 			})
 			require('onedark').load()
+		end,
+	})
+	use({
+		'nvim-orgmode/orgmode',
+		config = function()
+			require('orgmode').setup_ts_grammar()
+			require('orgmode').setup({
+				org_agenda_files = { '~/Documents/syncthing/org/**/*' },
+				org_agenda_notes_file = { '~/Documents/syncthing/org/refile.org' },
+				org_deadline_warning_days = 7,
+				org_highlight_latex_and_related = 'entities',
+			})
 		end,
 	})
 
@@ -553,6 +568,7 @@ local M = require('packer').startup(function(use)
 			require('nvim-treesitter.configs').setup({
 				highlight = {
 					enable = true,
+					additional_vim_regex_highlighting = { 'org' },
 				},
 				indent = {
 					enable = true,
@@ -574,7 +590,7 @@ local M = require('packer').startup(function(use)
 	})
 	use({
 		'nvim-treesitter/nvim-treesitter-context',
-		requires = 'nvim-treesitter/nvim-treesitter'
+		requires = 'nvim-treesitter/nvim-treesitter',
 	})
 	use({
 		'Mofiqul/trld.nvim',

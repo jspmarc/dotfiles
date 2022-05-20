@@ -21,6 +21,11 @@ vim.api.nvim_create_autocmd('FileType', {
 	group = autocmds,
 })
 vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'org',
+	command = 'setlocal tabstop=2 shiftwidth=2 expandtab',
+	group = autocmds,
+})
+vim.api.nvim_create_autocmd('FileType', {
 	pattern = { 'gitcommit', },
 	command = 'startinsert | 1',
 	desc = 'Start commit message in insert mode',
