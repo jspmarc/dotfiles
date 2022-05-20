@@ -22,6 +22,7 @@ local servers = {
 	'sumneko_lua',
 	'svelte',
 	'tailwindcss',
+	'texlab',
 	'tsserver',
 	'volar',
 }
