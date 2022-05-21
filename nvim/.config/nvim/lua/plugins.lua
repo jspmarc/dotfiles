@@ -178,7 +178,7 @@ local M = require('packer').startup(function(use)
 			})
 		end,
 	})
-	use('github/copilot.vim')
+	-- use('github/copilot.vim')
 	use({
 		'zbirenbaum/copilot.lua',
 		event = { 'VimEnter' },
@@ -402,11 +402,34 @@ local M = require('packer').startup(function(use)
 	use({
 		'nvim-orgmode/orgmode',
 		config = function()
-			require('orgmode').setup_ts_grammar()
-			require('orgmode').setup({
-				org_agenda_files = { '~/Documents/syncthing/org/**/*' },
-				org_agenda_notes_file = { '~/Documents/syncthing/org/refile.org' },
+			local org_dir = os.getenv('HOME') .. '/Documents/syncthing/org'
+			local om = require('orgmode')
+			om.setup_ts_grammar()
+			om.setup({
+				org_agenda_files = { org_dir .. '/**/*' },
+				org_capture_templates = {
+					e = {
+						description = 'Event',
+						template = '* %?\n  %T',
+						target = org_dir .. '/calendar.org',
+					},
+					j = {
+						description = 'Journal',
+						template = '* %u\n** %<%H:%M> %?\n   ',
+						target = org_dir .. '/journal.org',
+					},
+					r = {
+						description = 'Refile',
+						template = '* %?',
+					},
+					t = {
+						description = 'Task',
+						template = '* TODO %?\n  DEADLINE: %T',
+						target = org_dir .. '/todo.org',
+					},
+				},
 				org_deadline_warning_days = 7,
+				org_default_notes_file = org_dir .. '/refile.org',
 				org_highlight_latex_and_related = 'entities',
 			})
 		end,
