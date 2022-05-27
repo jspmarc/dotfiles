@@ -9,7 +9,8 @@ o.background = 'dark'
 o.cursorline = true -- disable highlight current line
 o.clipboard = 'unnamedplus'
 o.colorcolumn = '100' -- draw a vertical line at 80 col
-o.concealcursor = 'nc' -- conceal text settings
+o.concealcursor = 'c' -- conceal text settings
+o.conceallevel = 3 -- conceal text settings
 
 o.expandtab = false -- use tabs
 o.endofline = true

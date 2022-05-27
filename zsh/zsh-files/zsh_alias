@@ -17,6 +17,8 @@ alias _='sudo '
 alias cp='nocorrect cp'
 #alias ebuild='nocorrect ebuild'
 
+alias mariadb='docker exec -it mariadb mariadb'
+
 ###############
 # Git related #
 ###############

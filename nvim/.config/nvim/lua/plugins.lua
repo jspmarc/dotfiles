@@ -42,7 +42,6 @@ local M = require('packer').startup(function(use)
 	use('hrsh7th/cmp-cmdline')
 	use('hrsh7th/cmp-nvim-lsp-document-symbol')
 	use('hrsh7th/cmp-nvim-lsp-signature-help')
-	use('kdheepak/cmp-latex-symbols')
 	use('saadparwaiz1/cmp_luasnip')
 	use({
 		'hrsh7th/nvim-cmp',
@@ -110,7 +109,6 @@ local M = require('packer').startup(function(use)
 					{ name = 'luasnip' },
 					{ name = 'path' },
 					{ name = 'nvim_lsp_signature_help' },
-					{ name = 'latex_symbols' },
 				}, {
 					{ name = 'buffer' },
 				}),
@@ -373,6 +371,8 @@ local M = require('packer').startup(function(use)
 				sources = {
 					-- code actions
 					null_ls.builtins.code_actions.gitsigns,
+					null_ls.builtins.code_actions.eslint_d,
+					null_ls.builtins.code_actions.refactoring,
 
 					-- formatting
 					null_ls.builtins.formatting.black,
@@ -430,7 +430,8 @@ local M = require('packer').startup(function(use)
 				},
 				org_deadline_warning_days = 7,
 				org_default_notes_file = org_dir .. '/refile.org',
-				org_highlight_latex_and_related = 'entities',
+				org_highlight_latex_and_related = 'native',
+				org_todo_keywords = { 'TODO(t)', 'WAIT(w)', 'WORKING(k)', '(n)', '|', 'DONE(d)' },
 			})
 		end,
 	})

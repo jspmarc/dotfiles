@@ -26,11 +26,6 @@ map('n', '<C-f>t', '<cmd>FloatermToggle<CR>')
 map('n', '<C-f>[', '<cmd>FloatermPrev<CR>')
 map('n', '<C-f>]', '<cmd>FloatermNext<CR>')
 
--- airblade/vim-gitgutter
---[[ map('n', '<leader>gp', '<Plug>(GitGutterPreviewHunk)', { noremap = false })
-map('n', '<leader>gs', '<Plug>(GitGutterStageHunk)', { noremap = false })
-map('n', '<leader>gu', '<Plug>(GitGutterUndoHunk)', { noremap = false }) ]]
-
 -- lewis6991/gitsigns.nvim
 map('n', '<leader>gp', '<cmd>lua require"gitsigns".preview_hunk()<CR>', { noremap = false })
 map('n', '<leader>gs', '<cmd>lua require"gitsigns".stage_hunk()<CR>', { noremap = false })
@@ -55,6 +50,9 @@ map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', {
 -- b3nj5m1n/kommentary
 map('n', '<C-_>', '<Plug>kommentary_line_default', { noremap = false })
 map('v', '<C-_>', '<Plug>kommentary_visual_default', { noremap = false })
+
+-- jbyuki/nabla.nvim
+map('n', '<leader>p', ':lua require("nabla").popup({ border="rounded" })<CR>')
 
 -- danymat/neogen
 map('n', '<leader>d', ':Neogen<CR>')
