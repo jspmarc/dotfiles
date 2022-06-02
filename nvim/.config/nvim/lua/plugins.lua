@@ -380,6 +380,7 @@ local M = require('packer').startup(function(use)
 					null_ls.builtins.formatting.prettier.with({
 						prefer_local = 'node_modules/.bin',
 					}),
+					null_ls.builtins.formatting.rustfmt,
 					null_ls.builtins.formatting.stylua,
 				},
 			})
@@ -495,6 +496,9 @@ local M = require('packer').startup(function(use)
 						override_file_sorter = true,
 						case_mode = 'smart_case',
 					},
+				},
+				pickers = {
+					hidden = true,
 				},
 			})
 
