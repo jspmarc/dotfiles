@@ -197,11 +197,8 @@ local M = require('packer').startup(function(use)
 	use({
 		'glepnir/dashboard-nvim',
 		config = function()
-			local g = vim.g
-
-			g.dashboard_default_executive = 'telescope'
-
-			g.dashboard_custom_header = {
+			local db = require('dashboard')
+			db.custom_header = {
 				'      .          .    ',
 				'    ;;,.        ::    ',
 				' ,:::;,,        :ccc, ',
@@ -216,15 +213,31 @@ local M = require('packer').startup(function(use)
 				"  .;oc        'coo;.  ",
 				"    .'         .,.    ",
 			}
-
-			g.dashboard_custom_shortcut = {
-				last_session = 'No bind',
-				find_history = 'LDR t h',
-				find_file = 'LDR t f',
-				new_file = 'CTRL  n',
-				change_colorscheme = 'LDR t c',
-				find_word = 'LDR t w',
-				book_marks = 'No bind',
+			db.custom_center = {
+				{
+					icon = '  ',
+					desc = 'Recently opened files                   ',
+					action = 'Telescope frecency',
+					shortcut = 'LDR t h',
+				},
+				{
+					icon = '  ',
+					desc = 'Find file                               ',
+					action = 'Telescope find_files find_command=rg,--hidden,--files',
+					shortcut = 'LDR t f'
+				},
+				{
+					icon = '  ',
+					desc = 'Find word                               ',
+					action = 'Telescope live_grep',
+					shortcut = 'LDR t w'
+				},
+				{
+					icon = '  ',
+					desc = 'Change colorscheme                      ',
+					action = 'Telescope colorscheme',
+					shortcut = 'LDR t c'
+				},
 			}
 		end,
 	})
