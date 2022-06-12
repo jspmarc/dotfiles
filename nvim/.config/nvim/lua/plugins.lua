@@ -146,8 +146,7 @@ local M = require('packer').startup(function(use)
 			require('Comment').setup({
 				ignore = '^%s*$',
 				pre_hook = function(ctx)
-					if
-						vim.bo.filetype == 'typescriptreact'
+					if vim.bo.filetype == 'typescriptreact'
 						or vim.bo.filetype == 'javascriptreact'
 						or vim.bo.filetype == 'php'
 						or vim.bo.filetype == 'html'
@@ -395,7 +394,15 @@ local M = require('packer').startup(function(use)
 		config = function()
 			require('onedark').setup({
 				style = 'darker',
-				ending_tildes = false,
+				transparent = true,
+				ending_tildes = true,
+				code_style = {
+					comments = 'italic',
+					keywords = 'none',
+					functions = 'italic',
+					strings = 'none',
+					variables = 'bold'
+				},
 			})
 			require('onedark').load()
 		end,
