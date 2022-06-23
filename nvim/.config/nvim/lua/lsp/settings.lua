@@ -47,6 +47,17 @@ for _, server in ipairs(servers) do
 		})
 	elseif server == 'rust_analyzer' then
 		opts = vim.tbl_extend('force', opts, require('lsp.rust'))
+	elseif server == 'texlab' then
+		opts = vim.tbl_extend('force', opts, {
+			settings = {
+				texlab = {
+					build = {
+						args = { '-pdflatex=lualatex', '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+						onSave = true,
+					},
+				},
+			}
+		})
 	end
 
 	nvim_lsp[server].setup(opts)

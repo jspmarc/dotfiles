@@ -1,10 +1,5 @@
 local autocmds = vim.api.nvim_create_augroup('autocmds', { clear = true })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
-	pattern = '*.tex',
-	command = 'TexlabBuild',
-	group = autocmds,
-})
 -- vim.api.nvim_create_autocmd('CursorHold', {
 -- 	pattern = '*',
 -- 	callback = vim.diagnostic.open_float,
