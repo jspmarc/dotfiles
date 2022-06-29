@@ -7,8 +7,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export PAGER="less"
-#export BROWSER="firefox"
+export PAGER="bat"
 export AUR_HELPER='paru'
 
 # NNN configuratons
@@ -19,15 +18,6 @@ export NNN_BMS="k:~/Documents/Kuliah;b:/home/josep/Documents/Kuliah"
 export NNN_FIFO=/tmp/nnn.fifo nnn
 
 export ZSHFILES=$HOME/zsh-files
-
-export TEXMFDIST=/usr/share/texmf-dist
-export TEXMFLOCAL=/usr/local/share/texmf/:/usr/share/texmf
-export TEXMFSYSVAR=/var/lib/texmf
-export TEXMFSYSCONFIG=/etc/texmf
-export TEXMFHOME=$HOME/texmf
-export TEXMFVAR=$HOME/.texlive/texmf-var
-export TEXMFCONFIG=$HOME/.texlive/texmf-config
-export TEXMFCACHE=$TEXMFSYSVAR:$TEXMFVAR
 
 [[ $(uname -r | grep "microsoft") ]] \
     && export DISPLAY="`sed -n 's/nameserver //p' /etc/resolv.conf`:0" \

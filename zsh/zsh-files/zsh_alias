@@ -224,8 +224,6 @@ alias RsaCtfTool="py ~/sources/RsaCtfTool/RsaCtfTool.py"
 alias java_debug="java -cp . -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"
 alias kuliah='cd "$HOME/Documents/Kuliah/Tingkat-2/Semester 4/"'
 
-alias tlmgr="$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode"
-
 [[ $(uname -r | grep "microsoft") ]] \
     && alias code="/mnt/c/Users/jspma/scoop/apps/vscode/current/bin/code"
 
