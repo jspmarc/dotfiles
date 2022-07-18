@@ -261,12 +261,6 @@ local M = require('packer').startup(function(use)
 			require('fidget').setup({})
 		end,
 	})
-	use({
-		'voldikss/vim-floaterm',
-		config = function()
-			vim.g.floaterm_autoinsert = false
-		end,
-	})
 	use('tpope/vim-fugitive')
 	use({
 		'beauwilliams/focus.nvim',
@@ -522,6 +516,15 @@ local M = require('packer').startup(function(use)
 		requires = 'nvim-lua/plenary.nvim',
 		config = function()
 			require('todo-comments').setup()
+		end,
+	})
+	use({
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("toggleterm").setup({
+				direction = 'horizontal',
+				open_mapping = [[<C-t>]],
+			})
 		end,
 	})
 	use({

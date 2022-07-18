@@ -18,14 +18,6 @@ map('n', '<leader><leader>b', '<Plug>(easymotion-b)', { noremap = false })
 map('n', '<leader><leader>j', '<Plug>(easymotion-j)', { noremap = false })
 map('n', '<leader><leader>k', '<Plug>(easymotion-k)', { noremap = false })
 
--- voldkiss/vim-floaterm
-map('n', '<C-t>', '<cmd>FloatermToggle<CR>')
-map('n', '<C-f>c', '<cmd>FloatermKill<CR>')
-map('n', '<C-f>n', '<cmd>FloatermNew<CR>')
-map('n', '<C-f>t', '<cmd>FloatermToggle<CR>')
-map('n', '<C-f>[', '<cmd>FloatermPrev<CR>')
-map('n', '<C-f>]', '<cmd>FloatermNext<CR>')
-
 -- lewis6991/gitsigns.nvim
 map('n', '<leader>gp', '<cmd>lua require"gitsigns".preview_hunk()<CR>', { noremap = false })
 map('n', '<leader>gs', '<cmd>lua require"gitsigns".stage_hunk()<CR>', { noremap = false })
