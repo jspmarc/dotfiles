@@ -1,0 +1,74 @@
+set nu
+set rnu
+set clipboard+=unnamed
+set clipboard+=ideaput
+set ignorecase
+set smartcase
+set incsearch
+set hls
+set ideajoin
+set idearefactormode=keep
+set commentary
+
+sethandler ˙ a:vim
+sethandler ∆ a:vim
+sethandler ˚ a:vim
+sethandler ¬ a:vim
+sethandler <C-o> a:vim
+sethandler <C-i> a:vim
+
+let mapleader = "\\"
+nmap <C-z> <Action>(ToggleDistractionFreeMode)
+inoremap <C-j><C-k> <Esc>
+vnoremap <C-j><C-k> <Esc>
+nnoremap <C-j><C-k> <Esc>
+
+# for mac
+nmap ˙ <C-w>h
+nmap ∆ <C-w>j
+nmap ˚ <C-w>k
+nmap ¬ <C-w>l
+# for linux and windows
+nmap <A-h> <C-w>h
+nmap <A-j> <C-w>j
+nmap <A-k> <C-w>k
+nmap <A-l> <C-w>l
+
+vmap < <gv
+vmap > >gv
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+nmap <leader>fc <Action>(CollapseRegion)
+nmap <leader>fo <Action>(ExpandRegion)
+nmap <leader>la <Action>(Refactorings.QuickListPopupAction)
+nmap <Leader>lf <Action>(ReformatCode)
+nmap <leader>tf <Action>(GotoFile)
+nmap <leader>th <Action>(RecentFiles)
+nmap <leader>tw <Action>(SearchEverywhere)
+nmap <leader>l] <Action>(GotoNextError)
+nmap <leader>l[ <Action>(GotoPreviousError)
+vmap [[ <Action>(MethodUp)
+vmap ]] <Action>(MethodDown)
+vmap <leader>fc <Action>(CollapseRegion)
+vmap <leader>fo <Action>(ExpandRegion)
+vmap <leader>la <Action>(Refactorings.QuickListPopupAction)
+vmap <Leader>lf <Action>(ReformatCode)
+vmap <Leader>lr <Action>(RefactoringMenuRenameFile)
+vmap <leader>tf <Action>(GotoFile)
+vmap <leader>th <Action>(RecentFiles)
+vmap <leader>tw <Action>(SearchEverywhere)
+vmap <leader>l] <Action>(GotoNextError)
+vmap <leader>l[ <Action>(GotoPreviousError)
+
+nmap <C-b> <Action>(FileStructurePopup)
+nmap gi <Action>(GotoImplementation)
+nmap gd <Action>(GotoDeclaration)
+nmap gp <Action>(GotoSuperMethod)
+nmap gt <Action>(GotoTest)
+nmap gb <Action>(Back)
+nmap <C-o> <Action>(Back)
+nmap gf <Action>(Forward)
+nmap <C-i> <Action>(Forward)
+nmap gh <Action>(QuickJavaDoc)
+
+echo "loaded"
