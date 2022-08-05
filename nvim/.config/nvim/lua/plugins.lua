@@ -146,7 +146,8 @@ local M = require('packer').startup(function(use)
 			require('Comment').setup({
 				ignore = '^%s*$',
 				pre_hook = function(ctx)
-					if vim.bo.filetype == 'typescriptreact'
+					if
+						vim.bo.filetype == 'typescriptreact'
 						or vim.bo.filetype == 'javascriptreact'
 						or vim.bo.filetype == 'php'
 						or vim.bo.filetype == 'html'
@@ -210,19 +211,19 @@ local M = require('packer').startup(function(use)
 					icon = '  ',
 					desc = 'Find file                               ',
 					action = 'Telescope find_files find_command=rg,--hidden,--files',
-					shortcut = 'LDR t f'
+					shortcut = 'LDR t f',
 				},
 				{
 					icon = '  ',
 					desc = 'Find word                               ',
 					action = 'Telescope live_grep',
-					shortcut = 'LDR t w'
+					shortcut = 'LDR t w',
 				},
 				{
 					icon = '  ',
 					desc = 'Change colorscheme                      ',
 					action = 'Telescope colorscheme',
-					shortcut = 'LDR t c'
+					shortcut = 'LDR t c',
 				},
 			}
 		end,
@@ -355,6 +356,7 @@ local M = require('packer').startup(function(use)
 			})
 		end,
 	})
+	use('rcarriga/nvim-notify')
 	use({
 		'jose-elias-alvarez/null-ls.nvim',
 		config = function()
@@ -394,7 +396,7 @@ local M = require('packer').startup(function(use)
 					keywords = 'none',
 					functions = 'italic',
 					strings = 'none',
-					variables = 'bold'
+					variables = 'bold',
 				},
 			})
 			require('onedark').load()
@@ -519,9 +521,9 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use({
-		"akinsho/toggleterm.nvim",
+		'akinsho/toggleterm.nvim',
 		config = function()
-			require("toggleterm").setup({
+			require('toggleterm').setup({
 				direction = 'horizontal',
 				open_mapping = [[<C-t>]],
 			})
