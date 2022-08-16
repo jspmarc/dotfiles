@@ -245,6 +245,15 @@ local M = require('packer').startup(function(use)
 	use({
 		'stevearc/dressing.nvim',
 	})
+	use({
+		'mrshmllow/document-color.nvim',
+		config = function()
+			require('document-color').setup({
+				-- Default options
+				mode = 'background', -- "background" | "foreground" | "single"
+			})
+		end,
+	})
 
 	---------------------------------------------------------------------------
 	---------------                     E                       ---------------

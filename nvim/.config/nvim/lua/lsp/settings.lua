@@ -47,6 +47,8 @@ for _, server in ipairs(servers) do
 		})
 	elseif server == 'rust_analyzer' then
 		opts = vim.tbl_extend('force', opts, require('lsp.rust'))
+	elseif server == 'tailwindcss' then
+		opts = vim.tbl_extend('force', opts, require('lsp.tailwindcss'))
 	elseif server == 'texlab' then
 		opts = vim.tbl_extend('force', opts, require('lsp.texlab'))
 	end
