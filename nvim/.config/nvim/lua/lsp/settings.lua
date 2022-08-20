@@ -15,7 +15,6 @@ local servers = {
 	'eslint',
 	'gopls',
 	'html',
-	'jedi_language_server',
 	'jsonls',
 	'pylsp',
 	'rust_analyzer',
@@ -45,6 +44,8 @@ for _, server in ipairs(servers) do
 		opts = vim.tbl_extend('force', opts, {
 			filetypes = { 'html', 'css', 'javascriptreact', 'typescriptreact' },
 		})
+	elseif server == 'pylsp' then
+		opts = vim.tbl_extend('force', opts, require('lsp.pylsp'))
 	elseif server == 'rust_analyzer' then
 		opts = vim.tbl_extend('force', opts, require('lsp.rust'))
 	elseif server == 'tailwindcss' then
