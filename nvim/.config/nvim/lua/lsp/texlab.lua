@@ -23,6 +23,18 @@ local final_project = {
 	},
 }
 
+local resume_path = os.getenv('HOME') .. '/projects/resume'
+local resume = {
+	texlab = {
+		build = {
+			-- latexmk -pdf -bibtex -outdir=../$(build_dir) -cd $^
+			args = { '-pdf', '-outdir=../' },
+			onSave = true,
+		},
+		rootDirectory = final_project_path,
+	},
+}
+
 return {
 	on_init = function(client)
 		local path = client.workspace_folders[1].name
