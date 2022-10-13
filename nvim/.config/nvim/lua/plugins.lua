@@ -577,7 +577,6 @@ local M = require('packer').startup(function(use)
 				},
 				view = {
 					width = 60,
-					height = 30,
 					hide_root_folder = false,
 					side = 'left',
 					preserve_window_proportions = true,
