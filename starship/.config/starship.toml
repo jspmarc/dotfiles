@@ -82,7 +82,7 @@ show_always = false
 
 [time]
 disabled = false
-format = '🕙$time'
+format = '🕙 $time'
 time_format = "%R"
 utc_time_offset = "+7"
 time_range = "00:00:00-24:00:00"
