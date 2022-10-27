@@ -65,11 +65,10 @@ source ~/zsh-files/zsh-autosuggestions.zsh
 source ~/zsh-files/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/zsh-files/zsh-interactive-cd.zsh
 source ~/zsh-files/zsh-colored-man-pages.zsh
-source ~/zsh-files/zsh-web-search.zsh
 source ~/zsh-files/zsh-vi-mode.zsh
 source ~/zsh-files/key-bindings.zsh
 source ~/zsh-files/completion.zsh
-#source ~/zsh-files/luarocks_completion.zsh
+
 # Sourcing autojump
 #[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 # tabtab source for packages
