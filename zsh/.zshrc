@@ -20,9 +20,6 @@ bindkey -v
 
 eval $(starship init zsh)
 
-autoload -Uz compinit
-compinit
-
 source ~/zsh-files/zsh_funcs
 source ~/zsh-files/.zshcomp
 source ~/zsh-files/.zshenv
@@ -59,8 +56,6 @@ eval "$(dircolors -p | \
 # =============================================================================
 # Plugins
 # =============================================================================
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/zsh-files/zsh-autosuggestions.zsh
 source ~/zsh-files/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/zsh-files/zsh-interactive-cd.zsh
@@ -105,11 +100,10 @@ prompt_fix_wsl() {
     done
 }
 
-alias luamake=/home/josep/.config/nvim/lua/lsp/language-servers/lua-language-server/3rd/luamake/luamake
-
 # ---nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # ---nvm end
 
+bindkey ^R

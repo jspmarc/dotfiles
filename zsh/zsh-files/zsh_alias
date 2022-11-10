@@ -182,7 +182,7 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 #alias heroku='nocorrect heroku'
 #alias hpodder='nocorrect hpodder'
 #alias history='omz_history | fzf'
-alias history='fzf_history'
+# alias history='fzf_history'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
@@ -226,6 +226,8 @@ alias kuliah='cd "$HOME/Documents/Kuliah/Tingkat-2/Semester 4/"'
 
 [[ $(uname -r | grep "microsoft") ]] \
     && alias code="/mnt/c/Users/jspma/scoop/apps/vscode/current/bin/code"
+
+alias luamake=/home/josep/.config/nvim/lua/lsp/language-servers/lua-language-server/3rd/luamake/luamake
 
 # Git bare alias for managing dotfiles
 #alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
