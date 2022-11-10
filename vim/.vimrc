@@ -29,6 +29,7 @@ set incsearch
 set updatetime=1000
 set hidden
 set autochdir
+set clipboard=unnamed
 
 syntax on
 syntax enable
