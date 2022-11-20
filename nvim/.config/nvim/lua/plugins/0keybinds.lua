@@ -29,7 +29,7 @@ map(
 	'<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
 	{ noremap = false }
 )
-map('n', '<leader>gu', '<cmd>lua require"gitsigns".reset_hunk()<CR>)', { noremap = false })
+map('n', '<leader>gu', '<cmd>lua require"gitsigns".reset_hunk()<CR>', { noremap = false })
 map(
 	'v',
 	'<leader>gu',
