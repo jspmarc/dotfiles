@@ -234,15 +234,7 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use('ekalinin/Dockerfile.vim')
-	use({
-		'Mofiqul/dracula.nvim',
-		config = function()
-			vim.g.dracula_show_end_of_buffer = true
-		end,
-	})
-	use({
-		'stevearc/dressing.nvim',
-	})
+	use('stevearc/dressing.nvim')
 	use({
 		'mrshmllow/document-color.nvim',
 		config = function()
