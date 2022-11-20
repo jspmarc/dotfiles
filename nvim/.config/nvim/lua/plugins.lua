@@ -347,6 +347,11 @@ local M = require('packer').startup(function(use)
 	use({
 		'jayp0521/mason-null-ls.nvim',
 		requires = { 'williamboman/mason.nvim' },
+		config = function()
+			require('mason-null-ls').setup({
+				automatic_setup = true,
+			})
+		end,
 	})
 
 	---------------------------------------------------------------------------
@@ -446,6 +451,17 @@ local M = require('packer').startup(function(use)
 				line_number_text = 'Line %s out of %s', -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
 			})
 		end,
+	})
+
+	---------------------------------------------------------------------------
+	---------------                     S                       ---------------
+	---------------------------------------------------------------------------
+	use({
+		'ThePrimeagen/refactoring.nvim',
+		requires = {
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-treesitter/nvim-treesitter' },
+		},
 	})
 
 	---------------------------------------------------------------------------
