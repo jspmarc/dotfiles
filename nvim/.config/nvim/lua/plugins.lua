@@ -324,14 +324,30 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use('L3MON4D3/LuaSnip')
-	use({ 'williamboman/nvim-lsp-installer', {
-		'neovim/nvim-lspconfig',
-	} })
 
 	---------------------------------------------------------------------------
 	---------------                     M                       ---------------
 	---------------------------------------------------------------------------
 	use({ 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' })
+	use({
+		'williamboman/mason.nvim',
+		config = function()
+			require('mason').setup()
+		end,
+	})
+	use({
+		'williamboman/mason-lspconfig.nvim',
+		requires = { 'williamboman/mason.nvim' },
+		config = function()
+			require('mason-lspconfig').setup({
+				ensure_installed = require('helpers').servers,
+			})
+		end,
+	})
+	use({
+		'jayp0521/mason-null-ls.nvim',
+		requires = { 'williamboman/mason.nvim' },
+	})
 
 	---------------------------------------------------------------------------
 	---------------                     N                       ---------------

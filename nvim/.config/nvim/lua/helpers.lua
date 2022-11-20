@@ -11,4 +11,24 @@ function M.map(mode, from, to, opts)
 	api.nvim_set_keymap(mode, from, to, options)
 end
 
+M.servers = {
+	'bashls',
+	'clangd',
+	'cssls',
+	'dockerls',
+	'emmet_ls',
+	'eslint',
+	'gopls',
+	'html',
+	'jsonls',
+	'pylsp',
+	'rust_analyzer',
+	'sumneko_lua',
+	'svelte',
+	'tailwindcss',
+	'texlab',
+	'tsserver',
+	'volar',
+}
+
 return M

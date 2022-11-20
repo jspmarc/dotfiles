@@ -1,30 +1,9 @@
-require('nvim-lsp-installer').setup({
-	automatic_installation = true,
-})
 local nvim_lsp = require('lspconfig')
 require('lsp.keybinds')
 local util = require('lspconfig.util')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local servers = {
-	'bashls',
-	'clangd',
-	'cssls',
-	'dockerls',
-	'emmet_ls',
-	'eslint',
-	'gopls',
-	'html',
-	'jsonls',
-	'pylsp',
-	'rust_analyzer',
-	'sumneko_lua',
-	'svelte',
-	'tailwindcss',
-	'texlab',
-	'tsserver',
-	'volar',
-}
+local servers = require('helpers').servers
 
 for _, server in ipairs(servers) do
 	local opts = {
