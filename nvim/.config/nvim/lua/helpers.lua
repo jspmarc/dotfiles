@@ -11,7 +11,7 @@ function M.map(mode, from, to, opts)
 	api.nvim_set_keymap(mode, from, to, options)
 end
 
-M.servers = {
+M.lsp_servers = {
 	'bashls',
 	'clangd',
 	'cssls',
@@ -29,6 +29,15 @@ M.servers = {
 	'texlab',
 	'tsserver',
 	'volar',
+}
+
+M.null_ls_formatters = {
+	'black',
+	'clang_format',
+	'prettier',
+}
+
+M.null_ls_linters = {
 }
 
 return M

@@ -1,5 +1,5 @@
-local sumneko_root_path = os.getenv('HOME') .. '/.local/share/nvim/lsp_servers/sumneko_lua/extension/server'
-local sumneko_binary = sumneko_root_path .. '/bin/' .. '/lua-language-server'
+local sumneko_root_path = os.getenv('HOME') .. '/.local/share/nvim/mason/packages/lua-language-server/extension/server'
+local sumneko_binary = sumneko_root_path .. '/../../lua-language-server'
 return {
 	cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
 	settings = {

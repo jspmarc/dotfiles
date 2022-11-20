@@ -340,7 +340,7 @@ local M = require('packer').startup(function(use)
 		requires = { 'williamboman/mason.nvim' },
 		config = function()
 			require('mason-lspconfig').setup({
-				ensure_installed = require('helpers').servers,
+				ensure_installed = require('helpers').lsp_servers,
 			})
 		end,
 	})
@@ -348,8 +348,11 @@ local M = require('packer').startup(function(use)
 		'jayp0521/mason-null-ls.nvim',
 		requires = { 'williamboman/mason.nvim' },
 		config = function()
+			-- local helper = require('helpers')
+			-- local things = vim.tbl_extend('error', helper.null_ls_formatters, helper.null_ls_linters)
 			require('mason-null-ls').setup({
 				automatic_setup = true,
+				-- ensure_installed = things,
 			})
 		end,
 	})

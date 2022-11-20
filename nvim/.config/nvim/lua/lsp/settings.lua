@@ -3,7 +3,7 @@ require('lsp.keybinds')
 local util = require('lspconfig.util')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local servers = require('helpers').servers
+local servers = require('helpers').lsp_servers
 
 for _, server in ipairs(servers) do
 	local opts = {
