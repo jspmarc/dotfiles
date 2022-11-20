@@ -103,9 +103,7 @@ local M = require('packer').startup(function(use)
 				},
 
 				sources = cmp.config.sources({
-					{ name = 'copilot' },
 					{ name = 'nvim_lsp' },
-					{ name = 'orgmode' },
 					{ name = 'luasnip' },
 					{ name = 'path' },
 					{ name = 'nvim_lsp_signature_help' },
@@ -409,42 +407,6 @@ local M = require('packer').startup(function(use)
 				},
 			})
 			require('onedark').load()
-		end,
-	})
-	use({
-		'nvim-orgmode/orgmode',
-		config = function()
-			local org_dir = os.getenv('HOME') .. '/Documents/syncthing/org'
-			local om = require('orgmode')
-			om.setup_ts_grammar()
-			om.setup({
-				org_agenda_files = { org_dir .. '/**/*' },
-				org_capture_templates = {
-					e = {
-						description = 'Event',
-						template = '* %?\n  %T',
-						target = org_dir .. '/calendar.org',
-					},
-					j = {
-						description = 'Journal',
-						template = '* %u\n** %<%H:%M> %?\n   ',
-						target = org_dir .. '/journal.org',
-					},
-					r = {
-						description = 'Refile',
-						template = '* %?',
-					},
-					t = {
-						description = 'Task',
-						template = '* TODO %?\n  DEADLINE: %T',
-						target = org_dir .. '/todo.org',
-					},
-				},
-				org_deadline_warning_days = 7,
-				org_default_notes_file = org_dir .. '/refile.org',
-				org_highlight_latex_and_related = 'native',
-				org_todo_keywords = { 'TODO(t)', 'WAIT(w)', 'WORKING(k)', '(n)', '|', 'DONE(d)' },
-			})
 		end,
 	})
 
