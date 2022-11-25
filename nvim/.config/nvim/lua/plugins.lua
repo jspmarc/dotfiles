@@ -412,7 +412,7 @@ local M = require('packer').startup(function(use)
 		config = function()
 			require('onedark').setup({
 				style = 'darker',
-				transparent = true,
+				transparent = false,
 				ending_tildes = true,
 				code_style = {
 					comments = 'italic',
