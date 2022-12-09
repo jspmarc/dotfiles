@@ -27,7 +27,7 @@ o.hidden = true -- enable modified buffers stay in the backkground
 o.incsearch = true
 o.ignorecase = true
 
-o.laststatus = 2
+o.laststatus = 3
 o.linebreak = true -- nice line breaks
 o.list = true -- show indentation
 o.lcs = [[tab:| ]] -- custom indentation for tabs
