@@ -37,15 +37,6 @@ ffont() {
     fc-list | grep -i $1
 }
 
-vim() {
-    if [[ -z $1 ]]; then
-        nvim +:Dashboard
-    else
-        nvim "$@"
-    fi
-}
-
-
 omz_history() {
   local clear list
   zparseopts -E c=clear l=list

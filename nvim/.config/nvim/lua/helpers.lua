@@ -13,6 +13,7 @@ end
 
 M.lsp_servers = {
 	'bashls',
+	'bufls',
 	'clangd',
 	'cssls',
 	'dockerls',
@@ -21,9 +22,9 @@ M.lsp_servers = {
 	'gopls',
 	'html',
 	'jsonls',
+	'lua_ls',
 	'pylsp',
 	'rust_analyzer',
-	'sumneko_lua',
 	'svelte',
 	'tailwindcss',
 	'texlab',

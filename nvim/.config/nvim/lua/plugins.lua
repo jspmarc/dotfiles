@@ -181,57 +181,12 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	use({
 		'glepnir/dashboard-nvim',
+		event = 'VimEnter',
 		config = function()
-			local db = require('dashboard')
-			db.custom_header = {
-				'      .          .    ',
-				'    ;;,.        ::    ',
-				' ,:::;,,        :ccc, ',
-				',::c::,,,,.     :cccc,',
-				',cccc:;;;;;.    cllll,',
-				',cccc;.;;;;;,   cllll;',
-				':cccc; .;;;;;;. coooo;',
-				";llll;   ,:::::'loooo;",
-				";llll:    ':::::loooo:",
-				':oooo:     .::::llodd:',
-				'.;ooo:       ;cclooo:.',
-				"  .;oc        'coo;.  ",
-				"    .'         .,.    ",
-			}
-			db.custom_center = {
-				{
-					icon = '  ',
-					desc = 'Recently opened files                   ',
-					action = 'Telescope frecency',
-					shortcut = 'LDR t h',
-				},
-				{
-					icon = '  ',
-					desc = 'Find file                               ',
-					action = 'Telescope find_files find_command=rg,--hidden,--files',
-					shortcut = 'LDR t f',
-				},
-				{
-					icon = '  ',
-					desc = 'Find word                               ',
-					action = 'Telescope live_grep',
-					shortcut = 'LDR t w',
-				},
-				{
-					icon = '  ',
-					desc = 'Change colorscheme                      ',
-					action = 'Telescope colorscheme',
-					shortcut = 'LDR t c',
-				},
-			}
+			require('dashboard').setup({
+			})
 		end,
-	})
-	use({
-		'narutoxy/dim.lua',
-		requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
-		config = function()
-			require('dim').setup({})
-		end,
+		requires = { 'nvim-tree/nvim-web-devicons' },
 	})
 	use('ekalinin/Dockerfile.vim')
 	use('stevearc/dressing.nvim')
@@ -304,6 +259,7 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     L                       ---------------
 	---------------------------------------------------------------------------
+	use('neovim/nvim-lspconfig')
 	use({
 		'nvim-lualine/lualine.nvim',
 		config = function()
