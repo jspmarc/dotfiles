@@ -13,7 +13,6 @@ end
 
 M.lsp_servers = {
 	'bashls',
-	'bufls',
 	'clangd',
 	'cssls',
 	'dockerls',
