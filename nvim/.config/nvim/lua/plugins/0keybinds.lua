@@ -54,8 +54,16 @@ map('n', '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
 map('n', '<leader>tc', '<cmd>lua require("telescope.builtin").colorscheme()<CR>')
 map('n', '<leader>tf', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>')
 map('n', '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>')
+map('n', '<leader>to', '<cmd>TodoTelescope<CR>')
 map('n', '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>')
 map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
 
 -- kyazdani42/nvim-tree.lua
 map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
+
+-- folke/trouble.nvim
+map('n', 'xa', '<cmd>TroubleToggle workspace_diagnostics<CR>')
+map('n', 'xd', '<cmd>TroubleToggle document_diagnostics<CR>')
+map('n', 'xo', '<cmd>TodoTrouble<CR>')
+map('n', 'xr', '<cmd>TroubleRefresh<CR>')
+map('n', 'xx', '<cmd>TroubleToggle<CR>')

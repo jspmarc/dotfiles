@@ -183,8 +183,7 @@ local M = require('packer').startup(function(use)
 		'glepnir/dashboard-nvim',
 		event = 'VimEnter',
 		config = function()
-			require('dashboard').setup({
-			})
+			require('dashboard').setup({})
 		end,
 		requires = { 'nvim-tree/nvim-web-devicons' },
 	})
@@ -385,6 +384,7 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     P                       ---------------
 	---------------------------------------------------------------------------
+	use('normen/vim-pio')
 	use({
 		'andweeb/presence.nvim',
 		config = function()
