@@ -352,8 +352,9 @@ local M = require('packer').startup(function(use)
 					null_ls.builtins.formatting.prettier.with({
 						prefer_local = 'node_modules/.bin',
 					}),
-					null_ls.builtins.formatting.rustfmt,
-					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.stylua.with({
+						extra_args = { '--config-path', vim.fn.expand('~/dotfiles/stylua.toml') },
+					}),
 				},
 			})
 		end,

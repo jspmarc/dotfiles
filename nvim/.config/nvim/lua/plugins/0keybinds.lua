@@ -62,8 +62,8 @@ map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
 map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
 
 -- folke/trouble.nvim
-map('n', 'xa', '<cmd>TroubleToggle workspace_diagnostics<CR>')
-map('n', 'xd', '<cmd>TroubleToggle document_diagnostics<CR>')
-map('n', 'xo', '<cmd>TodoTrouble<CR>')
-map('n', 'xr', '<cmd>TroubleRefresh<CR>')
-map('n', 'xx', '<cmd>TroubleToggle<CR>')
+map('n', '<leader>xa', '<cmd>TroubleToggle workspace_diagnostics<CR>')
+map('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>')
+map('n', '<leader>xo', '<cmd>TodoTrouble<CR>')
+map('n', '<leader>xr', '<cmd>TroubleRefresh<CR>')
+map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
