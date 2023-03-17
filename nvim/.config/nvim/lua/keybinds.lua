@@ -64,5 +64,6 @@ map('n', '<leader>fo', '<cmd>foldopen<CR>')
 
 -- buffer
 map('n', '<leader>bd', '<cmd>bd<CR>')
+map('n', '<C-n>', ':enew<CR>')
 
 map('n', '<C-p>', ':')

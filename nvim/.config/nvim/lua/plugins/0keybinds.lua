@@ -7,9 +7,6 @@ local map = require('helpers').map
 map('n', '<A-]>', '<cmd>BufferLineCycleNext<CR>')
 map('n', '<A-[>', '<cmd>BufferLineCyclePrev<CR>')
 
--- glepnir/Dashboard.nvim
-map('n', '<C-n>', '<cmd>DashboardNewFile<CR>')
-
 -- easymotion/vim-easymotion
 map('n', '<leader><leader>f', '<Plug>(easymotion-overwin-f)', { noremap = false })
 map('n', '<leader><leader>w', '<Plug>(easymotion-overwin-w)', { noremap = false })
