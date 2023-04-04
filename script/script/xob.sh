@@ -20,10 +20,10 @@ vol() {
 }
 
 backl() {
-    [[ "$1" == "inc" ]] && xbacklight -inc 5
-    [[ "$1" == "dec" ]] && xbacklight -dec 5
+    [[ "$1" == "inc" ]] && light -A 5
+    [[ "$1" == "dec" ]] && light -U 5
 
-    b=$(xbacklight -get)
+    b=$(light)
     echo "$b" > "$backlfile"
 }
 
