@@ -22,7 +22,7 @@ M.lsp_servers = {
 	'html',
 	'jsonls',
 	'lua_ls',
-	'pylsp',
+	'pyright',
 	'rust_analyzer',
 	'svelte',
 	'tailwindcss',
@@ -35,9 +35,11 @@ M.null_ls_formatters = {
 	'black',
 	'clang_format',
 	'prettier',
+	'stylua',
 }
 
 M.null_ls_linters = {
+	'flake8',
 }
 
 return M

@@ -84,7 +84,6 @@ local M = require('packer').startup(function(use)
 						require('luasnip').lsp_expand(args.body)
 					end,
 				},
-
 				mapping = {
 					-- see :h mode() for 2nd arg of cmp.mapping
 					['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
@@ -101,7 +100,6 @@ local M = require('packer').startup(function(use)
 					['<Tab>'] = cmp.mapping.select_next_item(),
 					['<S-Tab>'] = cmp.mapping.select_prev_item(),
 				},
-
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
 					{ name = 'luasnip' },
@@ -110,7 +108,6 @@ local M = require('packer').startup(function(use)
 				}, {
 					{ name = 'buffer' },
 				}),
-
 				formatting = {
 					format = function(entry, vim_item)
 						-- Kind icons
@@ -247,7 +244,6 @@ local M = require('packer').startup(function(use)
 			require('indent_blankline').setup({
 				buftype_exclude = { 'terminal' },
 				filetype_exclude = { 'dashboard', 'lsp-installer' },
-
 				space_char_blankline = ' ',
 				show_current_context = true,
 				show_current_context_start = true,
@@ -307,7 +303,11 @@ local M = require('packer').startup(function(use)
 			-- local things = vim.tbl_extend('error', helper.null_ls_formatters, helper.null_ls_linters)
 			require('mason-null-ls').setup({
 				automatic_setup = true,
-				-- ensure_installed = things,
+				ensure_installed = vim.tbl_extend(
+					'force',
+					require('helpers').null_ls_formatters,
+					require('helpers').null_ls_linters
+				),
 			})
 		end,
 	})
@@ -355,6 +355,12 @@ local M = require('packer').startup(function(use)
 					null_ls.builtins.formatting.stylua.with({
 						extra_args = { '--config-path', vim.fn.expand('~/dotfiles/stylua.toml') },
 					}),
+
+					-- linter
+					null_ls.builtins.diagnostics.flake8.with({
+						method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+						extra_args = { '--max-line-length=100' },
+					}),
 				},
 			})
 		end,
@@ -400,7 +406,6 @@ local M = require('packer').startup(function(use)
 				enable_line_number = false, -- Displays the current line number instead of the current project
 				blacklist = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
 				buttons = false, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-
 				-- Rich Presence text options
 				editing_text = 'Editing %s', -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
 				file_explorer_text = 'Browsing %s', -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)

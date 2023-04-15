@@ -14,6 +14,7 @@ o.conceallevel = 3 -- conceal text settings
 
 o.expandtab = false -- use tabs
 o.endofline = true
+o.exrc = true
 
 o.fixendofline = true
 o.foldlevelstart = 99 -- fold all folds on opening buffers
