@@ -29,5 +29,6 @@ export ZSHFILES=$HOME/zsh-files
     && export BXSHARE=/mnt/c/Users/jspma/scoop/apps/bochs/current/
 
 export PYENV_ROOT=$(pyenv root)
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 export GOPATH=$(go env GOPATH)
