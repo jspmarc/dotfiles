@@ -17,7 +17,6 @@ M.lsp_servers = {
 	'cssls',
 	'dockerls',
 	'emmet_ls',
-	'eslint',
 	'gopls',
 	'html',
 	'jsonls',
