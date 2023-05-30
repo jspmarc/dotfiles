@@ -70,5 +70,6 @@ nmap <C-o> <Action>(Back)
 nmap gf <Action>(Forward)
 nmap <C-i> <Action>(Forward)
 nmap gh <Action>(QuickJavaDoc)
+nmap ge <Action>(ShowErrorDescription)
 
 echo "loaded"
