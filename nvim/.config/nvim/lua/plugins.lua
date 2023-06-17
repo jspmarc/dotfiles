@@ -208,6 +208,7 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	use({
 		'j-hui/fidget.nvim',
+		tag = 'legacy',
 		config = function()
 			require('fidget').setup({})
 		end,
