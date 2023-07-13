@@ -10,6 +10,9 @@ set ideajoin
 set idearefactormode=keep
 set commentary
 
+set easymotion
+set sneak
+
 sethandler ˙ a:vim
 sethandler ∆ a:vim
 sethandler ˚ a:vim
@@ -23,12 +26,15 @@ inoremap <C-j><C-k> <Esc>
 vnoremap <C-j><C-k> <Esc>
 nnoremap <C-j><C-k> <Esc>
 
-# for mac
+" use space for 2 leaders
+nmap <space> <leader><leader>
+
+" for mac
 nmap ˙ <C-w>h
 nmap ∆ <C-w>j
 nmap ˚ <C-w>k
 nmap ¬ <C-w>l
-# for linux and windows
+" for linux and windows
 nmap <A-h> <C-w>h
 nmap <A-j> <C-w>j
 nmap <A-k> <C-w>k
@@ -72,4 +78,30 @@ nmap <C-i> <Action>(Forward)
 nmap gh <Action>(QuickJavaDoc)
 nmap ge <Action>(ShowErrorDescription)
 
-echo "loaded"
+" vim-sneak
+"" s / z
+unmap s
+unmap S
+nmap z <Plug>(sneak-s)
+nmap Z <Plug>(sneak-S)
+omap z <Plug>(sneak-s)
+omap Z <Plug>(sneak-S)
+vmap z <Plug>(sneak-s)
+vmap Z <Plug>(sneak-S)
+"" f
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+vmap f <Plug>Sneak_f
+vmap F <Plug>Sneak_F
+"" t
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
+vmap t <Plug>Sneak_t
+vmap T <Plug>Sneak_T
+
+" easymotion
+map <leader><leader>f <Plug>(easymotion-bd-f)
