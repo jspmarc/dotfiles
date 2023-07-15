@@ -33,6 +33,7 @@ M.lsp_servers = {
 M.null_ls_formatters = {
 	'black',
 	'clang_format',
+	'latexindent',
 	'prettier',
 	'stylua',
 }

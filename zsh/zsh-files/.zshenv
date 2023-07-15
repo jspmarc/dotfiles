@@ -8,6 +8,7 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="bat"
@@ -32,3 +33,6 @@ export PYENV_ROOT=$(pyenv root)
 export PATH="$PYENV_ROOT/shims:$PATH"
 
 export GOPATH=$(go env GOPATH)
+
+export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
