@@ -12,7 +12,7 @@ tar -cvz -C / -f "${BASE_BACKUP_DIR}/${BACKUP_ARCHIVE_NAME}" \
     "${HOME}/Videos" \
     "${HOME}/projects" \
     "${HOME}/Pictures" \
-    "${HOME}/Documents" > "${BASE_LOG_DIR}/current_process.log"
+    "${HOME}/Documents" | tee "${BASE_LOG_DIR}/current_process.log"
 
 notify-send "Backup ${BACKUP_ARCHIVE_NAME} created."
 echo "Backup ${BACKUP_ARCHIVE_NAME} CREATED on $(date)" >> "${BASE_LOG_DIR}/backup.log"
