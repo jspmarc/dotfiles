@@ -9,6 +9,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="bat"
@@ -36,3 +37,17 @@ export GOPATH=$(go env GOPATH)
 
 export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
+
+# latexmk
+PATH="/usr/share/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/usr/share/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/usr/share/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/usr/share/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/usr/share/perl5"; export PERL_MM_OPT;
+
+# bun completions
+[ -s "/home/josep/.bun/_bun" ] && source "/home/josep/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
