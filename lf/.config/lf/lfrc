@@ -59,20 +59,6 @@ map gd cd /mnt/data
 
 map ge cd /run/media/josep
 
-# Ctf related
-map zf $foremost $f
-map zbe $binwalk -e $f
-map zbw !binwalk $f
-map zh !hexedit $f
-map zs !strings $f | less
-map zds !ws snowman $f
-map zdg !ws ghidra
-
-# compile
-map mk !~/script/compiler.sh $f
-map mc $chmod a+x $f
-
-
 # shwordsplit, spliting words in zsh
 set shell zsh
 set shellopts '-eu:--shwordsplit'
