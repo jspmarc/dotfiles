@@ -42,19 +42,19 @@ map if push :%sxiv<space>-t<space>.<enter>
 map iv push :%sxiv<space>$f<enter>
 
 map ba dragon-all
-map bb dragon-single
+map bs dragon-single
 
 # "Bookmarks"
 map gt cd ~/.local/share/Trash
 map gc cd ~/.config
-map gkd cd ~/Documents/Kuliah
-map gkn cd ~/vimwiki-notes/Kuliah/
-map gn cd ~/vimwiki-notes
+# map gkd cd ~/Documents/Kuliah
+# map gkn cd ~/vimwiki-notes/Kuliah/
+# map gn cd ~/vimwiki-notes
 map gp cd ~/projects
 
 map gr cd /
 
-map gd cd /data
+map gd cd /mnt/data
 # map gp cd /data/projects
 
 map ge cd /run/media/josep
@@ -154,8 +154,8 @@ cmd fzf_jump ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 
-cmd dragon-all %dragon-drag-and-drop -a -x $fx
-cmd dragon-single %dragon-drag-and-drop -a -x $fx
+cmd dragon-all %dragon-drop -a -x $fx
+cmd dragon-single %dragon-drop $fx
 
 cmd bg %feh --bg-fill $f
 
