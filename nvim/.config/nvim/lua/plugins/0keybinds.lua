@@ -56,7 +56,7 @@ map('n', '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>')
 map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
 
 -- kyazdani42/nvim-tree.lua
-map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
+-- map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
 
 -- folke/trouble.nvim
 map('n', '<leader>xa', '<cmd>TroubleToggle workspace_diagnostics<CR>')

@@ -240,14 +240,22 @@ local M = require('packer').startup(function(use)
 	use({
 		'lukas-reineke/indent-blankline.nvim',
 		config = function()
-			vim.cmd([[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]])
-			vim.cmd([[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]])
-			require('indent_blankline').setup({
-				buftype_exclude = { 'terminal' },
-				filetype_exclude = { 'dashboard', 'lsp-installer' },
-				space_char_blankline = ' ',
-				show_current_context = true,
-				show_current_context_start = true,
+			require('ibl').setup({
+				exclude = {
+					filetypes = {
+						'dashboard',
+						'lsp-installer',
+						'lspinfo',
+						'packer',
+						'checkhealth',
+						'help',
+						'man',
+						'gitcommit',
+						'TelescopePrompt',
+						'TelescopeResults',
+						'',
+					},
+				},
 			})
 		end,
 	})
@@ -395,19 +403,22 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	use('normen/vim-pio')
 	use({
-		'andweeb/presence.nvim',
+		'jiriks74/presence.nvim',
 		config = function()
 			require('presence'):setup({
 				-- General options
 				auto_update = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-				neovim_image_text = 'capek nubes', -- Text displayed when hovered over the Neovim image
+				neovim_image_text = 'Bom bom bakudan', -- Text displayed when hovered over the Neovim image
 				main_image = 'file', -- Main image display (either "neovim" or "file")
-				client_id = '793271441293967371', -- Use your own Discord application client id (not recommended)
+				client_id = '1172122807501594644', -- Use your own Discord application client id (not recommended)
 				log_level = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
 				debounce_timeout = 10, -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-				enable_line_number = false, -- Displays the current line number instead of the current project
+				enable_line_number = true, -- Displays the current line number instead of the current project
 				blacklist = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
-				buttons = false, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+				buttons = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+				file_assets = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+				show_time = true, -- Show the timer
+
 				-- Rich Presence text options
 				editing_text = 'Editing %s', -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
 				file_explorer_text = 'Browsing %s', -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
@@ -492,12 +503,6 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use({
-		'kyazdani42/nvim-tree.lua',
-		config = function()
-			require('nvim-tree').setup(require('plugins.nvim-tree'))
-		end,
-	})
-	use({
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		config = function()
@@ -517,9 +522,6 @@ local M = require('packer').startup(function(use)
 						node_incremental = '<TAB>',
 						node_decremental = '<S-TAB>',
 					},
-				},
-				context_commentstring = {
-					enable = true,
 				},
 			})
 		end,
