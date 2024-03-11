@@ -2,6 +2,7 @@ set nu
 set rnu
 set clipboard+=unnamed
 set clipboard+=ideaput
+set clipboard+=unnamedplus
 set ignorecase
 set smartcase
 set incsearch
