@@ -275,7 +275,17 @@ local M = require('packer').startup(function(use)
 				sections = {
 					lualine_a = { 'mode' },
 					lualine_b = { 'branch', 'diff' },
-					lualine_c = { 'filename', { 'diagnostics', sources = { 'nvim_diagnostic' } } },
+					lualine_c = {
+						{
+							'filename',
+							file_status = true,
+							path = 1,
+						},
+						{
+							'diagnostics',
+							sources = { 'nvim_diagnostic' },
+						},
+					},
 					lualine_x = { 'encoding', 'fileformat' },
 					lualine_y = { 'filetype' },
 					lualine_z = { 'location' },
