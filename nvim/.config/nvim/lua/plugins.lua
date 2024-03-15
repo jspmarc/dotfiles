@@ -206,13 +206,7 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     F                       ---------------
 	---------------------------------------------------------------------------
-	use({
-		'j-hui/fidget.nvim',
-		tag = 'legacy',
-		config = function()
-			require('fidget').setup({})
-		end,
-	})
+	use('j-hui/fidget.nvim')
 	use('tpope/vim-fugitive')
 	use({
 		'beauwilliams/focus.nvim',
