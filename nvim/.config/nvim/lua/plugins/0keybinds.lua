@@ -48,7 +48,6 @@ map('n', '<leader>d', ':Neogen<CR>')
 
 -- nvim-telescope/telescope
 map('n', '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
-map('n', '<leader>tc', '<cmd>lua require("telescope.builtin").colorscheme()<CR>')
 map('n', '<leader>tf', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>')
 map('n', '<leader>tl', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>')

@@ -25,7 +25,6 @@ M.lsp_servers = {
 	'rust_analyzer',
 	'svelte',
 	'tailwindcss',
-	'texlab',
 	'tsserver',
 	'volar',
 }
@@ -33,7 +32,6 @@ M.lsp_servers = {
 M.null_ls_formatters = {
 	'black',
 	'clang_format',
-	'latexindent',
 	'prettier',
 	'stylua',
 }
