@@ -213,12 +213,12 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use('tpope/vim-fugitive')
-	use({
-		'beauwilliams/focus.nvim',
-		config = function()
-			require('focus').setup()
-		end,
-	})
+	-- use({ -- plugin for resizing window on window move
+	-- 	'beauwilliams/focus.nvim',
+	-- 	config = function()
+	-- 		require('focus').setup()
+	-- 	end,
+	-- })
 
 	---------------------------------------------------------------------------
 	---------------                     G                       ---------------

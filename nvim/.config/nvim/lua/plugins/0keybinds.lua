@@ -37,7 +37,7 @@ map('v', '<leader>gU', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', { nor
 map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { noremap = false })
 
 -- NeogitOrg/neogit
-vim.keymap.set('n', '<leader>gg', require('neogit').open, { silent = true, noremap = true })
+map('n', '<leader>gg', ':Neogit kind=split_above<CR>')
 map('n', '<leader>gB', ':G blame<CR>')
 map('n', '<leader>gp', ':Neogit pull<CR>')
 map('n', '<leader>gP', ':Neogit push<CR>')
