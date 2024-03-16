@@ -229,7 +229,12 @@ local M = require('packer').startup(function(use)
 			'nvim-lua/plenary.nvim',
 		},
 		config = function()
-			require('gitsigns').setup()
+			require('gitsigns').setup({
+				current_line_blame = true,
+				current_line_blame_opts = {
+					delay = 250,
+				},
+			})
 		end,
 	})
 
@@ -344,6 +349,16 @@ local M = require('packer').startup(function(use)
 			})
 		end,
 		requires = 'nvim-treesitter/nvim-treesitter',
+	})
+	use({
+		'NeogitOrg/neogit',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'sindrets/diffview.nvim',
+		},
+		config = function()
+			require('neogit').setup()
+		end,
 	})
 	use({
 		'karb94/neoscroll.nvim',

@@ -36,6 +36,18 @@ map(
 map('v', '<leader>gU', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', { noremap = false })
 map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { noremap = false })
 
+-- NeogitOrg/neogit
+vim.keymap.set('n', '<leader>gg', require('neogit').open, { silent = true, noremap = true })
+map('n', '<leader>gB', ':G blame<CR>')
+map('n', '<leader>gp', ':Neogit pull<CR>')
+map('n', '<leader>gP', ':Neogit push<CR>')
+map('n', '<leader>gc', ':Neogit commit<CR>')
+
+-- sindrets/diffview.nvim
+map('n', '<leader>gdg', ':DiffviewOpen<CR>')
+map('n', '<leader>gdf', ':DiffviewFileHistory %<CR>')
+map('n', '<leader>gdc', ':DiffviewClose<CR>')
+
 -- b3nj5m1n/kommentary
 map('n', '<C-_>', '<Plug>kommentary_line_default', { noremap = false })
 map('v', '<C-_>', '<Plug>kommentary_visual_default', { noremap = false })
@@ -55,6 +67,7 @@ map('n', '<leader>to', '<cmd>TodoTelescope<CR>')
 map('n', '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>')
 map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
 map('n', '<C-b>', '<cmd>Telescope file_browser<CR>')
+map('n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>')
 
 -- kyazdani42/nvim-tree.lua
 -- map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
