@@ -44,8 +44,9 @@ map('n', '<leader>gP', ':Neogit push<CR>')
 map('n', '<leader>gc', ':Neogit commit<CR>')
 
 -- sindrets/diffview.nvim
-map('n', '<leader>gdg', ':DiffviewOpen<CR>')
+map('n', '<leader>gdd', ':DiffviewOpen<CR>')
 map('n', '<leader>gdf', ':DiffviewFileHistory %<CR>')
+map('n', '<leader>gdg', ':DiffviewFileHistory<CR>')
 map('n', '<leader>gdc', ':DiffviewClose<CR>')
 
 -- b3nj5m1n/kommentary
