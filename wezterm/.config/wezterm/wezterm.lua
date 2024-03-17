@@ -16,4 +16,6 @@ return {
 	},
 	window_background_opacity = 0.9,
 	enable_wayland = false,
+	window_decorations = 'NONE',
+	enable_tab_bar = false,
 }
