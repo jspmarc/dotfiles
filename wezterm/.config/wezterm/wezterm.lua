@@ -3,10 +3,9 @@ local wezterm = require('wezterm')
 return {
 	color_scheme = 'Darkside',
 	font = wezterm.font_with_fallback({
-		'JetBrains Mono NL',
-		'Fira Code',
-		'Iosevka',
+		'JetBrainsMono Nerd Font Propo',
 		'Noto Color Emoji',
+		'Relaxed Typing Mono JP',
 	}),
 	font_size = 11,
 	window_padding = {
