@@ -79,3 +79,10 @@ map('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>')
 map('n', '<leader>xo', '<cmd>TodoTrouble<CR>')
 map('n', '<leader>xr', '<cmd>TroubleRefresh<CR>')
 map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
+
+-- christoomey/vim-tmux-navigator
+map('n', '<C-h>', '<cmd><C-U>TmuxNavigateLeft<cr>')
+map('n', '<C-j>', '<cmd><C-U>TmuxNavigateDown<cr>')
+map('n', '<C-k>', '<cmd><C-U>TmuxNavigateUp<cr>')
+map('n', '<C-l>', '<cmd><C-U>TmuxNavigateRight<cr>')
+map('n', '<C-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>')
