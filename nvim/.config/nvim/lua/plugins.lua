@@ -534,7 +534,6 @@ local M = require('packer').startup(function(use)
 			require('todo-comments').setup()
 		end,
 	})
-	use("christoomey/vim-tmux-navigator")
 	use({
 		'akinsho/toggleterm.nvim',
 		config = function()
