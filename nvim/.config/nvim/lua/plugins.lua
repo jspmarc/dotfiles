@@ -171,6 +171,7 @@ local M = require('packer').startup(function(use)
 			})
 		end,
 	})
+	use('github/copilot.vim')
 	use('ap/vim-css-color')
 
 	---------------------------------------------------------------------------
@@ -466,6 +467,13 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     R                       ---------------
 	---------------------------------------------------------------------------
+	use({
+		'rest-nvim/rest.nvim',
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require('rest-nvim').setup()
+		end,
+	})
 	use('tpope/vim-rhubarb')
 
 	---------------------------------------------------------------------------

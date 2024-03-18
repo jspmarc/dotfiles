@@ -16,7 +16,7 @@ map('n', '<leader><leader>j', '<Plug>(easymotion-j)', { noremap = false })
 map('n', '<leader><leader>k', '<Plug>(easymotion-k)', { noremap = false })
 
 -- lewis6991/gitsigns.nvim
-map('n', '<leader>gp', '<cmd>lua require"gitsigns".preview_hunk()<CR>', { noremap = false })
+map('n', '<leader>gh', '<cmd>lua require"gitsigns".preview_hunk()<CR>', { noremap = false })
 map('n', '<leader>gs', '<cmd>lua require"gitsigns".stage_hunk()<CR>', { noremap = false })
 map('n', '<leader>g]', '<cmd>lua require"gitsigns".next_hunk()<CR>', { noremap = false })
 map('n', '<leader>g[', '<cmd>lua require"gitsigns".prev_hunk()<CR>', { noremap = false })
@@ -79,3 +79,8 @@ map('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>')
 map('n', '<leader>xo', '<cmd>TodoTrouble<CR>')
 map('n', '<leader>xr', '<cmd>TroubleRefresh<CR>')
 map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
+
+-- rest-nvim/rest.nvim
+map('n', '<leader>rr', '<Plug>RestNvim')
+map('n', '<leader>rp', '<Plug>RestNvimPreview')
+map('n', '<leader>rq', '<Plug>RestNvimLast')

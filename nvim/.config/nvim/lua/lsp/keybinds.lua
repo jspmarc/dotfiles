@@ -1,5 +1,6 @@
 local map = require('helpers').map
 
+map('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 map('n', 'gd', '<cmd>Telescope lsp_definitions<CR>')
 map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>')
