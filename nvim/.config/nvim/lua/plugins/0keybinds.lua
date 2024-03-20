@@ -80,7 +80,12 @@ map('n', '<leader>xo', '<cmd>TodoTrouble<CR>')
 map('n', '<leader>xr', '<cmd>TroubleRefresh<CR>')
 map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
 
+-- ThePrimeagen/refactoring.nvim
+-- Note that not all refactor support both normal and visual mode
+vim.keymap.set({ 'n', 'x' }, '<leader>la', function()
+	require('refactoring').select_refactor()
+end)
+
 -- rest-nvim/rest.nvim
-map('n', '<leader>rr', '<Plug>RestNvim')
-map('n', '<leader>rp', '<Plug>RestNvimPreview')
-map('n', '<leader>rq', '<Plug>RestNvimLast')
+map('n', '<leader>rr', '<cmd>Rest run<CR>')
+map('n', '<leader>re', '<cmd>lua require("telescope").extensions.rest.select_env()<CR>')
