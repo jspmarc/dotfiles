@@ -469,6 +469,7 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	use({
 		'rest-nvim/rest.nvim',
+		rocks = { 'lua-curl', 'nvim-nio', 'mimetypes', 'xml2lua' },
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require('rest-nvim').setup()
