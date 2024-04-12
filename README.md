@@ -15,3 +15,9 @@ Run `run.sh` to easily "stow" everything
   python3 ~/.cache/nvim/packer_hererocks/hererocks.py --verbose -j 2.1.0-beta3 -r latest ~/.cache/nvim/packer_hererocks/2.1.1702233742
   ```
   From: https://github.com/wbthomason/packer.nvim/issues/1266
+
+## Tmux
+
+- For plugins, need to install `tmux-plugins/tpm`
+- For italic and strikethrough texts, have to install `x.txt`
+  from https://github.com/tmux/tmux/issues/1137#issuecomment-339493951
