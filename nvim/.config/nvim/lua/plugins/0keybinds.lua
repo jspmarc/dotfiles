@@ -59,6 +59,9 @@ map('n', '<leader>p', ':lua require("nabla").popup({ border="rounded" })<CR>')
 -- danymat/neogen
 map('n', '<leader>d', ':Neogen<CR>')
 
+-- stevearc/oil.nvim
+map('n', '<C-b>', '<cmd>Oil<CR>')
+
 -- nvim-telescope/telescope
 map('n', '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
 map('n', '<leader>tf', '<cmd>Telescope find_files<CR>')
@@ -67,7 +70,6 @@ map('n', '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>')
 map('n', '<leader>to', '<cmd>TodoTelescope<CR>')
 map('n', '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>')
 map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
-map('n', '<C-b>', '<cmd>Telescope file_browser<CR>')
 map('n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>')
 
 -- kyazdani42/nvim-tree.lua
