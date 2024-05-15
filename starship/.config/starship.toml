@@ -82,7 +82,7 @@ show_always = false
 disabled = false
 format = '🕙 $time'
 time_format = "%R"
-utc_time_offset = "+7"
+utc_time_offset = "+9"
 time_range = "00:00:00-24:00:00"
 
 [git_status]

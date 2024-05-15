@@ -112,3 +112,5 @@ pnpm_shell_completion_file="/usr/share/zsh/plugins/pnpm-shell-completion/pnpm-sh
 if [[ -f "$pnpm_shell_completion_file" ]]; then
     source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
 fi
+
+if [ "$TMUX" = "" ]; then tmux new-session -A -s TMUX; fi
