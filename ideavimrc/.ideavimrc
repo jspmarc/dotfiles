@@ -5,7 +5,7 @@ set clipboard+=ideaput
 set clipboard+=unnamedplus
 set ignorecase
 set smartcase
-set incsearch
+set noincsearch
 set hls
 set ideajoin
 set idearefactormode=keep
