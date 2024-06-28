@@ -39,9 +39,9 @@ map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', {
 -- NeogitOrg/neogit
 map('n', '<leader>gg', ':Neogit kind=split_above<CR>')
 map('n', '<leader>gB', ':G blame<CR>')
-map('n', '<leader>gp', ':Neogit pull<CR>')
-map('n', '<leader>gP', ':Neogit push<CR>')
+map('n', '<leader>gp', ':Neogit push<CR>')
 map('n', '<leader>gc', ':Neogit commit<CR>')
+map('n', '<leader>gl', ':Neogit pull<CR>')
 
 -- sindrets/diffview.nvim
 map('n', '<leader>gdd', ':DiffviewOpen<CR>')
@@ -76,8 +76,8 @@ map('n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>
 -- map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
 
 -- folke/trouble.nvim
-map('n', '<leader>xa', '<cmd>TroubleToggle workspace_diagnostics<CR>')
-map('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>')
+map('n', '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>')
+map('n', '<leader>xd', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>')
 map('n', '<leader>xo', '<cmd>TodoTrouble<CR>')
 map('n', '<leader>xr', '<cmd>TroubleRefresh<CR>')
 map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')

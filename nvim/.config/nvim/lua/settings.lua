@@ -19,7 +19,7 @@ o.exrc = true
 o.fixendofline = true
 o.foldlevelstart = 99 -- fold all folds on opening buffers
 o.foldmethod = 'expr' -- treesitter
-o.foldexpr = [[nvim_treesitter#foldexpr()]] -- treesitter
+o.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- treesitter
 
 o.guicursor = 'c-v-r-cr:hor75,i-ci:ver75,n:block,a:blinkon0' -- nice cursors
 

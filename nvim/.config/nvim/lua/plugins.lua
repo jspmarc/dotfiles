@@ -101,6 +101,7 @@ local M = require('packer').startup(function(use)
 					['<S-Tab>'] = cmp.mapping.select_prev_item(),
 				},
 				sources = cmp.config.sources({
+					{ name = 'copilot' },
 					{ name = 'nvim_lsp' },
 					{ name = 'luasnip' },
 					{ name = 'path' },
@@ -118,10 +119,9 @@ local M = require('packer').startup(function(use)
 			})
 
 			cmp.setup.cmdline('/', {
-				sources = {
-					{ name = 'nvim_lsp_document_symbol' },
+				sources = cmp.config.sources({
 					{ name = 'buffer' },
-				},
+				}),
 			})
 
 			cmp.setup.cmdline(':', {
@@ -473,14 +473,6 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     R                       ---------------
 	---------------------------------------------------------------------------
-	use({
-		'rest-nvim/rest.nvim',
-		rocks = { 'lua-curl', 'nvim-nio', 'mimetypes', 'xml2lua' },
-		requires = { 'nvim-lua/plenary.nvim' },
-		config = function()
-			require('rest-nvim').setup()
-		end,
-	})
 	use('tpope/vim-rhubarb')
 
 	---------------------------------------------------------------------------
@@ -531,7 +523,6 @@ local M = require('packer').startup(function(use)
 
 			telescope.load_extension('fzf')
 			telescope.load_extension('frecency')
-			telescope.load_extension('rest') -- rest.nvim
 		end,
 	})
 	-- use({
