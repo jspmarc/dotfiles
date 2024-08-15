@@ -33,6 +33,7 @@ map(
 	'<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>)',
 	{ noremap = false }
 )
+map('n', '<leader>gU', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', { noremap = false })
 map('v', '<leader>gU', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', { noremap = false })
 map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { noremap = false })
 
@@ -70,7 +71,7 @@ map('n', '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>')
 map('n', '<leader>to', '<cmd>TodoTelescope<CR>')
 map('n', '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>')
 map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
-map('n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>')
+-- map('n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>')
 
 -- kyazdani42/nvim-tree.lua
 -- map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
