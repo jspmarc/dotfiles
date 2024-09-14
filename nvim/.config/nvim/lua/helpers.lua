@@ -26,7 +26,7 @@ M.lsp_servers = {
 	'rust_analyzer',
 	'svelte',
 	'tailwindcss',
-	'tsserver',
+	'ts_ls',
 	'volar',
 }
 
