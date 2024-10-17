@@ -31,18 +31,8 @@ for _, server in ipairs(servers) do
 		opts = vim.tbl_extend('force', opts, require('lsp.tailwindcss'))
 	elseif server == 'texlab' then
 		opts = vim.tbl_extend('force', opts, require('lsp.texlab'))
-	elseif server == 'tsserver' then
-		opts = vim.tbl_extend('force', opts, {
-			on_attach = function (client)
-				client.resolved_capabilities.document_formatting = false
-			end
-		})
-	elseif server == 'volar' then
-		opts = vim.tbl_extend('force', opts, {
-			on_attach = function (client)
-				client.resolved_capabilities.document_formatting = false
-			end
-		})
+	elseif server == 'ts_ls' then
+		opts = vim.tbl_extend('force', opts, require('lsp.ts_ls'))
 	end
 
 	nvim_lsp[server].setup(opts)
