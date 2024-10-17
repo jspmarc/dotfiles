@@ -23,6 +23,8 @@ for _, server in ipairs(servers) do
 		opts = vim.tbl_extend('force', opts, {
 			filetypes = { 'html', 'css', 'javascriptreact', 'typescriptreact' },
 		})
+	elseif server == 'lua_ls' then
+		opts = vim.tbl_extend('force', opts, require('lsp.lua'))
 	elseif server == 'pylsp' then
 		opts = vim.tbl_extend('force', opts, require('lsp.pylsp'))
 	elseif server == 'rust_analyzer' then
