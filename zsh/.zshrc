@@ -108,9 +108,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # ---nvm end
 
+# --pnpm
 pnpm_shell_completion_file="/usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh"
 if [[ -f "$pnpm_shell_completion_file" ]]; then
     source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
 fi
+# --pnpm end
 
+# --tmux
 if [ "$TMUX" = "" ]; then tmux new-session -A -s TMUX; fi
+# --tmux end
+
+# --zoxide
+eval "$(zoxide init zsh)"
+# --zoxide end
