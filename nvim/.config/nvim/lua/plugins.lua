@@ -476,7 +476,7 @@ local M = require('packer').startup(function(use)
 	use('tpope/vim-rhubarb')
 
 	---------------------------------------------------------------------------
-	---------------                     S                       ---------------
+	---------------                     R                       ---------------
 	---------------------------------------------------------------------------
 	use({
 		'ThePrimeagen/refactoring.nvim',
@@ -496,6 +496,20 @@ local M = require('packer').startup(function(use)
 		config = function()
 			require('scrollbar').setup()
 		end,
+	})
+	use({
+		'danielfalk/smart-open.nvim',
+		branch = '0.2.x',
+		config = function()
+			require('telescope').load_extension('smart_open')
+		end,
+		requires = {
+			{ 'kkharji/sqlite.lua' },
+			-- Only required if using match_algorithm fzf
+			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+			-- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+			{ 'nvim-telescope/telescope-fzy-native.nvim' },
+		},
 	})
 
 	---------------------------------------------------------------------------
@@ -522,7 +536,6 @@ local M = require('packer').startup(function(use)
 			})
 
 			telescope.load_extension('fzf')
-			telescope.load_extension('frecency')
 		end,
 	})
 	-- use({
@@ -530,10 +543,6 @@ local M = require('packer').startup(function(use)
 	-- 	requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
 	-- })
 	use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
-	use({
-		'nvim-telescope/telescope-frecency.nvim',
-		requires = { 'tami5/sqlite.lua' },
-	})
 	use({
 		'folke/todo-comments.nvim',
 		requires = 'nvim-lua/plenary.nvim',
