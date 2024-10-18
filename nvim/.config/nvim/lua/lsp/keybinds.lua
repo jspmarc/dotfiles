@@ -12,6 +12,8 @@ map('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_fo
 map('n', 'gr', '<cmd>Telescope lsp_references<CR>')
 map('n', '<A-CR>', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 map('v', '<A-CR>', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+map('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+map('v', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 map('n', '<leader>ld', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>')
 map('n', '<leader>lD', '<cmd>Trouble diagnostics toggle<CR>')
 map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')

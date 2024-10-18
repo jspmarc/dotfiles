@@ -70,11 +70,8 @@ map('n', '<leader>tF', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>
 map('n', '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>')
 map('n', '<leader>to', '<cmd>TodoTelescope<CR>')
 map('n', '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>')
+map('n', '<leader>ts', '<cmd>Telescope smart_open<CR>')
 map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
--- map('n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>')
-
--- kyazdani42/nvim-tree.lua
--- map('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
 
 -- folke/trouble.nvim
 map('n', '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>')
@@ -82,12 +79,6 @@ map('n', '<leader>xd', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>')
 map('n', '<leader>xo', '<cmd>TodoTrouble<CR>')
 map('n', '<leader>xr', '<cmd>TroubleRefresh<CR>')
 map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
-
--- ThePrimeagen/refactoring.nvim
--- Note that not all refactor support both normal and visual mode
-vim.keymap.set({ 'n', 'x' }, '<leader>la', function()
-	require('refactoring').select_refactor()
-end)
 
 -- rest-nvim/rest.nvim
 map('n', '<leader>rr', '<cmd>Rest run<CR>')
