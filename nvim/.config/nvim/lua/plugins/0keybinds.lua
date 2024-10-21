@@ -98,8 +98,7 @@ map('n', '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>')
 map('n', '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>')
 map('n', '<leader>xd', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>')
 map('n', '<leader>xo', '<cmd>TodoTrouble<CR>')
-map('n', '<leader>xr', '<cmd>TroubleRefresh<CR>')
-map('n', '<leader>xx', '<cmd>TroubleToggle<CR>')
+map('n', '<leader>xx', '<cmd>Trouble close<CR>')
 
 -- rest-nvim/rest.nvim
 map('n', '<leader>rr', '<cmd>Rest run<CR>')
