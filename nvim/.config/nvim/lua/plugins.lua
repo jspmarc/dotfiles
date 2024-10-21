@@ -317,6 +317,13 @@ local M = require('packer').startup(function(use)
 			})
 		end,
 	})
+	use({
+		'echasnovski/mini.files',
+		branch = 'stable',
+		config = function()
+			require('mini.files').setup()
+		end,
+	})
 
 	---------------------------------------------------------------------------
 	---------------                     N                       ---------------
@@ -385,12 +392,12 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     O                       ---------------
 	---------------------------------------------------------------------------
-	use({
-		'stevearc/oil.nvim',
-		config = function()
-			require('oil').setup()
-		end,
-	})
+	-- use({
+	-- 	'stevearc/oil.nvim',
+	-- 	config = function()
+	-- 		require('oil').setup()
+	-- 	end,
+	-- })
 	use({
 		'navarasu/onedark.nvim',
 		config = function()
@@ -544,15 +551,16 @@ local M = require('packer').startup(function(use)
 				indent = {
 					enable = true,
 				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = '<CR>',
-						scope_incremental = '<CR>',
-						node_incremental = '<TAB>',
-						node_decremental = '<S-TAB>',
-					},
-				},
+				-- incremental_selection = {
+				-- 	enable = true,
+				-- 	keymaps = {
+				-- 		init_selection = '<CR>',
+				-- 		scope_incremental = '<CR>',
+				-- 		node_incremental = '<TAB>',
+				-- 		node_decremental = '<S-TAB>',
+				-- 	},
+				-- },
+				-- folding is set in settings.lua
 			})
 		end,
 	})

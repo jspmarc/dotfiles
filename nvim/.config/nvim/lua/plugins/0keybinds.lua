@@ -54,6 +54,9 @@ map('n', '<leader>gdc', ':DiffviewClose<CR>')
 map('n', '<C-_>', '<Plug>kommentary_line_default', { noremap = false })
 map('v', '<C-_>', '<Plug>kommentary_visual_default', { noremap = false })
 
+-- echasnovski/mini.files
+map('n', '<C-b>', '<cmd>lua require("mini.files").open()<CR>')
+
 -- jbyuki/nabla.nvim
 map('n', '<leader>p', ':lua require("nabla").popup({ border="rounded" })<CR>')
 
@@ -61,7 +64,7 @@ map('n', '<leader>p', ':lua require("nabla").popup({ border="rounded" })<CR>')
 map('n', '<leader>d', ':Neogen<CR>')
 
 -- stevearc/oil.nvim
-map('n', '<C-b>', '<cmd>Oil<CR>')
+-- map('n', '<C-b>', '<cmd>Oil<CR>')
 
 -- nvim-telescope/telescope
 map('n', '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>')
