@@ -7,6 +7,24 @@ local map = require('helpers').map
 map('n', '<A-]>', '<cmd>BufferLineCycleNext<CR>')
 map('n', '<A-[>', '<cmd>BufferLineCyclePrev<CR>')
 
+-- CopilotC-Nvim/CopilotChat.nvim
+vim.keymap.set({ 'n', 'v' }, '<leader>cch', function()
+	local actions = require('CopilotChat.actions')
+	require('CopilotChat.integrations.telescope').pick(actions.help_actions())
+end)
+vim.keymap.set({ 'n', 'v' }, '<leader>ccp', function()
+	local actions = require('CopilotChat.actions')
+	require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
+end)
+map('n', '<leader>cct', '<cmd>lua require("CopilotChat").toggle()<CR>')
+map('v', '<leader>cct', '<cmd>lua require("CopilotChat").toggle()<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>ccq', function()
+	local input = vim.fn.input('Quick Chat: ')
+	if input ~= '' then
+		require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
+	end
+end)
+
 -- easymotion/vim-easymotion
 map('n', '<leader><leader>f', '<Plug>(easymotion-overwin-f)', { noremap = false })
 map('n', '<leader><leader>w', '<Plug>(easymotion-overwin-w)', { noremap = false })
