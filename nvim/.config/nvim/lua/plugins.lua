@@ -136,6 +136,31 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use({
+		'olimorris/codecompanion.nvim',
+		config = function()
+			require('codecompanion').setup({
+				strategies = {
+					chat = {
+						adapter = 'copilot',
+					},
+					inline = {
+						adapter = 'copilot',
+					},
+					agent = {
+						adapter = 'copilot',
+					},
+				},
+			})
+		end,
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'nvim-treesitter/nvim-treesitter',
+			'hrsh7th/nvim-cmp', -- Optional: For using slash commands and variables in the chat buffer
+			'nvim-telescope/telescope.nvim', -- Optional: For using slash commands
+			'stevearc/dressing.nvim', -- Optional: Improves `vim.ui.select`
+		},
+	})
+	use({
 		'numToStr/Comment.nvim',
 		config = function()
 			require('Comment').setup({
@@ -145,42 +170,6 @@ local M = require('packer').startup(function(use)
 		end,
 	})
 	use('github/copilot.vim')
-	use({
-		'CopilotC-Nvim/CopilotChat.nvim',
-		config = function()
-			require('CopilotChat.integrations.cmp').setup()
-
-			local copilot_chat = require('CopilotChat')
-			copilot_chat.setup({
-				debug = false,
-				show_help = 'yes',
-				disable_extra_info = 'no',
-				language = 'English',
-				window = {
-					layout = 'float',
-					relative = 'cursor',
-					width = 1,
-					height = 0.4,
-					row = 1,
-				},
-				build = function()
-					vim.notify(
-						"Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim."
-					)
-				end,
-				mappings = {
-					complete = {
-						insert = '',
-					},
-				},
-				event = 'VeryLazy',
-			})
-		end,
-		requires = {
-			'nvim-telescope/telescope.nvim', -- Use telescope for help actions
-			'nvim-lua/plenary.nvim',
-		},
-	})
 	use('ap/vim-css-color')
 
 	---------------------------------------------------------------------------

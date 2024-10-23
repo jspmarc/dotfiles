@@ -7,23 +7,13 @@ local map = require('helpers').map
 map('n', '<A-]>', '<cmd>BufferLineCycleNext<CR>')
 map('n', '<A-[>', '<cmd>BufferLineCyclePrev<CR>')
 
--- CopilotC-Nvim/CopilotChat.nvim
-vim.keymap.set({ 'n', 'v' }, '<leader>cch', function()
-	local actions = require('CopilotChat.actions')
-	require('CopilotChat.integrations.telescope').pick(actions.help_actions())
-end)
-vim.keymap.set({ 'n', 'v' }, '<leader>ccp', function()
-	local actions = require('CopilotChat.actions')
-	require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
-end)
-map('n', '<leader>cct', '<cmd>lua require("CopilotChat").toggle()<CR>')
-map('v', '<leader>cct', '<cmd>lua require("CopilotChat").toggle()<CR>')
-vim.keymap.set({ 'n', 'v' }, '<leader>ccq', function()
-	local input = vim.fn.input('Quick Chat: ')
-	if input ~= '' then
-		require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
-	end
-end)
+-- olimorris/codecompanion.nvim
+map('n', '<leader>cca', '<cmd>CodeCompanionActions<CR>')
+map('v', '<leader>cca', '<cmd>CodeCompanionActions<CR>')
+map('n', '<leader>ccq', '<cmd>CodeCompanion<CR>')
+map('v', '<leader>ccq', '<cmd>CodeCompanion<CR>')
+map('n', '<leader>cco', '<cmd>CodeCompanionChat<CR>')
+map('v', '<leader>cco', '<cmd>CodeCompanionChat<CR>')
 
 -- easymotion/vim-easymotion
 map('n', '<leader><leader>f', '<Plug>(easymotion-overwin-f)', { noremap = false })
