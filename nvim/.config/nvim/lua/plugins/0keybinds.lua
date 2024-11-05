@@ -45,8 +45,11 @@ map('n', '<leader>gU', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', { nor
 map('v', '<leader>gU', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', { noremap = false })
 map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { noremap = false })
 
+-- tpope/vim-fugitive
+-- kdheepak/lazygit.nvim
 -- NeogitOrg/neogit
-map('n', '<leader>gg', ':Neogit kind=split_above<CR>')
+-- map('n', '<leader>gg', ':Neogit kind=split_above<CR>')
+map('n', '<leader>gg', ':LazyGit<CR>')
 map('n', '<leader>gB', ':G blame<CR>')
 map('n', '<leader>gp', ':Neogit push<CR>')
 map('n', '<leader>gc', ':Neogit commit<CR>')

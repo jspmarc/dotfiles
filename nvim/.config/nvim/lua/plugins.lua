@@ -183,6 +183,7 @@ local M = require('packer').startup(function(use)
 		end,
 		requires = { 'nvim-tree/nvim-web-devicons' },
 	})
+	use('sindrets/diffview.nvim')
 	use('ekalinin/Dockerfile.vim')
 	use('stevearc/dressing.nvim')
 	use({
@@ -266,6 +267,13 @@ local M = require('packer').startup(function(use)
 	---------------------------------------------------------------------------
 	---------------                     L                       ---------------
 	---------------------------------------------------------------------------
+	use({
+		'kdheepak/lazygit.nvim',
+		-- optional for floating window border decoration
+		requires = {
+			'nvim-lua/plenary.nvim',
+		},
+	})
 	use('neovim/nvim-lspconfig')
 	use({
 		'nvim-lualine/lualine.nvim',
