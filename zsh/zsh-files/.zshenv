@@ -30,10 +30,12 @@ export ZSHFILES=$HOME/zsh-files
 [[ $(uname -r | grep "microsoft") ]] \
     && export BXSHARE=/mnt/c/Users/jspma/scoop/apps/bochs/current/
 
-export PYENV_ROOT=$(pyenv root)
-export PATH="$PYENV_ROOT/shims:$PATH"
+if [[ -s 'pyenv' ]]; then
+	export PYENV_ROOT=$(pyenv root)
+	export PATH="$PYENV_ROOT/shims:$PATH"
+fi
 
-export GOPATH=$(go env GOPATH)
+[ -s 'go' ] && export GOPATH=$(go env GOPATH)
 
 export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"

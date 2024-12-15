@@ -23,7 +23,7 @@ source ~/zsh-files/.zshcomp
 source ~/zsh-files/.zshenv
 source ~/zsh-files/zsh_alias
 
-eval $(starship init zsh)
+eval "$(starship init zsh)"
 
 #Automatically starts with wal applied
 # Import colorscheme from 'wal' asynchronously
