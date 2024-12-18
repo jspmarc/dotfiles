@@ -179,7 +179,6 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 
 #alias heroku='nocorrect heroku'
 #alias hpodder='nocorrect hpodder'
-#alias history='omz_history | fzf'
 # alias history='fzf_history'
 alias l='ls -lah'
 alias la='ls -lAh'
@@ -191,7 +190,6 @@ alias md='mkdir -p'
 alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias mysql='nocorrect mysql'
-alias ohmyzsh='nvim ~/.oh-my-zsh'
 alias rd=rmdir
 alias run-help=man
 alias sudo='nocorrect sudo'
@@ -204,23 +202,14 @@ alias py2=python2
 alias pacSearch="pacman -Slq \
     | fzf --multi --preview 'pacman -Si {1}' \
     | xargs -ro sudo pacman -S"
-#alias yaySearch="yay -Slq \
-    #| fzf --multi --preview 'yay -Si {1}' \
-    #| xargs -ro yay -S"
 alias aurSearch="$AUR_HELPER -Slq \
     | fzf --multi --preview '$AUR_HELPER -Si {1}' \
     | xargs -ro $AUR_HELPER -S"
-alias note="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.wiki"
-alias notes="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/index.wiki"
-alias diary="cd ~/vimwiki-notes && nvim ~/vimwiki-notes/diary/diary.wiki"
-alias hexedit="hexedit --color"
 alias pls="sudo"
 alias plz="sudo"
 alias rm='rm -I'
-#alias stegsolve="java -jar ~/.local/bin/StegSolve-1.4.jar"
-alias RsaCtfTool="py ~/sources/RsaCtfTool/RsaCtfTool.py"
 alias java_debug="java -cp . -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"
-alias kuliah='cd "$HOME/Documents/Kuliah/Tingkat-2/Semester 4/"'
+alias lg='lazygit'
 
 [[ $(uname -r | grep "microsoft") ]] \
     && alias code="/mnt/c/Users/jspma/scoop/apps/vscode/current/bin/code"

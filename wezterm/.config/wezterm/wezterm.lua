@@ -18,4 +18,5 @@ return {
 	enable_wayland = false,
 	window_decorations = 'NONE',
 	enable_tab_bar = false,
+	max_fps = 120,
 }

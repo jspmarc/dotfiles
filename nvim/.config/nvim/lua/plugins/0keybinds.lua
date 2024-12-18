@@ -49,7 +49,7 @@ map('n', '<leader>gb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', {
 -- kdheepak/lazygit.nvim
 -- NeogitOrg/neogit
 -- map('n', '<leader>gg', ':Neogit kind=split_above<CR>')
-map('n', '<leader>gg', ':LazyGit<CR>')
+-- map('n', '<leader>gg', ':LazyGit<CR>')
 map('n', '<leader>gB', ':G blame<CR>')
 map('n', '<leader>gp', ':Neogit push<CR>')
 map('n', '<leader>gc', ':Neogit commit<CR>')
