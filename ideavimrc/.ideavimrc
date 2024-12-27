@@ -5,13 +5,15 @@ set clipboard+=ideaput
 set clipboard+=unnamedplus
 set ignorecase
 set smartcase
-set noincsearch
+set incsearch
 set hls
-set ideajoin
 set idearefactormode=keep
-set commentary
+set ideajoin
 
+set commentary
 set easymotion
+set peekabo
+set surround
 
 sethandler ˙ a:vim
 sethandler ∆ a:vim
@@ -65,6 +67,7 @@ vmap <leader>th <Action>(RecentFiles)
 vmap <leader>tw <Action>(SearchEverywhere)
 vmap <leader>l] <Action>(GotoNextError)
 vmap <leader>l[ <Action>(GotoPreviousError)
+nmap <C-l> :noh<CR>
 
 nmap <C-b> <Action>(FileStructurePopup)
 nmap gi <Action>(GotoImplementation)
@@ -77,6 +80,7 @@ nmap gf <Action>(Forward)
 nmap <C-i> <Action>(Forward)
 nmap gh <Action>(QuickJavaDoc)
 nmap ge <Action>(ShowErrorDescription)
+nmap <leader>gg <Action>(LazyGit.Open)
 
 " easymotion
 map <leader><leader>f <Plug>(easymotion-bd-f)
