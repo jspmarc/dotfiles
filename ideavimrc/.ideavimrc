@@ -14,6 +14,7 @@ set commentary
 set easymotion
 set peekabo
 set surround
+set NERDTree
 
 sethandler ˙ a:vim
 sethandler ∆ a:vim
@@ -31,6 +32,8 @@ nnoremap <C-j><C-k> <Esc>
 " use space for 2 leaders
 nmap <space> <leader><leader>
 
+nmap <C-w>c <Action>(CloseAllEditors)
+nmap <C-w>d <Action>(CloseAllEditorsButActive)
 " for mac
 nmap ˙ <C-w>h
 nmap ∆ <C-w>j
@@ -48,28 +51,22 @@ nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 nmap <leader>fc <Action>(CollapseRegion)
 nmap <leader>fo <Action>(ExpandRegion)
+
 nmap <leader>la <Action>(Refactorings.QuickListPopupAction)
 nmap <Leader>lf <Action>(ReformatCode)
 nmap <leader>tf <Action>(GotoFile)
-nmap <leader>th <Action>(RecentFiles)
-nmap <leader>tw <Action>(SearchEverywhere)
 nmap <leader>l] <Action>(GotoNextError)
 nmap <leader>l[ <Action>(GotoPreviousError)
-vmap [[ <Action>(MethodUp)
-vmap ]] <Action>(MethodDown)
-vmap <leader>fc <Action>(CollapseRegion)
-vmap <leader>fo <Action>(ExpandRegion)
-vmap <leader>la <Action>(Refactorings.QuickListPopupAction)
-vmap <Leader>lf <Action>(ReformatCode)
-vmap <Leader>lr <Action>(RefactoringMenuRenameFile)
-vmap <leader>tf <Action>(GotoFile)
-vmap <leader>th <Action>(RecentFiles)
-vmap <leader>tw <Action>(SearchEverywhere)
-vmap <leader>l] <Action>(GotoNextError)
-vmap <leader>l[ <Action>(GotoPreviousError)
-nmap <C-l> :noh<CR>
 
-nmap <C-b> <Action>(FileStructurePopup)
+nmap <leader>tb <Action>(RecentFiles)
+nmap <leader>ts <Action>(GotoFile)
+nmap <leader>th <Action>(RecentFiles)
+nmap <leader>tw <Action>(SearchEverywhere)
+
+nmap <C-l> :noh<CR>
+nmap <C-b> :NERDTree<CR>
+
+" LSP-ish
 nmap gi <Action>(GotoImplementation)
 nmap gd <Action>(GotoDeclaration)
 nmap gp <Action>(GotoSuperMethod)
@@ -84,3 +81,15 @@ nmap <leader>gg <Action>(LazyGit.Open)
 
 " easymotion
 map <leader><leader>f <Plug>(easymotion-bd-f)
+
+" VCS
+" map <leader>gg <Action>(LazyGit.Open)
+nmap <leader>gg <Action>(ActivateCommitToolWindow)
+nmap <leader>gb <Action>(ActivateVersionControlToolWindow)
+nmap <leader>gu <Action>(Vcs.RollbackChangedLines)
+nmap <leader>gl <Action>(Vcs.UpdateProject)
+nmap <leader>gc <Action>(Vcs.CommitProject)
+nmap <leader>gp <Action>(Vcs.Push)
+nmap <leader>ga <Action>(Vcs.Add)
+nmap <leader>g[ <Action>(VcsShowPrevChangeMarker)
+nmap <leader>g] <Action>(VcsShowNextChangeMarker)
