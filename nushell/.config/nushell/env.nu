@@ -18,4 +18,3 @@
 # them for future reference.
 
 $env.EDITOR = 'vim'
-$env.XDG_CONFIG_HOME = '~/.config'

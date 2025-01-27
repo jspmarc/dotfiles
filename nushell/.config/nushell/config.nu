@@ -29,8 +29,42 @@ def git-log-with-limit [limit?: int] {
 	}
 }
 
-$env.PATH = ["~/.local/bin"] ++ $env.PATH
+def git-checkout-master [] {
+	let result = git checkout master | complete
+	if $result.exit_code != 0 {
+		git checkout main
+	} else if $result.stdout != '' {
+		print -n $result.stdout
+	} else {
+		print -n $result.stderr
+	}
+}
+
+def load-fnm [] {
+	try {
+		fnm --version | ignore
+	} catch {
+		echo 'fnm is not installed. Will not load fnm.'
+		return
+	}
+
+	load-env (fnm env --shell bash
+		| lines
+		| str replace 'export ' ''
+		| str replace -a '"' ''
+		| split column '='
+		| rename name value
+		| where name != "FNM_ARCH" and name != "PATH"
+		| reduce -f {} {|it, acc| $acc | upsert $it.name $it.value }
+	)
+
+	$env.PATH = [$"($env.FNM_MULTISHELL_PATH)/bin"] ++ $env.PATH
+}
+
+$env.PATH = [$"($env.HOME)/.local/bin"] ++ $env.PATH
+$env.PATH = [$"($env.HOME)/.rbenv/shims"] ++ $env.PATH
 $env.PATH = ["/opt/homebrew/bin"] ++ $env.PATH
+
 $env.config.buffer_editor = 'vim'
 $env.config.edit_mode = 'vi'
 
@@ -48,7 +82,7 @@ alias gc! = git commit -v --amend
 alias gca = git commit -v -a
 alias gca! = git commit -v -a --amend
 alias gcb = git checkout -b
-alias gcm = git checkout master || git checkout main
+alias gcm = git-checkout-master
 alias gco = git checkout
 alias gcp = git cherry-pick
 alias gcpa = git cherry-pick --abort
@@ -63,3 +97,4 @@ alias gp = git push
 alias gst = git status
 alias gupa = git pull --rebase --autostash
 
+load-fnm
