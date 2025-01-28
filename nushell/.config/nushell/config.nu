@@ -40,33 +40,26 @@ def git-checkout-master [] {
 	}
 }
 
-def load-fnm [] {
-	try {
-		fnm --version | ignore
-	} catch {
-		echo 'fnm is not installed. Will not load fnm.'
+$env.PATH = [
+	$"($env.HOME)/.local/bin",
+	$"($env.HOME)/.rbenv/shims",
+	"/opt/homebrew/bin"
+] ++ $env.PATH
+
+$env.config.buffer_editor = 'nvim'
+$env.config.edit_mode = 'vi'
+$env.config.cursor_shape.vi_insert = 'line'
+$env.config.cursor_shape.vi_normal = 'block'
+$env.config.hooks.pre_prompt = [{ ||
+	if (which direnv | is-empty) {
 		return
 	}
 
-	load-env (fnm env --shell bash
-		| lines
-		| str replace 'export ' ''
-		| str replace -a '"' ''
-		| split column '='
-		| rename name value
-		| where name != "FNM_ARCH" and name != "PATH"
-		| reduce -f {} {|it, acc| $acc | upsert $it.name $it.value }
-	)
-
-	$env.PATH = [$"($env.FNM_MULTISHELL_PATH)/bin"] ++ $env.PATH
-}
-
-$env.PATH = [$"($env.HOME)/.local/bin"] ++ $env.PATH
-$env.PATH = [$"($env.HOME)/.rbenv/shims"] ++ $env.PATH
-$env.PATH = ["/opt/homebrew/bin"] ++ $env.PATH
-
-$env.config.buffer_editor = 'vim'
-$env.config.edit_mode = 'vi'
+	direnv export json | from json | default {} | load-env
+	if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
+		$env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
+	}
+}]
 
 alias l = ls -la
 alias ll = ls -l
@@ -94,7 +87,35 @@ alias glgg = git log --graph
 alias glo = git-log-with-limit
 alias gm = git merge
 alias gp = git push
+alias grs = git restore
 alias gst = git status
 alias gupa = git pull --rebase --autostash
+alias rb = ruby
+alias v = nvim
 
-load-fnm
+if not (which fnm | is-empty) {
+	load-env (fnm env --shell bash
+		| lines
+		| str replace 'export ' ''
+		| str replace -a '"' ''
+		| split column '='
+		| rename name value
+		| where name != "FNM_ARCH" and name != "PATH"
+		| reduce -f {} {|it, acc| $acc | upsert $it.name $it.value }
+	)
+
+	$env.PATH = [$"($env.FNM_MULTISHELL_PATH)/bin"] ++ $env.PATH
+}
+
+if not (which starship | is-empty) {
+	starship --version | ignore
+	mkdir ($nu.data-dir | path join "vendor/autoload")
+	starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+	$env.PROMPT_INDICATOR = ""
+	$env.PROMPT_INDICATOR_VI_NORMAL = ""
+	$env.PROMPT_INDICATOR_VI_INSERT = ""
+}
+
+if ('./private.nu' | path exists) {
+	source ./private.nu
+}
