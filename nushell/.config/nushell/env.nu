@@ -18,3 +18,8 @@
 # them for future reference.
 
 $env.EDITOR = 'nvim'
+
+const private_conf_path = $"($nu.default-config-dir)/private.nu"
+if not ($private_conf_path | path exists) {
+	touch $private_conf_path
+}

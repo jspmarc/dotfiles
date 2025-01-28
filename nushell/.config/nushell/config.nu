@@ -116,6 +116,5 @@ if not (which starship | is-empty) {
 	$env.PROMPT_INDICATOR_VI_INSERT = ""
 }
 
-if ('./private.nu' | path exists) {
-	source ./private.nu
-}
+const private_conf_path = $"($nu.default-config-dir)/private.nu"
+source $private_conf_path
