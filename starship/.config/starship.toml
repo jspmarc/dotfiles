@@ -1,6 +1,4 @@
 format = """\
-$shlvl\
-$kubernetes\
 $username\
 $directory\
 $git_branch\
@@ -8,42 +6,15 @@ $git_commit\
 $git_state\
 $git_status\
 $hg_branch\
-$docker_context\
-$package\
-$cmake\
-$dart\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$ruby\
-$rust\
-$swift\
-$terraform\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$openstack\
-$env_var\
-$crystal\
 $custom\
-$lua\
 $cmd_duration\
+$all\
 $line_break\
-$battery$time $character"""
+$status $character"""
+
+right_format = """$cmd_duration $time $battery"""
+
+continuation_prompt = "▶▶ "
 
 [directory]
 truncation_length = 3
@@ -53,6 +24,7 @@ truncation_symbol = ".../"
 home_symbol = "~"
 
 [battery]
+disabled = true
 full_symbol = "🔋"
 charging_symbol = " "
 discharging_symbol = " "
@@ -80,9 +52,10 @@ show_always = false
 
 [time]
 disabled = false
-format = '🕙 $time'
-time_format = "%R"
-utc_time_offset = "+9"
+format = '🕙 [$time]($style)'
+time_format = "%a, %d %b %Y %R %z"
+style = "blue"
+utc_time_offset = "local"
 time_range = "00:00:00-24:00:00"
 
 [git_status]
