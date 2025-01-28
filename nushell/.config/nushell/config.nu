@@ -43,6 +43,7 @@ def git-checkout-master [] {
 $env.PATH = [
 	$"($env.HOME)/.local/bin",
 	$"($env.HOME)/.rbenv/shims",
+	$"($env.HOME)/.cargo/bin",
 	"/opt/homebrew/bin"
 ] ++ $env.PATH
 
@@ -108,7 +109,6 @@ if not (which fnm | is-empty) {
 }
 
 if not (which starship | is-empty) {
-	starship --version | ignore
 	mkdir ($nu.data-dir | path join "vendor/autoload")
 	starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 	$env.PROMPT_INDICATOR = ""
