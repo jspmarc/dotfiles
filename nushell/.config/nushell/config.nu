@@ -76,6 +76,7 @@ alias gc! = git commit -v --amend
 alias gca = git commit -v -a
 alias gca! = git commit -v -a --amend
 alias gcb = git checkout -b
+alias gcl = git clone
 alias gcm = git-checkout-master
 alias gco = git checkout
 alias gcp = git cherry-pick
