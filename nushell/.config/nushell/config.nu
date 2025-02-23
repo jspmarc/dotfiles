@@ -117,5 +117,5 @@ if not (which starship | is-empty) {
 	$env.PROMPT_INDICATOR_VI_INSERT = ""
 }
 
-const private_conf_path = $"($nu.default-config-dir)/private.nu"
 source $private_conf_path
+source $zoxide_conf_path

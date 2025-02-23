@@ -23,3 +23,12 @@ const private_conf_path = $"($nu.default-config-dir)/private.nu"
 if not ($private_conf_path | path exists) {
 	touch $private_conf_path
 }
+
+const zoxide_conf_path = $"($nu.default-config-dir)/zoxide.nu"
+if not ($zoxide_conf_path | path exists) {
+	if (zoxide --version | complete | get exit_code) == 0 {
+		zoxide init nushell | save -f $zoxide_conf_path
+	} else {
+		touch $zoxide_conf_path
+	}
+}
