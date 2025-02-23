@@ -117,5 +117,6 @@ if not (which starship | is-empty) {
 	$env.PROMPT_INDICATOR_VI_INSERT = ""
 }
 
-source $private_conf_path
-source $zoxide_conf_path
+# these are custom configurations and the path variables are set in the env config
+source $PRIVATE_CONF_PATH
+source $ZOXIDE_CONFIG_PATH

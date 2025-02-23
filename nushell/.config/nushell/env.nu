@@ -19,16 +19,16 @@
 
 $env.EDITOR = 'nvim'
 
-const private_conf_path = $"($nu.default-config-dir)/private.nu"
-if not ($private_conf_path | path exists) {
-	touch $private_conf_path
+const PRIVATE_CONF_PATH = $"($nu.default-config-dir)/private.nu"
+if not ($PRIVATE_CONF_PATH | path exists) {
+	touch $PRIVATE_CONF_PATH
 }
 
-const zoxide_conf_path = $"($nu.default-config-dir)/zoxide.nu"
-if not ($zoxide_conf_path | path exists) {
+const ZOXIDE_CONFIG_PATH = $"($nu.default-config-dir)/zoxide.nu"
+if not ($ZOXIDE_CONFIG_PATH | path exists) {
 	if (zoxide --version | complete | get exit_code) == 0 {
-		zoxide init nushell | save -f $zoxide_conf_path
+		zoxide init nushell | save -f $ZOXIDE_CONFIG_PATH
 	} else {
-		touch $zoxide_conf_path
+		touch $ZOXIDE_CONFIG_PATH
 	}
 }
