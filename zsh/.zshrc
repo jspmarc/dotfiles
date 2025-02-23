@@ -116,7 +116,7 @@ fi
 # --pnpm end
 
 # --tmux
-if [ "$TMUX" = "" ]; then tmux new-session -A -s TMUX; fi
+# if [ "$TMUX" = "" ]; then tmux new-session -A -s TMUX; fi
 # --tmux end
 
 # --zoxide
