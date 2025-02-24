@@ -1,38 +1,4 @@
 local M = require('packer').startup(function(use)
-	use('wbthomason/packer.nvim')
-
-	-- sorted by plugin's name and then by author name
-	-- `nvim` and `vim` prefix are treated as if they don't exist
-
-	---------------------------------------------------------------------------
-	---------------                     A                       ---------------
-	---------------------------------------------------------------------------
-	use({
-		'windwp/nvim-autopairs',
-		config = function()
-			require('nvim-autopairs').setup()
-		end,
-	})
-
-	---------------------------------------------------------------------------
-	---------------                     B                       ---------------
-	---------------------------------------------------------------------------
-	use({
-		'akinsho/bufferline.nvim',
-		config = function()
-			require('bufferline').setup({
-				options = {
-					diagnostics = 'nvim_lsp',
-					offsets = { { filetype = 'NvimTree', text = 'File Explorer' } },
-					separator_style = 'thick',
-					numbers = function(opts)
-						return string.format('%s%s', opts.id, opts.lower(opts.ordinal))
-					end,
-				},
-			})
-		end,
-	})
-
 	---------------------------------------------------------------------------
 	---------------                     C                       ---------------
 	---------------------------------------------------------------------------
@@ -253,6 +219,7 @@ local M = require('packer').startup(function(use)
 						'packer',
 						'checkhealth',
 						'help',
+						'lazy',
 						'man',
 						'gitcommit',
 						'TelescopePrompt',

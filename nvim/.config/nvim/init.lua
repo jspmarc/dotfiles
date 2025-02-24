@@ -5,11 +5,13 @@ vim.g.vimsyn_embed = 'l'
 ---------------------------------------------------------------------------------------------------
 require('settings')
 require('keybinds')
-require('plugins.0keybinds')
-require('lsp.settings')
+require('keybinds_plugins')
+--require('plugins.0keybinds')
+require('config.lazy')
+-- require('lsp.settings')
 require('autocommands')
 
-vim.cmd([[colorscheme onedark]])
+--vim.cmd([[colorscheme onedark]])
 
 ---------------------------------------------------------------------------------------------------
 -- Custom commands for different filetypes
