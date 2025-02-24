@@ -1,4 +1,7 @@
 return {
 	'tpope/vim-fugitive',
-	event = { 'VimEnter' }
+	cmd = { 'G' },
+	keys = {
+		{ '<leader>gB', '<cmd>G blame<CR>' }
+	},
 }

@@ -1,7 +1,8 @@
 return {
 	'echasnovski/mini.files',
 	branch = 'stable',
-	config = function()
-		require('mini.files').setup()
-	end,
+	keys = {
+		{ '<C-b>', '<cmd>lua require("mini.files").open()<CR>' },
+	},
+	opts = {},
 }

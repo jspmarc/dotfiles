@@ -1,4 +1,4 @@
 return {
 	'ap/vim-css-color',
-	event = { 'BufEnter' }
+	ft = { 'css', 'html', 'javascriptreact', 'typescriptreact', 'vue', 'svelte' },
 }

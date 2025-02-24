@@ -1,30 +1,28 @@
 return {
 	'nvim-lualine/lualine.nvim',
-	event = { 'VimEnter' },
-	config = function()
-		require('lualine').setup({
-			options = {
-				disabled_filetypes = { 'dashboard' },
-				theme = 'onedark',
-			},
-			sections = {
-				lualine_a = { 'mode' },
-				lualine_b = { 'branch', 'diff' },
-				lualine_c = {
-					{
-						'filename',
-						file_status = true,
-						path = 1,
-					},
-					{
-						'diagnostics',
-						sources = { 'nvim_diagnostic' },
-					},
+	event = { 'BufReadPre', 'BufNewFile' },
+	opts = {
+		options = {
+			disabled_filetypes = { 'dashboard' },
+			theme = 'onedark',
+		},
+		sections = {
+			lualine_a = { 'mode' },
+			lualine_b = { 'branch', 'diff' },
+			lualine_c = {
+				{
+					'filename',
+					file_status = true,
+					path = 1,
 				},
-				lualine_x = { 'encoding', 'fileformat' },
-				lualine_y = { 'filetype' },
-				lualine_z = { 'location' },
+				{
+					'diagnostics',
+					sources = { 'nvim_diagnostic' },
+				},
 			},
-		})
-	end,
+			lualine_x = { 'encoding', 'fileformat' },
+			lualine_y = { 'filetype' },
+			lualine_z = { 'location' },
+		},
+	},
 }

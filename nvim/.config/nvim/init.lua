@@ -6,9 +6,8 @@ vim.g.vimsyn_embed = 'l'
 require('settings')
 require('keybinds')
 require('keybinds_plugins')
---require('plugins.0keybinds')
 require('config.lazy')
--- require('lsp.settings')
+require('lsp.settings')
 require('autocommands')
 
 --vim.cmd([[colorscheme onedark]])

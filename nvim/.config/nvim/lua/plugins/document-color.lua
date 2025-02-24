@@ -1,6 +1,6 @@
 return {
 	'mrshmllow/document-color.nvim',
-	event = 'BufEnter',
+	ft = { 'css', 'html', 'javascriptreact', 'typescriptreact', 'vue', 'svelte' },
 	config = function()
 		require('document-color').setup({
 			-- Default options

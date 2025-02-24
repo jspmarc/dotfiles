@@ -1,6 +1,7 @@
 return {
 	'navarasu/onedark.nvim',
-	event = 'VimEnter',
+	priority = 1000,
+	lazy = false,
 	config = function()
 		require('onedark').setup({
 			style = 'darker',
