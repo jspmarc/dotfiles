@@ -9,7 +9,7 @@ return {
 		'LazyGitCurrentFile',
 	},
 	keys = {
-		{ '<leader>gg', '<cmd>LazyGit<CR>', }
+		{ '<leader>gg', '<cmd>LazyGit<CR>', desc = 'Open lazy git' },
 	},
 	-- optional for floating window border decoration
 	requires = {

@@ -1,13 +1,13 @@
 return {
 	'nvim-telescope/telescope.nvim',
 	keys = {
-		{ '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>' },
-		{ '<leader>tf', '<cmd>Telescope find_files<CR>' },
-		{ '<leader>tF', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>' },
-		{ '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>' },
-		{ '<leader>to', '<cmd>TodoTelescope<CR>' },
-		{ '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>' },
-		{ '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>' },
+		{ '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>',      desc = 'Telescope buffers' },
+		{ '<leader>tf', '<cmd>Telescope find_files<CR>',                            desc = 'Telescope find files' },
+		{ '<leader>tF', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>', desc = 'Telescope find all files' },
+		{ '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>',     desc = 'Telescope histories' },
+		{ '<leader>to', '<cmd>TodoTelescope<CR>',                                   desc = 'Telescope todo' },
+		{ '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>',     desc = 'Telescope quickfix' },
+		{ '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>',    desc = 'Telescope grep' },
 	},
 	dependencies = {
 		'nvim-lua/plenary.nvim',

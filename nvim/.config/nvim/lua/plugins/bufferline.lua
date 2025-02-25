@@ -3,9 +3,9 @@ return {
 	dependencies = 'nvim-tree/nvim-web-devicons',
 	lazy = false,
 	keys = {
-		{ '<A-]>', '<cmd>BufferLineCycleNext<CR>' },
-		{ '<A-[>', '<cmd>BufferLineCyclePrev<CR>' },
-		{ '<C-w>d', '<cmd>BufferLineCloseOthers<CR>' },
+		{ '<A-]>',  '<cmd>BufferLineCycleNext<CR>',   desc = 'Go to next buffer' },
+		{ '<A-[>',  '<cmd>BufferLineCyclePrev<CR>',   desc = 'Go to previous buffer' },
+		{ '<C-w>d', '<cmd>BufferLineCloseOthers<CR>', desc = 'Close other buffers' },
 	},
 	opts = {
 		options = {
