@@ -24,6 +24,7 @@ sethandler <C-o> a:vim
 sethandler <C-i> a:vim
 
 let mapleader = "\\"
+nmap <BS> <leader>
 nmap <C-z> <Action>(ToggleDistractionFreeMode)
 inoremap <C-j><C-k> <Esc>
 vnoremap <C-j><C-k> <Esc>
