@@ -22,6 +22,8 @@ M.lsp_servers = {
 	'jsonls',
 	'lua_ls',
 	'pyright',
+	-- 'rubocop',
+	'ruby_lsp',
 	'rust_analyzer',
 	'svelte',
 	'tailwindcss',

@@ -1,6 +1,6 @@
 return {
 	'nvim-lualine/lualine.nvim',
-	event = { 'BufReadPre', 'BufNewFile' },
+	event = { 'BufReadPost', 'BufNewFile' },
 	opts = {
 		options = {
 			disabled_filetypes = { 'dashboard' },

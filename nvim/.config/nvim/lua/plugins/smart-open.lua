@@ -1,6 +1,9 @@
 return {
 	'danielfalk/smart-open.nvim',
 	branch = '0.2.x',
+	keys = {
+		{ '<leader>ts', '<cmd>Telescope smart_open<CR>' },
+	},
 	config = function()
 		require('telescope').load_extension('smart_open')
 	end,

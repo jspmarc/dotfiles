@@ -1,6 +1,6 @@
 return {
 	'lewis6991/gitsigns.nvim',
-	event = { 'BufReadPre' },
+	event = { 'BufReadPost' },
 	keys = {
 		{ '<leader>gh', '<cmd>lua require"gitsigns".preview_hunk()<CR>', noremap = false },
 		{ '<leader>gs', '<cmd>lua require"gitsigns".stage_hunk()<CR>', noremap = false },
