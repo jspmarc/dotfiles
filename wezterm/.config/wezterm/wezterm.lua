@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 
 return {
-	color_scheme = 'Darkside',
+	color_scheme = 'catppuccin-latte',
 	font = wezterm.font_with_fallback({
 		'JetBrainsMono Nerd Font Propo',
 		'Noto Color Emoji',
