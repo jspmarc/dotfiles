@@ -2,9 +2,9 @@ return {
 	'navarasu/onedark.nvim',
 	priority = 1000,
 	lazy = false,
-	config = function()
-		require('onedark').setup({
-			style = 'darker',
+	opts = {
+			-- style = 'darker',
+			style = 'light',
 			transparent = false,
 			ending_tildes = true,
 			code_style = {
@@ -14,7 +14,9 @@ return {
 				strings = 'none',
 				variables = 'bold',
 			},
-		})
+	},
+	config = function(_, opts)
+		require('onedark').setup(opts)
 		require('onedark').load()
 	end,
 }

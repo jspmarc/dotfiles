@@ -4,7 +4,7 @@ return {
 	opts = {
 		options = {
 			disabled_filetypes = { 'dashboard' },
-			theme = 'onedark',
+			theme = 'onelight',
 		},
 		sections = {
 			lualine_a = { 'mode' },

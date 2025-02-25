@@ -9,7 +9,7 @@ require('config.lazy')
 require('lsp.settings')
 require('autocommands')
 
---vim.cmd([[colorscheme onedark]])
+vim.cmd([[colorscheme catppuccin-latte]])
 
 ---------------------------------------------------------------------------------------------------
 -- Custom commands for different filetypes
