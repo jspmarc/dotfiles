@@ -33,6 +33,7 @@ return {
 			'<leader>gu',
 			'<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>)',
 			noremap = false,
+			mode = 'v',
 			desc = 'Reset git hunk',
 		},
 		{

@@ -10,9 +10,9 @@ return {
 		'DiffviewToggleFiles',
 	},
 	keys = {
-		{ '<leader>gdd', ':DiffviewOpen<CR>',          desc = 'Open diffview' },
-		{ '<leader>gdf', ':DiffviewFileHistory %<CR>', desc = 'Open diffview history for file' },
-		{ '<leader>gdg', ':DiffviewFileHistory<CR>',   desc = 'Open diffview history for repo' },
-		{ '<leader>gdc', ':DiffviewClose<CR>',         desc = 'Close diffview' },
+		{ '<leader>do', ':DiffviewOpen<CR>',          desc = 'Open diffview' },
+		{ '<leader>df', ':DiffviewFileHistory %<CR>', desc = 'Open diffview history for file' },
+		{ '<leader>dg', ':DiffviewFileHistory<CR>',   desc = 'Open diffview history for repo' },
+		{ '<leader>dc', ':DiffviewClose<CR>',         desc = 'Close diffview' },
 	},
 }
