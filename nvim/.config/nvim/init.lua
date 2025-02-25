@@ -5,7 +5,6 @@ vim.g.vimsyn_embed = 'l'
 ---------------------------------------------------------------------------------------------------
 require('settings')
 require('keybinds')
-require('keybinds_plugins')
 require('config.lazy')
 require('lsp.settings')
 require('autocommands')
