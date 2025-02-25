@@ -1,4 +1,8 @@
-local api = vim.api
+local success, local_helpers = pcall(require, 'local_helpers')
+if not success then
+	local_helpers = {}
+end
+
 local M = {}
 
 function M.map(mode, from, to, opts)
@@ -8,36 +12,28 @@ function M.map(mode, from, to, opts)
 		options = vim.tbl_extend('force', options, opts)
 	end
 
-	api.nvim_set_keymap(mode, from, to, options)
+	vim.api.nvim_set_keymap(mode, from, to, options)
 end
 
-M.lsp_servers = {
-	'bashls',
-	'clangd',
-	'cssls',
-	'dockerls',
-	'emmet_ls',
-	'gopls',
-	'html',
-	'jsonls',
-	'lua_ls',
-	'pyright',
-	'rust_analyzer',
-	'svelte',
-	'tailwindcss',
-	'ts_ls',
-	'volar',
-}
+if local_helpers.lsp_servers then
+	M.lsp_servers = local_helpers.lsp_servers
+else
+	M.lsp_servers = {
+		'bashls',
+		'lua_ls',
+	}
+end
 
-M.null_ls_formatters = {
-	'black',
-	'clang_format',
-	'prettier',
-	'stylua',
-}
+if local_helpers.null_ls_formatters then
+	M.null_ls_formatters = local_helpers.null_ls_formatters
+else
+	M.null_ls_formatters = {}
+end
 
-M.null_ls_linters = {
-	'flake8',
-}
+if local_helpers.null_ls_linters then
+	M.null_ls_linters = local_helpers.null_ls_linters
+else
+	M.null_ls_linters = {}
+end
 
 return M
