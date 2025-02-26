@@ -15,6 +15,13 @@ function M.map(mode, from, to, opts)
 	vim.api.nvim_set_keymap(mode, from, to, options)
 end
 
+function M.get_default_branch_name()
+	local res = vim
+		.system({ 'git', 'rev-parse', '--verify', 'main' }, { capture_output = true })
+		:wait()
+	return res.code == 0 and 'main' or 'master'
+end
+
 if local_helpers.lsp_servers then
 	M.lsp_servers = local_helpers.lsp_servers
 else
