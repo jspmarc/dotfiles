@@ -16,10 +16,17 @@ function M.map(mode, from, to, opts)
 end
 
 function M.get_default_branch_name()
-	local res = vim
-		.system({ 'git', 'rev-parse', '--verify', 'main' }, { capture_output = true })
-		:wait()
+	local res = vim.system({ 'git', 'rev-parse', '--verify', 'main' }, { capture_output = true }):wait()
 	return res.code == 0 and 'main' or 'master'
+end
+
+function M.set_colorscheme()
+	-- Set colorscheme based on background
+	if vim.o.background == 'dark' then
+		vim.cmd('colorscheme onedark')
+	else
+		vim.cmd('colorscheme catppuccin-latte')
+	end
 end
 
 if local_helpers.lsp_servers then

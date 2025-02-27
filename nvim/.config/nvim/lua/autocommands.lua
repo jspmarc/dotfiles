@@ -1,4 +1,5 @@
 local autocmds = vim.api.nvim_create_augroup('autocmds', { clear = true })
+local set_colorscheme = require('helpers').set_colorscheme
 
 -- vim.api.nvim_create_autocmd('CursorHold', {
 -- 	pattern = '*',
@@ -26,7 +27,7 @@ vim.api.nvim_create_autocmd('FileType', {
 -- 	group = autocmds,
 -- })
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'gitcommit', },
+	pattern = { 'gitcommit' },
 	command = 'startinsert | 1',
 	desc = 'Start commit message in insert mode',
 	group = autocmds,
@@ -41,4 +42,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	end,
 	desc = 'Highlight yanks',
 	group = autocmds,
+})
+vim.api.nvim_create_autocmd('User', {
+	pattern = 'LumenLight',
+	callback = function()
+		print('Entered light mode')
+		set_colorscheme()
+	end,
+})
+
+vim.api.nvim_create_autocmd('User', {
+	pattern = 'LumenDark',
+	callback = function()
+		print('Entered dark mode')
+		set_colorscheme()
+	end,
 })
