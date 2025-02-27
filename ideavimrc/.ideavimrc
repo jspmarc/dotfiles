@@ -1,3 +1,12 @@
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'machakann/vim-highlightedyank'
+Plug 'preservim/nerdtree'
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+set peekaboo
+set which-key
+
 set nu
 set rnu
 set clipboard+=unnamed
@@ -9,12 +18,6 @@ set incsearch
 set hls
 set idearefactormode=keep
 set ideajoin
-
-set commentary
-set easymotion
-set peekabo
-set surround
-set NERDTree
 
 sethandler ˙ a:vim
 sethandler ∆ a:vim
@@ -80,8 +83,11 @@ nmap gh <Action>(QuickJavaDoc)
 nmap ge <Action>(ShowErrorDescription)
 nmap <leader>gg <Action>(LazyGit.Open)
 
-" easymotion
-map <leader><leader>f <Plug>(easymotion-bd-f)
+" sneak
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " VCS
 " map <leader>gg <Action>(LazyGit.Open)
