@@ -68,4 +68,5 @@ map('n', '<C-n>', ':enew<CR>')
 
 map('n', '<C-p>', ':')
 
--- map('n', '<leader>gg', ':!tmux new-window -c ' .. vim.fn.getcwd() .. ' -- lazygit <CR><CR>')
+-- colorscheme
+map('n', '<leader>,s', ":lua require('helpers').set_colorscheme()<CR>")
