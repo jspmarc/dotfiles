@@ -2,6 +2,8 @@ local map = require('helpers').map
 
 -- leader maps
 -- Leader is still backslash ( '\' ), mapped to backspace
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "\\"
 map('n', '<space>', '<leader><leader>', { noremap = false })
 map('', '<BS>', '<leader>', { noremap = false })
 

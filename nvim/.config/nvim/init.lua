@@ -6,6 +6,10 @@ vim.g['sneak#label'] = 1
 ---------------------------------------------------------------------------------------------------
 require('settings')
 require('keybinds')
+-- Note about Lazy.nvim:
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
 require('config.lazy')
 require('lsp.settings')
 require('autocommands')
