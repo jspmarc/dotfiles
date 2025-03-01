@@ -2,10 +2,8 @@ local map = require('helpers').map
 
 -- leader maps
 -- Leader is still backslash ( '\' ), mapped to backspace
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = "\\"
-map('n', '<space>', '<leader><leader>', { noremap = false })
-map('', '<BS>', '<leader>', { noremap = false })
+map('n', '<space>', '<leader><leader>', { vim = { noremap = false } })
+map('', '<BS>', '<leader>', { vim = { noremap = false } })
 
 -- double Esc to return to normal mode from term mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>')
@@ -61,8 +59,16 @@ map('v', '<', '<gv')
 map('v', '>', '>gv')
 
 -- Fold
-map('n', '<leader>fc', '<cmd>foldclose<CR>')
-map('n', '<leader>fo', '<cmd>foldopen<CR>')
+map('n', '<leader>fc', '<cmd>foldclose<CR>', {
+	which_key = {
+		desc = 'Close fold'
+	}
+})
+map('n', '<leader>fo', '<cmd>foldopen<CR>', {
+	which_key = {
+		desc = 'Open fold'
+	}
+})
 
 -- buffer
 map('n', '<leader>bd', '<cmd>bd<CR>')
@@ -71,4 +77,10 @@ map('n', '<C-n>', ':enew<CR>')
 map('n', '<C-p>', ':')
 
 -- colorscheme
-map('n', '<leader>,s', ":lua require('helpers').set_colorscheme()<CR>")
+map('n', '<leader>,s', function()
+	require('helpers').set_colorscheme()
+end, {
+	which_key = {
+		desc = 'Set colorscheme',
+	},
+})
