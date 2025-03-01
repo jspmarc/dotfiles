@@ -1,0 +1,23 @@
+return {
+	{ 'ge', function() vim.diagnostic.open_float() end },
+	{ 'gD', function() vim.lsp.buf.declaration() end },
+	{ 'gd', '<cmd>Trouble lsp_definitions<CR>' },
+	{ 'gh', function() vim.lsp.buf.hover() end },
+	{ 'gi', '<cmd>Trouble lsp_implementations<CR>' },
+	{ '<C-k>', function() vim.lsp.buf.signature_help() end },
+	{ '<leader>wa', function() vim.lsp.buf.add_workspace_folder() end },
+	{ '<leader>wd', function() vim.lsp.buf.remove_workspace_folder() end },
+	{ '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end },
+	{ 'gr', '<cmd>Trouble lsp_references<CR>' },
+	{ '<A-CR>', function() vim.lsp.buf.code_action() end, mode = { 'n', 'v' } },
+	{ '<leader>la', function() vim.lsp.buf.code_action() end, mode = { 'n', 'v' } },
+	{ '<leader>ld', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>' },
+	{ '<leader>lD', '<cmd>Trouble diagnostics toggle<CR>' },
+	{ '<leader>lf', function() vim.lsp.buf.format({ async = true }) end },
+	{ '<leader>lp', function() vim.diagnostic.open_float() end },
+	{ '<leader>lq', function() vim.diagnostic.setloclist() end },
+	{ '<leader>lr', function() vim.lsp.buf.rename() end },
+	{ '<F2>', function() vim.lsp.buf.rename() end },
+	-- TODO: use proxy
+	{ '<F6>', function() vim.lsp.buf.rename() end },
+}

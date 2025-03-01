@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'folke/snacks.nvim',
 	priority = 1000,
 	lazy = false,

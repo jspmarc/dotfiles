@@ -9,13 +9,11 @@ vim.g.maplocalleader = '\\'
 -- Load Modules
 ---------------------------------------------------------------------------------------------------
 require('settings')
--- Note about Lazy.nvim:
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
 require('config.lazy')
 if helpers.not_vscode then
 	require('lsp.settings')
+else
+	require('keybinds.vscode')
 end
 require('keybinds')
 require('autocommands')

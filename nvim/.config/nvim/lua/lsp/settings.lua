@@ -1,5 +1,4 @@
 local nvim_lsp = require('lspconfig')
-require('lsp.keybinds')
 local util = require('lspconfig.util')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
