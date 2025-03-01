@@ -1,12 +1,11 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
+	enabled = require('helpers').not_vscode,
 	'akinsho/bufferline.nvim',
 	dependencies = 'nvim-tree/nvim-web-devicons',
 	lazy = false,
-	keys = {
-		{ '<A-]>',  '<cmd>BufferLineCycleNext<CR>',   desc = 'Go to next buffer' },
-		{ '<A-[>',  '<cmd>BufferLineCyclePrev<CR>',   desc = 'Go to previous buffer' },
-		{ '<C-w>d', '<cmd>BufferLineCloseOthers<CR>', desc = 'Close other buffers' },
-	},
+	keys = plugin_keys.bufferline,
 	opts = {
 		options = {
 			diagnostics = 'nvim_lsp',

@@ -1,14 +1,9 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
+	enabled = require('helpers').not_vscode,
 	'nvim-telescope/telescope.nvim',
-	keys = {
-		{ '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>',      desc = 'Telescope buffers' },
-		{ '<leader>tf', '<cmd>Telescope find_files<CR>',                            desc = 'Telescope find files' },
-		{ '<leader>tF', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>', desc = 'Telescope find all files' },
-		{ '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>',     desc = 'Telescope histories' },
-		{ '<leader>to', '<cmd>TodoTelescope<CR>',                                   desc = 'Telescope todo' },
-		{ '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>',     desc = 'Telescope quickfix' },
-		{ '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>',    desc = 'Telescope grep' },
-	},
+	keys = plugin_keys.telescope,
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		{

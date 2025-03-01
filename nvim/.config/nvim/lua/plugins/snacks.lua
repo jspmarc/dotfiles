@@ -1,17 +1,11 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
 	enabled = require('helpers').not_vscode,
 	'folke/snacks.nvim',
 	priority = 1000,
 	lazy = false,
-	keys = {
-		{
-			'<leader>gg',
-			function()
-				require('snacks').lazygit.open()
-			end,
-			desc = 'Open lazy git',
-		},
-	},
+	keys = plugin_keys.snacks,
 	---@type snacks.Config
 	opts = {
 		-- your configuration comes here

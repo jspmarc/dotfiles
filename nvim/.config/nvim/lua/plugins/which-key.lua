@@ -1,14 +1,8 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
 	'folke/which-key.nvim',
 	event = 'VeryLazy',
 	opts = {},
-	keys = {
-		{
-			'<leader>?',
-			function()
-				require('which-key').show({ global = true })
-			end,
-			desc = 'Buffer Local Keymaps (which-key)',
-		},
-	},
+	keys = plugin_keys['which-key'],
 }

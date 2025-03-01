@@ -1,17 +1,11 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
+	enabled = require('helpers').not_vscode,
 	'folke/trouble.nvim',
-	requires = { 'kyazdani42/nvim-web-devicons' },
+	dependencies = { 'kyazdani42/nvim-web-devicons' },
 	cmd = { 'Trouble' },
-	keys = {
-		{ '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Toggle trouble diagnostics' },
-		{
-			'<leader>xd',
-			'<cmd>Trouble diagnostics toggle filter.buf=0<CR>',
-			desc = 'Toggle trouble diagnostics for current buffer',
-		},
-		{ '<leader>xo', '<cmd>Trouble todo<CR>',               desc = 'Open todo trouble' },
-		{ '<leader>xx', '<cmd>Trouble close<CR>',              desc = 'Close trouble' },
-	},
+	keys = plugin_keys.trouble,
 	opts = {
 		actions_keys = {
 			open_split = { 's' },

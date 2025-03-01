@@ -1,4 +1,7 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
+	enabled = require('helpers').not_vscode,
 	'olimorris/codecompanion.nvim',
 	cmd = {
 		'CodeCompanion',
@@ -6,11 +9,7 @@ return {
 		'CodeCompanionCmd',
 		'CodeCompanionActions',
 	},
-	keys = {
-		{ '<leader>ca', '<cmd>CodeCompanionActions<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion actions' },
-		{ '<leader>cq', '<cmd>CodeCompanion<CR>',        mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
-		{ '<leader>co', '<cmd>CodeCompanionChat<CR>',    mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
-	},
+	keys = plugin_keys.codecompanion,
 	opts = {
 		strategies = {
 			chat = {

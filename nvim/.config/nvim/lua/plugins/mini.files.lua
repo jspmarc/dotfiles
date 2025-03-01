@@ -1,8 +1,9 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
+	enabled = require('helpers').not_vscode,
 	'echasnovski/mini.files',
 	branch = 'stable',
-	keys = {
-		{ '<C-b>', '<cmd>lua require("mini.files").open()<CR>', desc = 'Open file browser' },
-	},
+	keys = plugin_keys.mini_files,
 	opts = {},
 }

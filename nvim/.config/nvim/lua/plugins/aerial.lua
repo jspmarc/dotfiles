@@ -1,4 +1,7 @@
+local plugin_keys = require('keybinds.plugins')
+
 return {
+	enabled = require('helpers').not_vscode,
 	'stevearc/aerial.nvim',
 	cmd = {
 		'AerialGo',
@@ -14,10 +17,7 @@ return {
 		'AerialNavOpen',
 		'AerialNavClose',
 	},
-	keys = {
-		{ '<leader>s', '<cmd>AerialToggle<CR>', desc = 'Open Buffer Outline Window' },
-		{ '<leader>S', '<cmd>AerialNavToggle<CR>', desc = 'Open Buffer Outline Window (Floating)' },
-	},
+	keys = plugin_keys.aerial,
 	opts = {},
 	-- Optional dependencies
 	dependencies = {
