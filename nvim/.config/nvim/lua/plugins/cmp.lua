@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'hrsh7th/nvim-cmp',
 	event = 'InsertEnter',
 	dependencies = {

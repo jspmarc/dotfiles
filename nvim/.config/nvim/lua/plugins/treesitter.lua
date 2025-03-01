@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'nvim-treesitter/nvim-treesitter',
 	build = ':TSUpdate',
 	main = 'nvim-treesitter.configs',

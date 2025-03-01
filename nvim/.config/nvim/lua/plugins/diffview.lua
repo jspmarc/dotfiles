@@ -1,6 +1,7 @@
 local get_default_branch_name = require('helpers').get_default_branch_name
 
 return {
+	enabled = require('helpers').not_vscode,
 	'sindrets/diffview.nvim',
 	cmd = {
 		'DiffviewClose',

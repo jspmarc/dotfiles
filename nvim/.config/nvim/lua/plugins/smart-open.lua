@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'danielfalk/smart-open.nvim',
 	branch = '0.2.x',
 	keys = {

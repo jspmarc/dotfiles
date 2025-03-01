@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'lukas-reineke/indent-blankline.nvim',
 	main = 'ibl',
 	opts = {

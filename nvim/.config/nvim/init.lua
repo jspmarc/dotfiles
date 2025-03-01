@@ -14,8 +14,6 @@ if helpers.not_vscode then
 	require('lsp.settings')
 	require('autocommands')
 	helpers.set_colorscheme()
-else
-	require('keybinds.vscode')
 end
 require('keybinds')
 

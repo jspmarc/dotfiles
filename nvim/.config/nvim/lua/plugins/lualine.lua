@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'nvim-lualine/lualine.nvim',
 	event = { 'BufReadPost', 'BufNewFile' },
 	opts = {

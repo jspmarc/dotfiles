@@ -4,6 +4,6 @@ return {
 	enabled = require('helpers').not_vscode,
 	'echasnovski/mini.files',
 	branch = 'stable',
-	keys = plugin_keys.mini_files,
+	keys = plugin_keys['mini.files'],
 	opts = {},
 }

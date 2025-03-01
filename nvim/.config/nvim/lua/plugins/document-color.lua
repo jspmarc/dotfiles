@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'mrshmllow/document-color.nvim',
 	ft = { 'css', 'html', 'javascriptreact', 'typescriptreact', 'vue', 'svelte' },
 	config = function()

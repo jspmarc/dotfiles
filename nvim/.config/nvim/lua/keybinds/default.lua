@@ -27,34 +27,11 @@ return {
 	{ '<A-k>',      '<C-w>k',                        mode = { 'n', 'i', 'v', 't' } },
 	{ '<A-l>',      '<C-w>l',                        mode = { 'n', 'i', 'v', 't' } },
 
-	-- resize windows
-	{ '<leader>+',  ':exe "vertical resize +10"<CR>' },
-	{ '<leader>_',  ':exe "vertical resize -10"<CR>' },
-	{ '<leader>=',  ':exe "resize +5"<CR>' },
-	{ '<leader>-',  ':exe "resize -5"<CR>' },
-
 	-- Toggle settings
-	{ '<A-s>',      ':set hls!<CR>' },
-	{ '<A-z>',      ':set wrap!<CR>' },
+	{ '<A-s>',      '<cmd>set hls!<CR>' },
+	{ '<A-z>',      '<cmd>set wrap!<CR>' },
 
 	-- Makes indenting on visual more convinient
 	{ '<',          '<gv',                           mode = 'v' },
 	{ '>',          '>gv',                           mode = 'v' },
-
-	-- Fold
-	{ '<leader>fc', '<cmd>foldclose<CR>',            desc = 'Close fold' },
-	{ '<leader>fo', '<cmd>foldopen<CR>',             desc = 'Open fold' },
-
-	-- buffer
-	{ '<leader>bd', '<cmd>bd<CR>',                   desc = 'Delete buffer' },
-	{ '<C-n>',      ':enew<CR>',                     desc = 'New buffer' },
-
-	-- colorscheme
-	{
-		'<leader>,s',
-		function()
-			require('helpers').set_colorscheme()
-		end,
-		desc = 'Set colorscheme',
-	},
 }

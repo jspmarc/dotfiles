@@ -8,4 +8,3 @@ they don't exist.
 - [danymat/neogen](https://github.com/danymat/neogen)
 - [normen/vim-pio](https://github.com/normen/vim-pio)
 - [tpope/vim-rhubarb](https://github.com/tpope/vim-rhubarb)
-- folke/trouble.nvim
