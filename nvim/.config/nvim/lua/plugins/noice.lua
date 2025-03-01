@@ -1,4 +1,5 @@
 return {
+	enabled = require('helpers').not_vscode,
 	'folke/noice.nvim',
 	event = 'VeryLazy',
 	opts = {

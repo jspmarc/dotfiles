@@ -1,31 +1,32 @@
 return {
 	aerial = {
-		{ '<leader>s', '<cmd>AerialToggle<CR>', desc = 'Open Buffer Outline Window' },
+		{ '<leader>s', '<cmd>AerialToggle<CR>',    desc = 'Open Buffer Outline Window' },
 		{ '<leader>S', '<cmd>AerialNavToggle<CR>', desc = 'Open Buffer Outline Window (Floating)' },
 	},
 
 	bufferline = {
-		{ '<A-]>', '<cmd>BufferLineCycleNext<CR>', desc = 'Go to next buffer' },
-		{ '<A-[>', '<cmd>BufferLineCyclePrev<CR>', desc = 'Go to previous buffer' },
+		{ '<A-]>',  '<cmd>BufferLineCycleNext<CR>',   desc = 'Go to next buffer' },
+		{ '<A-[>',  '<cmd>BufferLineCyclePrev<CR>',   desc = 'Go to previous buffer' },
 		{ '<C-w>d', '<cmd>BufferLineCloseOthers<CR>', desc = 'Close other buffers' },
 	},
 
 	codecompanion = {
 		{ '<leader>ca', '<cmd>CodeCompanionActions<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion actions' },
-		{ '<leader>cq', '<cmd>CodeCompanion<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
-		{ '<leader>co', '<cmd>CodeCompanionChat<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
+		{ '<leader>cq', '<cmd>CodeCompanion<CR>',        mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
+		{ '<leader>co', '<cmd>CodeCompanionChat<CR>',    mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
 	},
 
 	flash = {
-		{ 's', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end, desc = 'Flash' },
-		{ 'S', mode = { 'n', 'x', 'o' }, function() require('flash').treesitter() end, desc = 'Flash Treesitter' },
-		{ 'r', mode = 'o', function() require('flash').remote() end, desc = 'Remote Flash' },
-		{ 'R', mode = { 'o', 'x' }, function() require('flash').treesitter_search() end, desc = 'Treesitter Search' },
-		{ '<c-s>', mode = { 'c' }, function() require('flash').toggle() end, desc = 'Toggle Flash Search' },
+		{ 's',     mode = { 'n', 'x', 'o' }, function() require('flash').jump() end,              desc = 'Flash' },
+		{ 'S',     mode = { 'n', 'x', 'o' }, function() require('flash').treesitter() end,        desc = 'Flash Treesitter' },
+		{ 'r',     mode = 'o',               function() require('flash').remote() end,            desc = 'Remote Flash' },
+		{ 'R',     mode = { 'o', 'x' },      function() require('flash').treesitter_search() end, desc = 'Treesitter Search' },
+		{ '<c-s>', mode = { 'c' },           function() require('flash').toggle() end,            desc = 'Toggle Flash Search' },
 	},
 
 	['mini.files'] = {
-		{ '<C-b>', '<cmd>lua require("mini.files").open()<CR>', desc = 'Open file browser' },
+		{ '<C-b>', function() require('mini.files').open() end, desc = 'Open file browser' },
+		{ '-',     function() require('mini.files').open() end, desc = 'Open file browser' },
 	},
 
 	snacks = {
@@ -48,20 +49,20 @@ return {
 	},
 
 	telescope = {
-		{ '<leader>tb', '<cmd>lua require("telescope.builtin").buffers()<CR>', desc = 'Telescope buffers' },
-		{ '<leader>tf', '<cmd>Telescope find_files<CR>', desc = 'Telescope find files' },
+		{ '<leader>tb', function() require('telescope.builtin').buffers() end,      desc = 'Telescope buffers' },
+		{ '<leader>tf', '<cmd>Telescope find_files<CR>',                            desc = 'Telescope find files' },
 		{ '<leader>tF', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>', desc = 'Telescope find all files' },
-		{ '<leader>th', '<cmd>lua require("telescope.builtin").oldfiles()<CR>', desc = 'Telescope histories' },
-		{ '<leader>to', '<cmd>TodoTelescope<CR>', desc = 'Telescope todo' },
-		{ '<leader>tq', '<cmd>lua require("telescope.builtin").quickfix()<CR>', desc = 'Telescope quickfix' },
-		{ '<leader>tw', '<cmd>lua require("telescope.builtin").live_grep()<CR>', desc = 'Telescope grep' },
+		{ '<leader>th', function() require('telescope.builtin').oldfiles() end,     desc = 'Telescope histories' },
+		{ '<leader>to', '<cmd>TodoTelescope<CR>',                                   desc = 'Telescope todo' },
+		{ '<leader>tq', function() require('telescope.builtin').quickfix() end,     desc = 'Telescope quickfix' },
+		{ '<leader>tw', function() require('telescope.builtin').live_grep() end,    desc = 'Telescope grep' },
 	},
 
 	trouble = {
-		{ '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Toggle trouble diagnostics' },
+		{ '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>',              desc = 'Toggle trouble diagnostics' },
 		{ '<leader>xd', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Toggle trouble diagnostics for current buffer' },
-		{ '<leader>xo', '<cmd>Trouble todo<CR>', desc = 'Open todo trouble' },
-		{ '<leader>xx', '<cmd>Trouble close<CR>', desc = 'Close trouble' },
+		{ '<leader>xo', '<cmd>Trouble todo<CR>',                            desc = 'Open todo trouble' },
+		{ '<leader>xx', '<cmd>Trouble close<CR>',                           desc = 'Close trouble' },
 	},
 
 	['which-key'] = {
@@ -73,4 +74,4 @@ return {
 			desc = 'Buffer Local Keymaps (which-key)',
 		},
 	},
-} 
+}
