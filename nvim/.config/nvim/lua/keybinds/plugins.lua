@@ -4,6 +4,41 @@ return {
 		{ '<leader>S', '<cmd>AerialNavToggle<CR>', desc = 'Open Buffer Outline Window (Floating)' },
 	},
 
+	avante = {
+		{
+			'<leader>ca',
+			function()
+				require('avante.api').ask()
+			end,
+			desc = 'avante: ask',
+			mode = { 'n', 'v' },
+		},
+		{
+			'<leader>cr',
+			function()
+				require('avante.api').refresh()
+			end,
+			desc = 'avante: refresh',
+			mode = 'v',
+		},
+		{
+			'<leader>cb',
+			function()
+				require('avante.api').edit()
+			end,
+			desc = 'avante: edit',
+			mode = { 'v' },
+		},
+		{
+			'<leader>co', -- New key binding to open the selection box
+			function()
+				require('helpers').open_avante_command_menu()
+			end,
+			desc = 'avante: open command menu',
+			mode = 'n',
+		},
+	},
+
 	bufferline = {
 		{ '<A-]>',  '<cmd>BufferLineCycleNext<CR>',   desc = 'Go to next buffer' },
 		{ '<A-[>',  '<cmd>BufferLineCyclePrev<CR>',   desc = 'Go to previous buffer' },

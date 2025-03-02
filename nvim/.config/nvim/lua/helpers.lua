@@ -45,6 +45,74 @@ function M.set_colorscheme()
 	end
 end
 
+--- Opens the Avante command menu with a list of AI-related commands
+--- and executes the selected command.
+---
+--- This function defines a set of commands that interact with the Avante
+--- plugin, including asking the AI about code, starting a chat session,
+--- refreshing Avante windows, switching AI providers, showing the repository
+--- map, and toggling the chat panel.
+---
+--- The function uses `vim.ui.select` to display a menu of these commands
+--- and executes the chosen command based on user selection.
+function M.open_avante_command_menu()
+	-- Define the Avante commands
+	local avante_commands = {
+		{
+			function()
+				require('avante.api').ask()
+			end,
+			'Ask AI about code',
+		},
+		{
+			function()
+				require('avante.api').toggle()
+			end,
+			'Toggle the chat panel',
+		},
+		{
+			function()
+				require('avante.model_selector').open()
+			end,
+			'Switch AI Provider',
+		},
+		{
+			function()
+				require('avante.api').refresh()
+			end,
+			'Refresh all Avante windows',
+		},
+		{
+			function()
+				vim.cmd('AvanteShowRepoMap')
+			end,
+			'Show the repository map',
+		},
+	}
+
+	local options = vim.tbl_map(function(cmd)
+		return cmd[2] -- Display text
+	end, avante_commands)
+
+	local function callback(choice)
+		-- This function is called when the user makes a selection
+		if not choice then
+			return
+		end
+
+		-- Find the corresponding command
+		local command = vim.tbl_filter(function(cmd)
+			return cmd[2] == choice
+		end, avante_commands)[1]
+		if command then
+			command[1]() -- Execute the command
+		end
+	end
+
+	-- Call the ui.select menu
+	vim.ui.select(options, { prompt = 'Avante Function: ' }, callback)
+end
+
 if local_helpers.lsp_servers then
 	M.lsp_servers = local_helpers.lsp_servers
 else

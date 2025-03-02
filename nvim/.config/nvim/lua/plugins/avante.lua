@@ -1,68 +1,3 @@
--- Function to open the Avante command menu
-local function open_avante_command_menu()
-	-- Define the Avante commands
-	local avante_commands = {
-		{
-			function()
-				require('avante.api').ask()
-			end,
-			'Ask AI about code',
-		},
-		{
-			function()
-				vim.cmd('AvanteChat')
-			end,
-			'Start a chat session with AI about the codebase',
-		},
-		{
-			function()
-				require('avante.api').refresh()
-			end,
-			'Refresh all Avante windows',
-		},
-		{
-			function()
-				require('avante.model_selector').open()
-			end,
-			'Switch AI Provider',
-		},
-		{
-			function()
-				vim.cmd('AvanteShowRepoMap')
-			end,
-			'Show the repository map',
-		},
-		{
-			function()
-				require('avante.api').toggle()
-			end,
-			'Toggle the chat panel',
-		},
-	}
-
-	local options = vim.tbl_map(function(cmd)
-		return cmd[2] -- Display text
-	end, avante_commands)
-
-	local function callback(choice)
-		-- This function is called when the user makes a selection
-		if not choice then
-			return
-		end
-
-		-- Find the corresponding command
-		local command = vim.tbl_filter(function(cmd)
-			return cmd[2] == choice
-		end, avante_commands)[1]
-		if command then
-			command[1]() -- Execute the command
-		end
-	end
-
-	-- Call the ui.select menu
-	vim.ui.select(options, { prompt = 'Avante Function: ' }, callback)
-end
-
 local timeout = 30000 -- 30 seconds
 
 return {
@@ -81,40 +16,7 @@ return {
 		'AvanteToggle',
 	},
 	keys = function(_, keys)
-		local mappings = {
-			{
-				'<leader>ca',
-				function()
-					require('avante.api').ask()
-				end,
-				desc = 'avante: ask',
-				mode = { 'n', 'v' },
-			},
-			{
-				'<leader>cr',
-				function()
-					require('avante.api').refresh()
-				end,
-				desc = 'avante: refresh',
-				mode = 'v',
-			},
-			{
-				'<leader>cb',
-				function()
-					require('avante.api').edit()
-				end,
-				desc = 'avante: edit',
-				mode = { 'v' },
-			},
-			{
-				'<leader>co', -- New key binding to open the selection box
-				function()
-					open_avante_command_menu()
-				end,
-				desc = 'avante: open command menu',
-				mode = 'n',
-			},
-		}
+		local mappings = require('keybinds.plugins').avante
 		mappings = vim.tbl_filter(function(m)
 			return m[1] and #m[1] > 0
 		end, mappings)
