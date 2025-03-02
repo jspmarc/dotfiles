@@ -1,5 +1,16 @@
 return {
-	enabled = require('helpers').not_vscode,
-	'github/copilot.vim',
-	event = 'VeryLazy',
+	'zbirenbaum/copilot.lua',
+	cmd = 'Copilot',
+	event = 'InsertEnter',
+	opts = {
+		suggestion = {
+			auto_trigger = true,
+			hide_during_completion = false,
+			keymap = {
+				accept = '<Tab>',
+				next = '<M-]>',
+				prev = '<M-[>',
+			},
+		},
+	},
 }
