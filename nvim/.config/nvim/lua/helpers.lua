@@ -117,7 +117,6 @@ if local_helpers.lsp_servers then
 	M.lsp_servers = local_helpers.lsp_servers
 else
 	M.lsp_servers = {
-		'bashls',
 		'lua_ls',
 	}
 end
