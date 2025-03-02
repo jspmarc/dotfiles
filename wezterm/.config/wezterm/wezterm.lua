@@ -23,7 +23,7 @@ return {
 		'Noto Color Emoji',
 		'Relaxed Typing Mono JP',
 	}),
-	font_size = 13,
+	font_size = 11,
 	window_padding = {
 		left = 8,
 		right = 8,
