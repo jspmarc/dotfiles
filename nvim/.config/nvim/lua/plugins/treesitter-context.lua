@@ -1,5 +1,5 @@
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'nvim-treesitter/nvim-treesitter-context',
 	dependencies = 'nvim-treesitter/nvim-treesitter',
 }
