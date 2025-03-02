@@ -17,16 +17,67 @@ return {
 	},
 
 	flash = {
-		{ 's',     mode = { 'n', 'x', 'o' }, function() require('flash').jump() end,              desc = 'Flash' },
-		{ 'S',     mode = { 'n', 'x', 'o' }, function() require('flash').treesitter() end,        desc = 'Flash Treesitter' },
-		{ 'r',     mode = 'o',               function() require('flash').remote() end,            desc = 'Remote Flash' },
-		{ 'R',     mode = { 'o', 'x' },      function() require('flash').treesitter_search() end, desc = 'Treesitter Search' },
-		{ '<c-s>', mode = { 'c' },           function() require('flash').toggle() end,            desc = 'Toggle Flash Search' },
+		{
+			's',
+			mode = { 'n', 'x', 'o' },
+			function()
+				require('flash').jump()
+			end,
+			desc = 'Flash',
+		},
+		{
+			'S',
+			mode = { 'n', 'x', 'o' },
+			function()
+				require('flash').treesitter()
+			end,
+			desc = 'Flash Treesitter',
+		},
+		{
+			'r',
+			mode = 'o',
+			function()
+				require('flash').remote()
+			end,
+			desc = 'Remote Flash',
+		},
+		{
+			'R',
+			mode = { 'o', 'x' },
+			function()
+				require('flash').treesitter_search()
+			end,
+			desc = 'Treesitter Search',
+		},
+		{
+			'<c-s>',
+			mode = { 'c' },
+			function()
+				require('flash').toggle()
+			end,
+			desc = 'Toggle Flash Search',
+		},
 	},
 
 	['mini.files'] = {
-		{ '<C-b>', function() require('mini.files').open() end, desc = 'Open file browser' },
-		{ '-',     function() require('mini.files').open() end, desc = 'Open file browser' },
+		{
+			'<C-b>',
+			function()
+				require('mini.files').open()
+			end,
+			desc = 'Open file browser',
+		},
+		{
+			'-',
+			function()
+				local mini_files = require('mini.files')
+				local buf_name = vim.api.nvim_buf_get_name(0)
+				local path = vim.fn.filereadable(buf_name) == 1 and buf_name or vim.fn.getcwd()
+				mini_files.open(path)
+				mini_files.reveal_cwd()
+			end,
+			desc = 'Open file browser',
+		},
 	},
 
 	gitsigns = {
@@ -100,20 +151,48 @@ return {
 	},
 
 	telescope = {
-		{ '<leader>tb', function() require('telescope.builtin').buffers() end,      desc = 'Telescope buffers' },
+		{
+			'<leader>tb',
+			function()
+				require('telescope.builtin').buffers()
+			end,
+			desc = 'Telescope buffers',
+		},
 		{ '<leader>tf', '<cmd>Telescope find_files<CR>',                            desc = 'Telescope find files' },
 		{ '<leader>tF', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>', desc = 'Telescope find all files' },
-		{ '<leader>th', function() require('telescope.builtin').oldfiles() end,     desc = 'Telescope histories' },
-		{ '<leader>to', '<cmd>TodoTelescope<CR>',                                   desc = 'Telescope todo' },
-		{ '<leader>tq', function() require('telescope.builtin').quickfix() end,     desc = 'Telescope quickfix' },
-		{ '<leader>tw', function() require('telescope.builtin').live_grep() end,    desc = 'Telescope grep' },
+		{
+			'<leader>th',
+			function()
+				require('telescope.builtin').oldfiles()
+			end,
+			desc = 'Telescope histories',
+		},
+		{ '<leader>to', '<cmd>TodoTelescope<CR>', desc = 'Telescope todo' },
+		{
+			'<leader>tq',
+			function()
+				require('telescope.builtin').quickfix()
+			end,
+			desc = 'Telescope quickfix',
+		},
+		{
+			'<leader>tw',
+			function()
+				require('telescope.builtin').live_grep()
+			end,
+			desc = 'Telescope grep',
+		},
 	},
 
 	trouble = {
-		{ '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>',              desc = 'Toggle trouble diagnostics' },
-		{ '<leader>xd', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', desc = 'Toggle trouble diagnostics for current buffer' },
-		{ '<leader>xo', '<cmd>Trouble todo<CR>',                            desc = 'Open todo trouble' },
-		{ '<leader>xx', '<cmd>Trouble close<CR>',                           desc = 'Close trouble' },
+		{ '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Toggle trouble diagnostics' },
+		{
+			'<leader>xd',
+			'<cmd>Trouble diagnostics toggle filter.buf=0<CR>',
+			desc = 'Toggle trouble diagnostics for current buffer',
+		},
+		{ '<leader>xo', '<cmd>Trouble todo<CR>',               desc = 'Open todo trouble' },
+		{ '<leader>xx', '<cmd>Trouble close<CR>',              desc = 'Close trouble' },
 	},
 
 	['which-key'] = {
