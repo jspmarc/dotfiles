@@ -1,0 +1,8 @@
+go:
+  parseEmoji: true
+
+customCommands:
+  - key: "<c-p>"
+    context: "global"
+    description: "git pull with autostash and rebase"
+    command: "git pull --autostash --rebase"
