@@ -3,6 +3,10 @@ local map = require('helpers').map
 -- formatting
 map('n', '<leader>lf', function() require('vscode').action('editor.action.formatDocument') end)
 
+-- lsp
+map('n', 'gd', function() require('vscode').action('editor.action.goToDeclaration') end)
+map('n', 'ge', 'gh')
+
 -- window
 map('n', '<C-w>d', function() require('vscode').action('workbench.action.closeOtherEditors') end)
 map('n', '<C-w>c', function() require('vscode').action('workbench.action.closeAllEditors') end)
