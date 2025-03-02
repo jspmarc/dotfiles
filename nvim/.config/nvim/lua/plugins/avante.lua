@@ -83,7 +83,7 @@ return {
 	keys = function(_, keys)
 		local mappings = {
 			{
-				'<leader>co',
+				'<leader>ca',
 				function()
 					require('avante.api').ask()
 				end,
@@ -107,7 +107,7 @@ return {
 				mode = { 'v' },
 			},
 			{
-				'<leader>ca', -- New key binding to open the selection box
+				'<leader>co', -- New key binding to open the selection box
 				function()
 					open_avante_command_menu()
 				end,
@@ -121,7 +121,7 @@ return {
 		return vim.list_extend(mappings, keys)
 	end,
 	opts = {
-		provider = 'openrouter-gemini-flash-2.0-lite',
+		provider = 'openrouter-qwen2.5-coder',
 		cursor_planning_provider = 'gemini-flash-2.0-lite',
 		auto_suggestions_provider = 'openrouter-qwen2.5-coder-free',
 		vendors = {
