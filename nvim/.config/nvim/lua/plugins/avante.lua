@@ -1,7 +1,7 @@
 local timeout = 30000 -- 30 seconds
 
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'yetone/avante.nvim',
 	cmd = {
 		'AvanteAsk',
@@ -89,6 +89,14 @@ return {
 				endpoint = 'https://openrouter.ai/api/v1',
 				api_key_name = 'OPENROUTER_API_KEY',
 				model = 'google/gemini-2.0-flash-lite-001',
+				timeout = timeout,
+				max_tokens = 65536,
+			},
+			['openrouter-gemini-flash-2.0'] = {
+				__inherited_from = 'openai',
+				endpoint = 'https://openrouter.ai/api/v1',
+				api_key_name = 'OPENROUTER_API_KEY',
+				model = 'google/gemini-2.0-flash-001',
 				timeout = timeout,
 				max_tokens = 65536,
 			},

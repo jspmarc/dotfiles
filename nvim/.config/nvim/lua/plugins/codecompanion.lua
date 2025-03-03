@@ -1,7 +1,9 @@
+vim.g.codecompanion_auto_tool_mode = 1
+
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = false,
+	enabled = require('helpers').not_vscode,
 	'olimorris/codecompanion.nvim',
 	cmd = {
 		'CodeCompanion',
@@ -13,13 +15,56 @@ return {
 	opts = {
 		strategies = {
 			chat = {
-				adapter = 'copilot',
+				adapter = 'copilot-claude-3.7',
 			},
 			inline = {
-				adapter = 'copilot',
+				adapter = 'copilot-claude-3.7',
 			},
 			agent = {
 				adapter = 'copilot',
+			},
+		},
+		adapters = {
+			openrouter = function()
+				return require('codecompanion.adapters').extend('openai_compatible', {
+					env = {
+						url = 'https://openrouter.ai/api',
+						api_key = 'OPENROUTER_API_KEY',
+						chat_url = '/v1/chat/completions',
+					},
+					schema = {
+						model = {
+							default = 'qwen/qwen-2.5-coder-32b-instruct',
+							choices = {
+								'deepseek/deepseek-r1-distill-llama-8b',
+								'deepseek/deepseek-chat:free',
+								'qwen/qwen-2.5-coder-32b-instruct:free',
+								'qwen/qwen-2.5-coder-32b-instruct',
+								'anthropic/claude-3.5-haiku',
+								'google/gemini-2.0-flash-lite-001',
+								'google/gemini-2.0-flash-001',
+							},
+						},
+					},
+				})
+			end,
+			['copilot-claude-3.7'] = function()
+				return require('codecompanion.adapters').extend('copilot', {
+					schema = {
+						model = {
+							default = 'claude-3.7-sonnet',
+						},
+					},
+				})
+			end,
+		},
+		display = {
+			chat = {
+				window = {
+					layout = 'vertical',
+					position = 'right',
+					width = 0.25,
+				},
 			},
 		},
 	},

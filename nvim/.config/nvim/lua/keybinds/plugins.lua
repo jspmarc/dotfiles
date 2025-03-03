@@ -65,6 +65,7 @@ return {
 		{ '<leader>ca', '<cmd>CodeCompanionActions<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion actions' },
 		{ '<leader>cq', '<cmd>CodeCompanion<CR>',        mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
 		{ '<leader>co', '<cmd>CodeCompanionChat<CR>',    mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
+		{ '<leader>cl', '<cmd>CodeCompanionChat toggle<CR>',        mode = { 'n', 'v' }, desc = 'Toggle CodeCompanion chat buffer' },
 	},
 
 	copilot = {
