@@ -8,7 +8,15 @@ return {
 		{
 			'<leader>ca',
 			function()
-				require('avante.api').ask()
+				vim.ui.input({ prompt = 'Ask a question: ' }, function(question)
+					if not question or question == '' then
+						return
+					end
+
+					require('avante.api').ask({
+						question = question,
+					})
+				end)
 			end,
 			desc = 'avante: ask',
 			mode = { 'n', 'v' },
@@ -30,6 +38,14 @@ return {
 			mode = { 'v' },
 		},
 		{
+			'<leader>cl',
+			function()
+				require('avante.api').toggle()
+			end,
+			desc = 'avante: toggle chat panel',
+			mode = { 'n', 'v' },
+		},
+		{
 			'<leader>co', -- New key binding to open the selection box
 			function()
 				require('helpers').open_avante_command_menu()
@@ -49,6 +65,22 @@ return {
 		{ '<leader>ca', '<cmd>CodeCompanionActions<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion actions' },
 		{ '<leader>cq', '<cmd>CodeCompanion<CR>',        mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
 		{ '<leader>co', '<cmd>CodeCompanionChat<CR>',    mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
+	},
+
+	copilot = {
+		{
+			'<Tab>',
+			function()
+				local copilot_suggestion = require('copilot.suggestion')
+				if copilot_suggestion.is_visible() then
+					copilot_suggestion.accept()
+				else
+					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', false)
+				end
+			end,
+			desc = 'Accept inline suggestion',
+			mode = { 'i', 'n' }
+		},
 	},
 
 	flash = {
@@ -177,8 +209,10 @@ return {
 	},
 
 	sneak = {
-		{ 's', '<Plug>Sneak_s', mode = { 'n', 'x' }, desc = 'Sneak s' },
-		{ 'S', '<Plug>Sneak_S', mode = { 'n', 'x' }, desc = 'Sneak S' },
+		{ 's', '<Plug>Sneak_s', mode = { 'n' },      desc = 'Sneak s' },
+		{ 'S', '<Plug>Sneak_S', mode = { 'n' },      desc = 'Sneak S' },
+		{ 'z', '<Plug>Sneak_s', mode = { 'x' },      desc = 'Sneak s' },
+		{ 'Z', '<Plug>Sneak_S', mode = { 'x' },      desc = 'Sneak S' },
 		{ 'f', '<Plug>Sneak_f', mode = { 'n', 'x' }, desc = 'Sneak f' },
 		{ 'F', '<Plug>Sneak_F', mode = { 'n', 'x' }, desc = 'Sneak F' },
 		{ 't', '<Plug>Sneak_t', mode = { 'n', 'x' }, desc = 'Sneak t' },
