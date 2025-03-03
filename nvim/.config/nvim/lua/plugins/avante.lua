@@ -82,7 +82,20 @@ return {
 				api_key_name = 'OPENROUTER_API_KEY',
 				model = 'anthropic/claude-3.5-haiku',
 				timeout = timeout,
-				max_tokens = 49152,
+			},
+			['openrouter-claude-3.5-sonnet'] = {
+				__inherited_from = 'openai',
+				endpoint = 'https://openrouter.ai/api/v1',
+				api_key_name = 'OPENROUTER_API_KEY',
+				model = 'anthropic/claude-3.5-sonnet',
+				timeout = timeout,
+			},
+			['openrouter-claude-3.7-sonnet'] = {
+				__inherited_from = 'openai',
+				endpoint = 'https://openrouter.ai/api/v1',
+				api_key_name = 'OPENROUTER_API_KEY',
+				model = 'anthropic/claude-3.7-sonnet',
+				timeout = timeout,
 			},
 			['openrouter-gemini-flash-2.0-lite'] = {
 				__inherited_from = 'openai',
@@ -90,7 +103,6 @@ return {
 				api_key_name = 'OPENROUTER_API_KEY',
 				model = 'google/gemini-2.0-flash-lite-001',
 				timeout = timeout,
-				max_tokens = 65536,
 			},
 			['openrouter-gemini-flash-2.0'] = {
 				__inherited_from = 'openai',
@@ -98,7 +110,6 @@ return {
 				api_key_name = 'OPENROUTER_API_KEY',
 				model = 'google/gemini-2.0-flash-001',
 				timeout = timeout,
-				max_tokens = 65536,
 			},
 		},
 		behaviour = {
@@ -109,7 +120,7 @@ return {
 			support_paste_from_clipboard = true,
 			minimize_diff = true,      -- Whether to remove unchanged lines when applying a code block
 			enable_token_counting = true, -- Whether to enable token counting. Default to true.
-			enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
+			enable_cursor_planning_mode = false, -- Whether to enable Cursor Planning Mode. Default to false.
 		},
 		suggestion = {
 			debounce = 600,

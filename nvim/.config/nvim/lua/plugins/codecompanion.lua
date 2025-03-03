@@ -41,6 +41,8 @@ return {
 								'qwen/qwen-2.5-coder-32b-instruct:free',
 								'qwen/qwen-2.5-coder-32b-instruct',
 								'anthropic/claude-3.5-haiku',
+								'anthropic/claude-3.5-sonnet',
+								'anthropic/claude-3.7-sonnet',
 								'google/gemini-2.0-flash-lite-001',
 								'google/gemini-2.0-flash-001',
 							},
