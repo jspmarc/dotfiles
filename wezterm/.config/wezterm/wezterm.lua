@@ -16,7 +16,7 @@ local function get_color_scheme()
 	end
 end
 
--- local is_linux = wezterm.target_triple:find("linux") ~= nil
+local is_linux = wezterm.target_triple:find('linux') ~= nil
 local is_darwin = wezterm.target_triple:find('darwin') ~= nil
 local darwin_keys = {
 	{
@@ -42,7 +42,7 @@ return {
 	},
 	window_background_opacity = 0.9,
 	enable_wayland = false,
-	window_decorations = 'TITLE | RESIZE',
+	window_decorations = is_linux and 'NONE' or 'TITLE | RESIZE',
 	enable_tab_bar = false,
 	max_fps = 120,
 	keys = is_darwin and darwin_keys or {},
