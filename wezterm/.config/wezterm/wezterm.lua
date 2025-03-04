@@ -1,15 +1,15 @@
 local wezterm = require('wezterm')
 
 local function get_appearance()
-  if wezterm.gui then
-    return wezterm.gui.get_appearance()
-  end
-  return 'Dark'
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return 'Dark'
 end
 
 local function get_color_scheme()
 	appearance = get_appearance()
-	if appearance:find 'Dark' then
+	if appearance:find('Dark') then
 		return 'Darkside'
 	else
 		return 'catppuccin-latte'
