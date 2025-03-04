@@ -8,13 +8,23 @@ local function get_appearance()
 end
 
 local function get_color_scheme()
-	appearance = get_appearance()
+	local appearance = get_appearance()
 	if appearance:find('Dark') then
 		return 'Darkside'
 	else
 		return 'catppuccin-latte'
 	end
 end
+
+-- local is_linux = wezterm.target_triple:find("linux") ~= nil
+local is_darwin = wezterm.target_triple:find('darwin') ~= nil
+local darwin_keys = {
+	{
+		key = 'Enter',
+		mods = 'ALT',
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+}
 
 return {
 	color_scheme = get_color_scheme(),
@@ -23,7 +33,7 @@ return {
 		'Noto Color Emoji',
 		'Relaxed Typing Mono JP',
 	}),
-	font_size = 11,
+	font_size = is_darwin and 13 or 11,
 	window_padding = {
 		left = 8,
 		right = 8,
@@ -32,7 +42,9 @@ return {
 	},
 	window_background_opacity = 0.9,
 	enable_wayland = false,
-	window_decorations = 'NONE',
+	window_decorations = 'TITLE | RESIZE',
 	enable_tab_bar = false,
 	max_fps = 120,
+	keys = is_darwin and darwin_keys or {},
+	front_end = 'WebGpu',
 }
