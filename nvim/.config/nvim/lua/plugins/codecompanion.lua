@@ -15,13 +15,39 @@ return {
 	opts = {
 		strategies = {
 			chat = {
-				adapter = 'copilot-claude-3.7',
+				adapter = 'copilot-claude-3.5',
+				slash_commands = {
+					buffer = {
+						opts = {
+							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							contains_code = true,
+						},
+					},
+					file = {
+						opts = {
+							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							contains_code = true,
+						},
+					},
+					help = {
+						opts = {
+							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							contains_code = true,
+						},
+					},
+					symbols = {
+						opts = {
+							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							contains_code = true,
+						},
+					},
+				},
 			},
 			inline = {
-				adapter = 'copilot-claude-3.7',
+				adapter = 'copilot-claude-3.5',
 			},
 			agent = {
-				adapter = 'copilot',
+				adapter = 'copilot-claude-3.5',
 			},
 		},
 		adapters = {
@@ -50,11 +76,11 @@ return {
 					},
 				})
 			end,
-			['copilot-claude-3.7'] = function()
+			['copilot-claude-3.5'] = function()
 				return require('codecompanion.adapters').extend('copilot', {
 					schema = {
 						model = {
-							default = 'claude-3.7-sonnet',
+							default = 'claude-3.5-sonnet',
 						},
 					},
 				})
