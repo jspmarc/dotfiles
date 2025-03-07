@@ -1,6 +1,30 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
+    "key": "alt+h",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.mode != 'insert'",
+    "args": "<C-w>h"
+  },
+  {
+    "key": "alt+l",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.mode != 'insert'",
+    "args": "<C-w>l"
+  },
+  {
+    "key": "alt+j",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.mode != insert",
+    "args": "<C-w>j"
+  },
+  {
+    "key": "alt+k",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.mode != insert",
+    "args": "<C-w>k"
+  },
+  {
     "key": "ctrl+alt+e",
     "command": "workbench.action.focusActiveEditorGroup"
   },
@@ -71,5 +95,5 @@
     "key": "up",
     "command": "-selectPrevSuggestion",
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  }
+  },
 ]
