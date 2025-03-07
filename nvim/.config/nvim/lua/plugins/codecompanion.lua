@@ -1,4 +1,4 @@
-vim.g.codecompanion_auto_tool_mode = 1
+-- vim.g.codecompanion_auto_tool_mode = 1
 
 local plugin_keys = require('keybinds.plugins')
 
