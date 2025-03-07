@@ -5,11 +5,14 @@ map('n', '<leader>lf', function() require('vscode').action('editor.action.format
 
 -- lsp
 map('n', 'gd', function() require('vscode').action('editor.action.goToDeclaration') end)
-map('n', 'ge', 'gh')
+map({ 'n', 'x' }, 'ge', function() require('vscode').action('editor.action.showHover') end)
+map({ 'n', 'x' }, 'gh', function() require('vscode').action('editor.action.showHover') end)
 
 -- window
 map('n', '<C-w>d', function() require('vscode').action('workbench.action.closeOtherEditors') end)
 map('n', '<C-w>c', function() require('vscode').action('workbench.action.closeAllEditors') end)
+map('n', '<leader>cl', function() require('vscode').action('workbench.action.toggleAuxiliaryBar') end)
+map('n', '<leader>co', function() require('vscode').action('aichat.newchataction') end)
 
 -- file explorer
 map('n', '-', function() require('vscode').action('vsnetrw.open') end)
@@ -29,6 +32,12 @@ map('n', '<leader>gB', function() require('vscode').action('gitlens.toggleFileBl
 map({ 'n', 'v' }, '<leader>gu', function() require('vscode').action('git.revertSelectedRanges') end)
 map({ 'n', 'v' }, '<leader>gs', function() require('vscode').action('git.stageSelectedRanges') end)
 map({ 'n', 'v' }, '<leader>gU', function() require('vscode').action('git.unstageSelectedRanges') end)
+
+-- diff
+map('n', '<leader>dd', function() require('vscode').action('workbench.action.compareEditor') end)
+map('n', '<leader>ga', function() require('vscode').action('editor.action.inlineDiffs.acceptPartialEdit') end)
+-- map('n', '<leader>gr', function() require('vscode').action('editor.action.rejectGPT4') end)
+map('n', '<leader>gr', function() require('vscode').action('editor.action.inlineDiffs.rejectPartialEdit') end)
 
 -- colorscheme
 map('n', '<leader>,s', function() require('vscode').action('workbench.action.toggleLightDarkThemes') end)
