@@ -1,0 +1,5 @@
+#for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#10}:+$'\n'}; done
+#echo "Welcome, $USER! Here's a MOTD:" | lolcat
+#cowsay -f tux <<< $(fortune -s) | lolcat
+#fet.sh
+fortune -s
