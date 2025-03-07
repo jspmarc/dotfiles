@@ -10,9 +10,9 @@ setopt autocd nomatch notify
 bindkey -v
 
 source ~/zsh-files/zsh_funcs
-source ~/zsh-files/.zshcomp
-source ~/zsh-files/.zshenv
+source ~/zsh-files/zsh_env
 source ~/zsh-files/zsh_alias
+source ~/zsh-files/.zshcomp
 
 # =============================================================================
 # Plugins
