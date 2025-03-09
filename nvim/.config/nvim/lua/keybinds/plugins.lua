@@ -65,7 +65,12 @@ return {
 		{ '<leader>ca', '<cmd>CodeCompanionActions<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion actions' },
 		{ '<leader>cq', '<cmd>CodeCompanion<CR>',        mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
 		{ '<leader>co', '<cmd>CodeCompanionChat<CR>',    mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
-		{ '<leader>cl', '<cmd>CodeCompanionChat toggle<CR>',        mode = { 'n', 'v' }, desc = 'Toggle CodeCompanion chat buffer' },
+		{
+			'<leader>cl',
+			'<cmd>CodeCompanionChat toggle<CR>',
+			mode = { 'n', 'v' },
+			desc = 'Toggle CodeCompanion chat buffer',
+		},
 	},
 
 	copilot = {
@@ -80,7 +85,7 @@ return {
 				end
 			end,
 			desc = 'Accept inline suggestion',
-			mode = { 'i', 'n' }
+			mode = { 'i', 'n' },
 		},
 	},
 
@@ -254,33 +259,40 @@ return {
 		},
 	},
 
-	trouble = {
-		{ '<leader>xa', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Toggle trouble diagnostics' },
+	telescope_lsp = {
 		{
-			'<leader>xd',
-			'<cmd>Trouble diagnostics toggle filter.buf=0<CR>',
-			desc = 'Toggle trouble diagnostics for current buffer',
+			'gd',
+			function()
+				require('telescope.builtin').lsp_definitions()
+			end,
+			desc = 'LSP definitions',
 		},
-		{ '<leader>xo', '<cmd>Trouble todo<CR>',               desc = 'Open todo trouble' },
-		{ '<leader>xx', '<cmd>Trouble close<CR>',              desc = 'Close trouble' },
-	},
-
-	trouble_lsp = {
-		{ 'gd', '<cmd>Trouble lsp_definitions win.position=right focus=true<CR>', desc = 'LSP definitions' },
 		{
 			'gi',
-			'<cmd>Trouble lsp_implementations win.position=right focus=true<CR>',
+			function()
+				require('telescope.builtin').lsp_implementations()
+			end,
 			desc = 'LSP implementations',
 		},
-		{ 'gr', '<cmd>Trouble lsp_references win.position=right focus=true<CR>',  desc = 'LSP references' },
+		{
+			'gr',
+			function()
+				require('telescope.builtin').lsp_references()
+			end,
+			desc = 'LSP references',
+		},
 		{
 			'<leader>ld',
-			'<cmd>Trouble diagnostics toggle filter.buf=0 win.position=right focus=true<CR>',
+			function()
+				require('telescope.builtin').diagnostics({ bufnr=0 })
+			end,
 			desc = 'LSP buffer diagnostics',
 		},
 		{
 			'<leader>lD',
-			'<cmd>Trouble diagnostics toggle win.position=right focus=true<CR>',
+			function()
+				require('telescope.builtin').diagnostics()
+			end,
 			desc = 'LSP workspace diagnostics',
 		},
 	},

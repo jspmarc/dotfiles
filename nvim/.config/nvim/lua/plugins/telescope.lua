@@ -3,7 +3,8 @@ local plugin_keys = require('keybinds.plugins')
 return {
 	enabled = require('helpers').not_vscode,
 	'nvim-telescope/telescope.nvim',
-	keys = plugin_keys.telescope,
+	keys = vim.list_extend(plugin_keys.telescope, plugin_keys.telescope_lsp),
+	cmd = { 'Telescope' },
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		{
