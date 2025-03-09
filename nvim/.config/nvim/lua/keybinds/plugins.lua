@@ -198,6 +198,18 @@ return {
 		{ '<leader>gb', '<cmd>lua require"gitsigns".blame_linefull=true<CR>', desc = 'Git blame line' },
 	},
 
+	grug = {
+		{ '<leader>ff', '<cmd>GrugFar<CR>', desc = 'open GrugFar' },
+		{
+			'<leader>ff',
+			function()
+				require('grug-far').with_visual_selection()
+			end,
+			mode = { 'v' },
+			desc = 'open GrugFar with current visual selection',
+		},
+	},
+
 	neogit = {
 		{ '<leader>gp', ':Neogit push<CR>',   desc = 'Git push' },
 		{ '<leader>gc', ':Neogit commit<CR>', desc = 'Git commit' },
@@ -284,7 +296,7 @@ return {
 		{
 			'<leader>ld',
 			function()
-				require('telescope.builtin').diagnostics({ bufnr=0 })
+				require('telescope.builtin').diagnostics({ bufnr = 0 })
 			end,
 			desc = 'LSP buffer diagnostics',
 		},
