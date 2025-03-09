@@ -2,7 +2,7 @@ return {
 	enabled = require('helpers').not_vscode,
 	'danielfalk/smart-open.nvim',
 	branch = '0.2.x',
-	keys = require('keybinds.plugins').telescope,
+	-- keys = require('keybinds.plugins').telescope,
 	config = function()
 		require('telescope').load_extension('smart_open')
 	end,

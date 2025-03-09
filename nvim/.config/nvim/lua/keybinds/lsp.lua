@@ -14,4 +14,4 @@ return vim.list_extend({
 	{ '<F2>', function() vim.lsp.buf.rename() end },
 	-- TODO: use proxy
 	{ '<F6>', function() vim.lsp.buf.rename() end },
-}, plugin_keys.telescope_lsp)
+}, plugin_keys.snacks_lsp)

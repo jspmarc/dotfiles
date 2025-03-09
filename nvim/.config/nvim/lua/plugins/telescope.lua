@@ -39,7 +39,7 @@ local additional_scroll = {
 return {
 	enabled = require('helpers').not_vscode,
 	'nvim-telescope/telescope.nvim',
-	keys = vim.list_extend(plugin_keys.telescope, plugin_keys.telescope_lsp),
+	-- keys = vim.list_extend(plugin_keys.telescope, plugin_keys.telescope_lsp),
 	cmd = { 'Telescope' },
 	dependencies = {
 		'nvim-lua/plenary.nvim',

@@ -218,6 +218,95 @@ return {
 			end,
 			desc = 'Open lazy git',
 		},
+
+		-- picker
+		{
+			'<leader>tb',
+			function()
+				Snacks.picker.buffers()
+			end,
+			desc = 'Snacks picker buffers',
+		},
+		{
+			'<leader>tf',
+			function()
+				Snacks.picker.files({ cwd = vim.fn.getcwd(), hidden = true, no_ignore = true })
+			end,
+			desc = 'Snacks picker find all files',
+		},
+		{
+			'<leader>ts',
+			function()
+				Snacks.picker.smart({ cwd_only = false })
+			end,
+			desc = 'Snacks picker Smart Open',
+		},
+		{
+			'<leader>th',
+			function()
+				Snacks.picker.pick('oldfiles')
+			end,
+			desc = 'Snacks picker histories',
+		},
+		{
+			'<leader>to',
+			function()
+				Snacks.picker.todo_comments()
+			end,
+			desc = 'Snacks picker todo',
+		},
+		{
+			'<leader>tq',
+			function()
+				Snacks.picker.qflist()
+			end,
+			desc = 'Snacks picker quickfix',
+		},
+		{
+			'<leader>tw',
+			function()
+				Snacks.picker.pick('live_grep')
+			end,
+			desc = 'Snacks picker grep',
+		},
+	},
+
+	snacks_lsp = {
+		{
+			'gd',
+			function()
+				Snacks.picker.lsp_definitions()
+			end,
+			desc = 'LSP definitions',
+		},
+		{
+			'gi',
+			function()
+				Snacks.picker.lsp_implementations()
+			end,
+			desc = 'LSP implementations',
+		},
+		{
+			'gr',
+			function()
+				Snacks.picker.lsp_references()
+			end,
+			desc = 'LSP references',
+		},
+		{
+			'<leader>ld',
+			function()
+				Snacks.picker.diagnostics_buffer()
+			end,
+			desc = 'LSP buffer diagnostics',
+		},
+		{
+			'<leader>lD',
+			function()
+				Snacks.picker.diagnostics()
+			end,
+			desc = 'LSP workspace diagnostics',
+		},
 	},
 
 	sneak = {

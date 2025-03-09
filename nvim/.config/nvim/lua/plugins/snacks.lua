@@ -13,44 +13,6 @@ return {
 		-- refer to the configuration section below
 		bigfile = { enabled = true },
 		dashboard = {
-			preset = {
-				keys = {
-					{
-						icon = ' ',
-						key = 'f',
-						desc = 'Find File in cwd',
-						action = ":lua require('telescope.builtin').find_files({cwd = vim.fn.getcwd()})",
-					},
-					{ icon = ' ', key = 'n', desc = 'New File', action = ':ene' },
-					{
-						icon = ' ',
-						key = 'g',
-						desc = 'Find Text',
-						action = ':Telescope live_grep',
-					},
-					{
-						icon = ' ',
-						key = 'r',
-						desc = 'Recent Files',
-						action = ':Telescope oldfiles',
-					},
-					{
-						icon = ' ',
-						key = 'c',
-						desc = 'Config',
-						action = ":lua require('telescope.builtin').find_files({cwd = vim.fn.stdpath('config')})",
-					},
-					{ icon = ' ', key = 's', desc = 'Restore Session', section = 'session' },
-					{
-						icon = '󰒲 ',
-						key = 'L',
-						desc = 'Lazy',
-						action = ':Lazy',
-						enabled = package.loaded.lazy ~= nil,
-					},
-					{ icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
-				},
-			},
 			sections = {
 				{ section = 'header' },
 				{ section = 'startup', padding = 1 },
