@@ -1,5 +1,5 @@
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'houtsnip/vim-emacscommandline',
 	event = { 'CmdlineEnter', 'CmdwinEnter' },
 }
