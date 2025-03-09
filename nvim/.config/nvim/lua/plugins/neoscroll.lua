@@ -1,5 +1,5 @@
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'karb94/neoscroll.nvim',
 	event = { 'BufEnter' },
 	opts = {
