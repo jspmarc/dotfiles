@@ -245,8 +245,18 @@ return {
 			end,
 			desc = 'Telescope buffers',
 		},
-		{ '<leader>tf', '<cmd>Telescope find_files<CR>',                            desc = 'Telescope find files' },
-		{ '<leader>tF', '<cmd>Telescope find_files hidden=true no_ignore=true<CR>', desc = 'Telescope find all files' },
+		{
+			'<leader>tf',
+			function()
+				require('telescope.builtin').find_files({ cwd = vim.fn.getcwd(), hidden = true, no_ignore = true })
+			end,
+			desc = 'Telescope find all files',
+		},
+		{
+			'<leader>ts',
+			'<cmd>Telescope smart_open cwd_only=false<CR>',
+			desc = 'Telescope Smart Open',
+		},
 		{
 			'<leader>th',
 			function()

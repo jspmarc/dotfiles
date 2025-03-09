@@ -15,7 +15,12 @@ return {
 		dashboard = {
 			preset = {
 				keys = {
-					{ icon = ' ', key = 'f', desc = 'Find File', action = ':Telescope find_files' },
+					{
+						icon = ' ',
+						key = 'f',
+						desc = 'Find File in cwd',
+						action = ":lua require('telescope.builtin').find_files({cwd = vim.fn.getcwd()})",
+					},
 					{ icon = ' ', key = 'n', desc = 'New File', action = ':ene' },
 					{
 						icon = ' ',
