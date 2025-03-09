@@ -19,25 +19,25 @@ return {
 				slash_commands = {
 					buffer = {
 						opts = {
-							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							provider = 'snacks', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
 							contains_code = true,
 						},
 					},
 					file = {
 						opts = {
-							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							provider = 'snacks', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
 							contains_code = true,
 						},
 					},
 					help = {
 						opts = {
-							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							provider = 'snacks', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
 							contains_code = true,
 						},
 					},
 					symbols = {
 						opts = {
-							provider = 'telescope', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
+							provider = 'snacks', -- Other options include 'default', 'mini_pick', 'fzf_lua', snacks
 							contains_code = true,
 						},
 					},
