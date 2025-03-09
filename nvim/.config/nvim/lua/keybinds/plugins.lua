@@ -210,12 +210,6 @@ return {
 		},
 	},
 
-	neogit = {
-		{ '<leader>gp', ':Neogit push<CR>',   desc = 'Git push' },
-		{ '<leader>gc', ':Neogit commit<CR>', desc = 'Git commit' },
-		{ '<leader>gl', ':Neogit pull<CR>',   desc = 'Git pull' },
-	},
-
 	snacks = {
 		{
 			'<leader>gg',
