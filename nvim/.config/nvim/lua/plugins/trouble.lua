@@ -5,7 +5,7 @@ return {
 	'folke/trouble.nvim',
 	dependencies = { 'kyazdani42/nvim-web-devicons' },
 	cmd = { 'Trouble' },
-	keys = plugin_keys.trouble,
+	keys = vim.list_extend(plugin_keys.trouble, plugin_keys.trouble_lsp),
 	opts = {
 		actions_keys = {
 			open_split = { 's' },

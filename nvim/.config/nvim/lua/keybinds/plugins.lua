@@ -265,6 +265,26 @@ return {
 		{ '<leader>xx', '<cmd>Trouble close<CR>',              desc = 'Close trouble' },
 	},
 
+	trouble_lsp = {
+		{ 'gd', '<cmd>Trouble lsp_definitions win.position=right focus=true<CR>', desc = 'LSP definitions' },
+		{
+			'gi',
+			'<cmd>Trouble lsp_implementations win.position=right focus=true<CR>',
+			desc = 'LSP implementations',
+		},
+		{ 'gr', '<cmd>Trouble lsp_references win.position=right focus=true<CR>',  desc = 'LSP references' },
+		{
+			'<leader>ld',
+			'<cmd>Trouble diagnostics toggle filter.buf=0 win.position=right focus=true<CR>',
+			desc = 'LSP buffer diagnostics',
+		},
+		{
+			'<leader>lD',
+			'<cmd>Trouble diagnostics toggle win.position=right focus=true<CR>',
+			desc = 'LSP workspace diagnostics',
+		},
+	},
+
 	['which-key'] = {
 		{
 			'<leader>?',
