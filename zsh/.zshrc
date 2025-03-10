@@ -61,8 +61,11 @@ fi
 # --starship end
 
 # Remove directory background color
-eval "$(dircolors -p | \
-    sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
-    dircolors /dev/stdin)"
+
+if type "dircolors" > /dev/null; then
+	eval "$(dircolors -p | \
+	    sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
+	    dircolors /dev/stdin)"
+fi
 
 source ~/zsh-files/zsh_motd
