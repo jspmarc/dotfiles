@@ -132,6 +132,10 @@ return {
 		},
 	},
 
+	fugitive = {
+		{ '<leader>gB', '<cmd>G blame<CR>', desc = 'Open fugitive blame panel' },
+	},
+
 	['mini.files'] = {
 		{
 			'<C-b>',
