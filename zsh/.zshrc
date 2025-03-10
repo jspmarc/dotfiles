@@ -24,7 +24,7 @@ source ~/zsh-files/plugins/main.zsh
 # Load env for tools
 # =============================================================================
 if command -v thefuck >/dev/null; then
-    eval $(thefuck --alias)
+	eval $(thefuck --alias)
 fi
 
 # ---nvm
@@ -36,13 +36,13 @@ export NVM_DIR="$HOME/.nvm"
 # --pnpm
 pnpm_shell_completion_file="/usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh"
 if [[ -f "$pnpm_shell_completion_file" ]]; then
-    source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
+	source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
 fi
 # --pnpm end
 
 # --zoxide
 if command -v zoxide >/dev/null; then
-    eval "$(zoxide init zsh)"
+	eval "$(zoxide init zsh)"
 fi
 # --zoxide end
 
@@ -50,13 +50,13 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv >/dev/null; then
-    eval "$(pyenv init - zsh)"
+	eval "$(pyenv init - zsh)"
 fi
 # --pyenv end
 
 # --starship
 if command -v starship >/dev/null; then
-    eval "$(starship init zsh)"
+	eval "$(starship init zsh)"
 fi
 # --starship end
 
@@ -64,8 +64,8 @@ fi
 
 if type "dircolors" > /dev/null; then
 	eval "$(dircolors -p | \
-	    sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
-	    dircolors /dev/stdin)"
+		sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
+		dircolors /dev/stdin)"
 fi
 
 source ~/zsh-files/zsh_motd
