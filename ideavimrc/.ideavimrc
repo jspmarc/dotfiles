@@ -7,6 +7,8 @@ Plug 'tpope/vim-surround'
 set peekaboo
 set which-key
 
+let g:sneak#label = 1
+
 set nu
 set rnu
 set clipboard+=unnamed
@@ -82,8 +84,11 @@ nmap <C-i> <Action>(Forward)
 nmap gh <Action>(QuickJavaDoc)
 nmap ge <Action>(ShowErrorDescription)
 nmap <leader>gg <Action>(LazyGit.Open)
+nmap <leader>s <Action>(ActivateStructureToolWindow)
 
 " sneak
+xmap z <Plug>Sneak_z
+xmap Z <Plug>Sneak_Z
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
