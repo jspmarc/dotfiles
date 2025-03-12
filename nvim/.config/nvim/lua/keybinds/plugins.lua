@@ -218,9 +218,17 @@ return {
 		{
 			'<leader>gg',
 			function()
-				require('snacks').lazygit.open()
+				Snacks.lazygit.open()
 			end,
 			desc = 'Open lazy git',
+		},
+		{
+			'<leader>go',
+			function()
+				Snacks.gitbrowse.open()
+			end,
+			mode = { 'n', 'x' },
+			desc = 'Open line in browser',
 		},
 
 		-- picker

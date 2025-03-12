@@ -19,6 +19,7 @@ return {
 				{ section = 'keys',    gap = 1 },
 			},
 		},
+		gitbrowse = { enabled = true },
 		input = { enabled = true },
 		lazygit = { enabled = true },
 		notifier = { enabled = true },
