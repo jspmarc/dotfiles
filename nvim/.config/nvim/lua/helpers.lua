@@ -39,9 +39,9 @@ end
 -- Sets the colorscheme based on the current background setting
 function M.set_colorscheme()
 	if vim.o.background == 'dark' then
-		vim.cmd('colorscheme catppuccin-macchiato')
+		vim.cmd('colorscheme ' .. M.themes.dark)
 	else
-		vim.cmd('colorscheme catppuccin-latte')
+		vim.cmd('colorscheme ' .. M.themes.light)
 	end
 end
 
@@ -134,5 +134,10 @@ else
 end
 
 M.not_vscode = not vim.g.vscode
+
+M.themes = {
+	dark = 'catppuccin-macchiato',
+	light = 'catppuccin-latte',
+}
 
 return M

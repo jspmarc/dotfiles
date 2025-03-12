@@ -43,18 +43,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight yanks',
 	group = autocmds,
 })
-vim.api.nvim_create_autocmd('User', {
-	pattern = 'LumenLight',
-	callback = function()
-		print('Entered light mode')
-		set_colorscheme()
-	end,
-})
-
-vim.api.nvim_create_autocmd('User', {
-	pattern = 'LumenDark',
-	callback = function()
-		print('Entered dark mode')
-		set_colorscheme()
-	end,
-})

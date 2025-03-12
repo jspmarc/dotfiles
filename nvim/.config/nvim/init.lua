@@ -12,7 +12,6 @@ require('config.lazy')
 if helpers.not_vscode then
 	require('lsp.settings')
 	require('autocommands')
-	helpers.set_colorscheme()
 end
 require('keybinds')
 
