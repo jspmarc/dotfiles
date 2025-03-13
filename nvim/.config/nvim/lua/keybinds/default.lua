@@ -1,8 +1,8 @@
 return {
 	-- leader maps
-	-- Leader is still backslash ( '\' ), mapped to backspace
+	-- Leader is still backslash ( '<space>' ), mapped to backspace
 	-- TODO: use proxy
-	{ '<space>',    '<leader><leader>',              noremap = false },
+	-- { '<space>',    '<leader><leader>',              noremap = false },
 	{ '<BS>',       '<leader>',                      noremap = false },
 
 	-- double Esc to return to normal mode from term mode
