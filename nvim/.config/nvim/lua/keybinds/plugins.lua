@@ -203,9 +203,9 @@ return {
 	},
 
 	grug = {
-		{ '<leader>ff', '<cmd>GrugFar<CR>', desc = 'open GrugFar' },
+		{ '<leader>//', '<cmd>GrugFar<CR>', desc = 'open GrugFar' },
 		{
-			'<leader>ff',
+			'<leader>//',
 			function()
 				require('grug-far').with_visual_selection()
 			end,
@@ -233,32 +233,39 @@ return {
 
 		-- picker
 		{
-			'<leader>tb',
+			'<leader>bb',
 			function()
 				Snacks.picker.buffers()
 			end,
-			desc = 'Snacks picker buffers',
+			desc = 'Buffers picker',
 		},
 		{
-			'<leader>tf',
+			'<leader>ff',
 			function()
 				Snacks.picker.files({ cwd = vim.fn.getcwd(), hidden = true, no_ignore = true })
 			end,
-			desc = 'Snacks picker find all files',
+			desc = 'Find all files in cwd',
 		},
 		{
-			'<leader>ts',
+			'<leader>fF',
+			function()
+				Snacks.picker.files({ cwd = vim.fn.getcwd(), hidden = true, no_ignore = true })
+			end,
+			desc = 'Find all files (incl. hidden and ignored) in cwd',
+		},
+		{
+			'<leader>fs',
 			function()
 				Snacks.picker.smart({ cwd_only = false })
 			end,
-			desc = 'Snacks picker Smart Open',
+			desc = 'Smart open file',
 		},
 		{
-			'<leader>th',
+			'<leader>fr',
 			function()
 				Snacks.picker.pick('oldfiles')
 			end,
-			desc = 'Snacks picker histories',
+			desc = 'Recent files',
 		},
 		{
 			'<leader>to',
@@ -275,11 +282,11 @@ return {
 			desc = 'Snacks picker quickfix',
 		},
 		{
-			'<leader>tw',
+			'<leader>/s',
 			function()
 				Snacks.picker.pick('live_grep')
 			end,
-			desc = 'Snacks picker grep',
+			desc = 'Search (live grep) current directory',
 		},
 	},
 
