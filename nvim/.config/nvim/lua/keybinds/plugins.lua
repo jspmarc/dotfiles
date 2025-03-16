@@ -214,6 +214,44 @@ return {
 		},
 	},
 
+	session_manager = {
+		{
+			'<leader>pp',
+			function()
+				require('session_manager').load_session()
+			end,
+			desc = 'Load sessions',
+		},
+		{
+			'<leader>pr',
+			function()
+				require('session_manager').load_last_session()
+			end,
+			desc = 'Load last session',
+		},
+		{
+			'<leader>pg',
+			function()
+				require('session_manager').load_git_session()
+			end,
+			desc = 'Load sessions with git',
+		},
+		{
+			'<leader>pd',
+			function()
+				require('session_manager').delete_session()
+			end,
+			desc = 'Delete session',
+		},
+		{
+			'<leader>pD',
+			function()
+				require('session_manager').delete_current_dir_session()
+			end,
+			desc = 'Delete current dir session',
+		},
+	},
+
 	snacks = {
 		{
 			'<leader>gg',
