@@ -1,5 +1,6 @@
+local helpers = require('helpers')
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = helpers.not_vscode and helpers.not_neovide,
 	'sphamba/smear-cursor.nvim',
 	opts = {},
 }

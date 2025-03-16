@@ -1,4 +1,5 @@
 local plugin_keys = require('keybinds.plugins')
+local helpers = require('helpers')
 
 return {
 	enabled = require('helpers').not_vscode,
@@ -26,6 +27,6 @@ return {
 		picker = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
-		scroll = { enabled = true },
+		scroll = { enabled = helpers.not_neovide },
 	},
 }
