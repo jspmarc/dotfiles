@@ -1,3 +1,15 @@
+local helpers = require('helpers')
+
+vim.g.vimsyn_embed = 'l'
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
+
+-- vim.g.codecompanion_auto_tool_mode = 1
+vim.g.lumen_light_colorscheme = helpers.themes.light
+vim.g.lumen_dark_colorscheme = helpers.themes.dark
+vim.g['sneak#label'] = 1
+
+-- *** options ***
 local o = vim.opt
 
 -- o.autochdir = true -- change dir on changing buffer
@@ -60,3 +72,10 @@ o.updatetime = 1000
 
 o.wrap = false -- disables linewrapping
 o.writebackup = false
+
+-- *** neovide ***
+if not helpers.not_neovide then
+	o.guifont = 'JetBrainsMono Nerd Font Propo:h11'
+	vim.g.neovide_confirm_quit = true
+	vim.g.neovide_detach_on_quit = 'always_detach'
+end
