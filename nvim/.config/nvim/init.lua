@@ -2,7 +2,7 @@ local helpers = require('helpers')
 
 vim.g.vimsyn_embed = 'l'
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ','
 
 ---------------------------------------------------------------------------------------------------
 -- Load Modules
