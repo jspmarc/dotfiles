@@ -29,18 +29,18 @@ return {
 		vendors = {
 			-- ollama
 			['ollama-llama3.1-8b'] = {
-				__inherited_from = 'openai',
-				endpoint = 'http://127.0.0.1:11434/v1',
-				api_key_name = '',
+				__inherited_from = 'ollama',
 				model = 'llama3.1:8b-instruct-q8_0',
 				disable_tools = true,
 			},
 			['ollama-deepseek-r1-14b'] = {
-				__inherited_from = 'openai',
-				endpoint = 'http://127.0.0.1:11434/v1',
-				api_key_name = '',
+				__inherited_from = 'ollama',
 				model = 'deepseek-r1:14b',
 				disable_tools = true,
+			},
+			['ollama-qwen-2.5-coder'] = {
+				__inherited_from = 'ollama',
+				model = 'qwen2.5-coder',
 			},
 
 			-- openrouter
