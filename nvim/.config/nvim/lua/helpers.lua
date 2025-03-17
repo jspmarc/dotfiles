@@ -141,4 +141,6 @@ M.themes = {
 	light = 'catppuccin-latte',
 }
 
+M.is_mac = vim.fn.has('macunix') == 1
+
 return M
