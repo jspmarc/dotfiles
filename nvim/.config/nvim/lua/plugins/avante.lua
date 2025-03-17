@@ -23,8 +23,8 @@ return {
 		return vim.list_extend(mappings, keys)
 	end,
 	opts = {
-		provider = 'openrouter-qwen2.5-coder',
-		cursor_planning_provider = 'openrouter-gemini-flash-2.0-lite',
+		provider = 'copilot-claude-3.5',
+		cursor_planning_provider = 'gemini-flash-2.0-lite',
 		auto_suggestions_provider = 'openrouter-qwen2.5-coder-free',
 		vendors = {
 			-- ollama
@@ -110,6 +110,27 @@ return {
 				api_key_name = 'OPENROUTER_API_KEY',
 				model = 'google/gemini-2.0-flash-001',
 				timeout = timeout,
+			},
+
+			['copilot-claude-3.5'] = {
+				__inherited_from = 'copilot',
+				model = 'claude-3.5-sonnet'
+			},
+			['copilot-claude-3.7'] = {
+				__inherited_from = 'copilot',
+				model = 'claude-3.7-sonnet'
+			},
+			['copilot-claude-3.7-thinking'] = {
+				__inherited_from = 'copilot',
+				model = 'claude-3.7-sonnet-thought'
+			},
+			['copilot-4o'] = {
+				__inherited_from = 'copilot',
+				model = 'gpt-4o'
+			},
+			['copilot-gemini-flash-2.0'] = {
+				__inherited_from = 'copilot',
+				model = 'gemini-2.0-flash-001'
 			},
 		},
 		behaviour = {
