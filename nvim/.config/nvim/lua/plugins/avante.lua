@@ -1,7 +1,7 @@
 local timeout = 30000 -- 30 seconds
 
 return {
-	enabled = false,
+	enabled = require('helpers').not_vscode,
 	'yetone/avante.nvim',
 	cmd = {
 		'AvanteAsk',
@@ -24,7 +24,7 @@ return {
 	end,
 	opts = {
 		provider = 'openrouter-qwen2.5-coder',
-		cursor_planning_provider = 'gemini-flash-2.0-lite',
+		cursor_planning_provider = 'openrouter-gemini-flash-2.0-lite',
 		auto_suggestions_provider = 'openrouter-qwen2.5-coder-free',
 		vendors = {
 			-- ollama
@@ -137,5 +137,6 @@ return {
 		'hrsh7th/nvim-cmp',
 		'nvim-tree/nvim-web-devicons',
 		'MeanderingProgrammer/render-markdown.nvim',
+		'zbirenbaum/copilot.lua',
 	},
 }
