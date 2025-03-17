@@ -6,7 +6,7 @@ local helpers = require('helpers')
 require('settings')
 require('config.lazy')
 if helpers.not_vscode then
-	require('lsp.settings')
+	require('lsp')
 	require('autocommands')
 end
 require('keybinds')
