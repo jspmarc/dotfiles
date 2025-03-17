@@ -105,3 +105,5 @@ nmap <leader>gp <Action>(Vcs.Push)
 nmap <leader>ga <Action>(Vcs.Add)
 nmap <leader>g[ <Action>(VcsShowPrevChangeMarker)
 nmap <leader>g] <Action>(VcsShowNextChangeMarker)
+
+nmap <leader>cl <Action>(copilot.chat.show)
