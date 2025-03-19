@@ -269,6 +269,36 @@ return {
 			desc = 'Open line in browser',
 		},
 
+		-- bufdelete
+		{
+			'<leader>bd',
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = 'Delete buffer',
+		},
+		{
+			'<leader>bk',
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = 'Delete buffer',
+		},
+		{
+			'<C-w>c',
+			function()
+				Snacks.bufdelete.all()
+			end,
+			desc = 'Delete all buffers',
+		},
+		{
+			'<C-w>d',
+			function()
+				Snacks.bufdelete.other()
+			end,
+			desc = 'Delete all buffers except current one',
+		},
+
 		-- picker
 		{
 			'<leader>bb',

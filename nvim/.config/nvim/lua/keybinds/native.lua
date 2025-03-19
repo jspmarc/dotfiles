@@ -6,9 +6,9 @@ return {
 	{ '<leader>-',  '<cmd>exe "resize -5"<CR>' },
 
 	-- buffer
-	{ '<leader>bd', '<cmd>bd<CR>',                       desc = 'Delete buffer' },
-	{ '<leader>bk', '<cmd>bd<CR>',                       desc = 'Delete buffer' },
-	{ '<C-n>',      '<cmd>enew<CR>',                     desc = 'New buffer' },
+	-- { '<leader>bd', '<cmd>bd<CR>',                       desc = 'Delete buffer' },
+	-- { '<leader>bk', '<cmd>bd<CR>',                       desc = 'Delete buffer' },
+	-- { '<C-n>',      '<cmd>enew<CR>',                     desc = 'New buffer' },
 
 	-- colorscheme
 	{
