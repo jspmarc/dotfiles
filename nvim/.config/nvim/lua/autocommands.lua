@@ -1,5 +1,4 @@
 local autocmds = vim.api.nvim_create_augroup('autocmds', { clear = true })
-local set_colorscheme = require('helpers').set_colorscheme
 
 -- vim.api.nvim_create_autocmd('CursorHold', {
 -- 	pattern = '*',

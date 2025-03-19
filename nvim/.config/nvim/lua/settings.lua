@@ -2,7 +2,7 @@ local helpers = require('helpers')
 
 vim.g.vimsyn_embed = 'l'
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
+vim.g.maplocalleader = '\\'
 
 -- vim.g.codecompanion_auto_tool_mode = 1
 vim.g.lumen_light_colorscheme = helpers.themes.light
