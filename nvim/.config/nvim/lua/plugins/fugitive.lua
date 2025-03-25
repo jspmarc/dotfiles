@@ -1,5 +1,5 @@
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'tpope/vim-fugitive',
 	cmd = { 'G' },
 	keys = require('keybinds.plugins').fugitive,
