@@ -101,6 +101,19 @@ return {
 		'github/copilot.vim',
 		'nvim-lua/plenary.nvim',
 		'nvim-treesitter/nvim-treesitter',
+		{
+			'0xrusowsky/nvim-ctx-ingest',
+			cmd = { 'CtxIngest' },
+			keys = plugin_keys.ctx_ingest,
+			dependencies = {
+				'nvim-web-devicons', -- required for file icons
+			},
+			config = function()
+				require('nvim-ctx-ingest').setup({
+					-- your config options here
+				})
+			end,
+		},                         -- Optional: to add context to the chat buffer
 		'j-hui/fidget.nvim',       -- Optional: For the fidget spinner
 		'hrsh7th/nvim-cmp',        -- Optional: For using slash commands and variables in the chat buffer
 		'nvim-telescope/telescope.nvim', -- Optional: For using slash commands

@@ -89,6 +89,10 @@ return {
 		},
 	},
 
+	ctx_ingest = {
+		{ '<leader>cf', '<cmd>CtxIngest<CR>', desc = 'Open Ctx Ingest (file picker to share with LLM)' },
+	},
+
 	flash = {
 		{
 			's',
@@ -308,7 +312,7 @@ return {
 			desc = 'Open line in browser',
 		},
 
-		-- bufdelete
+		-- bufdelete and scratch
 		{
 			'<leader>bd',
 			function()
@@ -336,6 +340,20 @@ return {
 				Snacks.bufdelete.other()
 			end,
 			desc = 'Delete all buffers except current one',
+		},
+		{
+			'<leader>bs',
+			function()
+				Snacks.scratch()
+			end,
+			desc = 'Toggle scratch buffer',
+		},
+		{
+			'<leader>bS',
+			function()
+				Snacks.scratch.select()
+			end,
+			desc = 'Select scratch buffer',
 		},
 
 		-- picker
