@@ -34,6 +34,7 @@ nmap <C-z> <Action>(ToggleDistractionFreeMode)
 inoremap <C-j><C-k> <Esc>
 vnoremap <C-j><C-k> <Esc>
 nnoremap <C-j><C-k> <Esc>
+nnoremap Y y$
 
 " use space for 2 leaders
 nmap <space> <leader><leader>
@@ -65,14 +66,17 @@ nmap <leader>l] <Action>(GotoNextError)
 nmap <leader>l[ <Action>(GotoPreviousError)
 
 nmap <leader>tb <Action>(RecentFiles)
-nmap <leader>ts <Action>(GotoFile)
+nmap <leader>tf <Action>(com.mituuz.fuzzier.Fuzzier)
+nmap <leader>ts <Action>(com.mituuz.fuzzier.Fuzzier)
 nmap <leader>th <Action>(RecentFiles)
-nmap <leader>tw <Action>(SearchEverywhere)
+nmap <leader>tw <Action>(com.mituuz.fuzzier.FuzzyGrep)
 nmap <leader>bb <Action>(Switcher)
-nmap <leader>ff <Action>(GotoFile)
+nmap <leader>ff <Action>(com.mituuz.fuzzier.Fuzzier)
 nmap <leader>fh <Action>(RecentFiles)
+nmap <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
+nmap <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 nmap <leader>// <Action>(ReplaceInPath)
-nmap <leader>/s <Action>(SearchEverywhere)
+nmap <leader>/s <Action>(com.mituuz.fuzzier.FuzzyGrep)
 
 nmap <C-l> :noh<CR>
 nmap <C-b> :NERDTree<CR>
@@ -88,7 +92,6 @@ nmap gf <Action>(Forward)
 nmap <C-i> <Action>(Forward)
 nmap gh <Action>(QuickJavaDoc)
 nmap ge <Action>(ShowErrorDescription)
-" nmap <leader>gg <Action>(LazyGit.Open)
 nmap <leader>s <Action>(ActivateStructureToolWindow)
 
 " sneak
@@ -100,10 +103,10 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
 " VCS
-" map <leader>gg <Action>(LazyGit.Open)
-nmap <leader>gg <Action>(ActivateCommitToolWindow)
+map <leader>gg <Action>(LazyGit.Open)
+" nmap <leader>gg <Action>(ActivateCommitToolWindow)
 " nmap <leader>gb <Action>(ActivateVersionControlToolWindow)
-nmap <leader>gg <Action>(ActivateVersionControlToolWindow)
+" nmap <leader>gg <Action>(ActivateVersionControlToolWindow)
 nmap <leader>gB <Action>(Annotate)
 nmap <leader>gu <Action>(Vcs.RollbackChangedLines)
 nmap <leader>gl <Action>(Vcs.UpdateProject)
