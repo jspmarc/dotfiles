@@ -153,10 +153,10 @@
         "format": "",
     },
     "custom/notifications": {
-        "exec": "$HOME/script/dunst_history.sh",
+        "exec": "$HOME/script/wofi/dunst_history.sh",
         "return-type": "json",
         "interval": 1,
-        "on-click": "$HOME/script/dunst_history.sh show",
+        "on-click": "$HOME/script/wofi/dunst_history.sh show",
         "tooltip": true
     }
 }

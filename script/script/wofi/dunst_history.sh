@@ -5,7 +5,7 @@ case $1 in
         # dunstctl history > /tmp/dunst_history.json
         # can I make it so the drun menu shows multiline if the text contains \n, AI?
         wofi --show dmenu --width=600 --height=400 --cache-file=/dev/null \
-            --allow-markup --allow-images \
+            --allow-markup --allow-images --location 2 \
             < <(dunstctl history | jq '.data[] | .[] | .message.data' | sed 's/^"//;s/"$//;s/\\n/    /g')
         ;;
     *)
