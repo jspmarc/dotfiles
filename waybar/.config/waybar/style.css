@@ -291,6 +291,9 @@ label:focus {
 #custom-power-button {
     background-color: #f53c3c;
     padding: 0 15px;
-    /* margin: 3px; */
-    /* border-radius: 5px; */
+}
+
+#custom-notifications {
+    background-color: #b86404;
+    padding: 0 15px;
 }
