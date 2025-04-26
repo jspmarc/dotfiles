@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris"],
-    "modules-right": ["tray", "pulseaudio", "group/hardware", "hyprland/submap", "clock"],
+    "modules-right": ["tray", "pulseaudio", "group/hardware", "hyprland/submap", "clock", "custom/power-button"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -128,7 +128,6 @@
             "Asia/Jakarta"
         ]
     },
-
     "mpris": {
         "interval": 1,
         "format": "{status_icon}  {player_icon} {title} — {artist}",
@@ -147,6 +146,12 @@
     },
     "group/song-status": {
         "modules": ["custom/mpris"]
+    },
+    "custom/power-button": {
+        "on-click": "$HOME/script/wofi/power_button.sh",
+        "interval": 1,
+        "return-type": "json",
+        // "format": "{icon}",
+        "format": "",
     }
 }
-
