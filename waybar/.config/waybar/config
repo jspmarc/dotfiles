@@ -6,7 +6,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["mpris"],
+    "modules-center": ["mpris", "custom/notifications"],
     "modules-right": ["tray", "pulseaudio", "group/hardware", "hyprland/submap", "clock", "custom/power-button"],
 
     // Modules configuration
@@ -150,8 +150,13 @@
     "custom/power-button": {
         "on-click": "$HOME/script/wofi/power_button.sh",
         "interval": 1,
-        "return-type": "json",
-        // "format": "{icon}",
         "format": "",
+    },
+    "custom/notifications": {
+        "exec": "$HOME/script/dunst_history.sh",
+        "return-type": "json",
+        "interval": 1,
+        "on-click": "$HOME/script/dunst_history.sh show",
+        "tooltip": true
     }
 }
