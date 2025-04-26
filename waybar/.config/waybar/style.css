@@ -284,3 +284,10 @@ label:focus {
 #scratchpad.empty {
 	background-color: transparent;
 }
+
+#custom-power-button {
+    background-color: #f53c3c;
+    padding: 0 15px;
+    /* margin: 3px; */
+    /* border-radius: 5px; */
+}

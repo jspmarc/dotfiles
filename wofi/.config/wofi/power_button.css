@@ -1,0 +1,6 @@
+@import "/home/josep/.config/wofi/style.css";
+
+#input{
+	display: none;
+	margin: -1000px; 
+}
