@@ -18,7 +18,7 @@ return {
 	{
 		enabled = require('helpers').not_vscode,
 		'jayp0521/mason-null-ls.nvim',
-		dependencies = { 'williamboman/mason.nvim', 'jose-elias-alvarez/null-ls.nvim' },
+		dependencies = { 'williamboman/mason.nvim', 'nvimtools/none-ls.nvim' },
 		opts = {
 			automatic_setup = true,
 			ensure_installed = vim.tbl_extend(
