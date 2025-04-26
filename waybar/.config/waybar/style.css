@@ -92,9 +92,14 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpris {
+#mpris,
+#mpd,
+#custom-power-button,
+#custom-notifications {
     padding: 0 10px;
     color: #ffffff;
+    border-radius: 5px;
+    margin: 0;
 }
 
 #window,
