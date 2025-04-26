@@ -92,7 +92,7 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
+#mpris {
     padding: 0 10px;
     color: #ffffff;
 }
@@ -235,6 +235,7 @@ label:focus {
     color: #2d3436;
 }
 
+#mpris,
 #mpd {
     background-color: #66cc99;
     color: #2a5c45;
@@ -244,10 +245,12 @@ label:focus {
     background-color: #f53c3c;
 }
 
+#mpris.stopped
 #mpd.stopped {
     background-color: #90b1b1;
 }
 
+#mpris.paused,
 #mpd.paused {
     background-color: #51a37a;
 }
