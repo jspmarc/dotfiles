@@ -4,6 +4,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdtree'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
+Plug 'chrisbra/matchit'
 set peekaboo
 set which-key
 
@@ -41,6 +42,7 @@ nmap <space> <leader><leader>
 
 nmap <C-w>c <Action>(CloseAllEditors)
 nmap <C-w>d <Action>(CloseAllEditorsButActive)
+nmap <C-w>q :q<CR>
 " for mac
 nmap ˙ <C-w>h
 nmap ∆ <C-w>j
@@ -61,6 +63,7 @@ nmap <leader>fo <Action>(ExpandRegion)
 
 nmap <leader>la <Action>(Refactorings.QuickListPopupAction)
 nmap <Leader>lf <Action>(ReformatCode)
+xmap <Leader>lf <Action>(ReformatCode)
 nmap <leader>tf <Action>(GotoFile)
 nmap <leader>l] <Action>(GotoNextError)
 nmap <leader>l[ <Action>(GotoPreviousError)
@@ -76,10 +79,11 @@ nmap <leader>fh <Action>(RecentFiles)
 nmap <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
 nmap <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 nmap <leader>// <Action>(ReplaceInPath)
-nmap <leader>/s <Action>(com.mituuz.fuzzier.FuzzyGrep)
+nmap <leader>/s <Action>(com.mituuz.fuzzier.FuzzyGrepCaseInsensitive)
 
 nmap <C-l> :noh<CR>
 nmap <C-b> :NERDTree<CR>
+nmap - <Action>(OpenNetrw)
 
 " LSP-ish
 nmap gi <Action>(GotoImplementation)
