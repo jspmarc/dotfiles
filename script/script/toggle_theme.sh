@@ -12,11 +12,19 @@ LIGHT_GTK3="adw-gtk3"
 DARK_QT="kvantum-dark"
 LIGHT_QT="kvantum-light"
 
+hyprctl() {
+    /usr/bin/hyprctl --instance 0 "$@"
+}
+
 # Function to switch to dark mode
 switch_to_dark() {
     gsettings set org.gnome.desktop.interface color-scheme "$DARK_GTK4"
     gsettings set org.gnome.desktop.interface gtk-theme "$DARK_GTK3"
     export QT_QPA_PLATFORMTHEME="$DARK_QT"
+
+    hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/eclipse.jpg"
+    hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/eclipse.jpg"
+
     notify-send --app-name="darkman" --urgency=low "Switched to DARK mode."
 }
 
@@ -25,6 +33,10 @@ switch_to_light() {
     gsettings set org.gnome.desktop.interface color-scheme "$LIGHT_GTK4"
     gsettings set org.gnome.desktop.interface gtk-theme "$LIGHT_GTK3"
     export QT_QPA_PLATFORMTHEME="$LIGHT_QT"
+
+    hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
+    hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
+
     notify-send --app-name="darkman" --urgency=low "Switched to LIGHT mode."
 }
 
