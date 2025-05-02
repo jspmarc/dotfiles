@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris", "custom/notifications"],
-    "modules-right": ["tray", "pulseaudio", "custom/darkman", "group/hardware", "clock", "custom/power-button"],
+    "modules-right": ["tray", "custom/cliphist", "pulseaudio", "custom/darkman", "group/hardware", "clock", "custom/power-button"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -153,12 +153,16 @@
         "exec": "$HOME/script/wofi/dunst_history.sh",
         "return-type": "json",
         "interval": "once",
-        "on-click": "$HOME/script/wofi/dunst_history.sh show",
-        "tooltip": true
+        "on-click": "$HOME/script/wofi/dunst_history.sh show"
     },
     "custom/darkman": {
         "exec": "[ \"$(darkman get)\" = 'dark' ] && echo '' || echo ''",
         "interval": 60,
         "on-click": "darkman toggle"
-    }
+    },
+	"custom/cliphist": {
+		"format": "",
+		"on-click": "cliphist list | wofi --dmenu --location 3 | cliphist decode | wl-copy",
+		"on-click-right": "cliphist wipe"
+	}
 }

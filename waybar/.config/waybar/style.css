@@ -96,7 +96,8 @@ button:hover {
 #mpd,
 #custom-power-button,
 #custom-notifications,
-#custom-darkman {
+#custom-darkman,
+#custom-cliphist {
     padding: 0 10px;
     color: #ffffff;
     border-radius: 5px;
@@ -306,5 +307,10 @@ label:focus {
 
 #custom-darkman {
     background-color: #1a1a1a;
+    padding: 0 15px;
+}
+
+#custom-cliphist {
+    background-color: #511957;
     padding: 0 15px;
 }
