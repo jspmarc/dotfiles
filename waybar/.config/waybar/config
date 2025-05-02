@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris", "custom/notifications"],
-    "modules-right": ["tray", "pulseaudio", "group/hardware", "hyprland/submap", "clock", "custom/power-button"],
+    "modules-right": ["tray", "pulseaudio", "custom/darkman", "group/hardware", "clock", "custom/power-button"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -144,19 +144,21 @@
             "stopped": ""
         }
     },
-    "group/song-status": {
-        "modules": ["custom/mpris"]
-    },
     "custom/power-button": {
         "on-click": "$HOME/script/wofi/power_button.sh",
-        "interval": 1,
+        "interval": "once",
         "format": "",
     },
     "custom/notifications": {
         "exec": "$HOME/script/wofi/dunst_history.sh",
         "return-type": "json",
-        "interval": 1,
+        "interval": "once",
         "on-click": "$HOME/script/wofi/dunst_history.sh show",
         "tooltip": true
+    },
+    "custom/darkman": {
+        "exec": "[ \"$(darkman get)\" = 'dark' ] && echo '' || echo ''",
+        "interval": 60,
+        "on-click": "darkman toggle"
     }
 }

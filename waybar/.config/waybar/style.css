@@ -95,7 +95,8 @@ button:hover {
 #mpris,
 #mpd,
 #custom-power-button,
-#custom-notifications {
+#custom-notifications,
+#custom-darkman {
     padding: 0 10px;
     color: #ffffff;
     border-radius: 5px;
@@ -300,5 +301,10 @@ label:focus {
 
 #custom-notifications {
     background-color: #b86404;
+    padding: 0 15px;
+}
+
+#custom-darkman {
+    background-color: #1a1a1a;
     padding: 0 15px;
 }
