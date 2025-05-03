@@ -74,12 +74,13 @@ nmap <leader>ts <Action>(com.mituuz.fuzzier.Fuzzier)
 nmap <leader>th <Action>(RecentFiles)
 nmap <leader>tw <Action>(com.mituuz.fuzzier.FuzzyGrep)
 nmap <leader>bb <Action>(Switcher)
+nmap <leader>bS <Action>(Scratch.ShowFilesPopup)
 nmap <leader>ff <Action>(com.mituuz.fuzzier.Fuzzier)
 nmap <leader>fh <Action>(RecentFiles)
 nmap <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
 nmap <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 nmap <leader>// <Action>(ReplaceInPath)
-nmap <leader>/s <Action>(com.mituuz.fuzzier.FuzzyGrepCaseInsensitive)
+nmap <leader>/s <Action>(com.mituuz.fuzzier.FuzzyGrep)
 
 nmap <C-l> :noh<CR>
 nmap <C-b> :NERDTree<CR>
