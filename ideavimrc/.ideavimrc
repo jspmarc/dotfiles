@@ -21,6 +21,9 @@ set incsearch
 set hls
 set idearefactormode=keep
 set ideajoin
+" these 2 below are for which-key
+set notimeout
+set timeoutlen=5000
 
 sethandler ˙ a:vim
 sethandler ∆ a:vim
