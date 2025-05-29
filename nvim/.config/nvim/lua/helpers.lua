@@ -113,25 +113,14 @@ function M.open_avante_command_menu()
 	vim.ui.select(options, { prompt = 'Avante Function: ' }, callback)
 end
 
-if local_helpers.lsp_servers then
-	M.lsp_servers = local_helpers.lsp_servers
-else
-	M.lsp_servers = {
-		'lua_ls',
-	}
-end
+local mason_ignored = local_helpers.mason_ignored or {}
 
-if local_helpers.null_ls_formatters then
-	M.null_ls_formatters = local_helpers.null_ls_formatters
-else
-	M.null_ls_formatters = {}
-end
-
-if local_helpers.null_ls_linters then
-	M.null_ls_linters = local_helpers.null_ls_linters
-else
-	M.null_ls_linters = {}
-end
+M.lsp_servers = local_helpers.lsp_servers or {}
+M.mason_lsp = vim.tbl_filter(function(server)
+	return not vim.tbl_contains(mason_ignored, server)
+end, M.lsp_servers)
+M.null_ls_formatters = local_helpers.null_ls_formatters or {}
+M.null_ls_linters = local_helpers.null_ls_linters or {}
 
 M.not_vscode = not vim.g.vscode
 M.not_neovide = not vim.g.neovide
