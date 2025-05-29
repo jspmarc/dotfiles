@@ -379,6 +379,13 @@ return {
 			desc = 'Find all files (incl. hidden and ignored) in cwd',
 		},
 		{
+			'<leader>fh',
+			function()
+				Snacks.picker.recent()
+			end,
+			desc = 'Find recent files',
+		},
+		{
 			'<leader>fs',
 			function()
 				Snacks.picker.smart({ cwd_only = false })
