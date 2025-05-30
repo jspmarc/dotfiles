@@ -30,6 +30,10 @@ for _, server in ipairs(servers) do
 		opts = vim.tbl_extend('force', opts, require('lsp.texlab'))
 	elseif server == 'ts_ls' then
 		opts = vim.tbl_extend('force', opts, require('lsp.ts_ls'))
+	elseif server == 'ruby_lsp' then
+		opts = {
+			cmd = { vim.fn.expand('~/.rbenv/shims/ruby-lsp') },
+		}
 	end
 
 	nvim_lsp[server].setup(opts)
