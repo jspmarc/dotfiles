@@ -1,7 +1,7 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = false,
+	enabled = require('helpers').not_vscode,
 	'olimorris/codecompanion.nvim',
 	cmd = {
 		'CodeCompanion',

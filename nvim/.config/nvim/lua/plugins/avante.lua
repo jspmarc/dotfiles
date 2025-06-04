@@ -1,7 +1,7 @@
 local timeout = 30000 -- 30 seconds
 
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'yetone/avante.nvim',
 	cmd = {
 		'AvanteAsk',
