@@ -38,11 +38,35 @@ return {
 			mode = { 'v' },
 		},
 		{
+			'<leader>ch',
+			function()
+				require('avante.api').select_history()
+			end,
+			desc = 'avante: select from history',
+			mode = 'n',
+		},
+		{
 			'<leader>cl',
 			function()
 				require('avante.api').toggle()
 			end,
 			desc = 'avante: toggle chat panel',
+			mode = 'n',
+		},
+		{
+			'<leader>cm',
+			function()
+				require('avante.model_selector').open()
+			end,
+			desc = 'avante: select AI provider',
+			mode = 'n',
+		},
+		{
+			'<leader>cn',
+			function()
+				require('avante.api').ask({ new_chat = true })
+			end,
+			desc = 'avante: start a new chat',
 			mode = { 'n', 'v' },
 		},
 		{

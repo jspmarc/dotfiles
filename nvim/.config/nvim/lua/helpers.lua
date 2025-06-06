@@ -60,15 +60,27 @@ function M.open_avante_command_menu()
 	local avante_commands = {
 		{
 			function()
+				require('avante.api').toggle()
+			end,
+			'Toggle the chat panel',
+		},
+		{
+			function()
+				require('avante.api').ask({ new_chat = true })
+			end,
+			'Open a new chat',
+		},
+		{
+			function()
 				require('avante.api').ask()
 			end,
 			'Ask AI about code',
 		},
 		{
 			function()
-				require('avante.api').toggle()
+				require('avante.api').select_history()
 			end,
-			'Toggle the chat panel',
+			'Select from history',
 		},
 		{
 			function()
