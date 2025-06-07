@@ -1,8 +1,9 @@
-local nvim_lsp = require('lspconfig')
+local nvim_lsp = vim.lsp
 local util = require('lspconfig.util')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local servers = require('helpers').lsp_servers
+nvim_lsp.enable(servers)
 
 for _, server in ipairs(servers) do
 	local opts = {
@@ -31,10 +32,10 @@ for _, server in ipairs(servers) do
 	elseif server == 'ts_ls' then
 		opts = vim.tbl_extend('force', opts, require('lsp.ts_ls'))
 	elseif server == 'ruby_lsp' then
-		opts = {
+		opts = vim.tbl_extend('force', opts, {
 			cmd = { vim.fn.expand('~/.rbenv/shims/ruby-lsp') },
-		}
+		})
 	end
 
-	nvim_lsp[server].setup(opts)
+	nvim_lsp.config(server, opts)
 end
