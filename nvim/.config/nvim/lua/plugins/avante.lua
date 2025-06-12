@@ -22,6 +22,19 @@ return {
 	end,
 	opts = {
 		provider = 'copilot',
+		mode = "agentic",
+		providers = {
+			copilot = {
+				endpoint = "https://api.githubcopilot.com",
+				model = "claude-sonnet-4",
+				disable_tools = false,
+				extra_request_body = {
+					temperature = 0.75,
+					max_tokens = 20480,
+				},
+			},
+		},
+
 		behaviour = {
 			auto_suggestions = false, -- Experimental stage
 			auto_set_highlight_group = true,
