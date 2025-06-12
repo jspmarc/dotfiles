@@ -8,6 +8,7 @@ vim.g.maplocalleader = '\\'
 vim.g.lumen_light_colorscheme = helpers.themes.light
 vim.g.lumen_dark_colorscheme = helpers.themes.dark
 vim.g['sneak#label'] = 1
+vim.g.tmux_navigator_no_mappings = 1
 
 -- *** options ***
 local o = vim.opt

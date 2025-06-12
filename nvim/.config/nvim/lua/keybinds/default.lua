@@ -22,10 +22,11 @@ return {
 	{ '<PageDown>', '<C-d>' },
 
 	-- moving between windows using Alt
-	{ '<A-h>',      '<C-w>h',                        mode = { 'n', 'i', 'v', 't' } },
-	{ '<A-j>',      '<C-w>j',                        mode = { 'n', 'i', 'v', 't' } },
-	{ '<A-k>',      '<C-w>k',                        mode = { 'n', 'i', 'v', 't' } },
-	{ '<A-l>',      '<C-w>l',                        mode = { 'n', 'i', 'v', 't' } },
+	-- { '<A-h>',      '<C-w>h',                        mode = { 'n', 'i', 'v', 't' } },
+	-- { '<A-j>',      '<C-w>j',                        mode = { 'n', 'i', 'v', 't' } },
+	-- { '<A-k>',      '<C-w>k',                        mode = { 'n', 'i', 'v', 't' } },
+	-- { '<A-l>',      '<C-w>l',                        mode = { 'n', 'i', 'v', 't' } },
+	-- handled by tmux-navigator plugin
 
 	-- Toggle settings
 	{ '<A-s>',      '<cmd>set hls!<CR>' },
