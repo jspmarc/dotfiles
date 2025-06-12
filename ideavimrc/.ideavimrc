@@ -131,3 +131,8 @@ nmap <leader>cl <Action>(copilot.chat.show)
 vmap <leader>cl <Action>(copilot.chat.show)
 
 nmap <leader>pp <Action>($LRU)
+
+nmap <leader>zz <Action>(LocalHistory.ShowHistory)
+" nmap <leader>zp <Action>(RecentChanges)
+nmap <leader>zp <Action>(LocalHistory.ShowProjectHistory)
+vmap <leader>zz <Action>(LocalHistory.ShowSelectionHistory)
