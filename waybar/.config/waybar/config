@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris", "custom/notifications"],
-    "modules-right": ["tray", "custom/cliphist", "pulseaudio", "custom/darkman", "group/hardware", "clock", "custom/power-button"],
+    "modules-right": ["tray", "custom/cliphist", "pulseaudio", "custom/darkman", "idle_inhibitor", "group/hardware", "clock", "custom/power-button"],
 
     // Modules configuration
     "hyprland/workspaces": {
