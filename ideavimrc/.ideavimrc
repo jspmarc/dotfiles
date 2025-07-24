@@ -83,6 +83,7 @@ nmap <leader>fg <action>(com.mituuz.fuzzier.FuzzierVCS)
 nmap <leader>fh <Action>(RecentFiles)
 nmap <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
 nmap <leader>fy <action>(CopyReferencePopupGroup)
+vmap <leader>fy <action>(CopyReferencePopupGroup)
 nmap <leader>// <Action>(ReplaceInPath)
 nmap <leader>/s <Action>(com.mituuz.fuzzier.FuzzyGrep)
 
