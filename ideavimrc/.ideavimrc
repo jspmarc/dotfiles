@@ -88,7 +88,7 @@ nmap <leader>/s <Action>(com.mituuz.fuzzier.FuzzyGrep)
 
 nmap <C-l> :noh<CR>
 nmap <C-b> :NERDTree<CR>
-nmap - <Action>(OpenNetrw)
+nmap - <Action>(ShowNavBar)
 
 " LSP-ish
 nmap gi <Action>(GotoImplementation)
@@ -136,3 +136,7 @@ nmap <leader>zz <Action>(LocalHistory.ShowHistory)
 " nmap <leader>zp <Action>(RecentChanges)
 nmap <leader>zp <Action>(LocalHistory.ShowProjectHistory)
 vmap <leader>zz <Action>(LocalHistory.ShowSelectionHistory)
+
+" marks
+nmap dm <Action>(ToggleBookmark)
+nmap <leader>mm <Action>(ShowBookmarks)
