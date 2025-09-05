@@ -22,8 +22,8 @@ switch_to_dark() {
     gsettings set org.gnome.desktop.interface gtk-theme "$DARK_GTK3"
     export QT_QPA_PLATFORMTHEME="$DARK_QT"
 
-    hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/eclipse.jpg"
-    hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/eclipse.jpg"
+    # hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/eclipse.jpg"
+    # hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/eclipse.jpg"
 }
 
 # Function to switch to light mode
@@ -32,8 +32,8 @@ switch_to_light() {
     gsettings set org.gnome.desktop.interface gtk-theme "$LIGHT_GTK3"
     export QT_QPA_PLATFORMTHEME="$LIGHT_QT"
 
-    hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
-    hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
+    # hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
+    # hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
 }
 
 # Check if a parameter is provided
