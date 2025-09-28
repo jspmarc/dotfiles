@@ -41,7 +41,7 @@ return {
 		bottom = 0,
 	},
 	window_background_opacity = 0.9,
-	enable_wayland = false,
+	enable_wayland = true,
 	window_decorations = is_linux and 'NONE' or 'TITLE | RESIZE',
 	enable_tab_bar = false,
 	max_fps = 120,
