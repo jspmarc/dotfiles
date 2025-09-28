@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["mpris", "custom/notifications"],
-    "modules-right": ["tray", "custom/cliphist", "pulseaudio", "custom/darkman", "idle_inhibitor", "group/hardware", "clock", "custom/power-button"],
+    "modules-right": ["tray", "custom/cliphist", "wireplumber", "custom/darkman", "idle_inhibitor", "group/hardware", "clock", "custom/power-button"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -84,6 +84,24 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "wireplumber": {
+        "scroll-step": 1, // %, can be a float
+        // "format": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}% {format_source}",
+        "format-muted": "󰝟 {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "󱡏 ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": ["", " ", " "]
+        },
+        "on-click": "pwvucontrol"
     },
     "group/hardware": {
         "modules": ["cpu", "memory"]
