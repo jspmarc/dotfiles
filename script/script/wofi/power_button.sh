@@ -27,11 +27,11 @@ logout() {
     hyprctl dispatch exit
 }
 
-option_lock=" Lock"
-option_sleep="⏾ Sleep"
-option_restart="⭮ Restart"
-option_shutdown=" Shutdown"
-option_logout="󰍃 Logout"
+option_lock="  Lock"
+option_sleep="⏾  Sleep"
+option_restart="⭮  Restart"
+option_shutdown="  Shutdown"
+option_logout="󰍃  Logout"
 
 # Create menu options
 options="$option_lock\n$option_sleep\n$option_logout\n$option_restart\n$option_shutdown"
