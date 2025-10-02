@@ -1,7 +1,7 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = false,
+	enabled = require('helpers').not_vscode,
 	'olimorris/codecompanion.nvim',
 	cmd = {
 		'CodeCompanion',
@@ -13,7 +13,8 @@ return {
 	opts = {
 		strategies = {
 			chat = {
-				adapter = 'copilot-claude-3.5',
+				adapter = 'openrouter',
+				model = 'google/gemini-2.5-pro',
 				slash_commands = {
 					buffer = {
 						opts = {
@@ -42,47 +43,54 @@ return {
 				},
 			},
 			inline = {
-				adapter = 'copilot-claude-3.5',
+				adapter = 'openrouter',
+				model = 'google/gemini-2.5-flash-lite',
 			},
 			agent = {
-				adapter = 'copilot-claude-3.5',
+				adapter = 'openrouter',
+				model = 'openai/gpt-5',
 			},
 		},
 		adapters = {
-			openrouter = function()
-				return require('codecompanion.adapters').extend('openai_compatible', {
-					env = {
-						url = 'https://openrouter.ai/api',
-						api_key = 'OPENROUTER_API_KEY',
-						chat_url = '/v1/chat/completions',
-					},
-					schema = {
-						model = {
-							default = 'qwen/qwen-2.5-coder-32b-instruct',
-							choices = {
-								'deepseek/deepseek-r1-distill-llama-8b',
-								'deepseek/deepseek-chat:free',
-								'qwen/qwen-2.5-coder-32b-instruct:free',
-								'qwen/qwen-2.5-coder-32b-instruct',
-								'anthropic/claude-3.5-haiku',
-								'anthropic/claude-3.5-sonnet',
-								'anthropic/claude-3.7-sonnet',
-								'google/gemini-2.0-flash-lite-001',
-								'google/gemini-2.0-flash-001',
+			http = {
+				openrouter = function()
+					return require('codecompanion.adapters').extend('openai_compatible', {
+						env = {
+							url = 'https://openrouter.ai/api',
+							api_key = 'OPENROUTER_API_KEY',
+							chat_url = '/v1/chat/completions',
+						},
+						schema = {
+							model = {
+								default = 'google/gemini-2.5-pro',
+								choices = {
+									'qwen/qwen3-coder-flash',
+									'qwen/qwen3-coder-plus',
+									'qwen/qwen3-coder-30b-a3b-instruct',
+									'anthropic/claude-3.5-sonnet',
+									'anthropic/claude-3.7-sonnet',
+									'anthropic/claude-sonnet-4.5',
+									'google/gemini-2.5-pro',
+									'google/gemini-2.5-flash',
+									'google/gemini-2.5-flash-lite',
+									'openai/gpt-5',
+								},
 							},
 						},
-					},
-				})
-			end,
-			['copilot-claude-3.5'] = function()
-				return require('codecompanion.adapters').extend('copilot', {
-					schema = {
-						model = {
-							default = 'claude-3.5-sonnet',
+					})
+				end,
+			},
+			acp = {
+				['copilot-claude-3.5'] = function()
+					return require('codecompanion.adapters').extend('copilot', {
+						schema = {
+							model = {
+								default = 'claude-3.5-sonnet',
+							},
 						},
-					},
-				})
-			end,
+					})
+				end,
+			},
 		},
 		display = {
 			chat = {
@@ -113,10 +121,10 @@ return {
 					-- your config options here
 				})
 			end,
-		},                         -- Optional: to add context to the chat buffer
-		'j-hui/fidget.nvim',       -- Optional: For the fidget spinner
-		'hrsh7th/nvim-cmp',        -- Optional: For using slash commands and variables in the chat buffer
+		}, -- Optional: to add context to the chat buffer
+		'j-hui/fidget.nvim', -- Optional: For the fidget spinner
+		'hrsh7th/nvim-cmp', -- Optional: For using slash commands and variables in the chat buffer
 		'nvim-telescope/telescope.nvim', -- Optional: For using slash commands
-		'folke/snacks.nvim',       -- Optional: Improves `vim.ui.select`
+		'folke/snacks.nvim', -- Optional: Improves `vim.ui.select`
 	},
 }

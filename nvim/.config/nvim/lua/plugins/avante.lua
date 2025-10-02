@@ -1,5 +1,5 @@
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'yetone/avante.nvim',
 	cmd = {
 		'AvanteAsk',
