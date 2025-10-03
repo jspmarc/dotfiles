@@ -22,11 +22,11 @@ return {
 	end,
 	opts = {
 		provider = 'copilot',
-		mode = "agentic",
+		mode = 'agentic',
 		providers = {
 			copilot = {
-				endpoint = "https://api.githubcopilot.com",
-				model = "claude-sonnet-4",
+				endpoint = 'https://api.githubcopilot.com',
+				model = 'claude-sonnet-4',
 				disable_tools = false,
 				extra_request_body = {
 					temperature = 0.75,
@@ -41,7 +41,7 @@ return {
 			auto_set_keymaps = true,
 			auto_apply_diff_after_generation = false,
 			support_paste_from_clipboard = true,
-			minimize_diff = true,      -- Whether to remove unchanged lines when applying a code block
+			minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
 			enable_token_counting = true, -- Whether to enable token counting. Default to true.
 			enable_cursor_planning_mode = false, -- Whether to enable Cursor Planning Mode. Default to false.
 		},
