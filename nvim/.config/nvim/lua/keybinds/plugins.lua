@@ -1,6 +1,6 @@
 return {
 	aerial = {
-		{ '<leader>s', '<cmd>AerialToggle<CR>',    desc = 'Open Buffer Outline Window' },
+		{ '<leader>s', '<cmd>AerialToggle<CR>', desc = 'Open Buffer Outline Window' },
 		{ '<leader>S', '<cmd>AerialNavToggle<CR>', desc = 'Open Buffer Outline Window (Floating)' },
 	},
 
@@ -80,15 +80,15 @@ return {
 	},
 
 	bufferline = {
-		{ '<A-]>',  '<cmd>BufferLineCycleNext<CR>',   desc = 'Go to next buffer' },
-		{ '<A-[>',  '<cmd>BufferLineCyclePrev<CR>',   desc = 'Go to previous buffer' },
+		{ '<A-]>', '<cmd>BufferLineCycleNext<CR>', desc = 'Go to next buffer' },
+		{ '<A-[>', '<cmd>BufferLineCyclePrev<CR>', desc = 'Go to previous buffer' },
 		{ '<C-w>d', '<cmd>BufferLineCloseOthers<CR>', desc = 'Close other buffers' },
 	},
 
 	codecompanion = {
 		{ '<leader>ca', '<cmd>CodeCompanionActions<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion actions' },
-		{ '<leader>cq', '<cmd>CodeCompanion<CR>',        mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
-		{ '<leader>co', '<cmd>CodeCompanionChat<CR>',    mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
+		{ '<leader>cq', '<cmd>CodeCompanion<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
+		{ '<leader>co', '<cmd>CodeCompanionChat<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
 		{
 			'<leader>cl',
 			'<cmd>CodeCompanionChat toggle<CR>',
@@ -485,10 +485,10 @@ return {
 	},
 
 	sneak = {
-		{ 's', '<Plug>Sneak_s', mode = { 'n' },      desc = 'Sneak s' },
-		{ 'S', '<Plug>Sneak_S', mode = { 'n' },      desc = 'Sneak S' },
-		{ 'z', '<Plug>Sneak_s', mode = { 'x' },      desc = 'Sneak s' },
-		{ 'Z', '<Plug>Sneak_S', mode = { 'x' },      desc = 'Sneak S' },
+		{ 's', '<Plug>Sneak_s', mode = { 'n' }, desc = 'Sneak s' },
+		{ 'S', '<Plug>Sneak_S', mode = { 'n' }, desc = 'Sneak S' },
+		{ 'z', '<Plug>Sneak_s', mode = { 'x' }, desc = 'Sneak s' },
+		{ 'Z', '<Plug>Sneak_S', mode = { 'x' }, desc = 'Sneak S' },
 		{ 'f', '<Plug>Sneak_f', mode = { 'n', 'x' }, desc = 'Sneak f' },
 		{ 'F', '<Plug>Sneak_F', mode = { 'n', 'x' }, desc = 'Sneak F' },
 		{ 't', '<Plug>Sneak_t', mode = { 'n', 'x' }, desc = 'Sneak t' },
