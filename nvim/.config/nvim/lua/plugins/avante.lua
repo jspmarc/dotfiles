@@ -21,9 +21,19 @@ return {
 		return vim.list_extend(mappings, keys)
 	end,
 	opts = {
-		provider = 'copilot',
+		provider = 'openrouter',
 		mode = 'agentic',
 		providers = {
+			openrouter = {
+				__inherited_from = 'openai',
+				endpoint = 'https://openrouter.ai/api/v1',
+				api_key_name = 'OPENROUTER_API_KEY',
+				model = 'qwen/qwen3-coder-plus',
+			},
+			ollama = {
+				endpoint = 'http://192.168.0.7:30068',
+				model = 'qwen2.5-coder:7b',
+			},
 			copilot = {
 				endpoint = 'https://api.githubcopilot.com',
 				model = 'claude-sonnet-4',
