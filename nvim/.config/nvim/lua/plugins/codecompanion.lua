@@ -14,7 +14,7 @@ return {
 		strategies = {
 			chat = {
 				adapter = 'openrouter',
-				model = 'google/gemini-2.5-pro',
+				model = 'qwen/qwen3-coder-plus',
 				slash_commands = {
 					buffer = {
 						opts = {
@@ -44,15 +44,33 @@ return {
 			},
 			inline = {
 				adapter = 'openrouter',
-				model = 'google/gemini-2.5-flash-lite',
+				model = 'google/gemini-2.5-flash',
 			},
 			agent = {
 				adapter = 'openrouter',
-				model = 'openai/gpt-5',
+				model = 'google/gemini-2.5-pro',
 			},
 		},
 		adapters = {
 			http = {
+				ollama = function()
+					return require('codecompanion.adapters').extend('openai_compatible', {
+						env = {
+							url = 'http://192.168.0.7:30068',
+							chat_url = '/v1/chat/completions',
+						},
+						schema = {
+							model = {
+								default = 'qwen2.5-coder:7b',
+								choices = {
+									'qwen2.5-coder:7b',
+									'qwen2.5-coder:0.3b',
+									'deepseek-coder:6.7b',
+								},
+							},
+						},
+					})
+				end,
 				openrouter = function()
 					return require('codecompanion.adapters').extend('openai_compatible', {
 						env = {
@@ -62,18 +80,18 @@ return {
 						},
 						schema = {
 							model = {
-								default = 'google/gemini-2.5-pro',
+								default = 'qwen/qwen3-coder-plus',
 								choices = {
 									'qwen/qwen3-coder-flash',
 									'qwen/qwen3-coder-plus',
-									'qwen/qwen3-coder-30b-a3b-instruct',
-									'anthropic/claude-3.5-sonnet',
-									'anthropic/claude-3.7-sonnet',
+									'qwen/qwen-2.5-coder-32b-instruct',
+									'anthropic/claude-sonnet-4',
 									'anthropic/claude-sonnet-4.5',
+									'anthropic/claude-opus-4.1',
 									'google/gemini-2.5-pro',
 									'google/gemini-2.5-flash',
-									'google/gemini-2.5-flash-lite',
 									'openai/gpt-5',
+									'openai/gpt-5-mini',
 								},
 							},
 						},
