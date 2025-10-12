@@ -8,23 +8,27 @@ local function get_appearance()
 end
 
 local function get_color_scheme()
-	local appearance = get_appearance()
-	if appearance:find('Dark') then
-		return 'Darkside'
-	else
-		return 'catppuccin-latte'
-	end
+	-- local appearance = get_appearance()
+	-- if appearance:find('Dark') then
+	-- 	return 'Darkside'
+	-- else
+	-- 	return 'catppuccin-latte'
+	-- end
+	return 'Darkside'
 end
 
 local is_linux = wezterm.target_triple:find('linux') ~= nil
 local is_darwin = wezterm.target_triple:find('darwin') ~= nil
-local darwin_keys = {
-	{
+local keys = {
+	{ key = 'Enter', mods = 'SHIFT', action = wezterm.action({ SendString = '\x1b\r' }) },
+}
+if is_darwin then
+	table.insert(keys, {
 		key = 'Enter',
 		mods = 'ALT',
 		action = wezterm.action.DisableDefaultAssignment,
-	},
-}
+	})
+end
 
 return {
 	color_scheme = get_color_scheme(),
@@ -45,6 +49,6 @@ return {
 	window_decorations = is_linux and 'NONE' or 'TITLE | RESIZE',
 	enable_tab_bar = false,
 	max_fps = 120,
-	keys = is_darwin and darwin_keys or {},
+	keys = keys,
 	front_end = 'WebGpu',
 }
