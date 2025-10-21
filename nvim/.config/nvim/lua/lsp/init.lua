@@ -1,9 +1,8 @@
-local nvim_lsp = vim.lsp
 local util = require('lspconfig.util')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local servers = require('helpers').lsp_servers
-nvim_lsp.enable(servers)
+vim.lsp.enable(servers)
 
 for _, server in ipairs(servers) do
 	local opts = {
@@ -37,5 +36,5 @@ for _, server in ipairs(servers) do
 		})
 	end
 
-	nvim_lsp.config(server, opts)
+	vim.lsp.config(server, opts)
 end
