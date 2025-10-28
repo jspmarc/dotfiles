@@ -208,6 +208,10 @@ exec-on-workspace-change = [
     run = 'layout floating'
 
 [[on-window-detected]]
+    if.app-id = 'app.zen-browser.zen'
+    run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
     if.app-id = 'com.vivaldi.Vivaldi'
     run = 'move-node-to-workspace 1'
 
@@ -234,10 +238,6 @@ exec-on-workspace-change = [
 [[on-window-detected]]
     if.app-id = 'us.zoom.xos'
     run = 'move-node-to-workspace 5'
-
-[[on-window-detected]]
-    if.app-id = 'app.zen-browser.zen'
-    run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
     if.app-id = 'com.monk-studio.jellyfin-music'
