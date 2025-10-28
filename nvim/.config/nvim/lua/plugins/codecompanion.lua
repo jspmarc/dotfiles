@@ -56,16 +56,14 @@ return {
 				ollama = function()
 					return require('codecompanion.adapters').extend('openai_compatible', {
 						env = {
-							url = 'http://192.168.0.7:30068',
+							url = 'http://mnemosyne.box:30068',
 							chat_url = '/v1/chat/completions',
 						},
 						schema = {
 							model = {
-								default = 'qwen2.5-coder:7b',
+								default = 'qwen2.5-coder:3b',
 								choices = {
-									'qwen2.5-coder:7b',
-									'qwen2.5-coder:0.3b',
-									'deepseek-coder:6.7b',
+									'qwen3:0.6b',
 								},
 							},
 						},
