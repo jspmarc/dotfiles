@@ -1,1 +1,1 @@
-stow $(sed 's/\///g' <(ls -d */))
+stow $(ls -d */ | sed 's|/$||')
