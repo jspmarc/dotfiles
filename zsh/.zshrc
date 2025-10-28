@@ -69,3 +69,8 @@ if type "dircolors" > /dev/null; then
 fi
 
 source ~/zsh-files/zsh_motd
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/josep/.lmstudio/bin"
+# End of LM Studio CLI section
+
