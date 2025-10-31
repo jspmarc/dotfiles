@@ -14,7 +14,7 @@ return {
 		strategies = {
 			chat = {
 				adapter = 'openrouter',
-				model = 'qwen/qwen3-coder-plus',
+				model = 'z-ai/glm-4.6',
 				slash_commands = {
 					buffer = {
 						opts = {
@@ -44,11 +44,11 @@ return {
 			},
 			inline = {
 				adapter = 'openrouter',
-				model = 'google/gemini-2.5-flash',
+				model = 'z-ai/glm-4.6',
 			},
 			agent = {
 				adapter = 'openrouter',
-				model = 'google/gemini-2.5-pro',
+				model = 'anthropic/claude-sonnet-4.5',
 			},
 		},
 		adapters = {
@@ -78,18 +78,16 @@ return {
 						},
 						schema = {
 							model = {
-								default = 'qwen/qwen3-coder-plus',
+								default = 'z-ai/glm-4.6',
 								choices = {
-									'qwen/qwen3-coder-flash',
 									'qwen/qwen3-coder-plus',
-									'qwen/qwen-2.5-coder-32b-instruct',
-									'anthropic/claude-sonnet-4',
 									'anthropic/claude-sonnet-4.5',
-									'anthropic/claude-opus-4.1',
+									'anthropic/claude-haiku-4.5',
 									'google/gemini-2.5-pro',
 									'google/gemini-2.5-flash',
 									'openai/gpt-5',
 									'openai/gpt-5-mini',
+									'z-ai/glm-4.6',
 								},
 							},
 						},
