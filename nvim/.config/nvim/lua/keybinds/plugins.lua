@@ -391,14 +391,14 @@ return {
 		{
 			'<leader>ff',
 			function()
-				Snacks.picker.files({ cwd = vim.fn.getcwd(), hidden = true, no_ignore = true })
+				Snacks.picker.files({ cwd = vim.fn.getcwd(), hidden = false, ignored = false })
 			end,
 			desc = 'Find all files in cwd',
 		},
 		{
 			'<leader>fF',
 			function()
-				Snacks.picker.files({ cwd = vim.fn.getcwd(), hidden = true, no_ignore = true })
+				Snacks.picker.files({ cwd = vim.fn.getcwd(), hidden = true, ignored = true })
 			end,
 			desc = 'Find all files (incl. hidden and ignored) in cwd',
 		},
