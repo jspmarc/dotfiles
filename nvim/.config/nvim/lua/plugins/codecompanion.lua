@@ -1,7 +1,7 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'olimorris/codecompanion.nvim',
 	cmd = {
 		'CodeCompanion',
@@ -80,6 +80,7 @@ return {
 							model = {
 								default = 'z-ai/glm-4.6',
 								choices = {
+									'moonshotai/kimi-k2-thinking',
 									'qwen/qwen3-coder-plus',
 									'anthropic/claude-sonnet-4.5',
 									'anthropic/claude-haiku-4.5',

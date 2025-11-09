@@ -1,5 +1,5 @@
 return {
-	enabled = false,
+	enabled = require('helpers').not_vscode,
 	'yetone/avante.nvim',
 	cmd = {
 		'AvanteAsk',
@@ -28,20 +28,11 @@ return {
 				__inherited_from = 'openai',
 				endpoint = 'https://openrouter.ai/api/v1',
 				api_key_name = 'OPENROUTER_API_KEY',
-				model = 'qwen/qwen3-coder-plus',
+				model = 'z-ai/glm-4.6',
 			},
 			ollama = {
 				endpoint = 'http://192.168.0.7:30068',
 				model = 'qwen2.5-coder:7b',
-			},
-			copilot = {
-				endpoint = 'https://api.githubcopilot.com',
-				model = 'claude-sonnet-4',
-				disable_tools = false,
-				extra_request_body = {
-					temperature = 0.75,
-					max_tokens = 20480,
-				},
 			},
 		},
 
