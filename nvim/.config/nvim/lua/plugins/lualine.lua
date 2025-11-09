@@ -4,7 +4,7 @@ return {
 	event = { 'BufReadPost', 'BufNewFile' },
 	opts = {
 		options = {
-			disabled_filetypes = { 'dashboard' },
+			disabled_filetypes = { 'dashboard', 'Avante', 'AvanteSelectedFiles', 'AvanteInput' },
 			theme = 'auto',
 		},
 		sections = {
