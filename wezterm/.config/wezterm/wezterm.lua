@@ -33,7 +33,7 @@ end
 return {
 	color_scheme = get_color_scheme(),
 	font = wezterm.font_with_fallback({
-		'JetBrainsMono Nerd Font Propo',
+		'JetBrainsMono Nerd Font',
 		'Noto Color Emoji',
 		'Relaxed Typing Mono JP',
 	}),
