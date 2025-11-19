@@ -66,6 +66,12 @@ if command -v starship >/dev/null; then
 fi
 # --starship end
 
+# --mise
+if command -v mise >/dev/null; then
+	eval "$(mise activate zsh)"
+fi
+# --mise end
+
 # Remove directory background color
 
 if type "dircolors" > /dev/null; then
@@ -77,6 +83,6 @@ fi
 source ~/zsh-files/zsh_motd
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/josep/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 

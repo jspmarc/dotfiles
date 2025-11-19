@@ -22,6 +22,6 @@ fish_vi_key_bindings
 starship init fish | source
 
 # Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/josep/.lmstudio/bin
+set -gx PATH $PATH $HOME/.lmstudio/bin
 # End of LM Studio CLI section
 
