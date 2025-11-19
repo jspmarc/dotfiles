@@ -213,6 +213,10 @@ exec-on-workspace-change = [
     run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
+    if.app-id = 'com.google.Chrome'
+    run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
     if.app-id = 'com.vivaldi.Vivaldi'
     run = 'move-node-to-workspace 1'
 
@@ -222,6 +226,14 @@ exec-on-workspace-change = [
 
 [[on-window-detected]]
     if.app-id = 'com.jetbrains.intellij'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+    if.app-id = 'com.jetbrains.goland'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+    if.app-id = 'com.jetbrains.webstorm'
     run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
@@ -237,8 +249,20 @@ exec-on-workspace-change = [
     run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
+    if.app-id = 'com.linear'
+    run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+    if.app-id = 'notion.id'
+    run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
     if.app-id = 'us.zoom.xos'
     run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
     if.app-id = 'com.monk-studio.jellyfin-music'
@@ -248,6 +272,3 @@ exec-on-workspace-change = [
     if.app-id = 'com.spotify.client'
     run = 'move-node-to-workspace 9'
 
-[[on-window-detected]]
-    if.app-id = 'com.tinyspeck.slackmacgap'
-    run = 'move-node-to-workspace 10'
