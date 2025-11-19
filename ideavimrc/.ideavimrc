@@ -8,7 +8,7 @@ Plug 'chrisbra/matchit'
 set peekaboo
 set which-key
 
-let g:sneak#label = 1
+let g:{'sneak#label'} = 1
 
 set nu
 set rnu
