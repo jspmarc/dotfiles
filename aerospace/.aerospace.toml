@@ -233,6 +233,10 @@ exec-on-workspace-change = [
     run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
+    if.app-id = 'com.jetbrains.goland'
+    run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
     if.app-id = 'com.jetbrains.webstorm'
     run = 'move-node-to-workspace 3'
 
@@ -249,15 +253,27 @@ exec-on-workspace-change = [
     run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-    if.app-id = 'com.linear'
-    run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
     if.app-id = 'notion.id'
     run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
+    if.app-id = 'com.postmanlabs.mac'
+    run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
     if.app-id = 'us.zoom.xos'
+    run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.iCal'
+    run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.mail'
+    run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+    if.app-id = 'com.linear'
     run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
