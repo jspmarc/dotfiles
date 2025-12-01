@@ -37,7 +37,7 @@ return {
 		'Noto Color Emoji',
 		'Relaxed Typing Mono JP',
 	}),
-	font_size = is_darwin and 13 or 11,
+	font_size = is_darwin and 14 or 12,
 	window_padding = {
 		left = 8,
 		right = 8,
