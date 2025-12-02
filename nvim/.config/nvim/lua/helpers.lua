@@ -30,10 +30,14 @@ function M.map(mode, from, to, opts)
 end
 
 -- Gets the default branch name of the current git repository
--- @return: 'main' if it exists, otherwise 'master'
+-- @return: returns default branch or 'main' if the default branch can't be found
 function M.get_default_branch_name()
-	local res = vim.system({ 'git', 'rev-parse', '--verify', 'main' }, { capture_output = true }):wait()
-	return res.code == 0 and 'main' or 'master'
+	local res = vim.system({ 'git', 'symbolic-ref', 'refs/remotes/origin/HEAD' }, { capture_output = true }):wait()
+	if res.code == 0 and res.stdout then
+		return vim.fn.fnamemodify(res.stdout, ':t')
+	else
+		return 'main'
+	end
 end
 
 -- Sets the colorscheme based on the current background setting
