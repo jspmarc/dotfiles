@@ -138,7 +138,7 @@ M.not_vscode = not vim.g.vscode
 M.not_neovide = not vim.g.neovide
 
 M.themes = {
-	dark = 'onedark',
+	dark = 'catppuccin-macchiato',
 	light = 'catppuccin-latte',
 }
 
