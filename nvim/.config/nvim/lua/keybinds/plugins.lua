@@ -378,6 +378,15 @@ return {
 			mode = { 'n', 'x' },
 			desc = 'Open line in browser',
 		},
+		{
+			'<leader>gy',
+			function()
+				Snacks.gitbrowse({ open = function(url) vim.fn.setreg("+", url) end, notify = false })
+				vim.api.nvim_input("<Esc>")
+			end,
+			mode = { 'n', 'x' },
+			desc = 'Copy line URL to clipboard',
+		},
 
 		-- bufdelete and scratch
 		{
