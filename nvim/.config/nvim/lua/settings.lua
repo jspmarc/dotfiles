@@ -79,9 +79,9 @@ o.writebackup = false
 -- *** neovide ***
 if not helpers.not_neovide then
 	if helpers.is_mac then
-		o.guifont = 'JetBrainsMono Nerd Font Propo:h13'
+		o.guifont = 'JetBrainsMono Nerd Font Propo:h14'
 	else
-		o.guifont = 'JetBrainsMono Nerd Font Propo:h11'
+		o.guifont = 'JetBrainsMono Nerd Font Propo:h12'
 	end
 	vim.g.neovide_confirm_quit = true
 	vim.g.neovide_detach_on_quit = 'always_detach'
