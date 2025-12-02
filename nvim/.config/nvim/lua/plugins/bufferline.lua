@@ -1,7 +1,7 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = true,
+	enabled = false,
 	'akinsho/bufferline.nvim',
 	dependencies = 'nvim-tree/nvim-web-devicons',
 	lazy = false,
