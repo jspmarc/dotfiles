@@ -285,6 +285,45 @@ return {
 		},
 	},
 
+	opencode = {
+		{
+			'<leader>ca',
+			function() require("opencode").ask("@this: ", { submit = true }) end,
+			desc = 'Ask opencode',
+			mode = { 'n', 'x' },
+		},
+		{
+			'ga',
+			function() require("opencode").prompt("@this") end,
+			desc = 'Add to opencode',
+			mode = { 'n', 'x' },
+		},
+		{
+			'<leader>cl',
+			function() require("opencode").toggle() end,
+			desc = 'Toggle opencode',
+			mode = { 'n', 't' },
+		},
+		{
+			'<leader>co',
+			function() require("opencode").select() end,
+			desc = "Execute opencode action…",
+			mode = { "n", "x" },
+		},
+		{
+			'<S-C-u>',
+			function() require("opencode").command("session.half.page.up") end,
+			desc = 'opencode half page up',
+			mode = { 'n', 't' },
+		},
+		{
+			'<S-C-d>',
+			function() require("opencode").command("session.half.page.down") end,
+			desc = 'opencode half page down',
+			mode = { 'n', 't' },
+		},
+	},
+
 	session_manager = {
 		{
 			'<leader>pp',
