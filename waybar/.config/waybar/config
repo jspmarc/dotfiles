@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/window"],
     "modules-center": ["mpris", "custom/notifications"],
     "modules-right": ["tray", "custom/cliphist", "wireplumber", "custom/darkman", "idle_inhibitor", "group/hardware", "clock", "custom/power-button"],
 
@@ -41,6 +41,42 @@
         "sort-by": "id"
     },
     "hyprland/window": {
+        "format": "{title}",
+        "rewrite": {
+            "\\[\\d+\\/\\d+\\]\\s+(.*)": "$1 - Wezterm" // e.g.: [1/4] nvim
+        }
+    },
+    "sway/workspaces": {
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            // "1": "一",
+            // "2": "二",
+            // "3": "三",
+            // "4": "四",
+            // "5": "五",
+            // "6": "六",
+            // "7": "七",
+            // "8": "八",
+            // "9": "九",
+            // "10": "十",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "sort-by": "id"
+    },
+    "sway/window": {
         "format": "{title}",
         "rewrite": {
             "\\[\\d+\\/\\d+\\]\\s+(.*)": "$1 - Wezterm" // e.g.: [1/4] nvim

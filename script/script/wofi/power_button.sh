@@ -25,6 +25,7 @@ lock() {
 # Function to handle logout
 logout() {
     hyprctl dispatch exit
+    swaymsg exit
 }
 
 option_lock="  Lock"
