@@ -1,6 +1,6 @@
 return {
 	aerial = {
-		{ '<leader>s', '<cmd>AerialToggle<CR>',    desc = 'Open Buffer Outline Window' },
+		{ '<leader>s', '<cmd>AerialToggle<CR>', desc = 'Open Buffer Outline Window' },
 		{ '<leader>S', '<cmd>AerialNavToggle<CR>', desc = 'Open Buffer Outline Window (Floating)' },
 	},
 
@@ -80,23 +80,33 @@ return {
 	},
 
 	bufferline = {
-		{ '<A-]>',  '<cmd>BufferLineCycleNext<CR>',   desc = 'Go to next buffer' },
-		{ '<A-[>',  '<cmd>BufferLineCyclePrev<CR>',   desc = 'Go to previous buffer' },
+		{ '<A-]>', '<cmd>BufferLineCycleNext<CR>', desc = 'Go to next buffer' },
+		{ '<A-[>', '<cmd>BufferLineCyclePrev<CR>', desc = 'Go to previous buffer' },
 		{ '<C-w>d', '<cmd>BufferLineCloseOthers<CR>', desc = 'Close other buffers' },
 	},
 
 	codecompanion = {
 		{ '<leader>ca', '<cmd>CodeCompanionActions<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion actions' },
-		{ '<leader>ch', '<cmd>CodeCompanionHistory<CR>', mode = 'n',          desc = 'Open CodeCompanion chat histories' },
-		{ '<leader>co', '<cmd>CodeCompanionChat<CR>',    mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
+		{
+			'<leader>ch',
+			'<cmd>CodeCompanionHistory<CR>',
+			mode = 'n',
+			desc = 'Open CodeCompanion chat histories',
+		},
+		{ '<leader>co', '<cmd>CodeCompanionChat<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat' },
 		{
 			'<leader>cl',
 			'<cmd>CodeCompanionChat toggle<CR>',
 			mode = { 'n', 'v' },
 			desc = 'Toggle CodeCompanion chat buffer',
 		},
-		{ '<leader>cs', '<cmd>CodeCompanionSummaries<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion chat summaries' },
-		{ '<leader>cq', '<cmd>CodeCompanion<CR>',          mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
+		{
+			'<leader>cs',
+			'<cmd>CodeCompanionSummaries<CR>',
+			mode = { 'n', 'v' },
+			desc = 'Open CodeCompanion chat summaries',
+		},
+		{ '<leader>cq', '<cmd>CodeCompanion<CR>', mode = { 'n', 'v' }, desc = 'Open CodeCompanion prompt' },
 	},
 
 	copilot = {
@@ -288,37 +298,49 @@ return {
 	opencode = {
 		{
 			'<leader>ca',
-			function() require("opencode").ask("@this: ", { submit = true }) end,
+			function()
+				require('opencode').ask('@this: ', { submit = true })
+			end,
 			desc = 'Ask opencode',
 			mode = { 'n', 'x' },
 		},
 		{
 			'ga',
-			function() require("opencode").prompt("@this") end,
+			function()
+				require('opencode').prompt('@this')
+			end,
 			desc = 'Add to opencode',
 			mode = { 'n', 'x' },
 		},
 		{
 			'<leader>cl',
-			function() require("opencode").toggle() end,
+			function()
+				require('opencode').toggle()
+			end,
 			desc = 'Toggle opencode',
 			mode = { 'n', 't' },
 		},
 		{
 			'<leader>co',
-			function() require("opencode").select() end,
-			desc = "Execute opencode action…",
-			mode = { "n", "x" },
+			function()
+				require('opencode').select()
+			end,
+			desc = 'Execute opencode action…',
+			mode = { 'n', 'x' },
 		},
 		{
 			'<S-C-u>',
-			function() require("opencode").command("session.half.page.up") end,
+			function()
+				require('opencode').command('session.half.page.up')
+			end,
 			desc = 'opencode half page up',
 			mode = { 'n', 't' },
 		},
 		{
 			'<S-C-d>',
-			function() require("opencode").command("session.half.page.down") end,
+			function()
+				require('opencode').command('session.half.page.down')
+			end,
 			desc = 'opencode half page down',
 			mode = { 'n', 't' },
 		},
@@ -381,8 +403,13 @@ return {
 		{
 			'<leader>gy',
 			function()
-				Snacks.gitbrowse({ open = function(url) vim.fn.setreg("+", url) end, notify = false })
-				vim.api.nvim_input("<Esc>")
+				Snacks.gitbrowse({
+					open = function(url)
+						vim.fn.setreg('+', url)
+					end,
+					notify = false,
+				})
+				vim.api.nvim_input('<Esc>')
 			end,
 			mode = { 'n', 'x' },
 			desc = 'Copy line URL to clipboard',
@@ -537,10 +564,10 @@ return {
 	},
 
 	sneak = {
-		{ 's', '<Plug>Sneak_s', mode = { 'n' },      desc = 'Sneak s' },
-		{ 'S', '<Plug>Sneak_S', mode = { 'n' },      desc = 'Sneak S' },
-		{ 'z', '<Plug>Sneak_s', mode = { 'x' },      desc = 'Sneak s' },
-		{ 'Z', '<Plug>Sneak_S', mode = { 'x' },      desc = 'Sneak S' },
+		{ 's', '<Plug>Sneak_s', mode = { 'n' }, desc = 'Sneak s' },
+		{ 'S', '<Plug>Sneak_S', mode = { 'n' }, desc = 'Sneak S' },
+		{ 'z', '<Plug>Sneak_s', mode = { 'x' }, desc = 'Sneak s' },
+		{ 'Z', '<Plug>Sneak_S', mode = { 'x' }, desc = 'Sneak S' },
 		{ 'f', '<Plug>Sneak_f', mode = { 'n', 'x' }, desc = 'Sneak f' },
 		{ 'F', '<Plug>Sneak_F', mode = { 'n', 'x' }, desc = 'Sneak F' },
 		{ 't', '<Plug>Sneak_t', mode = { 'n', 'x' }, desc = 'Sneak t' },
@@ -630,10 +657,10 @@ return {
 	},
 
 	['tmux-navigator'] = {
-		{ '<A-h>',  '<cmd>TmuxNavigateLeft<CR>' },
-		{ '<A-j>',  '<cmd>TmuxNavigateDown<CR>' },
-		{ '<A-k>',  '<cmd>TmuxNavigateUp<CR>' },
-		{ '<A-l>',  '<cmd>TmuxNavigateRight<CR>' },
+		{ '<A-h>', '<cmd>TmuxNavigateLeft<CR>' },
+		{ '<A-j>', '<cmd>TmuxNavigateDown<CR>' },
+		{ '<A-k>', '<cmd>TmuxNavigateUp<CR>' },
+		{ '<A-l>', '<cmd>TmuxNavigateRight<CR>' },
 		{ '<A-\\>', '<cmd>TmuxNavigatePrevious<CR>' },
 	},
 

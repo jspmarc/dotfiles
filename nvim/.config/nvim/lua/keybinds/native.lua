@@ -1,9 +1,9 @@
 return {
 	-- resize windows
-	{ '<leader>+',  '<cmd>exe "vertical resize +10"<CR>' },
-	{ '<leader>_',  '<cmd>exe "vertical resize -10"<CR>' },
-	{ '<leader>=',  '<cmd>exe "resize +5"<CR>' },
-	{ '<leader>-',  '<cmd>exe "resize -5"<CR>' },
+	{ '<leader>+', '<cmd>exe "vertical resize +10"<CR>' },
+	{ '<leader>_', '<cmd>exe "vertical resize -10"<CR>' },
+	{ '<leader>=', '<cmd>exe "resize +5"<CR>' },
+	{ '<leader>-', '<cmd>exe "resize -5"<CR>' },
 
 	-- buffer
 	-- { '<leader>bd', '<cmd>bd<CR>',                       desc = 'Delete buffer' },
@@ -19,4 +19,3 @@ return {
 		desc = 'Set colorscheme',
 	},
 }
-

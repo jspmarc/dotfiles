@@ -3,8 +3,8 @@ return {
 	version = '*', -- recommended, use latest release instead of latest commit
 	lazy = true,
 	event = {
-	  "BufReadPre " .. vim.fn.expand("~") .. "/Documents/2nd Brain/**/*.md",
-	  "BufNewFile " .. vim.fn.expand("~") .. "/Documents/2nd Brain/**/*.md",
+		'BufReadPre ' .. vim.fn.expand('~') .. '/Documents/2nd Brain/**/*.md',
+		'BufNewFile ' .. vim.fn.expand('~') .. '/Documents/2nd Brain/**/*.md',
 	},
 	dependencies = {
 		-- Required.

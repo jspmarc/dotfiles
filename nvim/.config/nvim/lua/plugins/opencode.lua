@@ -1,12 +1,12 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	"NickvanDyke/opencode.nvim",
+	'NickvanDyke/opencode.nvim',
 	dependencies = {
 		-- Recommended for `ask()` and `select()`.
 		-- Required for `snacks` provider.
 		---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
-		{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+		{ 'folke/snacks.nvim', opts = { input = {}, picker = {}, terminal = {} } },
 	},
 	keys = plugin_keys.opencode,
 	config = function()
