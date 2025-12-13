@@ -1,7 +1,7 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = true,
+	enabled = false,
 	'justinmk/vim-sneak',
 	keys = plugin_keys.sneak,
 }

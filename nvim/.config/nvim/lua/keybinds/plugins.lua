@@ -295,6 +295,21 @@ return {
 		},
 	},
 
+	leap = {
+		{ 's', '<Plug>(leap)',             mode = { 'n', 'x', 'o' }, desc = 'Leap s' },
+		{ 'S', '<Plug>(leap-from-window)', mode = { 'n' },           desc = 'Leap S' },
+		{
+			'R',
+			function()
+				require('leap.treesitter').select({
+					opts = require('leap.user').with_traversal_keys('R', 'r'),
+				})
+			end,
+			mode = { 'x', 'o' },
+			desc = 'Leap Tresitter node selection',
+		},
+	},
+
 	opencode = {
 		{
 			'<leader>ca',
