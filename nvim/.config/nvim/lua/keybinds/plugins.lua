@@ -333,7 +333,7 @@ return {
 				require('opencode').toggle()
 			end,
 			desc = 'Toggle opencode',
-			mode = { 'n', 't' },
+			mode = 'n',
 		},
 		{
 			'<leader>co',
