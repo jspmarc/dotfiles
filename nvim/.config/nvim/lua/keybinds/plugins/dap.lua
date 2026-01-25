@@ -88,15 +88,6 @@ return {
 		remap = false,
 	},
 	{
-		'<F5>',
-		function()
-			require('dap').repl.open()
-		end,
-		desc = 'Open REPL',
-		nowait = true,
-		remap = false,
-	},
-	{
 		'<leader>;r',
 		function()
 			require('dap').repl.open()
