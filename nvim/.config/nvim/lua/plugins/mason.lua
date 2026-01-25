@@ -29,4 +29,18 @@ return {
 			),
 		},
 	},
+	{
+		enabled = helpers.not_vscode,
+		'jayp0521/mason-nvim-dap.nvim',
+		dependencies = { 'williamboman/mason.nvim', 'mfussenegger/nvim-dap' },
+		opts = {
+			automatic_setup = true,
+			ensure_installed = helpers.nvim_dap_servers,
+			handlers = {
+				function (config)
+					require('mason-nvim-dap').default_setup(config)
+				end
+			}
+		},
+	},
 }

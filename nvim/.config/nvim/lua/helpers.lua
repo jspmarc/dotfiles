@@ -137,6 +137,7 @@ M.mason_lsp = vim.tbl_filter(function(server)
 end, M.lsp_servers)
 M.null_ls_formatters = local_helpers.null_ls_formatters or {}
 M.null_ls_linters = local_helpers.null_ls_linters or {}
+M.nvim_dap_servers = local_helpers.nvim_dap_servers or {}
 
 M.not_vscode = not vim.g.vscode
 M.not_neovide = not vim.g.neovide

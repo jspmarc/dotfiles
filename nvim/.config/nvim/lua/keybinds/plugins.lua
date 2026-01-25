@@ -129,6 +129,8 @@ return {
 		{ '<leader>cf', '<cmd>CtxIngest<CR>', desc = 'Open Ctx Ingest (file picker to share with LLM)' },
 	},
 
+	dap = require('keybinds.plugins.dap'),
+
 	flash = {
 		{
 			's',

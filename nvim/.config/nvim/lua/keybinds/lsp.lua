@@ -12,6 +12,4 @@ return vim.list_extend({
 	{ '<leader>lq', function() vim.diagnostic.setloclist() end },
 	{ '<leader>lr', function() vim.lsp.buf.rename() end },
 	{ '<F2>', function() vim.lsp.buf.rename() end },
-	-- TODO: use proxy
-	{ '<F6>', function() vim.lsp.buf.rename() end },
 }, plugin_keys.snacks_lsp)

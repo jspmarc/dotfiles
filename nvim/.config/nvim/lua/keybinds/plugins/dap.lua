@@ -1,0 +1,165 @@
+-- WhichKey Keymaps
+return {
+	{
+		'<leader>;',
+		group = 'Debugger',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<F8>',
+		function()
+			require('dap').toggle_breakpoint()
+		end,
+		desc = 'Toggle Breakpoint',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;c',
+		function()
+			require('dap').continue()
+		end,
+		desc = 'Continue',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;c',
+		function()
+			require('dap').continue()
+		end,
+		desc = 'Continue',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<F6>',
+		function()
+			require('dap').continue()
+		end,
+		desc = 'Continue',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<F7>',
+		function()
+			require('dap').step_over()
+		end,
+		desc = 'Step Over',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<Down>',
+		function()
+			require('dap').step_over()
+		end,
+		desc = 'Step Over',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<Right>',
+		function()
+			require('dap').step_into()
+		end,
+		desc = 'Step Into',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<Left>',
+		function()
+			require('dap').step_out()
+		end,
+		desc = 'Step Out',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<Up>',
+		function()
+			require('dap').restart_frame()
+		end,
+		desc = 'Restart Frame',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<F5>',
+		function()
+			require('dap').repl.open()
+		end,
+		desc = 'Open REPL',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;r',
+		function()
+			require('dap').repl.open()
+		end,
+		desc = 'Open REPL',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;l',
+		function()
+			require('dap').run_last()
+		end,
+		desc = 'Run Last',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;q',
+		function()
+			require('dap').terminate()
+			require('dapui').close()
+			require('nvim-dap-virtual-text').toggle()
+		end,
+		desc = 'Terminate',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;b',
+		function()
+			require('dap').list_breakpoints()
+		end,
+		desc = 'List Breakpoints',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;e',
+		function()
+			require('dap').set_exception_breakpoints({ 'all' })
+		end,
+		desc = 'Set Exception Breakpoints',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;w',
+		function()
+			require('dapui').elements.watches.add(vim.fn.expand('<cword>'))
+		end,
+		desc = 'Add to element on cursor watches',
+		nowait = true,
+		remap = false,
+	},
+	{
+		'<leader>;W',
+		function()
+			local expr = vim.fn.input('Expression to watch')
+			require('dapui').elements.watches.add(expr)
+		end,
+		desc = 'Add to element on cursor watches',
+		nowait = true,
+		remap = false,
+	},
+}
