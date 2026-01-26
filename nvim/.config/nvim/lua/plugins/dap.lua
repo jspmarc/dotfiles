@@ -2,6 +2,23 @@
 -- - setting up DAP: https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
 -- - setting up DAP for TS: https://banjocode.com/post/nvim/debug-node
 
+local function detect_package_manager()
+	local cwd = vim.fn.getcwd()
+
+	if vim.fn.filereadable(cwd .. '/pnpm-lock.yaml') == 1 then
+		return 'pnpm'
+	elseif vim.fn.filereadable(cwd .. '/yarn.lock') == 1 then
+		return 'yarn'
+	elseif vim.fn.filereadable(cwd .. '/bun.lockb') == 1 or vim.fn.filereadable(cwd .. '/bun.lock') == 1 then
+		return 'bun'
+	elseif vim.fn.filereadable(cwd .. '/package-lock.json') == 1 then
+		return 'npm'
+	end
+
+	-- Default to npm if no lock file found
+	return 'npm'
+end
+
 local function pick_script()
 	local pilot = require('package-pilot')
 
@@ -77,8 +94,16 @@ return {
 			{
 				type = 'pwa-node',
 				request = 'launch',
-				name = 'pick script (pnpm)',
-				runtimeExecutable = 'pnpm',
+				name = 'launch dev script (auto-detect)',
+				runtimeExecutable = detect_package_manager,
+				runtimeArgs = { 'run', 'dev' },
+				cwd = '${workspaceFolder}',
+			},
+			{
+				type = 'pwa-node',
+				request = 'launch',
+				name = 'pick script (auto-detect)',
+				runtimeExecutable = detect_package_manager,
 				runtimeArgs = { 'run', pick_script },
 				cwd = '${workspaceFolder}',
 			},
@@ -113,36 +138,6 @@ return {
 				console = 'integratedTerminal',
 				internalConsoleOptions = 'neverOpen',
 			},
-			-- {
-			-- 	type = 'pwa-node',
-			-- 	name = 'Launch',
-			-- 	request = 'launch',
-			-- 	trace = true,
-			-- 	program = '${workspaceFolder}/bin',
-			-- 	cwd = '${workspaceFolder}',
-			-- 	rootPath = '${workspaceFolder}',
-			-- 	skipFiles = { '<node_internals>/**/*.js' },
-			-- 	resolveSourceMapLocations = {
-			-- 		'${workspaceFolder}/**',
-			-- 		'!**/node_modules/**',
-			-- 	},
-			-- 	protocol = 'inspector',
-			-- 	console = 'integratedTerminal',
-			-- },
-			-- {
-			-- 	type = 'pwa-node',
-			-- 	name = 'Attach To Process',
-			-- 	request = 'attach',
-			-- 	cwd = '${workspaceFolder}/src',
-			-- 	resolveSourceMapLocations = {
-			-- 		'${workspaceFolder}/**',
-			-- 		'!**/node_modules/**',
-			-- 	},
-			-- 	protocol = 'inspector',
-			-- 	console = 'integratedTerminal',
-			-- 	processId = require('dap.utils').pick_process,
-			-- 	port = 9229,
-			-- },
 		}
 		for _, i in ipairs({ 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' }) do
 			dap.configurations[i] = pwa_node_conf
