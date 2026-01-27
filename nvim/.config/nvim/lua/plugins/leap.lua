@@ -1,7 +1,7 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = true,
+	enabled = false,
 	url = 'https://codeberg.org/andyg/leap.nvim',
 	keys = plugin_keys.leap,
 	lazy = false,

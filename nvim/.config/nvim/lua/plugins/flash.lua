@@ -1,7 +1,7 @@
 local plugin_keys = require('keybinds.plugins')
 
 return {
-	enabled = false,
+	enabled = true,
 	'folke/flash.nvim',
 	event = 'VeryLazy',
 	---@type flash.config
