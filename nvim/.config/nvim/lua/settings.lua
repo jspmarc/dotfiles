@@ -87,4 +87,8 @@ if is_neovide then
 	vim.g.neovide_confirm_quit = true
 	vim.g.neovide_detach_on_quit = 'always_quit'
 	vim.g.neovide_input_macos_option_key_is_meta = 'both'
+	vim.g.neovide_scroll_animation_length = 0
+	vim.g.neovide_position_animation_length = 0
+	vim.g.neovide_cursor_animation_length = 0
+	vim.g.neovide_cursor_short_animation_length = 0
 end

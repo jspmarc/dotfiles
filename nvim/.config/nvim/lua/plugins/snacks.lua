@@ -60,6 +60,6 @@ return {
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scratch = { enabled = true },
-		scroll = { enabled = helpers.not_neovide },
+		scroll = { enabled = false },
 	},
 }
