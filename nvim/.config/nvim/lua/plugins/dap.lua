@@ -59,6 +59,8 @@ return {
 		local ui = require('dapui')
 		local dap_virtual_text = require('nvim-dap-virtual-text')
 
+		dap.set_log_level('debug')
+
 		dap_virtual_text.setup()
 		ui.setup()
 
@@ -78,17 +80,18 @@ return {
 			ui.close()
 		end
 
-		dap.adapters = {
-			['pwa-node'] = {
-				type = 'server',
-				host = 'localhost',
-				port = '${port}',
-				executable = {
-					command = vim.fn.exepath('js-debug-adapter'),
-					args = { '${port}' },
-				},
+		local pwa_node_adapter = {
+			type = 'server',
+			host = 'localhost',
+			port = '${port}',
+			executable = {
+				command = vim.fn.exepath('js-debug-adapter'),
+				args = { '${port}' },
 			},
 		}
+		for _, adapter in ipairs({'pwa-node', 'pwa-chrome'}) do
+			dap.adapters[adapter] = pwa_node_adapter
+		end
 
 		local pwa_node_conf = {
 			{
@@ -119,7 +122,9 @@ return {
 				request = 'attach',
 				name = 'Attach to Node app',
 				address = 'localhost',
-				port = 9229,
+				port = function()
+					return tonumber(vim.fn.input('port: ', '9222'))
+				end,
 				cwd = '${workspaceFolder}',
 				restart = true,
 			},
@@ -137,6 +142,24 @@ return {
 				cwd = '${workspaceFolder}',
 				console = 'integratedTerminal',
 				internalConsoleOptions = 'neverOpen',
+			},
+			{
+				type = 'pwa-chrome',
+				request = 'attach',
+				name = 'Attach to Chrome',
+				port = function()
+					return tonumber(vim.fn.input('port: ', '9222'))
+				end,
+				webRoot = '${workspaceFolder}',
+			},
+			{
+				type = 'pwa-chrome',
+				request = 'launch',
+				name = 'Launch Chrome',
+				url = function()
+					return tonumber(vim.fn.input('url: ', 'http://localhost:5173'))
+				end,
+				webRoot = '${workspaceFolder}',
 			},
 		}
 		for _, i in ipairs({ 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' }) do
