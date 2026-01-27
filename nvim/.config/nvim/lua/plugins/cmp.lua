@@ -43,6 +43,17 @@ return {
 			TypeParameter = '',
 		}
 
+		local select_mapping = cmp.mapping({
+			i = function(fallback)
+				if cmp.visible() and cmp.get_active_entry() then
+					cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+				else
+					fallback()
+				end
+			end,
+			-- s = cmp.mapping.confirm({ select = true }),
+			-- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+		})
 		cmp.setup({
 			snippet = {
 				expand = function(args)
@@ -58,10 +69,7 @@ return {
 					i = cmp.mapping.abort(),
 					c = cmp.mapping.close(),
 				}),
-				['<CR>'] = cmp.mapping.confirm({
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = true,
-				}),
+				['<CR>'] = select_mapping,
 				['<C-n>'] = cmp.mapping.select_next_item(),
 				['<C-p>'] = cmp.mapping.select_prev_item(),
 			},
@@ -83,10 +91,23 @@ return {
 			},
 		})
 
-		cmp.setup.cmdline('/', {
-			sources = cmp.config.sources({
+		-- `/` cmdline setup.
+		cmp.setup.cmdline({ '/', '?' }, {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
 				{ name = 'buffer' },
+			},
+		})
+
+		-- `:` cmdline setup.
+		cmp.setup.cmdline(':', {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = 'path' },
+			}, {
+				{ name = 'cmdline' },
 			}),
+			matching = { disallow_symbol_nonprefix_matching = false },
 		})
 
 		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
