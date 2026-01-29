@@ -694,6 +694,14 @@ return {
 		{ '<A-\\>', '<cmd>TmuxNavigatePrevious<CR>' },
 	},
 
+	venter = {
+		{
+			'<S-z>',
+			'<cmd>VenterToggle<CR>',
+			desc = 'Toggle Venter',
+		},
+	},
+
 	['which-key'] = {
 		{
 			'<leader>?',
