@@ -178,6 +178,19 @@ return {
 		{ '<leader>gB', '<cmd>G blame<CR>', desc = 'Open blame panel' },
 	},
 
+	fyler = {
+		{
+			'<C-b>',
+			'<CMD>Fyler kind=<CR>',
+			desc = 'Open file browser',
+		},
+		{
+			'-',
+			'<CMD>Fyler<CR>',
+			desc = 'Open file browser',
+		},
+	},
+
 	['mini.files'] = {
 		{
 			'<C-b>',
