@@ -553,6 +553,13 @@ return {
 			end,
 			desc = 'Search (live grep) current directory',
 		},
+		{
+			'<S-z>',
+			function()
+				Snacks.zen()
+			end,
+			desc = 'Focus current window',
+		},
 	},
 
 	snacks_lsp = {

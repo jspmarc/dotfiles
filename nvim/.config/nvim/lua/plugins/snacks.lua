@@ -61,5 +61,33 @@ return {
 		scope = { enabled = true },
 		scratch = { enabled = true },
 		scroll = { enabled = false },
+		zen = {
+			toggles = {
+				dim = true,
+			},
+			show = {
+				statusline = true,
+				tabline = true,
+			},
+		},
+
+		styles = {
+			zen = {
+				enter = true,
+				fixbuf = false,
+				minimal = false,
+				width = 140,
+				height = 0,
+				backdrop = { transparent = true, blend = 20 },
+				keys = { q = false },
+				zindex = 10,
+				wo = {
+					winhighlight = 'NormalFloat:Normal',
+				},
+				w = {
+					snacks_main = true,
+				},
+			},
+		},
 	},
 }
