@@ -1,8 +1,10 @@
 HISTFILE=~/.zsh_history
 # Max commands saved in a shell session
-HISTSIZE=1000
+# 10 thousands
+HISTSIZE=10000
 # Max commands saved in history file
-SAVEHIST=10000
+# 1 million
+SAVEHIST=1000000
 
 setopt hist_ignore_space inc_append_history share_history
 setopt autocd nomatch notify
