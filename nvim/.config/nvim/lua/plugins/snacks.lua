@@ -63,12 +63,18 @@ return {
 		scroll = { enabled = false },
 		zen = {
 			toggles = {
-				dim = true,
+				dim = false,
+				relativenumber = true,
 			},
 			show = {
 				statusline = true,
 				tabline = true,
 			},
+			on_open = function(win)
+				if vim.bo.filetype ~= 'markdown' then
+					Snacks.toggle.dim:set(true)
+				end
+			end,
 		},
 
 		styles = {
