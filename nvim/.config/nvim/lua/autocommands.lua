@@ -11,6 +11,11 @@ vim.api.nvim_create_autocmd('FileType', {
 	group = autocmds,
 })
 vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'markdown',
+	command = 'setlocal wrap tabstop=2 shiftwidth=2 noexpandtab',
+	group = autocmds,
+})
+vim.api.nvim_create_autocmd('FileType', {
 	pattern = '*.notal',
 	command = 'setfiletype notal',
 	group = autocmds,
