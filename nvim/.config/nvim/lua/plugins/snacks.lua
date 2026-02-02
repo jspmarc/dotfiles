@@ -70,11 +70,11 @@ return {
 				statusline = true,
 				tabline = true,
 			},
-			on_open = function(win)
-				if vim.bo.filetype ~= 'markdown' then
-					Snacks.toggle.dim:set(true)
-				end
-			end,
+			-- on_open = function(win)
+			-- 	if vim.bo.filetype ~= 'markdown' then
+			-- 		Snacks.toggle.dim:set(true)
+			-- 	end
+			-- end,
 		},
 
 		styles = {
