@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/window"],
     "modules-center": ["mpris", "custom/notifications"],
-    "modules-right": ["tray", "custom/cliphist", "wireplumber", "custom/darkman", "idle_inhibitor", "group/hardware", "clock", "custom/power-button"],
+    "modules-right": ["tray", "custom/toggle-hdr", "custom/cliphist", "wireplumber", "custom/darkman", "idle_inhibitor", "group/hardware", "clock", "custom/power-button"],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -212,9 +212,17 @@
         "interval": 60,
         "on-click": "darkman toggle"
     },
-	"custom/cliphist": {
-		"format": "",
-		"on-click": "cliphist list | wofi --dmenu --location 3 | cliphist decode | wl-copy",
-		"on-click-right": "cliphist wipe"
-	}
+
+   "custom/cliphist": {
+      "format": "",
+      "on-click": "cliphist list | wofi --dmenu --location 3 | cliphist decode | wl-copy",
+      "on-click-right": "cliphist wipe"
+   },
+
+   "custom/toggle-hdr": {
+       "exec": "if [ $(swaymsg -t get_outputs | jq '.[0].hdr') = true ]; then echo '{\"text\": \"󰵽\", \"class\": \"hdr-on\"}'; else echo '{\"text\": \"󰵾\", \"class\": \"hdr-off\"}'; fi",
+       "return-type": "json",
+       "interval": 5,
+       "on-click": "swaymsg output DP-3 hdr toggle"
+   }
 }

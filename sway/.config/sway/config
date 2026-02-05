@@ -24,7 +24,7 @@ set $menu walker
 ### Output configuration
 #
 # Monitor configuration matching hyprland
-output DP-2 mode 3840x2160@160Hz position 0,0 scale 1.5
+output DP-3 mode 3840x2160@160Hz position 0,0 scale 1.5 render_bit_depth 10 hdr off
 output HDMI-A-1 disable
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
