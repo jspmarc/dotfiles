@@ -10,6 +10,8 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="bat"

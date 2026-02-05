@@ -193,7 +193,13 @@ alias mysql='nocorrect mysql'
 alias rd=rmdir
 alias run-help=man
 alias sudo='nocorrect sudo'
-alias v=nvim
+v() {
+    if [[ -n "$NVIM" && -n "$1" ]]; then
+        nvim --server "$NVIM" --remote-send "<C-t>" && nvim --server "$NVIM" --remote "$@"
+    else
+        nvim "$@"
+    fi
+}
 alias which-command=whence
 alias zshconfig='nvim ~/.zshrc'
 alias history-clear='printf "" > ~/zsh-files/.zsh_history'
