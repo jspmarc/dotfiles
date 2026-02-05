@@ -152,9 +152,10 @@ nmap <leader>g[ <Action>(VcsShowPrevChangeMarker)
 nmap <leader>g] <Action>(VcsShowNextChangeMarker)
 nmap <leader>go <Action>(Github.Open.In.Browser)
 vmap <leader>go <Action>(Github.Open.In.Browser)
+nmap <leader>gy <Action>(Github.Copy.Link)
 
-nmap <leader>cl <Action>(copilot.chat.show)
-vmap <leader>cl <Action>(copilot.chat.show)
+nmap <leader>cl <Action>(ActivateAIAssistantToolWindow)
+vmap <leader>cl <Action>(ActivateAIAssistantToolWindow)
 
 nmap <leader>pp <Action>($LRU)
 
@@ -164,5 +165,6 @@ nmap <leader>zp <Action>(LocalHistory.ShowProjectHistory)
 vmap <leader>zz <Action>(LocalHistory.ShowSelectionHistory)
 
 " marks
-nmap dm <Action>(ToggleBookmark)
-nmap <leader>mm <Action>(ShowBookmarks)
+nmap <leader>mm <Action>(ToggleBookmarkWithMnemonic)
+nmap <leader>mf <Action>(ShowBookmarks)
+nmap <leader>md <Action>(ToggleBookmark)
