@@ -8,13 +8,13 @@ local function get_appearance()
 end
 
 local function get_color_scheme()
-	-- local appearance = get_appearance()
-	-- if appearance:find('Dark') then
-	-- 	return 'Darkside'
-	-- else
-	-- 	return 'catppuccin-latte'
-	-- end
-	return 'Darkside'
+	local appearance = get_appearance()
+	if appearance:find('Dark') then
+		return 'catppuccin-macchiato'
+	else
+		return 'catppuccin-latte'
+	end
+	-- return 'Darkside'
 end
 
 local is_linux = wezterm.target_triple:find('linux') ~= nil
@@ -44,7 +44,7 @@ return {
 		top = 0,
 		bottom = 0,
 	},
-	window_background_opacity = 0.9,
+	window_background_opacity = 1,
 	enable_wayland = true,
 	window_decorations = is_linux and 'NONE' or 'TITLE | RESIZE',
 	enable_tab_bar = false,
