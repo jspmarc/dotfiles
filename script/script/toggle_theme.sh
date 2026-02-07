@@ -12,6 +12,8 @@ LIGHT_GTK3="adw-gtk3"
 DARK_QT="kvantum-dark"
 LIGHT_QT="kvantum-light"
 
+SWAYSOCK="/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock"
+
 hyprctl() {
     /usr/bin/hyprctl --instance 0 "$@"
 }
@@ -24,8 +26,8 @@ switch_to_dark() {
 
     # hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/eclipse.jpg"
     # hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/eclipse.jpg"
-    if [[ "$XDG_SESSION_DESKTOP" = "sway" ]]; then
-        swaymsg 'output * bg ~/Pictures/Wallpapers/macos-sequoia-6400x3552-dark.jpg fill'
+    if [[ -n "$SWAYSOCK" ]]; then
+        swaymsg -s "$SWAYSOCK" 'output * bg ~/Pictures/Wallpapers/macos-sequoia-6400x3552-dark.jpg fill' 2>/dev/null
     fi
 }
 
@@ -37,8 +39,8 @@ switch_to_light() {
 
     # hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
     # hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
-    if [[ "$XDG_SESSION_DESKTOP" = "sway" ]]; then
-        swaymsg 'output * bg ~/Pictures/Wallpapers/macos-sequoia-6400x3552-light.jpg fill'
+    if [[ -n "$SWAYSOCK" ]]; then
+        swaymsg -s "$SWAYSOCK" 'output * bg ~/Pictures/Wallpapers/macos-sequoia-6400x3552-light.jpg fill' 2>/dev/null
     fi
 }
 
