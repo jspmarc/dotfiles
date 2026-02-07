@@ -97,7 +97,8 @@ button:hover {
 #custom-power-button,
 #custom-notifications,
 #custom-darkman,
-#custom-cliphist {
+#custom-cliphist,
+#custom-toggle-hdr {
     padding: 0 10px;
     color: #ffffff;
     border-radius: 5px;
@@ -306,4 +307,16 @@ label:focus {
 #custom-cliphist {
     background-color: #511957;
     padding: 0 15px;
+}
+
+#custom-toggle-hdr {
+    padding: 0 15px;
+}
+
+#custom-toggle-hdr.hdr-on {
+    background-color: #2980b9;
+}
+
+#custom-toggle-hdr.hdr-off {
+    background-color: #f53c3c;
 }

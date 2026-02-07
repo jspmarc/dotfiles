@@ -220,7 +220,7 @@
    },
 
    "custom/toggle-hdr": {
-       "exec": "if [ $(swaymsg -t get_outputs | jq '.[0].hdr') = true ]; then echo '{\"text\": \"󰵽\", \"class\": \"hdr-on\"}'; else echo '{\"text\": \"󰵾\", \"class\": \"hdr-off\"}'; fi",
+       "exec": "if [ \"$(swaymsg -t get_outputs | jq '.[0].hdr')\" = true ]; then echo '{\"text\": \"󰵽\", \"class\": \"hdr-on\"}'; else echo '{\"text\": \"󰵾\", \"class\": \"hdr-off\"}'; fi",
        "return-type": "json",
        "interval": 5,
        "on-click": "swaymsg output DP-3 hdr toggle"
