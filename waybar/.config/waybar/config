@@ -182,12 +182,14 @@
     },
     "mpris": {
         "interval": 1,
-        "format": "{status_icon}  {player_icon} {title} — {artist}",
+        "format": "{status_icon}  {title} — {artist}  {player_icon}",
         "player-icons": {
             "default": "",
             "spotify": "",
             "jellyfin": "󰼁",
+            "Feishin": "󰼁",
             "firefox": "",
+            "chromium": "",
             "vlc": "󰕼"
         },
         "status-icons": {
