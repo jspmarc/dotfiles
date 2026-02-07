@@ -2,6 +2,8 @@
 
 # Power button script for Waybar
 
+SWAYSOCK="/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock"
+
 # Function to handle shutdown
 shutdown() {
     systemctl poweroff
@@ -19,7 +21,11 @@ restart() {
 
 # Function to handle lock
 lock() {
-    hyprlock --immediate
+    if [[ -n "$SWAYSOCK" ]]; then
+        swaylock -f -S --indicator --clock -F --effect-blur 10x10
+    else
+        hyprlock --immediate
+    fi
 }
 
 # Function to handle logout
