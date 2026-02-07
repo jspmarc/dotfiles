@@ -209,10 +209,12 @@
         "interval": "once",
         "on-click": "$HOME/script/wofi/dunst_history.sh show"
     },
+
     "custom/darkman": {
         "exec": "[ \"$(darkman get)\" = 'dark' ] && echo '' || echo ''",
         "interval": 60,
-        "on-click": "darkman toggle"
+        // reason for `sleep 0.1`: https://github.com/Alexays/Waybar/issues/2166#issuecomment-2114771597
+        "on-click": "sleep 0.1 && darkman toggle"
     },
 
    "custom/cliphist": {
@@ -225,6 +227,7 @@
        "exec": "if [ \"$(swaymsg -t get_outputs | jq '.[0].hdr')\" = true ]; then echo '{\"text\": \"󰵽\", \"class\": \"hdr-on\"}'; else echo '{\"text\": \"󰵾\", \"class\": \"hdr-off\"}'; fi",
        "return-type": "json",
        "interval": 5,
-       "on-click": "swaymsg output DP-3 hdr toggle"
+        // reason for `sleep 0.1`: https://github.com/Alexays/Waybar/issues/2166#issuecomment-2114771597
+       "on-click": "sleep 0.1 && swaymsg output DP-3 hdr toggle"
    }
 }
