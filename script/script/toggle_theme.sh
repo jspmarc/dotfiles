@@ -27,7 +27,7 @@ switch_to_dark() {
     # hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/eclipse.jpg"
     # hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/eclipse.jpg"
     if [[ -n "$SWAYSOCK" ]]; then
-        swaymsg -s "$SWAYSOCK" 'output * bg ~/Pictures/Wallpapers/macos-sequoia-6400x3552-dark.jpg fill' 2>/dev/null
+        swaymsg -s "$SWAYSOCK" 'output * bg ~/Pictures/Wallpapers/wallhaven-9mjoy1.png fill' 2>/dev/null
     fi
 }
 
@@ -40,7 +40,7 @@ switch_to_light() {
     # hyprctl hyprpaper wallpaper "DP-2,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
     # hyprctl hyprpaper wallpaper "HDMI-A-1,/home/josep/Pictures/Wallpapers/jap-vending-machine.jpeg"
     if [[ -n "$SWAYSOCK" ]]; then
-        swaymsg -s "$SWAYSOCK" 'output * bg ~/Pictures/Wallpapers/macos-sequoia-6400x3552-light.jpg fill' 2>/dev/null
+        swaymsg -s "$SWAYSOCK" 'output * bg ~/Pictures/Wallpapers/wallhaven-pkw6y3.jpg fill' 2>/dev/null
     fi
 }
 
