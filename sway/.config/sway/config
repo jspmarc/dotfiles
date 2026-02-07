@@ -21,11 +21,15 @@ set $term wezterm
 # Your preferred application launcher
 set $menu walker
 
+set $disp1 "DP-3"
+set $disp2 "HDMI-A-1"
+
 ### Output configuration
 #
 # Monitor configuration matching hyprland
 output DP-3 mode 3840x2160@160Hz position 0,0 scale 1.5 render_bit_depth 10 hdr off
 output HDMI-A-1 disable
+#output HDMI-A-1 mode 1920x1080@120.040Hz position 928,2160 scale 1.0
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/Wallpapers/macos-sequoia-6400x3552-dark.jpg fill
@@ -183,6 +187,18 @@ set $fcitx_env GLFW_IM_MODULE,fcitx INPUT_METHOD,fcitx XMODIFIERS,@im=fcitx IMSE
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    workspace 1 output $disp1
+    workspace 2 output $disp1
+    workspace 3 output $disp1
+    workspace 4 output $disp1
+    workspace 5 output $disp1
+    workspace 6 output $disp1
+    workspace 7 output $disp1
+    workspace 8 output $disp1
+    workspace 9 output $disp1
+    workspace 10 output $disp2
+
 #
 # Layout stuff:
 #
@@ -296,10 +312,10 @@ assign [class="Steam"] workspace 6
 assign [class="steam_app_.*"] workspace 6
 assign [app_id="com.github.iwalton3.jellyfin-media-player"] workspace 7
 assign [app_id="cafe.avery.Delfin"] workspace 7
-assign [app_id="Spotify"] workspace 9
-assign [app_id="feishin"] workspace 9
-assign [app_id="discord"] workspace 10
-assign [app_id="vesktop"] workspace 10
+assign [app_id="discord"] workspace 9
+assign [app_id="vesktop"] workspace 9
+assign [app_id="Spotify"] workspace 10
+assign [app_id="feishin"] workspace 10
 
 ### Visual Settings
 #
