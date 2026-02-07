@@ -10,7 +10,7 @@ case $1 in
         ;;
     *)
         count=$(dunstctl count waiting)
-        if [ "$count" -gt 0 ]; then
+        if [[ "$count" -gt 0 ]]; then
             echo "{\"text\": \"󱅫\", \"class\": \"has-notifications\", \"tooltip\": \"$count notifications pending\"}"
         else
             echo "{\"text\": \"󰂚\", \"class\": \"no-notifications\"}"

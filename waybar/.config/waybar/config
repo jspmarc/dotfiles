@@ -6,8 +6,12 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/window"],
-    "modules-center": ["mpris", "custom/notifications"],
-    "modules-right": ["tray", "custom/toggle-hdr", "custom/cliphist", "wireplumber", "custom/darkman", "idle_inhibitor", "group/hardware", "clock", "custom/power-button"],
+    "modules-center": ["mpris"],
+    "modules-right": [
+        "tray", "custom/toggle-hdr", "custom/cliphist", "wireplumber",
+        "custom/darkman", "idle_inhibitor", "group/hardware", "clock",
+        "custom/power-button", "custom/notifications-swaync"
+    ],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -203,11 +207,33 @@
         "interval": "once",
         "format": "",
     },
-    "custom/notifications": {
+
+    "custom/notifications-dunst": {
         "exec": "$HOME/script/wofi/dunst_history.sh",
         "return-type": "json",
         "interval": "once",
         "on-click": "$HOME/script/wofi/dunst_history.sh show"
+    },
+
+    "custom/notifications-swaync": {
+        "tooltip": true,
+        "format": "<span size='16pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
 
     "custom/darkman": {

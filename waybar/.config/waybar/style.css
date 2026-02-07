@@ -95,7 +95,8 @@ button:hover {
 #mpris,
 #mpd,
 #custom-power-button,
-#custom-notifications,
+#custom-notifications-dunst,
+#custom-notifications-swaync,
 #custom-darkman,
 #custom-cliphist,
 #custom-toggle-hdr {
@@ -294,9 +295,14 @@ label:focus {
     padding: 0 15px;
 }
 
-#custom-notifications {
+#custom-notifications-dunst,
+#custom-notifications-swaync {
     background-color: #b86404;
     padding: 0 15px;
+}
+
+#custom-notifications-swaync {
+  font-family: "NotoSansMono Nerd Font";
 }
 
 #custom-darkman {
