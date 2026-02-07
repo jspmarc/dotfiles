@@ -217,7 +217,7 @@ alias rm='rm -I'
 alias java_debug="java -cp . -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"
 alias luamake=/home/josep/.config/nvim/lua/lsp/language-servers/lua-language-server/3rd/luamake/luamake
 alias lg='lazygit'
-alias yay=paru
+alias paru=yay
 
 [[ $(uname -r | grep "microsoft") ]] \
     && alias code="/mnt/c/Users/jspma/scoop/apps/vscode/current/bin/code"
