@@ -6,11 +6,11 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/window"],
-    "modules-center": ["mpris"],
+    "modules-center": [],
     "modules-right": [
-        "tray", "custom/toggle-hdr", "custom/cliphist", "wireplumber",
-        "custom/darkman", "idle_inhibitor", "group/hardware", "clock",
-        "custom/power-button", "custom/notifications-swaync"
+        "tray",
+        "idle_inhibitor", "group/hardware", "clock",
+        "custom/notifications-swaync", "custom/power-button"
     ],
 
     // Modules configuration
@@ -245,7 +245,7 @@
 
    "custom/cliphist": {
       "format": "",
-      "on-click": "cliphist list | wofi --dmenu --location 3 | cliphist decode | wl-copy",
+      "on-click": "cliphist list | wofi --dmenu --location 3 -Dclose_on_focus_loss=true | cliphist decode | wl-copy",
       "on-click-right": "cliphist wipe"
    },
 
