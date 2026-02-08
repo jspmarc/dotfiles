@@ -10,11 +10,11 @@ end
 local function get_color_scheme()
 	local appearance = get_appearance()
 	if appearance:find('Dark') then
-		return 'catppuccin-macchiato'
+		return 'GruvboxDark'
 	else
-		return 'catppuccin-latte'
+		return 'GruvboxLight'
 	end
-	-- return 'Darkside'
+	-- return 'catppuccin-macchiato'
 end
 
 local is_linux = wezterm.target_triple:find('linux') ~= nil
@@ -44,7 +44,7 @@ return {
 		top = 0,
 		bottom = 0,
 	},
-	window_background_opacity = 1,
+	window_background_opacity = 0.99,
 	enable_wayland = true,
 	window_decorations = is_linux and 'NONE' or 'TITLE | RESIZE',
 	enable_tab_bar = false,
