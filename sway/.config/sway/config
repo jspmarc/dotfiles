@@ -38,7 +38,7 @@ output * bg ~/Pictures/Wallpapers/wallhaven-pkw6y3.jpg fill
 
 ### Idle configuration
 #
-exec swayidle -w \
+exec swayidle -w -S seat0 \
          timeout 300 'swaylock -f -S --indicator --clock -F --effect-blur 10x10' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -S --indicator --clock -F --effect-blur 10x10'
@@ -53,7 +53,8 @@ exec dbus-update-activation-environment --all
 #exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec /usr/lib/hyprpolkitagent/hyprpolkitagent
 
-exec dunst
+exec swaync
+#exec dunst
 exec waybar
 exec blueman-applet
 exec nm-applet
@@ -85,6 +86,8 @@ input type:touchpad {
     dwt enabled
     middle_emulation enabled
 }
+
+seat seat0 attach "1356:3302:DualSense_Wireless_Controller_Touchpad"
 
 # FIXME: doesn't work
 # Mouse configuration
@@ -287,7 +290,7 @@ bindsym $mod+r mode "resize"
     bindsym $secondMod+Print exec $HOME/script/screenshot_grim.sh window
 
     # Clipboard history
-    bindsym $mod+v exec cliphist list | wofi --dmenu | cliphist decode | wl-copy
+    bindsym $mod+v exec cliphist list | wofi -Dclose_on_focus_loss=true --dmenu | cliphist decode | wl-copy
 
     # fcitx5 toggle
     bindsym $secondMod+Ctrl+space exec fcitx5-remote -t
