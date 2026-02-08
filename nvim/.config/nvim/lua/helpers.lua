@@ -143,8 +143,8 @@ M.not_vscode = not vim.g.vscode
 M.not_neovide = not vim.g.neovide
 
 M.themes = {
-	dark = 'catppuccin-macchiato',
-	light = 'catppuccin-latte',
+	dark = 'gruvbox',
+	light = 'gruvbox',
 }
 
 M.is_mac = vim.fn.has('macunix') == 1
