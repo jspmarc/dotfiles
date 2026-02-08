@@ -43,8 +43,11 @@ option_logout="󰍃  Logout"
 # Create menu options
 options="$option_lock\n$option_sleep\n$option_logout\n$option_restart\n$option_shutdown"
 
+killall wofi
+
 # Show wofi menu and get user selection
 selected=$(echo -e "$options" | wofi --dmenu \
+    -Dclose_on_focus_loss=true \
     --config "$HOME/.config/wofi/power_button.config" \
     --style "$HOME/.config/wofi/power_button.css" \
     --prompt "Power Menu" --width 200 --height 250 \
