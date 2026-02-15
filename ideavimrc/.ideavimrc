@@ -92,7 +92,7 @@ nmap <leader>/s <Action>(com.mituuz.fuzzier.grep.FuzzyGrep)
 nmap <C-l> :noh<CR>
 nmap <C-b> :NERDTree<CR>
 nmap - <Action>(ShowNavBar)
-nmap <S-z> <Action>(ToggleDistractionFreeMode)
+nmap <S-z> <Action>(MaximizeEditorInSplit)<Action>(ToggleDistractionFreeMode)
 
 " LSP-ish
 nmap gi <Action>(GotoImplementation)
