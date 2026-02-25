@@ -12,8 +12,6 @@ LIGHT_GTK3="adw-gtk3"
 DARK_QT="kvantum-dark"
 LIGHT_QT="kvantum-light"
 
-SWAYSOCK="/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock"
-
 hyprctl() {
     /usr/bin/hyprctl --instance 0 "$@"
 }

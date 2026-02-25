@@ -2,8 +2,6 @@
 
 # Power button script for Waybar
 
-SWAYSOCK="/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock"
-
 # Function to handle shutdown
 shutdown() {
     systemctl poweroff
