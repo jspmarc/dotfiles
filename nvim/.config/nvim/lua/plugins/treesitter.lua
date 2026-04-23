@@ -1,25 +1,21 @@
 return {
-	enabled = require('helpers').not_vscode,
+	enabled = false,
 	'nvim-treesitter/nvim-treesitter',
+	branch = 'main',
+	lazy = false,
 	build = ':TSUpdate',
-	main = 'nvim-treesitter.configs',
-	opts = {
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = { 'org' },
-		},
-		indent = {
-			enable = true,
-		},
-		-- incremental_selection = {
-		-- 	enable = true,
-		-- 	keymaps = {
-		-- 		init_selection = '<CR>',
-		-- 		scope_incremental = '<CR>',
-		-- 		node_incremental = '<TAB>',
-		-- 		node_decremental = '<S-TAB>',
-		-- 	},
-		-- },
-		-- folding is set in settings.lua
-	},
+	config = function()
+		vim.api.nvim_create_autocmd('FileType', {
+			callback = function()
+				pcall(vim.treesitter.start)
+			end,
+		})
+
+		vim.api.nvim_create_autocmd('FileType', {
+			pattern = { 'org' },
+			callback = function()
+				vim.treesitter.start()
+			end,
+		})
+	end,
 }
