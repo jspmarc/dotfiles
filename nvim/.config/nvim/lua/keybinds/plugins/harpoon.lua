@@ -13,7 +13,7 @@ return {
 		desc = 'Add file to Harpoon list',
 	},
 	{
-		prefix .. 'l',
+		prefix .. 'f',
 		function()
 			harpoon = require('harpoon')
 			harpoon.ui:toggle_quick_menu(harpoon:list())
