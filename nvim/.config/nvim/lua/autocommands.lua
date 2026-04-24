@@ -59,3 +59,9 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 		require('session_manager').save_current_session()
 	end,
 })
+vim.api.nvim_create_autocmd("DirChanged", {
+  callback = function()
+    local project_bookmarks = vim.fn.getcwd() .. "/.haunts/"
+    require("haunt.api").change_data_dir(project_bookmarks)
+  end,
+})

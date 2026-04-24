@@ -1,5 +1,5 @@
 return {
-	enabled = false,
+	enabled = true,
 	'TheNoeTrevino/haunt.nvim',
 	---@class HauntConfig
 	opts = {
