@@ -10,11 +10,12 @@ end
 local function get_color_scheme()
 	local appearance = get_appearance()
 	if appearance:find('Dark') then
-		return 'GruvboxDark'
+		-- return 'GruvboxDark'
+		return 'catppuccin-macchiato'
 	else
-		return 'GruvboxLight'
+		-- return 'GruvboxLight'
+		return 'catppuccin-latte'
 	end
-	-- return 'catppuccin-macchiato'
 end
 
 local is_linux = wezterm.target_triple:find('linux') ~= nil
