@@ -1,0 +1,90 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+	{
+		"context": "Workspace",
+		"bindings": {
+			// "shift shift": "file_finder::Toggle"
+		},
+	},
+	{
+		"context": "VimControl && !menu",
+		"bindings": {
+			"g e": "editor::Hover",
+			"ctrl-w c": "pane::CloseAllItems",
+			"ctrl-w d": "pane::CloseOtherItems",
+		},
+	},
+	{
+		"context": "Editor && vim_mode == normal",
+		"bindings": {
+			"shift-y": ["workspace::SendKeystrokes", "y $"],
+
+			"ctrl-w h": "workspace::ActivatePaneLeft",
+			"alt-h": "workspace::ActivatePaneLeft",
+			"ctrl-w l": "workspace::ActivatePaneRight",
+			"alt-l": "workspace::ActivatePaneRight",
+			"ctrl-w k": "workspace::ActivatePaneUp",
+			"alt-k": "workspace::ActivatePaneUp",
+			"ctrl-w j": "workspace::ActivatePaneDown",
+			"alt-j": "workspace::ActivatePaneDown",
+
+			"space c c": "agent::ToggleFocus",
+
+			"space f f": "file_finder::Toggle",
+			"space f h": "file_finder::Toggle",
+
+			"space g b": "git::Blame",
+			"space g B": "editor::OpenGitBlameCommit",
+			"space g u": "git::UnstageAndNext",
+			"space g [": "editor::GoToPreviousHunk",
+			"space g ]": "editor::GoToHunk",
+
+			"space p p": "projects::OpenRecent",
+			"ctrl-b": "project_panel::Open",
+
+			"space / s": "pane::DeploySearch",
+		},
+	},
+	{
+		"context": "Editor && vim_mode == insert",
+		"bindings": {
+			// "j k": "vim::NormalBefore"
+		},
+	},
+	{
+		"context": "Editor && VimVisual",
+		"bindings": {
+			"shift-y": ["workspace::SendKeystrokes", "y $"],
+			// "<": ["vim::Outdent", "g v"],
+		},
+	},
+	{
+		"context": "VimControl && !VimWaiting && !VimVisual",
+		"bindings": {
+			"s": "vim::HelixJumpToWord",
+			// "s": "vim::PushSneak",
+			// "shift-s": "vim::PushSneakBackward",
+		},
+	},
+	{
+		"context": "AgentPanel && vim_mode == normal",
+		"bindings": {
+			"space c c": "workspace::ToggleRightDock",
+		},
+	},
+	// {
+	// 	"context": "vim_operator == a || vim_operator == i || vim_operator == cs || vim_operator == ds",
+	// 	"bindings": {
+	// 		// "q": "vim::MiniQuotes",
+	// 		// "b": "vim::MiniBrackets"
+	// 		"q": "vim::AnyQuotes",
+	// 		"b": "vim::AnyBrackets"
+	// 	}
+	// }
+]
