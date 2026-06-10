@@ -23,13 +23,17 @@ set $menu walker
 
 set $disp1 "DP-3"
 set $disp2 "HDMI-A-1"
+set $disp3 "HEADLESS-1" # Hermes Mini
 
 ### Output configuration
 #
 # Monitor configuration matching hyprland
-output DP-3 mode 3840x2160@160Hz position 0,0 scale 1.5 render_bit_depth 10 hdr off
+output DP-3 mode 3840x2160@160Hz position 0,0 scale 1.25 render_bit_depth 10 hdr off
 output HDMI-A-1 disable
-#output HDMI-A-1 mode 1920x1080@120.040Hz position 928,2160 scale 1.0
+#output HDMI-A-1 mode 1024x768@120.040Hz position 928,2160 scale 1.0
+exec swaymsg create_output "HEADLESS-1"
+output HEADLESS-1 disable
+#output HEADLESS-1 mode 2266x1488@120Hz position 890,1728 scale 2.0
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/Wallpapers/wallhaven-pkw6y3.jpg fill
@@ -200,7 +204,7 @@ set $fcitx_env GLFW_IM_MODULE,fcitx INPUT_METHOD,fcitx XMODIFIERS,@im=fcitx IMSE
     workspace 7 output $disp1
     workspace 8 output $disp1
     workspace 9 output $disp1
-    workspace 10 output $disp2
+    workspace 10 output $disp3
 
 #
 # Layout stuff:
