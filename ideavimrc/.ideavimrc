@@ -1,3 +1,5 @@
+" source ~/helix.vim/helix.idea.vim
+
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug 'machakann/vim-highlightedyank'
@@ -12,9 +14,9 @@ let g:{'sneak#label'} = 1
 
 set nu
 set rnu
-set clipboard+=unnamed
-set clipboard+=ideaput
-set clipboard+=unnamedplus
+"set clipboard+=unnamed
+"set clipboard+=ideaput
+"set clipboard+=unnamedplus
 set ignorecase
 set smartcase
 set incsearch
@@ -92,7 +94,8 @@ nmap <leader>/s <Action>(com.mituuz.fuzzier.grep.FuzzyGrep)
 nmap <C-l> :noh<CR>
 nmap <C-b> :NERDTree<CR>
 nmap - <Action>(ShowNavBar)
-nmap <S-z> <Action>(MaximizeEditorInSplit)<Action>(ToggleDistractionFreeMode)
+" nmap <S-z> <Action>(MaximizeEditorInSplit)<Action>(ToggleDistractionFreeMode)
+nmap <S-z> <Action>(MaximizeEditorInSplit)
 
 " LSP-ish
 nmap gi <Action>(GotoImplementation)
