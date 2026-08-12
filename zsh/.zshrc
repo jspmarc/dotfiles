@@ -74,6 +74,12 @@ if command -v mise >/dev/null; then
 fi
 # --mise end
 
+# --direnv
+if command -v direnv >/dev/null; then
+	eval "$(direnv hook zsh)"
+fi
+# --direnv end
+
 # Remove directory background color
 
 if type "dircolors" > /dev/null; then
