@@ -61,6 +61,7 @@ return {
 		scope = { enabled = true },
 		scratch = { enabled = true },
 		scroll = { enabled = false },
+		terminal = { enabled = true },
 		zen = {
 			toggles = {
 				dim = false,

@@ -1,3 +1,6 @@
+local settings = require('settings')
+local oc_settings = settings.opencode
+
 return {
 	aerial = {
 		{ '<leader>s', '<cmd>AerialToggle<CR>',    desc = 'Open Buffer Outline Window' },
@@ -345,7 +348,10 @@ return {
 		{
 			'<leader>cl',
 			function()
-				require('opencode').toggle()
+				require('snacks.terminal').toggle(
+					oc_settings.cmd,
+					oc_settings.snacks_terminal_opts
+				)
 			end,
 			desc = 'Toggle opencode',
 			mode = 'n',

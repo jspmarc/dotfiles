@@ -1,6 +1,6 @@
 local helpers = require('helpers')
 
-vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+vim.env.PATH = vim.env.HOME .. '/.local/share/mise/shims:' .. vim.env.PATH
 
 vim.g.vimsyn_embed = 'l'
 vim.g.mapleader = ' '
@@ -92,3 +92,17 @@ if is_neovide then
 	-- vim.g.neovide_cursor_animation_length = 0
 	-- vim.g.neovide_cursor_short_animation_length = 0
 end
+
+local M = {}
+
+M.opencode = {
+	cmd = 'opencode --port',
+	snacks_terminal_opts = {
+		win = {
+			position = 'right',
+			enter = false,
+		},
+	},
+}
+
+return M
