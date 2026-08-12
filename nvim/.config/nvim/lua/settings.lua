@@ -22,7 +22,7 @@ o.backup = false
 o.background = 'dark'
 
 o.cursorline = true -- disable highlight current line
-o.clipboard = 'unnamedplus'
+-- o.clipboard = 'unnamedplus'
 o.colorcolumn = '80,100,120' -- draw a vertical line at 80 col
 o.concealcursor = 'c' -- conceal text settings
 o.conceallevel = 2 -- conceal text settings
