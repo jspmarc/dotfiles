@@ -1,7 +1,7 @@
 return {
-	enabled = false,
+	enabled = true,
 	'nvim-treesitter/nvim-treesitter-context',
-	dependencies = 'nvim-treesitter/nvim-treesitter',
+	dependencies = 'romus204/tree-sitter-manager.nvim',
 	opts = {
 		multiline_threshold = 1,
 	},
