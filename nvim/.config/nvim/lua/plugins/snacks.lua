@@ -83,7 +83,7 @@ return {
 				enter = true,
 				fixbuf = false,
 				minimal = false,
-				width = 140,
+				width = 150,
 				height = 0,
 				backdrop = { transparent = true, blend = 20 },
 				keys = { q = false },

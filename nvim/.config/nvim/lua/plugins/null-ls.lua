@@ -10,7 +10,6 @@ return {
 				null_ls.builtins.code_actions.refactoring,
 
 				-- formatting
-				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.prettier.with({
 					prefer_local = 'node_modules/.bin',

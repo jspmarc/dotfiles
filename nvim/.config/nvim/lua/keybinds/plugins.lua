@@ -306,7 +306,7 @@ return {
 		{
 			'<leader>//',
 			function()
-				require('grug-far').with_visual_selection()
+				require('grug-far').with_visual_selection({ startInInsertMode = false })
 			end,
 			mode = { 'v' },
 			desc = 'open GrugFar with current visual selection',
@@ -348,10 +348,7 @@ return {
 		{
 			'<leader>cl',
 			function()
-				require('snacks.terminal').toggle(
-					oc_settings.cmd,
-					oc_settings.snacks_terminal_opts
-				)
+				require('snacks.terminal').toggle(oc_settings.cmd, oc_settings.snacks_terminal_opts)
 			end,
 			desc = 'Toggle opencode',
 			mode = 'n',
