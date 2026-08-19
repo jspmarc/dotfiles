@@ -1,3 +1,6 @@
+-- This file is for general autocommands. For specific plugin autocommands, please check the
+-- plugin's configuration file. For LSP-related autocommands, please check the lsp/init.lua file.
+
 local autocmds = vim.api.nvim_create_augroup('autocmds', { clear = true })
 
 -- vim.api.nvim_create_autocmd('CursorHold', {
@@ -47,21 +50,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight yanks',
 	group = autocmds,
 })
--- Auto save session
-vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+vim.api.nvim_create_autocmd('DirChanged', {
 	callback = function()
-		for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-			-- Don't save while there's any 'nofile' buffer open.
-			if vim.api.nvim_get_option_value('buftype', { buf = buf }) == 'nofile' then
-				return
-			end
-		end
-		require('session_manager').save_current_session()
+		local project_bookmarks = vim.fn.getcwd() .. '/.haunts/'
+		require('haunt.api').change_data_dir(project_bookmarks)
 	end,
-})
-vim.api.nvim_create_autocmd("DirChanged", {
-  callback = function()
-    local project_bookmarks = vim.fn.getcwd() .. "/.haunts/"
-    require("haunt.api").change_data_dir(project_bookmarks)
-  end,
 })

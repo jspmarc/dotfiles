@@ -149,4 +149,7 @@ M.themes = {
 
 M.is_mac = vim.fn.has('macunix') == 1
 
+
+M.augroup = vim.api.nvim_create_augroup('plugin', { clear = true })
+
 return M
