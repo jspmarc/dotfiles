@@ -18,4 +18,14 @@ return {
 		'typescript.tsx',
 		'vue',
 	},
+	settings = {
+		typescript = {
+			implementationsCodeLens = { enabled = true },
+			referencesCodeLens = { enabled = true },
+		},
+		javascript = {
+			implementationsCodeLens = { enabled = true },
+			referencesCodeLens = { enabled = true },
+		},
+	},
 }
