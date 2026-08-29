@@ -68,12 +68,6 @@ if command -v starship >/dev/null; then
 fi
 # --starship end
 
-# --mise
-if command -v mise >/dev/null; then
-	eval "$(mise activate zsh)"
-fi
-# --mise end
-
 # --direnv
 if command -v direnv >/dev/null; then
 	eval "$(direnv hook zsh)"
