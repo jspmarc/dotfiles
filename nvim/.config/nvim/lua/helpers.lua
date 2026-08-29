@@ -136,6 +136,7 @@ M.mason_lsp = vim.tbl_filter(function(server)
 	return not vim.tbl_contains(mason_ignored, server)
 end, M.lsp_servers)
 M.null_ls_formatters = local_helpers.null_ls_formatters or {}
+table.insert(M.null_ls_formatters, 'stylua')
 M.null_ls_linters = local_helpers.null_ls_linters or {}
 M.nvim_dap_servers = local_helpers.nvim_dap_servers or {}
 
