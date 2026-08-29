@@ -712,6 +712,14 @@ return {
 		},
 	},
 
+	['venv-selector'] = {
+		{
+			'<leader>vv',
+			'<cmd>VenvSelect<CR>',
+			desc = 'Select Python virtual environment',
+		},
+	},
+
 	['which-key'] = {
 		{
 			'<leader>?',

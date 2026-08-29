@@ -30,7 +30,7 @@ return {
 					shorting_target = 80,
 				},
 			},
-			lualine_b = { 'location' },
+			lualine_b = {},
 			lualine_c = {},
 			lualine_x = {},
 			lualine_y = {},
@@ -47,7 +47,7 @@ return {
 			},
 			lualine_x = { 'searchcount', 'selectioncount' },
 			lualine_y = { 'encoding', 'fileformat' },
-			lualine_z = { 'filetype' },
+			lualine_z = { 'filetype', 'venv-selector' },
 		},
 		inactive_sections = {
 			lualine_a = {},
