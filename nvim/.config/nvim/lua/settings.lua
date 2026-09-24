@@ -97,7 +97,7 @@ end
 local M = {}
 
 M.opencode = {
-	cmd = 'opencode --port',
+	cmd = 'opencode',
 	snacks_terminal_opts = {
 		win = {
 			position = 'right',
