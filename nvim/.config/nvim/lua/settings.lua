@@ -1,6 +1,7 @@
 local helpers = require('helpers')
 
 vim.env.PATH = vim.env.HOME .. '/.local/share/mise/shims:' .. vim.env.PATH
+vim.env.PATH = vim.env.HOME .. '/.local/bin:' .. vim.env.PATH
 
 vim.g.vimsyn_embed = 'l'
 vim.g.mapleader = ' '
