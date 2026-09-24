@@ -172,6 +172,10 @@ exec-on-workspace-change = [
 
     alt-shift-e = 'mode empty'
 
+    #cmd-enter = 'exec-and-forget /Applications/WezTerm.app/Contents/MacOS/wezterm start --config-file ~/.config/wezterm/wezterm.lua --cwd ~'
+    alt-enter = 'exec-and-forget /Applications/WezTerm.app/Contents/MacOS/wezterm start'
+    alt-shift-enter = 'exec-and-forget /Applications/Neovide.app/Contents/MacOS/neovide'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -261,6 +265,10 @@ exec-on-workspace-change = [
     run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
+    if.app-id = 'md.obsidian'
+    run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
     if.app-id = 'us.zoom.xos'
     run = 'move-node-to-workspace 5'
 
@@ -277,14 +285,14 @@ exec-on-workspace-change = [
     run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
-    if.app-id = 'com.monk-studio.jellyfin-music'
+    if.app-id = 'com.tinyspeck.slackmacgap'
     run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+    if.app-id = 'com.monk-studio.jellyfin-music'
+    run = 'move-node-to-workspace 10'
 
 [[on-window-detected]]
     if.app-id = 'com.spotify.client'
-    run = 'move-node-to-workspace 9'
-
-[[on-window-detected]]
-    if.app-id = 'com.tinyspeck.slackmacgap'
     run = 'move-node-to-workspace 10'
 
