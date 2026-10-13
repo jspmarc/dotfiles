@@ -46,6 +46,7 @@ end
 return {
 	'mfussenegger/nvim-dap',
 	event = 'VeryLazy',
+	-- TODO: just load the file directly
 	keys = require('keybinds.plugins').dap,
 	dependencies = {
 		'rcarriga/nvim-dap-ui',

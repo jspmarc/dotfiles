@@ -260,6 +260,22 @@ return {
 			desc = 'Previous go to previous git hunk',
 		},
 		{
+			']g',
+			function()
+				require('gitsigns').next_hunk()
+			end,
+			noremap = false,
+			desc = 'Go to next git hunk',
+		},
+		{
+			'[g',
+			function()
+				require('gitsigns').prev_hunk()
+			end,
+			noremap = false,
+			desc = 'Previous go to previous git hunk',
+		},
+		{
 			'<leader>gu',
 			function()
 				require('gitsigns').reset_hunk()

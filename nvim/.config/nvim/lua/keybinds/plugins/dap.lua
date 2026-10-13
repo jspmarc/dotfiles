@@ -25,15 +25,6 @@ return {
 		remap = false,
 	},
 	{
-		'<leader>;c',
-		function()
-			require('dap').continue()
-		end,
-		desc = 'Continue',
-		nowait = true,
-		remap = false,
-	},
-	{
 		'<F6>',
 		function()
 			require('dap').continue()
