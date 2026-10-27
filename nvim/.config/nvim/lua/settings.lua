@@ -89,6 +89,11 @@ if is_neovide then
 	vim.g.neovide_detach_on_quit = 'always_quit'
 	vim.g.neovide_input_macos_option_key_is_meta = 'both'
 	vim.g.neovide_scroll_animation_length = 0
+	if helpers.is_mac then
+		-- macOS pbcopy/pbpaste choose their text encoding from the locale.
+		-- Dock-launched Neovide can give nvim a missing or non-UTF-8 locale.
+		vim.env.LC_ALL = 'en_US.UTF-8'
+	end
 	-- vim.g.neovide_position_animation_length = 0
 	-- vim.g.neovide_cursor_animation_length = 0
 	-- vim.g.neovide_cursor_short_animation_length = 0
