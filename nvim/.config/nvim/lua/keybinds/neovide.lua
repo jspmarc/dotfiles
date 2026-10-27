@@ -12,6 +12,12 @@ if is_mac then
 			mode = { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
 			{ noremap = true, silent = true },
 		},
+		{
+			'<D-c>',
+			'"+y',
+			mode = { 'v', 'x' },
+			silent = true,
+		},
 	}
 else
 	keybinds = {
