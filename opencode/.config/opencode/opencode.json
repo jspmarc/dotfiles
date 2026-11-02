@@ -1,8 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "./plugins/caveman/plugin.js"
-  ],
   "snapshot": false,
   "agent": {
     "explore": {
@@ -43,13 +40,6 @@
         "clientId": "1601185624273.8899143856786",
         "redirectUri": "http://localhost:3118/callback"
       }
-    },
-    "caveman": {
-      "type": "local",
-      "command": [
-        "/Users/josepmarcello/.caveman/bin/caveman-mcp"
-      ],
-      "enabled": true
     }
   },
   "provider": {
@@ -68,5 +58,8 @@
         "baseURL": "http://127.0.0.1:8787/w/opencode/compat/opencode-go/v1"
       }
     }
-  }
+  },
+  "plugin": [
+    "./plugins/caveman"
+  ]
 }
