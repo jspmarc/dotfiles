@@ -1,0 +1,9 @@
+node_modules
+package.json
+bun.lock
+
+# contains passwords
+service.json
+
+# per-machine settings
+.caveman-active
