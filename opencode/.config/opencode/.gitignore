@@ -7,3 +7,4 @@ service.json
 
 # per-machine settings
 .caveman-active
+.caveman-mode-log.jsonl
