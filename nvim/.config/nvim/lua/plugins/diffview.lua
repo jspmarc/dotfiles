@@ -2,7 +2,7 @@ local get_default_branch_name = require('helpers').get_default_branch_name
 
 return {
 	enabled = require('helpers').not_vscode,
-	'sindrets/diffview.nvim',
+	'dlyongemallo/diffview-plus.nvim',
 	cmd = {
 		'DiffviewClose',
 		'DiffviewFileHistory',
@@ -11,6 +11,9 @@ return {
 		'DiffviewRefresh',
 		'DiffviewFocusFiles',
 		'DiffviewToggleFiles',
+		'DiffviewMergeFiles',
+		'DiffviewDiffDirs',
+		'DiffviewWorktreeOverview',
 	},
 	keys = {
 		{ '<leader>dc', '<cmd>DiffviewClose<CR>',                  desc = 'Close diffview' },
