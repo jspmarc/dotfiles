@@ -1,0 +1,86 @@
+# Noctalia configuration
+#
+# Stows to ~/.config/noctalia/config.toml. Hot-reloaded via inotify, so no
+# restart is needed after editing.
+#
+# Only the keys that differ from Noctalia's defaults are set here. The full
+# default set lives at:
+#   https://github.com/noctalia-dev/noctalia-shell/blob/main/example.toml
+#
+# Validate with:  noctalia config validate
+# Inspect the merged result with:  noctalia config export
+#
+# Compositor-side settings (window rules, layer rules, keybinds) are in
+# ../niri/.config/niri/config.kdl.
+
+# ── Idle ────────────────────────────────────────────────────────────────────
+#
+# CHANGED: this replaces swayidle. The Sway config used
+#   timeout 300 'swaylock ...'  -> lock after 5 min
+#   timeout 600 '... power off' -> monitors off after 10 min
+#   before-sleep 'swaylock ...' -> lock on suspend
+#
+# Noctalia does all three natively. Both behaviors ship disabled, so
+# `enabled = true` is required -- this is the single most common reason people
+# install Noctalia and find their screen never locks.
+#
+# The `before-sleep` case is covered by `lock_before_suspend`, which defaults
+# to true: any suspend path locks first. It keys off ext_idle_notifier_v1,
+# which niri implements.
+#
+# See https://docs.noctalia.dev/noctalia/services/idle/
+
+[idle.behavior.lock]
+timeout = 300
+action = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 600
+action = "screen_off"
+enabled = true
+
+# Order matters: lock must fire before the monitors go off.
+[idle]
+behavior_order = ["lock", "screen-off", "suspend"]
+# Dim the screen for this long before running the command, so the transition
+# is not a hard cut. Set 0 to run the command immediately.
+pre_action_fade_seconds = 2.0
+
+# ── Wallpaper ───────────────────────────────────────────────────────────────
+#
+# CHANGED: replaces swaybg. The Sway config used
+# `output * bg ~/Pictures/Wallpapers/wallhaven-pkw6y3.jpg fill`, which is
+# "cover the output, crop the overflow" -- that is fill_mode "crop" here.
+#
+# `directory` is left empty so it resolves to ~/Pictures via XDG, which is
+# where the wallpaper collection already lives.
+
+[wallpaper]
+enabled = true
+fill_mode = "crop"
+transition = ["fade", "wipe", "zoom"]
+transition_duration = 1500
+
+[wallpaper.default]
+path = "~/Pictures/Wallpapers/wallhaven-pkw6y3.jpg"
+
+# ── Backdrop ────────────────────────────────────────────────────────────────
+#
+# Renders a blurred, tinted copy of the wallpaper into niri's overview
+# backdrop, so opening the overview shows the wallpaper instead of a flat
+# colour. Pairs with the `noctalia-backdrop` layer-rule in the niri config.
+#
+# NOTE: the niri page of the Noctalia docs calls this section
+# `[niri/backdrop]`, but the configuration reference documents it as
+# `[backdrop]`. Using the reference form. If the layer-rule shows no effect,
+# try renaming the section to `[niri/backdrop]` -- the docs disagree with
+# themselves here.
+#
+# To turn it off instead: disable this, and in the niri config swap the
+# layer-rule for `overview { backdrop-color "#26233a" }`.
+
+[backdrop]
+enabled = true
+blur_intensity = 0.5
+tint_intensity = 0.3

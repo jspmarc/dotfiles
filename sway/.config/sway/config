@@ -25,6 +25,8 @@ set $disp1 "DP-3"
 set $disp2 "HDMI-A-1"
 set $disp3 "HEADLESS-1" # Hermes Mini
 
+set $ipc noctalia msg
+
 ### Output configuration
 #
 # Monitor configuration matching hyprland
@@ -36,42 +38,24 @@ output HEADLESS-1 disable
 #output HEADLESS-1 mode 2266x1488@120Hz position 890,1728 scale 2.0
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/wallhaven-pkw6y3.jpg fill
+#output * bg ~/Pictures/Wallpapers/wallhaven-pkw6y3.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-exec swayidle -w -S seat0 \
-         timeout 300 'swaylock -f -S --indicator --clock -F --effect-blur 10x10' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -S --indicator --clock -F --effect-blur 10x10'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
 ### Autostart applications
 #
+exec noctalia
 exec dbus-update-activation-environment --all
-#exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec /usr/lib/hyprpolkitagent/hyprpolkitagent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec /usr/lib/hyprpolkitagent/hyprpolkitagent
 
-exec swaync
-#exec dunst
-exec waybar
-exec blueman-applet
-exec nm-applet
-exec wl-paste --type text --watch cliphist store
-exec wl-paste --type image --watch cliphist store
+# Noctalia's control center has no storage/mount tab, so udiskie stays.
 exec udiskie
-exec swayosd-server
 exec elephant
 exec fcitx5 -d --replace
 exec systemctl import-environment --user WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec systemctl --user start xdg-desktop-portal-hyprland
-exec ~/script/toggle_theme.sh "$(darkman get)"
 exec corectrl --minimize-systray --activate-manual-profile underclock
 exec noisetorch -i
 
@@ -100,9 +84,6 @@ seat seat0 attach "1356:3302:DualSense_Wireless_Controller_Touchpad"
 #     mouse_refocus false
 # }
 
-# Environment variables for fcitx5
-set $fcitx_env GLFW_IM_MODULE,fcitx INPUT_METHOD,fcitx XMODIFIERS,@im=fcitx IMSETTINGS_MODULE,fcitx QT_IM_MODULE,fcitx
-
 ### Key bindings
 #
 # Basics:
@@ -114,13 +95,10 @@ set $fcitx_env GLFW_IM_MODULE,fcitx INPUT_METHOD,fcitx XMODIFIERS,@im=fcitx IMSE
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+space exec $menu
+    bindsym $mod+space exec $ipc panel-toggle launcher
 
     # Start smile emoji picker
     bindsym $mod+Ctrl+space exec flatpak run it.mijorus.smile
-
-    # Lock screen
-    bindsym $mod+Ctrl+q exec swaylock --immediate
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -249,27 +227,27 @@ set $fcitx_env GLFW_IM_MODULE,fcitx INPUT_METHOD,fcitx XMODIFIERS,@im=fcitx IMSE
 #
 # Resizing containers:
 #
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    mode "resize" {
+        # left will shrink the containers width
+        # right will grow the containers width
+        # up will shrink the containers height
+        # down will grow the containers height
+        bindsym $left resize shrink width 10px
+        bindsym $down resize grow height 10px
+        bindsym $up resize shrink height 10px
+        bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+        # Ditto, with arrow keys
+        bindsym Left resize shrink width 10px
+        bindsym Down resize grow height 10px
+        bindsym Up resize shrink height 10px
+        bindsym Right resize grow width 10px
 
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+        # Return to default mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+    bindsym $mod+r mode "resize"
 #
 # Utilities:
 #
@@ -279,25 +257,25 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioPrev exec playerctl previous
     bindsym --locked XF86AudioStop exec playerctl stop
 
-    # Volume controls
-    bindsym --locked XF86AudioRaiseVolume exec swayosd-client --output-volume raise
-    bindsym --locked XF86AudioLowerVolume exec swayosd-client --output-volume lower
-    bindsym --locked XF86AudioMute exec swayosd-client --output-volume mute-toggle
-
-    # Brightness controls
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-
     # Screenshot controls
-    bindsym Print exec $HOME/script/screenshot_grim.sh portion
-    bindsym Shift+Print exec $HOME/script/screenshot_grim.sh screen
+    bindsym Print exec $ipc screenshot-region
+    bindsym Shift+Print exec $ipc screenshot-annotate
     bindsym $secondMod+Print exec $HOME/script/screenshot_grim.sh window
 
     # Clipboard history
-    bindsym $mod+v exec cliphist list | wofi -Dclose_on_focus_loss=true --dmenu | cliphist decode | wl-copy
+    bindsym $mod+v exec $ipc panel-toggle clipboard
 
     # fcitx5 toggle
     bindsym $secondMod+Ctrl+space exec fcitx5-remote -t
+
+    # Noctalia's
+    bindsym $mod+s exec $ipc panel-toggle control-center
+    bindsym $mod+Shift+comma exec $ipc settings-toggle
+    bindsym --locked XF86AudioRaiseVolume exec $ipc volume-up
+    bindsym --locked XF86AudioLowerVolume exec $ipc volume-down
+    bindsym --locked XF86AudioMute exec $ipc volume-mute
+    bindsym --locked XF86MonBrightnessUp exec $ipc brightness-up
+    bindsym --locked XF86MonBrightnessDown exec $ipc brightness-down
 
 ### Window Rules
 #
