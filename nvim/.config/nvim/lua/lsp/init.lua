@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client and client:supports_method('textDocument/codeLens') then
 			vim.lsp.codelens.enable(true, { bufnr = args.buf })
-			vim.lsp.codelens.refresh({ bufnr = args.buf })
 		end
 	end,
 })
@@ -25,7 +24,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
 	group = codelens_augroup,
 	callback = function(args)
 		if #vim.lsp.get_clients({ bufnr = args.buf, method = 'textDocument/codeLens' }) > 0 then
-			vim.lsp.codelens.refresh({ bufnr = args.buf })
+			vim.lsp.codelens.enable(true, { bufnr = args.buf })
 		end
 	end,
 })
