@@ -15,9 +15,9 @@
   "mcp": {
     "engram": {
       "command": [
-         "/opt/homebrew/bin/engram",
-         "mcp",
-         "--tools=agent"
+        "/opt/homebrew/bin/engram",
+        "mcp",
+        "--tools=agent"
       ],
       "enabled": true,
       "type": "local"
@@ -40,10 +40,32 @@
       "type": "remote",
       "url": "https://mcp.slack.com/mcp",
       "oauth": {
-        // Slack's officially support MCP for Claude Code, but there is nothing specific.
-        // Just use their pre-registred client ID and redirect URL and OpenCode will automatically handle its port.
         "clientId": "1601185624273.8899143856786",
         "redirectUri": "http://localhost:3118/callback"
+      }
+    },
+    "caveman": {
+      "type": "local",
+      "command": [
+        "/Users/josepmarcello/.caveman/bin/caveman-mcp"
+      ],
+      "enabled": true
+    }
+  },
+  "provider": {
+    "openai": {
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/w/opencode/openai/v1"
+      }
+    },
+    "anthropic": {
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/w/opencode/anthropic/v1"
+      }
+    },
+    "opencode-go": {
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/w/opencode/compat/opencode-go/v1"
       }
     }
   }
