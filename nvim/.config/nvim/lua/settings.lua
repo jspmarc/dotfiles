@@ -106,6 +106,7 @@ M.opencode = {
 	snacks_terminal_opts = {
 		win = {
 			position = 'right',
+			width = 100,
 			enter = false,
 		},
 	},

@@ -4,7 +4,7 @@ return {
 	event = { 'BufReadPost', 'BufNewFile' },
 	opts = {
 		options = {
-			disabled_filetypes = { 'dashboard', 'Avante', 'AvanteSelectedFiles', 'AvanteInput', 'opencode_terminal' },
+			disabled_filetypes = { 'dashboard', 'Avante', 'AvanteSelectedFiles', 'AvanteInput', 'opencode_terminal', 'opencode', 'opencode_output' },
 			theme = 'auto',
 		},
 		winbar = {

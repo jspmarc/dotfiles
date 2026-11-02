@@ -344,7 +344,7 @@ return {
 		},
 	},
 
-	opencode = {
+	['opencode-ui'] = {
 		{
 			'<leader>ca',
 			function()

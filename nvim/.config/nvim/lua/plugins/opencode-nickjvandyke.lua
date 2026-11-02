@@ -2,6 +2,8 @@ local plugin_keys = require('keybinds.plugins')
 local settings = require('settings')
 
 return {
+	enabled = false,
+	name = 'opencode-ui',
 	'NickvanDyke/opencode.nvim',
 	dependencies = {
 		-- Recommended for `ask()` and `select()`.
@@ -9,7 +11,7 @@ return {
 		---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
 		{ 'folke/snacks.nvim', opts = { input = {}, picker = {}, terminal = {} } },
 	},
-	keys = plugin_keys.opencode,
+	keys = plugin_keys['opencode-ui'],
 	config = function()
 		local oc_settings = settings.opencode
 		---@type opencode.Opts
