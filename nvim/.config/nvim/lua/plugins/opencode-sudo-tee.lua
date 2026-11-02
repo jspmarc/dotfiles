@@ -32,6 +32,7 @@ return {
 				output = {
 					tools = {
 						folding_threshold = 5,
+						show_reasoning_output = false,
 					},
 				},
 			},
