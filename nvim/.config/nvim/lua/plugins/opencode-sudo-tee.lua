@@ -16,7 +16,6 @@ return {
 			default_global_keymaps = false,
 			keymap = {
 				input_window = {
-					['<cr>'] = { 'submit_input_prompt', mode = { 'n', 'i' }, desc = 'Submit prompt' },
 					['<esc>'] = false, -- don't close the window on <Esc>
 				},
 				output_window = {
