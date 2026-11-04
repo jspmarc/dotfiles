@@ -47,7 +47,7 @@ return {
 	},
 	window_background_opacity = 0.99,
 	enable_wayland = true,
-	window_decorations = is_linux and 'NONE' or 'TITLE | RESIZE',
+	window_decorations = is_linux and 'NONE' or 'RESIZE',
 	enable_tab_bar = false,
 	max_fps = 120,
 	keys = keys,
