@@ -58,22 +58,19 @@
         "qwen-3.8-27b": {
           "name": "Coeus: Qwen 3.8 27B",
           "limit": {
-            "context": 98304,
-            "output": 65536
+            "context": 131072
           }
         },
         "qwen-3.5-9b": {
           "name": "Coeus: Qwen 3.5 9B",
           "limit": {
-            "context": 131072,
-            "output": 65536
+            "context": 262144
           }
         },
         "gemma-4-26b-a4b": {
           "name": "Coeus: Gemma 4 26B A4B",
           "limit": {
-            "context": 98304,
-            "output": 65536
+            "context": 153600
           }
         }
       }
