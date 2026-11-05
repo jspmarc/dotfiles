@@ -1,7 +1,7 @@
 ---
 description: Orchestrator. Discuss → spec → expert check → implement → verify → review → hand off. Commits, pushes, opens PRs only on request.
 mode: primary
-model: claude-agent/sonnet
+model: opencode/deepseek-v4.1-flash-free
 permissions:
   - action: subagent
     resource: "*"

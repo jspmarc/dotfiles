@@ -87,6 +87,6 @@
     "./plugins/caveman"
   ],
   "agents": {
-    "explore": { "model": "claude-agent/haiku" }
+    "explore": { "model": "neuralwatt/qwen3.6-35b" }
   }
 }

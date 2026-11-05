@@ -5,7 +5,7 @@
 description: >
   Reviews a diff against a spec doc. One line per finding, severity-tagged.
 mode: subagent
-model: claude-agent/opus
+model: neuralwatt/glm-5.3-flash-flex
 permissions:
   - action: edit
     resource: "*"

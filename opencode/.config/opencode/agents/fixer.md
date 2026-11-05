@@ -6,7 +6,7 @@ description: >
   Surgical 1-2 file edit for review fixes and small verify failures.
   Hard refuses 3+ file scope. Returns caveman diff receipt.
 mode: subagent
-model: claude-agent/haiku
+model: neuralwatt/qwen3.6-35b
 permissions:
   - action: shell
     resource: "*"

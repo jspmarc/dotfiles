@@ -3,7 +3,7 @@ description: >
   Domain expert. Checks a spec doc for feasibility, correctness, missing
   edge cases, and task granularity before implementation. Read-only.
 mode: subagent
-model: claude-agent/opus
+model: neuralwatt/glm-5.3-flash-flex
 permissions:
   - action: edit
     resource: "*"
