@@ -85,5 +85,8 @@
   ],
   "plugins": [
     "./plugins/caveman"
-  ]
+  ],
+  "agents": {
+    "explore": { "model": "claude-agent/haiku" }
+  }
 }
