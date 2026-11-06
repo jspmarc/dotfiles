@@ -3,7 +3,7 @@ description: >
   Domain expert. Checks a spec doc for feasibility, correctness, missing
   edge cases, and task granularity before implementation. Read-only.
 mode: subagent
-model: openrouter/gemini-4-argon
+model: openrouter/google/gemini-4-argon
 permissions:
   - action: edit
     resource: "*"

@@ -5,7 +5,7 @@
 description: >
   Reviews a diff against a spec doc. One line per finding, severity-tagged.
 mode: subagent
-model: openrouter/opus-5.5
+model: openai/gpt-6.1-sol
 permissions:
   - action: edit
     resource: "*"
