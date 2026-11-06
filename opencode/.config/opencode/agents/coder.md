@@ -7,7 +7,7 @@ description: >
   Use for feature tasks from a spec doc. Returns caveman receipt.
   For tiny fixes use fixer instead.
 mode: subagent
-model: neuralwatt/deepseek-v4.1-flash-flex
+model: neuralwatt/deepseek-v4.1-flash
 permissions:
   - action: subagent
     resource: "*"

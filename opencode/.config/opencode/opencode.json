@@ -33,21 +33,6 @@
     }
   },
   "providers": {
-    "openai": {
-      "settings": {
-        "baseURL": "http://127.0.0.1:8787/w/opencode/openai/v1"
-      }
-    },
-    "anthropic": {
-      "settings": {
-        "baseURL": "http://127.0.0.1:8787/w/opencode/anthropic/v1"
-      }
-    },
-    "opencode-go": {
-      "settings": {
-        "baseURL": "http://127.0.0.1:8787/w/opencode/compat/opencode-go/v1"
-      }
-    },
     "coeus": {
       "name": "Coeus",
       "package": "@opencode/ai/providers/openai-compatible",
@@ -70,19 +55,31 @@
         "gemma-4-26b-a4b": {
           "name": "Coeus: Gemma 4 26B A4B",
           "limit": {
-            "context": 153600
+            "context": 131072
           }
+        }
+      }
+    },
+    "openrouter": {
+      "models": {
+        "anthropic/claude-opus-5.5": {
+          "name": "opus-5.5"
+        },
+        "anthropic/claude-sonnet-5.5": {
+          "name": "sonnet-5.5"
+        },
+        "google/gemini-4-argon": {
+          "name": "gemini-4-argon"
+        },
+        "moonshotai/kimi-k3.1-pro": {
+          "name": "kimi-k3.1-pro"
+        },
+        "z-ai/glm-5.3": {
+          "name": "glm-5.3"
         }
       }
     }
   },
-  "policies": [
-    {
-      "action": "provider.use",
-      "resource": "openrouter",
-      "effect": "deny"
-    }
-  ],
   "plugins": [
     "./plugins/caveman"
   ],
