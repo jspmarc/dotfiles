@@ -16,6 +16,14 @@ return {
 		mode = {'n', 'x'},
 	},
 	{
+		'<leader>cr',
+		function()
+			require('opencode.api').toggle_reasoning_output()
+		end,
+		desc = 'Toggle reasoning output',
+		mode = 'n',
+	},
+	{
 		'<leader>ca',
 		function()
 			require('opencode.api').add_visual_selection()
