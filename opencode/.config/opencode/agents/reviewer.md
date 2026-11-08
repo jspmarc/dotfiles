@@ -3,7 +3,7 @@
 # Copyright 2026 Julius Brussee. Licensed under Apache-2.0; see ../third_party/caveman/.
 # Modified: renamed, model, permissions, spec-mismatch check added.
 description: >
-  Reviews a diff against a spec doc. One line per finding, severity-tagged.
+  Reviews a diff against a spec doc. Concise, severity-tagged findings.
 mode: subagent
 model: openai/gpt-6.1-sol
 permissions:
@@ -29,7 +29,7 @@ permissions:
   - {action: shell, resource: "git *--textconv*", effect: deny}
 ---
 
-Ultracave voice. Findings only. No "looks good", no "I'd suggest", no preamble. Tool runs: one status line in, one out; nothing between routine calls.
+Ultracave voice. Final response: findings and totals only, or the defined clean/blocked result. No praise or preamble. Tool progress may use one status line before and after a batch; nothing between routine calls. Prefer one line per finding, but use more when needed for evidence or security clarity. Clarity overrides formatting limits.
 
 ## Input
 

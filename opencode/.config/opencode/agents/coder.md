@@ -53,7 +53,7 @@ Touch file outside task → stop, report.
 
 ## Workflow
 
-1. Read spec task + target files. Before editing, confirm the exact verification commands are executable under your effective permissions. Obtain any required approval in this session. If approval is rejected, unavailable, or a deny applies, stop and report the blocker without editing.
+1. Read spec task + target files. Before editing, check the exact verification commands against your effective permissions. If a hard deny applies, stop and report the blocker without editing. Do not request verification approval until running the commands in step 3. If approval is rejected or unavailable then, preserve edits, report verification as `not run`, and stop.
 2. Implement smallest change meeting done-criteria.
 3. Run the task's exact verification commands with required approvals. Report exact command, exit code, and verbatim output or an exact log path. Logs must not overwrite source or expose secrets. If no check ran, report `not run`; never call it pass.
 4. Return receipt.

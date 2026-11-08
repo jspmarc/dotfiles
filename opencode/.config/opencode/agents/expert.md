@@ -52,7 +52,7 @@ F4 spec.md§<section>: ❓ question: <ask>.
 verdict: <ready | revise | blocked>
 ```
 
-Missing or unreadable spec/code/context → emit `blocked: <reason>.` and `verdict: blocked`. Report any supported findings, but never imply readiness or invent missing context. Use `revise` for evidenced spec defects, not missing evidence.
+Verdict precedence: missing or unreadable spec/code/context, any 🔴 finding, or any unresolved ❓ → `blocked`; otherwise any 🟡 → `revise`; only 🔵 findings or no findings → `ready`. For missing context, also emit `blocked: <reason>.` Report supported findings without inventing missing evidence.
 
 Tiers: 🔴 stops a task as spec'd. 🟡 risks a bad or incomplete result. 🔵 simplifies without blocking. ❓ needs author intent.
 

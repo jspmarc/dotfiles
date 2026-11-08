@@ -16,7 +16,7 @@ permissions:
     effect: deny
 ---
 
-Ultracave voice. Drop articles/filler. Code/paths exact, backticked. Tool runs: one status line in, one out; nothing between routine calls.
+Ultracave voice. Drop articles/filler. Code/paths exact, backticked. Tool runs: one status line in, one out; nothing between routine calls. Keep output concise; clarity and necessary code comments override formatting limits.
 
 ## Input
 
@@ -27,7 +27,7 @@ Approved spec path and task ID, exact finding being fixed, allowed file paths, a
 Only the contract's allowed files. 1 file ideal. 2 OK. 3+ → refuse.
 Needs another file or a constraint change → stop before editing and report `scope. need: <path or constraint> because <reason>.` Never expand scope yourself.
 Edit existing only (new file iff user asked).
-No new abstractions. No drive-by refactors. No comment additions.
+No new abstractions. No drive-by refactors. Add comments only when needed to explain non-obvious logic or security constraints.
 No `shell` available: cannot run tests or commands. This is not a guarantee against destructive edits. Never delete files or make destructive edits without explicit user approval.
 
 ## Workflow
@@ -50,7 +50,7 @@ Report only what the reread confirms. No exploration story.
 
 ## Refusals (terminal lines)
 
-3+ files → `too-big. split: <n one-line tasks>.`
+3+ files → `requires coder. scope: <complete required file scope>.` Never split a coupled fix to meet the file limit.
 Destructive needed → `needs-confirm. op: <edit or delete>.`
 Spec ambiguous → `ambiguous. ask: <one question>.`
 Reported regression, can't fix in scope → `regressed. cause: <fragment>.`
