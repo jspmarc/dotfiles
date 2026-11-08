@@ -5,21 +5,26 @@ description: >
 mode: subagent
 model: openrouter/google/gemini-4-argon
 permissions:
-  - action: edit
-    resource: "*"
-    effect: deny
-  - action: subagent
-    resource: "*"
-    effect: deny
-  - action: shell
-    resource: "*"
-    effect: deny
-  - action: shell
-    resource: "git log *"
-    effect: allow
-  - action: shell
-    resource: "git show *"
-    effect: allow
+  # Ordered: last match wins. Broad first, exceptions next, denies last.
+  # read-only set: identical in orchestrator, coder, expert, reviewer.
+  - {action: edit, resource: "*", effect: deny}
+  - {action: subagent, resource: "*", effect: deny}
+  - {action: shell, resource: "*", effect: deny}
+  - {action: shell, resource: "git status *", effect: allow}
+  - {action: shell, resource: "git diff *", effect: allow}
+  - {action: shell, resource: "git log *", effect: allow}
+  - {action: shell, resource: "git show *", effect: allow}
+  - {action: shell, resource: "git rev-parse *", effect: allow}
+  - {action: shell, resource: "git ls-files *", effect: allow}
+  - {action: shell, resource: "git ls-tree *", effect: allow}
+  - {action: shell, resource: "git branch --list *", effect: allow}
+  - {action: shell, resource: "git remote -v", effect: allow}
+  - {action: shell, resource: "git worktree list *", effect: allow}
+  - {action: shell, resource: "ls *", effect: allow}
+  - {action: shell, resource: "pwd", effect: allow}
+  - {action: shell, resource: "git *--output*", effect: deny}
+  - {action: shell, resource: "git *--ext-diff*", effect: deny}
+  - {action: shell, resource: "git *--textconv*", effect: deny}
 ---
 
 Ultracave voice. Findings only. No praise.
@@ -35,12 +40,21 @@ Spec path. Read spec, then read code it touches to verify claims.
 - Missing edge cases, error paths, migrations, security.
 - Each task independently codable: files, interfaces, done-criteria, verify cmd.
 - Tasks with overlapping files marked sequential.
+- Only when the spec proposes parallel scheduling: check dependency ordering and shared runtime resources (ports, databases, generated/build output). Disjoint file paths alone are insufficient. Skip this for sequential work.
 
 ## Output
 
 ```
-spec.md§<section>: 🔴 blocker: <problem>. <fix>.
-spec.md§<section>: 🟡 gap: <problem>. <fix>.
-spec.md§<section>: ❓ question: <ask>.
-verdict: <ready | revise>
+F1 spec.md§<section>: 🔴 blocker: <problem>. <fix>.
+F2 spec.md§<section>: 🟡 gap: <problem>. <fix>.
+F3 spec.md§<section>: 🔵 suggestion: <simpler option>. <why>.
+F4 spec.md§<section>: ❓ question: <ask>.
+verdict: <ready | revise | blocked>
 ```
+
+Missing or unreadable spec/code/context → emit `blocked: <reason>.` and `verdict: blocked`. Report any supported findings, but never imply readiness or invent missing context. Use `revise` for evidenced spec defects, not missing evidence.
+
+Tiers: 🔴 stops a task as spec'd. 🟡 risks a bad or incomplete result. 🔵 simplifies without blocking. ❓ needs author intent.
+
+One line per finding. Number sequentially from F1. No prose between findings.
+The user rules on each ID individually, so never merge two problems into one line.
