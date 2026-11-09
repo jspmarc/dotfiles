@@ -8,7 +8,7 @@ mode: subagent
 model: openai/gpt-6.1-sol
 permissions:
   # Ordered: last match wins. Broad first, exceptions next, denies last.
-  # read-only set: identical in orchestrator, coder, expert, reviewer.
+  # Read-only inspection set shared with expert and reviewer.
   - {action: edit, resource: "*", effect: deny}
   - {action: subagent, resource: "*", effect: deny}
   - {action: shell, resource: "*", effect: deny}
@@ -24,6 +24,14 @@ permissions:
   - {action: shell, resource: "git worktree list *", effect: allow}
   - {action: shell, resource: "ls *", effect: allow}
   - {action: shell, resource: "pwd", effect: allow}
+  # Block shell composition and redirection after inspection allows.
+  - {action: shell, resource: "*>*", effect: deny}
+  - {action: shell, resource: "*<*", effect: deny}
+  - {action: shell, resource: "*|*", effect: deny}
+  - {action: shell, resource: "*;*", effect: deny}
+  - {action: shell, resource: "*&*", effect: deny}
+  - {action: shell, resource: "*$(*", effect: deny}
+  - {action: shell, resource: "*`*", effect: deny}
   - {action: shell, resource: "git *--output*", effect: deny}
   - {action: shell, resource: "git *--ext-diff*", effect: deny}
   - {action: shell, resource: "git *--textconv*", effect: deny}

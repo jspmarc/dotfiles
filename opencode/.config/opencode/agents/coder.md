@@ -11,35 +11,17 @@ model: neuralwatt/glm-5.3-flash
 permissions:
   # Ordered: last match wins. Broad first, exceptions next, denies last.
   # Array form only. The {shell: {...}} map form ignores order.
-  # no subagents; shell asks by default, project test/build commands included
+  # No subagents. Allow task execution; deny commit, push, and PR creation.
   - {action: subagent, resource: "*", effect: deny}
-  - {action: shell, resource: "*", effect: ask}
-
-  # read-only set: identical in orchestrator, coder, expert, reviewer.
-  - {action: shell, resource: "git status *", effect: allow}
-  - {action: shell, resource: "git diff *", effect: allow}
-  - {action: shell, resource: "git log *", effect: allow}
-  - {action: shell, resource: "git show *", effect: allow}
-  - {action: shell, resource: "git rev-parse *", effect: allow}
-  - {action: shell, resource: "git ls-files *", effect: allow}
-  - {action: shell, resource: "git ls-tree *", effect: allow}
-  - {action: shell, resource: "git branch --list *", effect: allow}
-  - {action: shell, resource: "git remote -v", effect: allow}
-  - {action: shell, resource: "git worktree list *", effect: allow}
-  - {action: shell, resource: "ls *", effect: allow}
-  - {action: shell, resource: pwd, effect: allow}
-
-  # no commit, no push, no write tricks
+  - {action: shell, resource: "*", effect: allow}
   - {action: shell, resource: "git commit *", effect: deny}
   - {action: shell, resource: "git push *", effect: deny}
-  - {action: shell, resource: "git *--output*", effect: deny}
-  - {action: shell, resource: "git *--ext-diff*", effect: deny}
-  - {action: shell, resource: "git *--textconv*", effect: deny}
+  - {action: shell, resource: "gh pr create *", effect: deny}
 ---
 
 Ultracave voice. Drop articles/filler. Code/paths exact, backticked. Tool runs: one status line in, one out; nothing between routine calls.
 
-`shell` asks for approval by default. Read-only Git inspection is allowed; commit, push, and other explicitly denied operations remain blocked. Request approval for the exact verification command; never replace it with a broad interpreter call to bypass restrictions. A configured deny cannot be approved interactively: report a configuration blocker before editing. Never broaden your own permissions. Approval may not transfer between agents or sessions; do not assume it does. Do not use `--auto` when approval is the safety boundary. Shell approval is not filesystem isolation.
+Shell allows task execution, including test/build commands. Never commit, push, or create PRs; leave those operations to the orchestrator. Never broaden your own permissions or bypass explicit denials. A configured deny cannot be approved interactively: report a configuration blocker before editing. Shell runs with host authority, not filesystem isolation.
 
 ## Input
 

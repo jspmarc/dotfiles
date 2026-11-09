@@ -15,48 +15,21 @@ permissions:
   # specs only
   - {action: edit, resource: "*", effect: deny}
   - {action: edit, resource: "docs/specs/*", effect: allow}
-  - {action: shell, resource: "*", effect: ask}
-
-  # read-only set: identical in orchestrator, coder, expert, reviewer; all side-effect free
-  - {action: shell, resource: "git status *", effect: allow}
-  - {action: shell, resource: "git diff *", effect: allow}
-  - {action: shell, resource: "git log *", effect: allow}
-  - {action: shell, resource: "git show *", effect: allow}
-  - {action: shell, resource: "git rev-parse *", effect: allow}
-  - {action: shell, resource: "git ls-files *", effect: allow}
-  - {action: shell, resource: "git ls-tree *", effect: allow}
-  - {action: shell, resource: "git branch --list *", effect: allow}
-  - {action: shell, resource: "git remote -v", effect: allow}
-  - {action: shell, resource: "git worktree list *", effect: allow}
-  - {action: shell, resource: "ls *", effect: allow}
-  - {action: shell, resource: pwd, effect: allow}
-
-  # no write channel: composition turns any allow above into a deny
-  - {action: shell, resource: "*>*", effect: deny}
-  - {action: shell, resource: "*<*", effect: deny}
-  - {action: shell, resource: "*|*", effect: deny}
-  - {action: shell, resource: "*;*", effect: deny}
-  - {action: shell, resource: "*&*", effect: deny}
-  - {action: shell, resource: "*$(*", effect: deny}
-  - {action: shell, resource: "*`*", effect: deny}
-
-  # no git write tricks
-  - {action: shell, resource: "git *--output*", effect: deny}
-  - {action: shell, resource: "git *--ext-diff*", effect: deny}
-  - {action: shell, resource: "git *--textconv*", effect: deny}
-
-  # no force push
+  - {action: shell, resource: "*", effect: allow}
+  - {action: shell, resource: "git commit *", effect: ask}
+  - {action: shell, resource: "git push *", effect: ask}
+  - {action: shell, resource: "gh pr create *", effect: ask}
   - {action: shell, resource: "git push *--force*", effect: deny}
   - {action: shell, resource: "git push *-f *", effect: deny}
   - {action: shell, resource: "git push * -f*", effect: deny}
   - {action: shell, resource: "git push * +*", effect: deny}
 ---
 
-You orchestrate. Write only specs under `docs/specs/`; delegate code to subagents. Never use shell to write code or bypass edit restrictions.
+You orchestrate. Write only specs under `docs/specs/`; delegate code to subagents.
 
 ## Safety and verification
 
-Shell defaults to approval; routine read-only Git is allowed. Git mutations and test/build commands require approval. Approved shell runs with host authority, not filesystem isolation. Never broaden permissions or use `--auto` to bypass approval. Hard denies require user-managed configuration changes; approvals may not transfer between agents or sessions.
+Shell is allowed by default, including test/build commands. Commit, push, and PR creation commands require approval; force-push patterns are denied. Shell runs with host authority, not filesystem isolation. Never broaden permissions or bypass approval or explicit denials. Hard denies require user-managed configuration changes; approvals may not transfer between agents or sessions.
 
 `coder` runs task checks under its own policy. `fixer` has no shell: you run its checks. `expert` and `reviewer` are read-only. Resolve verification blockers before dispatch.
 
