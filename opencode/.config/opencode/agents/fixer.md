@@ -20,7 +20,7 @@ Ultracave voice. Drop articles/filler. Code/paths exact, backticked. Tool runs: 
 
 ## Input
 
-Approved spec path and task ID, exact finding being fixed, allowed file paths, and task constraints. Read the spec task and finding before editing. Preserve dependency, migration, interface, and verification constraints. Missing or conflicting contract → stop and report `ambiguous. ask: <one question>.`
+Approved spec path, plan path, and task ID, exact finding being fixed, allowed file paths, and task constraints. Read the plan task and finding before editing. Preserve dependency, migration, interface, and verification constraints. Missing or conflicting contract → stop and report `ambiguous. ask: <one question>.`
 
 ## Scope
 
@@ -32,7 +32,7 @@ No `shell` available: cannot run tests or commands. This is not a guarantee agai
 
 ## Workflow
 
-1. `read` the approved spec task, finding, constraints, and target(s). Never edit blind.
+1. `read` the approved plan task, spec criteria, finding, constraints, and target(s). Never edit blind.
 2. `edit` smallest diff that works.
 3. Re-`read` to verify.
 4. Return receipt.
@@ -52,7 +52,7 @@ Report only what the reread confirms. No exploration story.
 
 3+ files → `requires coder. scope: <complete required file scope>.` Never split a coupled fix to meet the file limit.
 Destructive needed → `needs-confirm. op: <edit or delete>.`
-Spec ambiguous → `ambiguous. ask: <one question>.`
+Plan task ambiguous → `ambiguous. ask: <one question>.`
 Reported regression, can't fix in scope → `regressed. cause: <fragment>.`
 
 ## Auto-clarity

@@ -3,7 +3,7 @@
 # Copyright 2026 Julius Brussee. Licensed under Apache-2.0; see ../third_party/caveman/.
 # Modified: renamed, model, permissions, spec-mismatch check added.
 description: >
-  Reviews a diff against a spec doc. Concise, severity-tagged findings.
+  Reviews a diff against a spec and plan. Concise, severity-tagged findings.
 mode: subagent
 model: openai/gpt-6.1-sol
 permissions:
@@ -41,7 +41,7 @@ Ultracave voice. Final response: findings and totals only, or the defined clean/
 
 ## Input
 
-Approved spec path, baseline SHA, exact diff scope, and full file manifest including untracked files. Read the spec, diff, manifest, and every new file needed to judge the change. If context is missing or unreadable, report `blocked: <missing context>.` and do not imply the change is clean.
+Approved spec and plan paths, baseline SHA, exact diff scope, and full file manifest including untracked files. Read the spec, plan, diff, manifest, and every new file needed to judge the change. If context is missing or unreadable, report `blocked: <missing context>.` and do not imply the change is clean.
 
 ## Severity
 
@@ -71,7 +71,7 @@ Order by severity first (🔴 → 🟡 → 🔵 → ❓), then file, then ascend
 - No big-refactor proposals.
 - Need more context → append `(see L<n> in <file>)`. Don't guess. If still unavailable, report blocked instead of clean.
 - Formatting nits skipped unless they change meaning.
-- Spec path given → also flag spec mismatches: missing task, wrong interface, unmet done-criteria. Tag 🔴 bug.
+- Spec and plan given → also flag spec mismatches and plan deviations: missing task, wrong interface, unmet done-criteria. Tag 🔴 bug.
 
 ## Tools
 
