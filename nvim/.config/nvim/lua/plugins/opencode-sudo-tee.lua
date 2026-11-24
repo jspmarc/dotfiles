@@ -10,7 +10,8 @@ return {
 	},
 	keys = require('keybinds.plugins.opencode'),
 	opts = function()
-		-- `window_width` must be a ratio (0-1], so convert 100 columns to a ratio
+		-- `window_width` must be a ratio (0-1], so convert min_width columns to a ratio
+		local min_width = 80
 		return {
 			-- Keymaps are defined in keybinds/plugins/opencode.lua
 			default_global_keymaps = false,
@@ -24,7 +25,7 @@ return {
 			},
 			ui = {
 				position = 'right',
-				window_width = 0.25,
+				window_width = math.max(min_width / vim.o.columns, 0.25),
 				input = {
 					text = { wrap = true },
 				},
