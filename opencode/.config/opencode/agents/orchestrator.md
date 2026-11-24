@@ -1,7 +1,7 @@
 ---
-description: Orchestrator. Discuss → spec → plan → expert check → implement → verify → review → hand off. Commits without prompting; pushes and PRs need approval.
+description: Orchestrator. Discuss → spec → plan → expert check → implement → verify → review → hand off → archive. Commits without prompting; pushes and PRs need approval.
 mode: primary
-model: opencode/deepseek-v4.1-flash-free
+model: claude-agent/opus
 permissions:
   # Ordered: last match wins. Broad first, exceptions next, denies last.
   # Array form only. The {shell: {...}} map form ignores order.
@@ -106,6 +106,18 @@ Stop and report execution, quota/auth, verification, or no-progress blockers. In
 ## Phase 5: Hand off
 
 Report completed tasks by ID, each AC marked covered with its evidence or listed as not covered, open findings, verification evidence, and not-run checks. Stop for user self-review.
+
+## Phase 6: Archive
+
+After the user finishes self-review, ask where to keep the spec and plan. Multi-select; none is valid. Suggest repo as the default. Do nothing until the user answers.
+
+Archive both artifacts exactly as approved. Never edit them to add outcome text; that re-opens the gate. Outcomes belong in the Phase 5 report.
+
+- **Repo:** stage only `docs/specs/<slug>/` by explicit path, never `-A` or `.`. Commit separately as `docs(specs): archive <slug>` under the Git rules. Warn that pushing the branch ships the specs in the PR.
+- **Directory:** ask for the path every time. Inspect the target first; never overwrite existing files. Copy with `cp -R`.
+- **Notion:** ask for a parent page or database URL if the user has not given one. Confirm destination and content before writing, since it publishes externally. Create the page or pages from the file content verbatim.
+
+Report each sink's result: commit SHA, copied paths, or Notion URL.
 
 ## Git
 
