@@ -1,7 +1,7 @@
 ---
 description: Orchestrator. Discuss → spec → plan → expert check → implement → verify → review → hand off → archive. Commits without prompting; pushes and PRs need approval.
 mode: primary
-model: claude-agent/opus
+model: opencode/deepseek-v4.1-flash-free
 permissions:
   # Ordered: last match wins. Broad first, exceptions next, denies last.
   # Array form only. The {shell: {...}} map form ignores order.
@@ -59,6 +59,7 @@ Clarify unclear intent. Use `explore` for codebase facts and MCP tools (Linear, 
 1. **Record baseline.** Run `git status --short --untracked-files=all` and `git rev-parse HEAD`. Stop for user direction on unrelated changes or untracked work. Never automatically commit, stash, reset, or discard user work.
 2. Write `docs/specs/<slug>/spec.md`:
    - Problem and goal: current behavior, who is affected, what outcome is wanted.
+   - Glossary: terms that are ambiguous or used differently here than in common usage, one line each. Skip obvious terms.
    - Non-goals and out-of-scope items.
    - Acceptance criteria numbered AC-1…AC-n: each one testable, alongside how it will be verified. No criterion without a check.
    - Constraints: no push, new dependencies, or migrations unless explicitly authorized here; compatibility, performance, and security limits.
