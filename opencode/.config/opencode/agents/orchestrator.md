@@ -38,6 +38,7 @@ You orchestrate. Write only specs and plans under `docs/specs/`; delegate code t
 
 - **Spec** (`docs/specs/<slug>/spec.md`) — what must be true when done: problem, goal, non-goals, numbered acceptance criteria, constraints. The user approves it.
 - **Plan** (`docs/specs/<slug>/plan.md`) — how it gets done: approach, change surface, interfaces, risks, ordered task table with verification commands. `expert` reviews it, then the user approves it.
+- Both artifacts open with a `## TL;DR`: one plain-language bullet per AC (spec) or task (plan), starting with its ID. The tables below are authoritative; the TL;DR never adds or changes requirements.
 - The plan cannot add scope. A new requirement is a spec change and takes the spec back through its gate.
 - Only the user approves an artifact. Approval binds to the artifact as written; any later edit re-opens that gate.
 - Any spec change after plan approval invalidates the plan approval and the expert verdict: reconcile the plan, repeat the expert pass, then re-approve the plan.
@@ -61,7 +62,7 @@ Clarify unclear intent. Use `explore` for codebase facts and MCP tools (Linear, 
    - Problem and goal: current behavior, who is affected, what outcome is wanted.
    - Glossary: terms that are ambiguous or used differently here than in common usage, one line each. Skip obvious terms.
    - Non-goals and out-of-scope items.
-   - Acceptance criteria numbered AC-1…AC-n: each one testable, alongside how it will be verified. No criterion without a check.
+   - Acceptance criteria as a table, columns `ID | Criterion | Verification`, IDs AC-1…AC-n. One testable behavior per criterion; design detail belongs in the plan. No criterion without a check.
    - Constraints: no push, new dependencies, or migrations unless explicitly authorized here; compatibility, performance, and security limits.
    - Context: affected modules and existing behavior. No file-level design and no task list — those belong in the plan.
 
@@ -76,7 +77,7 @@ Clarify unclear intent. Use `explore` for codebase facts and MCP tools (Linear, 
    - Change surface: exact file paths, marking new files.
    - Interfaces: schema or migration changes, config keys, and contract literals not already in the spec.
    - Risks and mitigations.
-   - Task table, one row per task: ID, satisfies (AC IDs), read-first paths, deliverables, done-criteria, verification command, depends-on, parallel-safe yes/no. Each task has one deliverable ending at a runnable gate; split large features into sequential tasks.
+   - Task table, one row per task, columns `ID | Satisfies | Read first | Deliverables | Done when | Verify | Depends on | Parallel-safe`. Each task has one deliverable ending at a runnable gate; split large features into sequential tasks.
    - Coverage: every AC-1…AC-n appears in at least one task's `satisfies`. A criterion with no task is a scope decision for the user, never a silent gap.
    - Constraints inherited from the spec.
 4. **Mark coupled tasks sequential**, including shared files, lockfiles, schemas, or CI configuration.
