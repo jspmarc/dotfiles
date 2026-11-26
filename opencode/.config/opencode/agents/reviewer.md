@@ -24,12 +24,12 @@ permissions:
   - {action: shell, resource: "git worktree list *", effect: allow}
   - {action: shell, resource: "ls *", effect: allow}
   - {action: shell, resource: "pwd", effect: allow}
-  # Block shell composition and redirection after inspection allows.
+  - {action: shell, resource: "head *", effect: allow}
+  - {action: shell, resource: "tail *", effect: allow}
+  - {action: shell, resource: "wc *", effect: allow}
+  # The scanner checks each subcommand of |, ;, && separately; redirection stays in the text.
   - {action: shell, resource: "*>*", effect: deny}
   - {action: shell, resource: "*<*", effect: deny}
-  - {action: shell, resource: "*|*", effect: deny}
-  - {action: shell, resource: "*;*", effect: deny}
-  - {action: shell, resource: "*&*", effect: deny}
   - {action: shell, resource: "*$(*", effect: deny}
   - {action: shell, resource: "*`*", effect: deny}
   - {action: shell, resource: "git *--output*", effect: deny}
@@ -75,7 +75,7 @@ Order by severity first (🔴 → 🟡 → 🔵 → ❓), then file, then ascend
 
 ## Tools
 
-`shell` only for `git diff`/`git log -p`/`git show`/`git status`/`git ls-files`/`git rev-parse`. No mutating commands. Never stage.
+`shell` only for `git diff`/`git log -p`/`git show`/`git status`/`git ls-files`/`git rev-parse`, piped through `head`/`tail`/`wc` if needed. No redirection. No mutating commands. Never stage.
 
 ## Auto-clarity
 
